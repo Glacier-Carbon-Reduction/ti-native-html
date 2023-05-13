@@ -86,12 +86,6 @@ body {
     font-family: 'Pangea';
 }
 
-.navigation-bar .top-bar-section ul li>a:hover {
-    border-radius: 10px;
-    background: #2d9d90;
-    box-shadow: 15px 15px 37px #268479, -15px -15px 37px #34b6a7;
-}
-
 .header--microsite {
     --tw-bg-opacity: 1;
     background-color: rgb(45 157 144 / var(--tw-bg-opacity));
@@ -220,6 +214,10 @@ h6 {
     font-size: 0.9rem;
 }
 
+/* .custom-catalog-library .medium-9 {
+width: 100%;
+} */
+
 .custom-tabbed-content {
     font-family: 'Pangea' !important;
     --tw-bg-opacity: 1;
@@ -305,7 +303,7 @@ h6 {
 }
 
 /* .custom-completion-record .dashboard-stat--available .dashboard-stat__value {
-  
+
 } */
 
 /*
@@ -403,4 +401,69 @@ h6 {
 
 .widget--support .faq__search-block .btn--submit:hover {
     background-color: #bebcbc;
+}
+
+/*
+# Course Info Page
+*/
+
+.course__detail__container {
+    max-width: 80rem;
+    padding-top: 6rem;
+    padding-bottom: 10rem;
+}
+
+.course__detail__content h1 {
+    font-size: 3rem;
+    line-height: 3rem;
+    color: rgb(20 53 96);
+}
+
+.course__detail__container .btn--primary {
+    --tw-bg-opacity: 1;
+    background-color: rgb(109 212 173 / var(--tw-bg-opacity));
+    color: rgb(20 53 96);
+    border: none;
+    padding: 0.8rem 0rem;
+    border-radius: 999px;
+    font-size: 1.2rem;
+    font-family: 'Pangea' !important;
+}
+
+.course__detail__container .btn--primary:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(45 157 144 / var(--tw-bg-opacity));
+}
+
+.course__detail__container .btn--secondary {
+    --tw-bg-opacity: 1;
+    background-color: rgb(51 129 201/var(--tw-bg-opacity));
+    color: white;
+    border: none;
+    padding: 0.8rem 0rem;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-family: 'Pangea' !important;
+}
+
+.course__detail__container .btn--secondary:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(20 53 96/var(--tw-bg-opacity));
+    color: white;
+}
+
+.course__detail__container .course__includes * {
+    color: rgb(20 53 96);
+    font-size: 1rem;
+    font-family: ti-icons-rev2, 'Pangea' !important;
+}
+
+.course__detail__container .course__includes .icon--round {
+    --tw-bg-opacity: 1;
+    background-color: rgb(45 157 144 / var(--tw-bg-opacity));
+}
+
+.course__detail__container .course__detail__social .heading {
+    padding-bottom: 15px;
+    font-family: ti-icons-rev2, 'Pangea' !important;
 }
