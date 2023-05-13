@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "dev": "npx tailwindcss -i ./styles/tailwind.css -o ./styles/output.css --watch",
+    "prettier": "prettier --config \".prettierrc\"  \"./**/*.html\" --write"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
+  },
+  "dependencies": {
+    "prettier": "^2.8.8"
+  }
+}

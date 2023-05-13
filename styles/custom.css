@@ -1,0 +1,292 @@
+@font-face {
+    font-family: 'Pangea';
+    src: url('https://glacier.eco/dist/assets/pangea-bold.caabc29f.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Pangea';
+    src: url('https://glacier.eco/dist/assets/pangea-regular.9e1d7570.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pangea';
+    src: url('https://glacier.eco/dist/assets/pangea-semi-bold.1e0c9deb.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+}
+
+body {
+    background-color: white;
+}
+
+.container * {
+    font-family: ti-icons-rev2, 'Pangea' !important;
+}
+
+.container {
+    max-width: none !important;
+    box-shadow: none;
+}
+
+.navigation-bar .top-bar-section ul li>a {
+    font-size: 1.2rem;
+}
+
+.home__content {
+    padding: 0;
+}
+
+.footer {
+    padding: 0;
+}
+
+.footer__company__info {
+    display: none;
+}
+
+.learner__language__selector .theme {
+    background-color: rgb(109 212 173);
+}
+
+
+.learner__language__selector ul {
+    background-color: rgb(109 212 173);
+}
+
+.language-selector-content {
+    padding-left: 5px;
+    font-size: 1rem;
+    color: rgb(20 53 96);
+    background-color: rgb(109 212 173);
+}
+
+.widget:has(.force-full-width) {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+body p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: rgb(20 53 96);
+}
+
+.bg-glacier-darkgreen-400 {
+    background-color: rgb(109 212 173);
+}
+
+.bg-glacier-darkgreen-600 {
+    background-color: rgb(45 157 144);
+}
+
+.bg-glacier-darkblue-400 {
+    background-color: rgb(51 129 201);
+}
+
+.bg-glacier-darkblue-600 {
+    background-color: rgb(20 53 96);
+}
+
+.loading__spinner__bounce1,
+.loading__spinner__bounce2,
+.loading__spinner__bounce3 {
+    background-color: rgb(109 212 173) !important;
+}
+
+.background-foresthaze {
+    background-image: url('https://glacier.eco/uploads/_1536x1024_crop_center-center_82_line/AdobeStock_540701333.jpeg');
+}
+
+.background-oceanwaves {
+    background-image: url('https://glacier.eco/uploads/_1536x1023_crop_center-center_82_line/AdobeStock_295622062.jpeg');
+}
+
+.background-deepfrost {
+    background-image: url('https://glacier.eco/uploads/_1536x1152_crop_center-center_82_line/AdobeStock_241603407.jpeg');
+}
+
+/*
+  # Catalog Layout
+  */
+
+.custom-catalog-library .catalog-grid-item {
+    width: 300px;
+    height: auto;
+    overflow: hidden;
+}
+
+.custom-catalog-library .catalog-grid-item img {
+    display: block;
+    max-width: none;
+    width: auto;
+    height: 100%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.custom-catalog-library .catalog-grid-item .catalog-grid-item__title {
+    color: rgb(20 53 96);
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.902rem;
+}
+
+.custom-catalog-library .catalog-grid-item .catalog-grid-item__source {
+    color: #7DD8B5;
+    font-size: 0.9rem;
+}
+
+/* .custom-catalog-library .medium-9 {
+    width: 100%;
+  } */
+
+.custom-tabbed-content {
+    background-color: rgb(20 53 96);
+    padding-bottom: 5rem !important;
+    margin-bottom: 3rem;
+}
+
+.custom-tabbed-content .dashboard-access {
+    border: 0;
+}
+
+.custom-tabbed-content .dashboard-access-tab__label {
+    font-weight: normal;
+    font-size: 1rem !important;
+}
+
+.custom-tabbed-content .dashboard-access-tabs {
+    background: rgb(45 157 144);
+}
+
+.custom-tabbed-content .dashboard-access-tab--active {
+    background-color: rgb(109 212 173);
+}
+
+.custom-tabbed-content .dashboard-access-list-item .btn--small {
+    background-color: rgb(45 157 144);
+    font-weight: normal;
+    font-size: 0.9rem !important;
+    color: white;
+    min-width: 130px;
+    border-radius: 20px;
+    border: none;
+}
+
+.custom-tabbed-content .dashboard-access-list-item .btn--small:hover {
+    background-color: rgb(109 212 173);
+}
+
+.custom-tabbed-content .dashboard-access-list-item .col-span-3 * {
+    display: none;
+}
+
+/*
+  # Completion records widget
+  */
+
+.widget--dashboard-stats {
+    background-color: rgb(20 53 96);
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.widget--dashboard-stats .dashboard-stats__container {
+    box-shadow: none;
+    padding: 0;
+}
+
+.widget--dashboard-stats .dashboard-stat {
+    border: none;
+}
+
+.widget--dashboard-stats .dashboard-stat * {
+    color: white !important;
+    border: 0 !important;
+}
+
+/* .custom-completion-record .dashboard-stat--available .dashboard-stat__value {
+  
+  } */
+
+/*
+  # Home page layout
+  */
+
+.primary-catalogue .featured-content-multi-carousel-item {
+    background: white;
+    margin-left: 1rem;
+}
+
+.primary-catalogue .catalog-grid-item__asset-container {
+    width: 300px;
+    height: auto;
+    overflow: hidden;
+}
+
+.primary-catalogue .featured-content-multi-carousel-item__body {
+    text-align: left;
+}
+
+.primary-catalogue h4 {
+    color: rgb(20 53 96);
+    font-size: 1.5rem;
+    letter-spacing: .1rem;
+    line-height: 1.902rem;
+}
+
+.primary-catalogue img {
+    display: block;
+    max-width: none;
+    width: auto;
+    height: 100%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.primary-testimonials .testimonial {
+    padding-top: 50%;
+}
+
+/*
+  # Login page
+  */
+
+.session {
+    background-color: rgb(20 53 96);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: -webkit-image-set(url('https://glacier.eco/uploads/Images/_1024x846_crop_center-center_82_line/gletscher.jpg.webp') 1x);
+}
+
+.session .session__container {
+    padding: 3rem;
+    border-radius: 20px;
+}
+
+.session h2 {
+    margin-top: 2rem;
+    color: rgb(20 53 96);
+    font-size: 2rem;
+    line-height: 3.804rem;
+    font-weight: bold;
+}
+
+.session input[type="submit"] {
+    border: 2px solid rgb(109 212 173);
+    font-weight: 700;
+    letter-spacing: .03rem;
+    background-color: rgb(109 212 173);
+    color: rgb(20 53 96);
+    border-radius: 2rem;
+    font-size: 1.125rem;
+}
