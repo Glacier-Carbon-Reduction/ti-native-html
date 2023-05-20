@@ -1,0 +1,34 @@
+<section class="force-full-width bg-glacier-darkgreen-600 py-10 sm:py-16 lg:py-24">
+    <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <h2 id="custom-dashboard-title" class="text-6xl sm:text-6xl xl:text-8xl font-bold text-white"></h2>
+      <p class="mt-4 text-base font-semibold tracking-wider uppercase text-white">Welcome to</p>
+      <h1 class="mt-2 text-6xl font-semibold text-white">Glacier Climate Academy</h1>
+      <p class="mt-4 text-base tracking-wider text-white">Empower Change: Embrace Climate Education for a Sustainable Future. Learn and lead to secure a thriving world for your family and our planet. Unlock knowledge, make informed choices, and protect nature's wonders. Join the global movement, discover innovative solutions, and inspire others. Start now. Build a legacy of sustainability. Together, we create abundance, harmony, and hope for generations to come.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="force-full-width bg-glacier-darkblue-600 pt-10 sm:pt-16 lg:pt-24">
+    <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <p class="mt-4 text-base font-semibold tracking-wider uppercase text-white">Let us make a difference</p>
+      <h1 class="mt-2 text-6xl font-semibold text-white">Your Courses</h1>
+      </div>
+    </div>
+  </section>
+
+  custom-tabbed-content
+
+
+
+<section class="force-full-width pt-16 pb-10">
+  <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <p class="mt-4 text-base font-semibold tracking-wider uppercase">Start a new course</p>
+    <h1 class="mt-2 text-6xl font-semibold">Course Catalog</h1>
+    </div>
+  </div>
+</section>
+
+
+
+
+custom-catalog-library px-5
