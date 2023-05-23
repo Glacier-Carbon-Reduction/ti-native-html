@@ -44,6 +44,11 @@
     background-color: rgb(20 53 96/var(--tw-bg-opacity));
 }
 
+.text-glacier-darkblue-600 {
+    --tw-bg-opacity: 1;
+    color: rgb(20 53 96/var(--tw-bg-opacity));
+}
+
 body {
     background-color: white;
 }
@@ -175,7 +180,9 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+a,
+button {
     font-family: 'Pangea' !important;
     color: rgb(20 53 96);
 }
@@ -390,6 +397,24 @@ width: 100%;
 }
 
 .session input[type="submit"] {
+    border: 2px solid rgb(109 212 173);
+    font-weight: 700;
+    letter-spacing: .03rem;
+    background-color: rgb(109 212 173);
+    color: rgb(20 53 96);
+    border-radius: 2rem;
+    font-size: 1.125rem;
+}
+
+/*
+# Registration Page
+*/
+
+.widget--registration-form .text-centered {
+    margin-bottom: 2rem;
+}
+
+.widget--registration-form .btn--primary {
     border: 2px solid rgb(109 212 173);
     font-weight: 700;
     letter-spacing: .03rem;
