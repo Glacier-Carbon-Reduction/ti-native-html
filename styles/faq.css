@@ -1,0 +1,118 @@
+* {
+    padding: 0;
+    margin: 0;
+  }
+  .container {
+    width: 100%;
+    height: 400px;
+    background-color: rgba(45, 157, 143, 255);
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+  }
+  .nav1 {
+    width: 100%;
+    height: 1px;
+    display: flex;
+    justify-content: space-between;
+  
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  .nav1 .left,
+  .nav1 .right {
+    flex-basis: 25%;
+    margin: auto;
+    margin-top: 13%;
+    margin-left: 5%;
+    margin-right: 10%;
+    cursor: pointer;
+  }
+  .nav1 .left {
+    font-size: 1.7rem;
+    color: white;
+  }
+  .nav1 .right {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    color: whitesmoke;
+  }
+  
+  /* start */
+  .faq-section {
+    padding: 4em 2em;
+  }
+  
+  .faq {
+    list-style: none;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .faq li {
+    background: #f2f2f2;
+    border-bottom: 1px #ccc solid;
+  }
+  .faq li:first-child {
+    border-top: 1px #ccc solid;
+  }
+  .q {
+    padding: 1em 0;
+    border-left: 10px #f2f2f2 solid;
+    cursor: pointer;
+  }
+  .q:hover,
+  .q:hover .arrow {
+    border-left-color: rgb(24, 23, 23);
+  }
+  .arrow {
+    display: inline-block;
+    margin: 0 0.5em;
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-left: 10px solid #555;
+    border-bottom: 6px solid transparent;
+    transition: 0.3s;
+  }
+  
+  .faq p {
+    color: #888;
+    line-height: 25px;
+  }
+  .hidden {
+    overflow: hidden;
+    height: 0;
+    padding: 0 1em 0 3.3em;
+  }
+  .hidden-opened {
+    padding: 1em 1em 2em 3.3em;
+    height: initial;
+  }
+  
+  .arrow-rotated {
+    transform: rotate(90deg);
+  }
+  .container1 {
+    display: flex;
+  }
+  
+  .left-section {
+    width: 40%;
+  }
+  
+  .right-section {
+    width: 60%;
+  }
+  .center-align {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-top: 20%;
+    margin-left: 5%;
+  }
+  .center-align h2 {
+    text-align: center;
+    margin-bottom: 5%;
+  }
+  

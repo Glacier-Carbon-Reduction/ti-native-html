@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link href="/styles/output.css" rel="stylesheet" /> -->
+    <!-- <link href="/styles/custom.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="/styles/faq.css" />
+    <script src="faq.js"></script>
+  </head>
+  <body>
+    <!-- start -->
+
+    <header>
+      <div class="container">
+        <nav class="nav1">
+          <div class="left">
+            <h1>Top Question About Untiled</h1>
+          </div>
+          <div class="right">
+            <p>
+              Need something cleared up? Hear are our most frequently ask
+              Questions
+            </p>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- end -->
+    <hr />
+    <!-- start -->
+    <div class="container1">
+      <section class="left-section">
+        <div class="center-align">
+          <h2 style="padding-left: 40%">General <s>Faq</s></h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos magnam
+            rem officia molestiae. Atque numquam quos recusandae laborum eum
+            illum officia ipsam aperiam nostrum, ut omnis ducimus. Minus, error
+            voluptatem.
+          </p>
+        </div>
+      </section>
+      <section class="faq-section right-section">
+        <ul class="faq">
+          <li style="margin: 2%">
+            <div class="q" onclick="toggleParagraph('q1')">
+              <span class="arrow"></span>
+              <span>how do i reply</span>
+            </div>
+            <div id="q1" class="hidden">
+              <p style="padding: 2%">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
+                incidunt hic doloribus eaque, natus exercitationem, eveniet
+                repellendus nemo deserunt quo eum. Laboriosam fugit vel ipsum
+                aperiam. Aliquid obcaecati quam aspernatur.
+              </p>
+            </div>
+          </li>
+          <li style="margin: 2%">
+            <div class="q" onclick="toggleParagraph('q2')">
+              <span class="arrow"></span>
+              <span>how do i reply</span>
+            </div>
+            <div id="q2" class="hidden">
+              <p style="padding: 2%">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
+                incidunt hic doloribus eaque, natus exercitationem, eveniet
+                repellendus nemo deserunt quo eum. Laboriosam fugit vel ipsum
+                aperiam. Aliquid obcaecati quam aspernatur.
+              </p>
+            </div>
+          </li>
+          <li style="margin: 2%">
+            <div class="q" onclick="toggleParagraph('q3')">
+              <span class="arrow"></span>
+              <span>how do i reply</span>
+            </div>
+            <div id="q3" class="hidden">
+              <p style="padding: 2%">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
+                incidunt hic doloribus eaque, natus exercitationem, eveniet
+                repellendus nemo deserunt quo eum. Laboriosam fugit vel ipsum
+                aperiam. Aliquid obcaecati quam aspernatur.
+              </p>
+            </div>
+          </li>
+          <li style="margin: 2%">
+            <div class="q" onclick="toggleParagraph('q4')">
+              <span class="arrow"></span>
+              <span>how do i reply</span>
+            </div>
+            <div id="q4" class="hidden">
+              <p style="padding: 2%">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
+                incidunt hic doloribus eaque, natus exercitationem, eveniet
+                repellendus nemo deserunt quo eum. Laboriosam fugit vel ipsum
+                aperiam. Aliquid obcaecati quam aspernatur.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <script>
+      function toggleParagraph(paragraphId) {
+        var paragraph = document.getElementById(paragraphId)
+        paragraph.classList.toggle('hidden')
+      }
+    </script>
+  </body>
+</html>
