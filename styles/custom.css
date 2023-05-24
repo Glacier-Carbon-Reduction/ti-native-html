@@ -64,13 +64,17 @@ body {
 
 .header--dashboard {
     --tw-bg-opacity: 1;
-    background-color: rgb(45 157 144 / var(--tw-bg-opacity));
+    background-color: rgb(20 53 96/var(--tw-bg-opacity));
 }
 
 .header--dashboard * {
     font-family: ti-icons-rev2, 'Pangea' !important;
     color: white !important;
     font-weight: normal !important;
+}
+
+.header .company__beta-logo .company-logo__container img {
+    padding: 15px 0px 15px 60px;
 }
 
 .dashboard-header-dropdown>li a {
@@ -103,7 +107,7 @@ body {
 
 .header--microsite {
     --tw-bg-opacity: 1;
-    background-color: rgb(45 157 144 / var(--tw-bg-opacity));
+    background-color: rgb(20 53 96/var(--tw-bg-opacity));
 }
 
 .header--microsite * {
@@ -320,13 +324,9 @@ width: 100%;
 }
 
 .widget--dashboard-stats .dashboard-stat * {
-    font-family: 'Pangea' !important;
+    font-family: ti-icons-rev2, 'Pangea' !important;
     color: white !important;
     border: 0 !important;
-}
-
-.widget--dashboard-stats .dashboard-stat .dashboard-stat__icon {
-    display: none;
 }
 
 /* .custom-completion-record .dashboard-stat--available .dashboard-stat__value {
@@ -380,12 +380,30 @@ width: 100%;
     background-color: rgb(20 53 96);
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: -webkit-image-set(url('https://glacier.eco/uploads/Images/_1024x846_crop_center-center_82_line/gletscher.jpg.webp') 1x);
+    background-position: right;
+    background-image: -webkit-image-set(url('https://glacier-projects.vercel.app/img/brand/backgrounds/background-nature-1.jpeg') 1x);
 }
 
 .session .session__container {
     padding: 3rem;
+    border: 3px solid #FFFFFFB2;
     border-radius: 20px;
+    background: linear-gradient(137.86deg, rgba(255, 255, 255, 0.5) 0%, rgba(232, 232, 232, 0.4) 104.73%),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3));
+    backdrop-filter: blur(20px);
+}
+
+.session .session__container .company__beta-logo {
+    padding: 3rem;
+    border-radius: 20px;
+    background-image: -webkit-image-set(url('https://glacier-projects.vercel.app/img/brand/logos/03_glacier_climate_academy/glacier_logo_climateacademy_4C_darkgreen.png') 1x) !important;
+    background-size: contain !important;
+    background-color: transparent;
+    background-repeat: no-repeat;
+}
+
+.session .session__container .company__beta-logo img {
+    opacity: 0;
 }
 
 .session h2 {
@@ -393,12 +411,37 @@ width: 100%;
     color: rgb(20 53 96);
     font-size: 2rem;
     line-height: 3.804rem;
-    font-weight: bold;
+    font-weight: 600;
+}
+
+.session .session__container input[type="text"], input[type="email"], input[type="password"] {
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #143560;
+    box-shadow: none;
+}
+
+.session .session__container input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #143560;
+    box-shadow: none;
+}
+
+.session .session__container input::placeholder {
+    font-family: 'Pangea' !important;
+    color: rgb(20 53 96);
+}
+
+.session .session__container .session__forgot .btn {
+    font-family: 'Pangea' !important;
+    color: rgb(20 53 96);
 }
 
 .session input[type="submit"] {
     border: 2px solid rgb(109 212 173);
-    font-weight: 700;
+    font-family: 'Pangea' !important;
+    font-weight: 500;
     letter-spacing: .03rem;
     background-color: rgb(109 212 173);
     color: rgb(20 53 96);
@@ -416,7 +459,7 @@ width: 100%;
 
 .widget--registration-form .btn--primary {
     border: 2px solid rgb(109 212 173);
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: .03rem;
     background-color: rgb(109 212 173);
     color: rgb(20 53 96);
