@@ -1,10 +1,7 @@
 function updateHeaderLinks(mainGroup){
-    var spacer = document.createElement('div')
-    spacer.className = 'small-1 columns'
-    spacer.innerHTML = `&nbsp`
-  
+
     var dashboardLink = document.createElement('div')
-    dashboardLink.className = 'small-3 columns'
+    dashboardLink.className = 'small-4 column'
     dashboardLink.innerHTML = `
     <div class="dashboard-header__name" style="padding-top: 6.3px;">
       <a href="/learn/dashboard" style="display: flex; align-items: center; text-decoration: none;">
@@ -17,7 +14,7 @@ function updateHeaderLinks(mainGroup){
   `
   
     var supportLink = document.createElement('div')
-    supportLink.className = 'small-3 columns'
+    supportLink.className = 'small-4 column'
     supportLink.innerHTML = `
     <div class="dashboard-header__name" style="padding-top: 8.2px;">
       <a href="/support" style="display: flex; align-items: center; text-decoration: none;">
@@ -29,16 +26,20 @@ function updateHeaderLinks(mainGroup){
     </div>
   `
   
-    var userProfile = document.getElementsByClassName('small-10 columns')
-    userProfile[0].classList.replace('small-10', 'small-3')
+    var head = document.querySelector('.header--dashboard')
+    head.style.paddingTop = "0px"
+
+    var userProfile = document.querySelector('.dashboard-header-dropdown__link')
+    userProfile.classList.add('small-4')
+    userProfile.classList.add('column')
   
-    var parentElement = mainGroup[0].parentNode
-    parentElement.insertBefore(spacer, mainGroup[0])
-    parentElement.insertBefore(dashboardLink, mainGroup[0])
-    parentElement.insertBefore(supportLink, mainGroup[0])
+    mainGroup.appendChild(dashboardLink);
+    mainGroup.appendChild(supportLink);
+    mainGroup.removeChild(userProfile);
+    mainGroup.appendChild(userProfile);
 }
 
-var mainGroup = document.getElementsByClassName('row collapse')
+var mainGroup = document.querySelector('.header__inner .small-12')
 
 if (mainGroup) {
     updateHeaderLinks(mainGroup)

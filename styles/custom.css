@@ -3,7 +3,6 @@
     src: url('https://glacier.eco/dist/assets/pangea-bold.caabc29f.woff2') format('woff2');
     font-weight: bold;
     font-style: normal;
-
 }
 
 @font-face {
@@ -108,12 +107,21 @@ body {
     margin: auto;
 }
 
-.header--dashboard .header__inner .row .column:nth-child(2) {
+.header--dashboard .header__inner .row .column {
     margin-top: 20px;
 }
 
 .header .company__beta-logo .company-logo__container img {
     padding: 15px 0px 15px 60px;
+}
+
+.dashboard-header-dropdown__link .dashboard-header__name {
+    margin: none;
+}
+
+.dashboard-header-dropdown__link .columns {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
 .dashboard-header-dropdown>li a {
@@ -379,7 +387,6 @@ width: 100%;
 /*
 # Completion records widget
 */
-
 .widget--dashboard-stats {
     max-width: 1200px;
     margin: auto;
@@ -420,11 +427,11 @@ width: 100%;
 }
 
 .widget--dashboard-stats .dashboard-stats {
-  gap: 2rem;
+    gap: 2rem;
 }
 
 .widget--dashboard-stats .dashboard-stats li:nth-child(9) {
-  display: none;
+    display: none;
 }
 
 .widget--dashboard-stats .dashboard-stat * {
@@ -432,6 +439,7 @@ width: 100%;
     border: 0 !important;
     color: inherit !important;
 }
+
 .widget--dashboard-stats .dashboard-stat__label {
     font-size: .8rem;
     text-transform: none;
@@ -489,7 +497,7 @@ width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: right;
-    background-image: -webkit-image-set(url('https://glacier-projects.vercel.app/img/brand/backgrounds/background-nature-1.jpeg') 1x);
+    background-image: -webkit-image-set(url('https://glacier-projects.vercel.app/img/brand/backgrounds/background-nature-3.jpeg') 1x);
 }
 
 .session .session__container {
@@ -497,7 +505,7 @@ width: 100%;
     border: 3px solid #FFFFFFB2;
     border-radius: 20px;
     background: linear-gradient(137.86deg, rgba(255, 255, 255, 0.5) 0%, rgba(232, 232, 232, 0.4) 104.73%),
-    linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3));
+        linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3));
     backdrop-filter: blur(20px);
 }
 
@@ -522,14 +530,18 @@ width: 100%;
     font-weight: 600;
 }
 
-.session .session__container input[type="text"], input[type="email"], input[type="password"] {
+.session .session__container input[type="text"],
+input[type="email"],
+input[type="password"] {
     background: transparent;
     border: 0;
     border-bottom: 1px solid #143560;
     box-shadow: none;
 }
 
-.session .session__container input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+.session .session__container input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
     background: transparent;
     border: 0;
     border-bottom: 1px solid #143560;
@@ -688,62 +700,105 @@ width: 100%;
 ! Native glacier.eco website CSS
 */
 
-.logo-section-autoplay .swiper-container,.logo-section .swiper-container {
+.logo-section-autoplay .swiper-container,
+.logo-section .swiper-container {
     height: 6.25rem
 }
 
-.logo-section-autoplay.bg-primary-500 .overline-style,.logo-section-autoplay.bg-secondary-700 .overline-style,.logo-section.bg-primary-500 .overline-style,.logo-section.bg-secondary-700 .overline-style {
+.logo-section-autoplay.bg-primary-500 .overline-style,
+.logo-section-autoplay.bg-secondary-700 .overline-style,
+.logo-section.bg-primary-500 .overline-style,
+.logo-section.bg-secondary-700 .overline-style {
     --tw-text-opacity: 1;
     color: rgb(255 255 255/var(--tw-text-opacity))
 }
 
-.logo-section-autoplay.bg-primary-500 .logo-wall-item svg path,.logo-section-autoplay.bg-secondary-700 .logo-wall-item svg path,.logo-section.bg-primary-500 .logo-wall-item svg path,.logo-section.bg-secondary-700 .logo-wall-item svg path {
+.logo-section-autoplay.bg-primary-500 .logo-wall-item svg path,
+.logo-section-autoplay.bg-secondary-700 .logo-wall-item svg path,
+.logo-section.bg-primary-500 .logo-wall-item svg path,
+.logo-section.bg-secondary-700 .logo-wall-item svg path {
     fill: #fff
 }
 
-.logo-section-autoplay.bg-tertiary-500 .overline-style,.logo-section.bg-tertiary-500 .overline-style {
+.logo-section-autoplay.bg-tertiary-500 .overline-style,
+.logo-section.bg-tertiary-500 .overline-style {
     --tw-text-opacity: 1;
     color: rgb(255 255 255/var(--tw-text-opacity))
 }
 
-.logo-section-autoplay.bg-tertiary-500 .logo-wall-item svg path,.logo-section.bg-tertiary-500 .logo-wall-item svg path {
+.logo-section-autoplay.bg-tertiary-500 .logo-wall-item svg path,
+.logo-section.bg-tertiary-500 .logo-wall-item svg path {
     fill: #fff
 }
 
-.logo-section-autoplay.bg-background .overline-style,.logo-section.bg-background .overline-style {
+.logo-section-autoplay.bg-background .overline-style,
+.logo-section.bg-background .overline-style {
     --tw-text-opacity: 1;
     color: rgb(20 53 96/var(--tw-text-opacity))
 }
 
-.logo-section-autoplay.bg-background .logo-wall-item .logo-link path,.logo-section-autoplay.bg-background .logo-wall-item .logo path,.logo-section.bg-background .logo-wall-item .logo-link path,.logo-section.bg-background .logo-wall-item .logo path {
+.logo-section-autoplay.bg-background .logo-wall-item .logo-link path,
+.logo-section-autoplay.bg-background .logo-wall-item .logo path,
+.logo-section.bg-background .logo-wall-item .logo-link path,
+.logo-section.bg-background .logo-wall-item .logo path {
     fill: #143560
 }
 
-.logo-section-autoplay .logo-wall-item.hover-effect .logo,.logo-section-autoplay .logo-wall-item.hover-effect .logo-link,.logo-section-autoplay .swiper-slide.hover-effect .logo,.logo-section-autoplay .swiper-slide.hover-effect .logo-link,.logo-section .logo-wall-item.hover-effect .logo,.logo-section .logo-wall-item.hover-effect .logo-link,.logo-section .swiper-slide.hover-effect .logo,.logo-section .swiper-slide.hover-effect .logo-link {
+.logo-section-autoplay .logo-wall-item.hover-effect .logo,
+.logo-section-autoplay .logo-wall-item.hover-effect .logo-link,
+.logo-section-autoplay .swiper-slide.hover-effect .logo,
+.logo-section-autoplay .swiper-slide.hover-effect .logo-link,
+.logo-section .logo-wall-item.hover-effect .logo,
+.logo-section .logo-wall-item.hover-effect .logo-link,
+.logo-section .swiper-slide.hover-effect .logo,
+.logo-section .swiper-slide.hover-effect .logo-link {
     transition: opacity .2s ease
 }
 
-.logo-section-autoplay .logo-wall-item.hover-effect .hover-logo,.logo-section-autoplay .logo-wall-item.hover-effect .hover-logo-link,.logo-section-autoplay .swiper-slide.hover-effect .hover-logo,.logo-section-autoplay .swiper-slide.hover-effect .hover-logo-link,.logo-section .logo-wall-item.hover-effect .hover-logo,.logo-section .logo-wall-item.hover-effect .hover-logo-link,.logo-section .swiper-slide.hover-effect .hover-logo,.logo-section .swiper-slide.hover-effect .hover-logo-link {
+.logo-section-autoplay .logo-wall-item.hover-effect .hover-logo,
+.logo-section-autoplay .logo-wall-item.hover-effect .hover-logo-link,
+.logo-section-autoplay .swiper-slide.hover-effect .hover-logo,
+.logo-section-autoplay .swiper-slide.hover-effect .hover-logo-link,
+.logo-section .logo-wall-item.hover-effect .hover-logo,
+.logo-section .logo-wall-item.hover-effect .hover-logo-link,
+.logo-section .swiper-slide.hover-effect .hover-logo,
+.logo-section .swiper-slide.hover-effect .hover-logo-link {
     opacity: 0;
     transition: opacity .2s ease
 }
 
-.logo-section-autoplay .logo-wall-item.hover-effect:hover .hover-logo,.logo-section-autoplay .logo-wall-item.hover-effect:hover .hover-logo-link,.logo-section-autoplay .swiper-slide.hover-effect:hover .hover-logo,.logo-section-autoplay .swiper-slide.hover-effect:hover .hover-logo-link,.logo-section .logo-wall-item.hover-effect:hover .hover-logo,.logo-section .logo-wall-item.hover-effect:hover .hover-logo-link,.logo-section .swiper-slide.hover-effect:hover .hover-logo,.logo-section .swiper-slide.hover-effect:hover .hover-logo-link {
+.logo-section-autoplay .logo-wall-item.hover-effect:hover .hover-logo,
+.logo-section-autoplay .logo-wall-item.hover-effect:hover .hover-logo-link,
+.logo-section-autoplay .swiper-slide.hover-effect:hover .hover-logo,
+.logo-section-autoplay .swiper-slide.hover-effect:hover .hover-logo-link,
+.logo-section .logo-wall-item.hover-effect:hover .hover-logo,
+.logo-section .logo-wall-item.hover-effect:hover .hover-logo-link,
+.logo-section .swiper-slide.hover-effect:hover .hover-logo,
+.logo-section .swiper-slide.hover-effect:hover .hover-logo-link {
     opacity: 1
 }
 
-.logo-section-autoplay .logo-wall-item.hover-effect:hover .logo,.logo-section-autoplay .logo-wall-item.hover-effect:hover .logo-link,.logo-section-autoplay .swiper-slide.hover-effect:hover .logo,.logo-section-autoplay .swiper-slide.hover-effect:hover .logo-link,.logo-section .logo-wall-item.hover-effect:hover .logo,.logo-section .logo-wall-item.hover-effect:hover .logo-link,.logo-section .swiper-slide.hover-effect:hover .logo,.logo-section .swiper-slide.hover-effect:hover .logo-link {
+.logo-section-autoplay .logo-wall-item.hover-effect:hover .logo,
+.logo-section-autoplay .logo-wall-item.hover-effect:hover .logo-link,
+.logo-section-autoplay .swiper-slide.hover-effect:hover .logo,
+.logo-section-autoplay .swiper-slide.hover-effect:hover .logo-link,
+.logo-section .logo-wall-item.hover-effect:hover .logo,
+.logo-section .logo-wall-item.hover-effect:hover .logo-link,
+.logo-section .swiper-slide.hover-effect:hover .logo,
+.logo-section .swiper-slide.hover-effect:hover .logo-link {
     opacity: 0;
     transition-duration: .15s;
     transition-property: opacity;
-    transition-timing-function: cubic-bezier(.4,0,.2,1)
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1)
 }
 
-.logo-section #logo-slider-autoplay,.logo-section-autoplay #logo-slider-autoplay {
+.logo-section #logo-slider-autoplay,
+.logo-section-autoplay #logo-slider-autoplay {
     height: 80px
 }
 
-.logo-section #logo-slider,.logo-section-autoplay #logo-slider {
+.logo-section #logo-slider,
+.logo-section-autoplay #logo-slider {
     height: 100%;
     min-height: 80px
 }

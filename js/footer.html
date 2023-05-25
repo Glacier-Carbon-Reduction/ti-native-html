@@ -30,13 +30,9 @@
     }
   }
 
-  function updateHeaderLinks(mainGroup){
-    var spacer = document.createElement('div')
-    spacer.className = 'small-1 columns'
-    spacer.innerHTML = `&nbsp`
-  
+  function updateHeaderLinks(mainGroup) {
     var dashboardLink = document.createElement('div')
-    dashboardLink.className = 'small-3 columns'
+    dashboardLink.className = 'small-4 column'
     dashboardLink.innerHTML = `
     <div class="dashboard-header__name" style="padding-top: 6.3px;">
       <a href="/learn/dashboard" style="display: flex; align-items: center; text-decoration: none;">
@@ -46,10 +42,10 @@
           &nbsp&nbspDashboard
       </a>
     </div>
-  `
-  
+    `
+
     var supportLink = document.createElement('div')
-    supportLink.className = 'small-3 columns'
+    supportLink.className = 'small-4 column'
     supportLink.innerHTML = `
     <div class="dashboard-header__name" style="padding-top: 8.2px;">
       <a href="/support" style="display: flex; align-items: center; text-decoration: none;">
@@ -59,16 +55,20 @@
           &nbsp&nbspSupport
       </a>
     </div>
-  `
-  
-    var userProfile = document.getElementsByClassName('small-10 columns')
-    userProfile[0].classList.replace('small-10', 'small-3')
-  
-    var parentElement = mainGroup[0].parentNode
-    parentElement.insertBefore(spacer, mainGroup[0])
-    parentElement.insertBefore(dashboardLink, mainGroup[0])
-    parentElement.insertBefore(supportLink, mainGroup[0])
-}
+    `
+
+    var head = document.querySelector('.header--dashboard')
+    head.style.paddingTop = '0px'
+
+    var userProfile = document.querySelector('.dashboard-header-dropdown__link')
+    userProfile.classList.add('small-4')
+    userProfile.classList.add('column')
+
+    mainGroup.appendChild(dashboardLink)
+    mainGroup.appendChild(supportLink)
+    mainGroup.removeChild(userProfile)
+    mainGroup.appendChild(userProfile)
+  }
 
   document.addEventListener('DOMContentLoaded', async function () {
     await new Promise((resolve) => setTimeout(resolve, 1000))
@@ -76,9 +76,9 @@
     // Applying username to dashboard title
     userNameReplacer()
 
-    var mainHeaderGroup = document.getElementsByClassName('row collapse')
-    if (mainHeaderGroup) {
-        updateHeaderLinks(mainHeaderGroup)
+    var mainGroup = document.querySelector('.header__inner .small-12')
+    if (mainGroup) {
+        updateHeaderLinks(mainGroup)
     }
 
     // Changing logo
