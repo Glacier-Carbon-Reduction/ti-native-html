@@ -1,36 +1,4 @@
-<script>
-  function userNameReplacer() {
-    const titleElement = document.getElementById('custom-dashboard-title')
-    if (titleElement) {
-      const unameElement = document.querySelector('.dashboard-header__name')
-      if (unameElement) {
-        const innerText = unameElement.innerText
-        if (innerText !== '') {
-          titleElement.innerHTML = 'Hi ' + innerText.split(' ')[0] + ','
-        }
-      }
-    }
-  }
-
-  function logoReplacer() {
-    const logoText = document.querySelector('.company__beta-logo')
-    if (logoText) {
-      if (logoText.innerText === 'Glacier Test') {
-        logoText.innerHTML =
-          '<img src="https://spar-international.com/wp-content/themes/spar_international/img/logo.png" alt="SPAR International" class="company__logo">'
-      }
-    }
-  }
-
-  async function changeCatalogView() {
-    await new Promise((resolve) => setTimeout(resolve, 500))
-    const element = document.querySelector('.large-block-grid-3')
-    if (element.classList.contains('large-block-grid-3')) {
-      element.classList.replace('large-block-grid-3', 'large-block-grid-4')
-    }
-  }
-
-  function updateHeaderLinks(mainGroup){
+function updateHeaderLinks(mainGroup){
     var spacer = document.createElement('div')
     spacer.className = 'small-1 columns'
     spacer.innerHTML = `&nbsp`
@@ -70,21 +38,8 @@
     parentElement.insertBefore(supportLink, mainGroup[0])
 }
 
-  document.addEventListener('DOMContentLoaded', async function () {
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+var mainGroup = document.getElementsByClassName('row collapse')
 
-    // Applying username to dashboard title
-    userNameReplacer()
-
-    var mainHeaderGroup = document.getElementsByClassName('row collapse')
-    if (mainHeaderGroup) {
-        updateHeaderLinks(mainHeaderGroup)
-    }
-
-    // Changing logo
-    // logoReplacer()
-
-    // changing course catalog column count
-    // await changeCatalogView()
-  })
-</script>
+if (mainGroup) {
+    updateHeaderLinks(mainGroup)
+}

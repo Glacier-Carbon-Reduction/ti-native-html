@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faq</title>
+    <link href="/styles/output.css" rel="stylesheet" />
+    <link href="/styles/custom.css" rel="stylesheet" />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+
+<body>
+
+    <section class="bg-glacier-darkgreen-600 py-10 sm:py-16 lg:py-24">
+        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
+                <div>
+                    <p class="text-base font-semibold tracking-wider text-white uppercase tracking-widest">
+                        GLACIER CLIMATE ACADEMY SUPPORT
+                    </p>
+                    <h1 class="mt-4 font-bold text-white lg:mt-8 text-4xl md:text-5xl">
+                        Need help?
+                    </h1>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+
+1
+
+       -->
+
+    <section  class="py-12 bg-gray-50 sm:py-16 lg:py-20">
+        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+                    <div class="flex flex-col justify-between lg:col-span-5">
+                        <div class="lg:max-w-sm">
+                            <h2 class="text-3xl font-bold text-gray-900">
+                                General
+                            </h2>
+                            <p class="mt-4 text-base font-medium text-gray-500">
+
+                            </p>
+                        </div>
+
+                        <div class="mt-6 lg:mt-auto">
+                            <a href="#" title=""
+                                class="pb-2 text-sm font-medium text-gray-900 transition-all duration-200 border-b border-gray-900">
+                                Contact support
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7 ">
+                        <div class="flow-root">
+                            <div x-data="{ active: 1 }" class="-my-4 divide-y divide-gray-900">
+                                <div x-data="{ id: 1, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900 ">
+                                            <span class="flex-1 shadow-md">Who is Glacier? </span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+                                            Glacier is a climate startup from Austria with the vision to bring Climate
+                                            Action into the DNA of every company. Through empowerment & education of
+                                            employees in various formats, such as a Climate Academy and a Climate Action
+                                            Day, Climate Action in companies is made simple, understandable and
+                                            concrete.
+                                            <br />
+                                            With Glacier's support, employees can not only drive climate action in their
+                                            company and make an immediate impact, but also connect with others facing
+                                            the same big challenges and share best practices and experiences, creating a
+                                            global community for Climate Action.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div x-data="{ id: 2, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1"> What does Glacier offer? </span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+                                            Glacier offers companies two programs to raise awareness, climate knowledge
+                                            and climate competencies of their employees.
+                                            <br>
+                                            <ul class="list-disc">
+                                                <li>
+                                                    The Glacier Climate Academy equips your employees with the necessary
+                                                    attitude, knowledge and skills to navigate humanities biggest
+                                                    challenge: climate change. Our modular and customizable learning
+                                                    paths range from climate essentials for the entire workforce to job
+                                                    and industry-specific deep dives offering advanced knowleadge and
+                                                    skills.
+                                                </li>
+                                                <li>
+                                                    The Glacier Climate Action Day is an annual action day that takes
+                                                    place in hundreds of companies at the same time. Glacier provides an
+                                                    online live stream with international top speakers, as well as a
+                                                    selection of modules (workshops & activities). Companies, together
+                                                    with their employees, watch the livestream, do workshops and set
+                                                    climate actions. Glacier supports the preparation of a customized
+                                                    agenda.
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div x-data="{ id: 3, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1"> Who can use the Glacier offer? </span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+                                            Our offer is primarily aimed at companies. A participation in the Glacier
+                                            Climate Action Day is usually organized by companies. The same applies to
+                                            the Glacier Climate Academy, where companies provide their employees with
+                                            further training.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+
+2
+
+       -->
+    <section style=" margin-top: -30px;" class="py-12 bg-gray-50 sm:py-5 lg:py-10">
+        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+                    <div class="flex flex-col justify-between lg:col-span-5">
+                        <div class="lg:max-w-sm">
+                            <h2 class="text-3xl font-bold text-gray-900">
+                                Glacier Climate Academy
+                            </h2>
+                            <p class="mt-4 text-base font-medium text-gray-500">
+
+                            </p>
+                        </div>
+
+                        <div class="mt-6 lg:mt-auto">
+                            <a href="#" title=""
+                                class="pb-2 text-sm font-medium text-gray-900 transition-all duration-200 border-b border-gray-900">
+
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7">
+                        <div class="flow-root">
+                            <div class="-my-4 divide-y divide-gray-900">
+                                <div x-data="{ id: 1, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1">What is the Glacier Climate Academy? </span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+                                            The Glacier Climate Academy supports your company in overcoming the climate
+                                            crisis and achieving your climate protection and sustainability goals. We
+                                            provide your employees with the necessary awareness, knowledge and critical
+                                            skills to directly implement climate-action steps in the company. Our
+                                            modular and customizable learning paths range from climate essentials for
+                                            the entire workforce to job and industry-specific deep dives offering
+                                            advanced knowleadge and skills.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div x-data="{ id: 2, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1"> For whom is the Glacier Climate Academy?</span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+                                            The Glacier Climate Academy provides climate education for your entire
+                                            workforce. We offer basic climate action knowledge for the entire workforce
+                                            as well as industry, department and topic-specific trainings for selected
+                                            audiences such as HR, marketing, finance, management and many more.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div x-data="{ id: 3, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1">How can my company join the Glacier Climate
+                                                Academy?</span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+                                            Write to us via this contact form and we will get back to you shortly with
+                                            all the relevant details.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+
+3
+       -->
+    <section class="py-12 bg-gray-50 sm:py-5 lg:py-10">
+        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+                    <div class="flex flex-col justify-between lg:col-span-5">
+                        <div class="lg:max-w-sm">
+                            <h2 class="text-3xl font-bold text-gray-900">
+                                Accessing Your Course(s)
+                            </h2>
+                            <p class="mt-4 text-base font-medium text-gray-500">
+
+                            </p>
+                        </div>
+
+                        <div class="mt-6 lg:mt-auto">
+                            <a href="#" title=""
+                                class="pb-2 text-sm font-medium text-gray-900 transition-all duration-200 border-b border-gray-900">
+
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7">
+                        <div class="flow-root">
+                            <div class="-my-4 divide-y divide-gray-900">
+                                <div x-data="{ id: 1, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1">Do I have to be online at a specific time? </span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+                                            Your online courses are available around the clock, which means that you can
+                                            sign in at any time, day or night, and take your course.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div x-data="{ id: 2, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1"> I purchased a subscription. How do I access my course
+                                                or courses?</span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+                                            If you are not logged in, click “Sign In” from the top right of your
+                                            browser. Once you log in you will be redirected to your dashboard. From here
+                                            you can see all available courses. Start any course you have access to and
+                                            it will be added to the “My Courses” section. From here you can resume the
+                                            course at any time.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div x-data="{ id: 3, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1">Can I take more than one course at a time?</span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+                                            There is no limit to the number of courses that can be taken at any given
+                                            time.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div x-data="{ id: 4, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1">How do I access my course or courses?</span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+                                            If you are not logged in, click “Sign In” from the top right of your
+                                            browser. Once you login you will be redirected to your dashboard. From here
+                                            you will see a list of courses you have access to. You can start a new
+                                            course or resume a course you have already started.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div x-data="{ id: 5, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1">I already purchased a course. How do I sign-in?</span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+                                            Click on the “Sign in” link in the top right corner of the browser. Enter
+                                            your email address and password to login. If you forgot your password, click
+                                            on "Forgot your password" in the log in area.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 
+
+4
+       -->
+    <section class="py-12 bg-gray-50 sm:py-16 lg:py-20">
+        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+                    <div class="flex flex-col justify-between lg:col-span-5">
+                        <div class="lg:max-w-sm">
+                            <h2 class="text-3xl font-bold text-gray-900">
+                                Supported Browsers, Devices & Technology
+                            </h2>
+                            <p class="mt-4 text-base font-medium text-gray-500">
+
+                            </p>
+                        </div>
+
+                        <div class="mt-6 lg:mt-auto">
+                            <a href="#" title=""
+                                class="pb-2 text-sm font-medium text-gray-900 transition-all duration-200 border-b border-gray-900">
+
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7">
+                        <div class="flow-root">
+                            <div class="-my-4 divide-y divide-gray-900">
+                                <div x-data="{ id: 1, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1">Can I take the course on my iPhone or smartphone?
+                                            </span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+                                            Yes, our school is fully HTML5 compatible which means you can experience the
+                                            course on your smartphone.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div x-data="{ id: 2, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1"> What browsers are supported?</span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+
+                                            <b>Web Browsers</b>
+                                            <br>
+                                            We support the current and the previous major release of Chrome, Firefox,
+                                            Safari, and Microsoft browsers. This currently includes Microsoft Edge and
+                                            Internet Explorer. Each time a new browser version is released, we begin
+                                            supporting that version and stop supporting the third most recent version.
+                                            <br>
+                                            <b>Mobile Browsers</b>
+                                            <ul class="list-disc">
+                                                <li>
+                                                    Current and previous Android versions
+                                                </li>
+                                                <li>
+                                                    Current and previous iOS versions
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div x-data="{ id: 3, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1">Is internet access required?</span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+                                            Yes, an internet connection is required to log in and view your online
+                                            course. All courses offer a range of multimedia features, and we recommend
+                                            that you have a good broadband or network connection for the optimal
+                                            experience.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div x-data="{ id: 4, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1">Can I take the courses on my iPad or tablet?</span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+                                            Our school was built to work on all iPads and tablets. Layouts, scrolling or
+                                            displays may vary depending on the device you have.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+
+5
+       -->
+    <section class="py-12 bg-gray-50 sm:py-16 lg:py-20">
+        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+                    <div class="flex flex-col justify-between lg:col-span-5">
+                        <div class="lg:max-w-sm">
+                            <h2 class="text-3xl font-bold text-gray-900">
+                                Getting Started
+                            </h2>
+                            <p class="mt-4 text-base font-medium text-gray-500">
+
+                            </p>
+                        </div>
+
+                        <div class="mt-6 lg:mt-auto">
+                            <a href="#" title=""
+                                class="pb-2 text-sm font-medium text-gray-900 transition-all duration-200 border-b border-gray-900">
+
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7">
+                        <div class="flow-root">
+                            <div class="-my-4 divide-y divide-gray-900">
+                                <div x-data="{ id: 1, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1">How do I sign-in/login? </span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+                                            Click on the “Sign in” link in the top right corner of the browser. Enter
+                                            your email address and password to login. If you forgot your password, click
+                                            on "Forgot your password" in the log in area.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div x-data="{ id: 2, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1"> How do I navigate inside the course?</span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+
+                                            <b>​​There are two forms of navigation in each course:​</b>
+                                            <br>
+                                            <ul class="list-disc">
+                                                <li>
+                                                    Lessons: Every course has a menu/utility bar situated to the left of
+                                                    the content area. Click it to hide or expand the course content and
+                                                    utilities. In the content area, you can navigate to parts of the
+                                                    course and can view your progress.
+                                                </li>
+                                                <li>
+                                                    Next and previous buttons: Each course has “Next” and “Previous”
+                                                    buttons situated just above the content area. Each button will allow
+                                                    you to move forward and backward through the course pages.
+                                                </li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+
+6
+       -->
+    <section class="py-12 bg-gray-50 sm:py-16 lg:py-20">
+        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+                    <div class="flex flex-col justify-between lg:col-span-5">
+                        <div class="lg:max-w-sm">
+                            <h2 class="text-3xl font-bold text-gray-900">
+                                Manage My Account
+                            </h2>
+                            <p class="mt-4 text-base font-medium text-gray-500">
+
+                            </p>
+                        </div>
+
+                        <div class="mt-6 lg:mt-auto">
+                            <a href="#" title=""
+                                class="pb-2 text-sm font-medium text-gray-900 transition-all duration-200 border-b border-gray-900">
+
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7">
+                        <div class="flow-root">
+                            <div class="-my-4 divide-y divide-gray-900">
+                                <div x-data="{ id: 1, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1">I forgot my password. How do I retrieve it?</span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+                                            There is a link on all sign-in forms to help you recover your password. Just
+                                            choose "Sign In" in the top right corner of the browser, click the "forgot
+                                            password?" button, and follow the on-screen instructions. You will then
+                                            receive an email with further instructions to reset your password.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div x-data="{ id: 2, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1">I would like to update my email address.</span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+                                            From your dashboard (once you're signed in), click to expand the droplist in
+                                            the upper right corner next to your name. Click on Account and you'll be
+                                            taken to an account management page. Enter your current password, the new
+                                            email address that you would like associated with your account, and click
+                                            Update. You will then use this new email address for future log ins.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div x-data="{ id: 3, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1">I would like to update my credit card on file.</span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+                                            From your dashboard (once you're signed in), click to expand the droplist in
+                                            the upper right corner next to your name. Click on Account and you'll be
+                                            taken to an account management page. Enter the new credit card details that
+                                            should be associated with your account and click Update Credit Card. This
+                                            info will be used for subscription renewals in the future.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div x-data="{ id: 4, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1">I would like to change my password.</span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+                                            From your dashboard (once you're signed in), click to expand the droplist in
+                                            the upper right corner next to your name. Click on Account and you'll be
+                                            taken to an account management page. Use the Click Here to Change Your
+                                            Password button, enter your current password, and enter/confirm your new
+                                            password. Click Change Password. You will then use this new password for
+                                            future log ins.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 
+
+7
+       -->
+    <section class="py-12 bg-gray-50 sm:py-16 lg:py-20">
+        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+                    <div class="flex flex-col justify-between lg:col-span-5">
+                        <div class="lg:max-w-sm">
+                            <h2 class="text-3xl font-bold text-gray-900">
+                                Course Questions
+                            </h2>
+                            <p class="mt-4 text-base font-medium text-gray-500">
+
+                            </p>
+                        </div>
+
+                        <div class="mt-6 lg:mt-auto">
+                            <a href="#" title=""
+                                class="pb-2 text-sm font-medium text-gray-900 transition-all duration-200 border-b border-gray-900">
+
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7">
+                        <div class="flow-root">
+                            <div class="-my-4 divide-y divide-gray-900">
+                                <div x-data="{ id: 1, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1">How do I contact the instructor?</span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+                                            Some courses provide a quick link to contact an instructor. For those
+                                            courses with an instructor assigned, click the "Ask Question" link in the
+                                            left sidebar of your course. Then, complete the fields to send a question or
+                                            comment to your instructor via email.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div x-data="{ id: 2, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1">How do I access or download course materials?</span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+                                            Some courses include a Resources > Files utility within the left sidebar of
+                                            the course that includes downloadable files. This is where you can access
+                                            and download any documents made available by the course author.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div x-data="{ id: 3, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1">Where can I find the class discussion board?</span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+                                            Some courses include an online discussion forum, which are located below the
+                                            content in the learner view of a course. To participate in a discussion
+                                            thread, select the general section or one related to your particular topic.
+                                            Then, click Start a new Discussion to post your thread or locate an existing
+                                            thread to add a comment.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div x-data="{ id: 4, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1">Can I take notes in my course?</span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+                                            There is a "Notes" utility available in every course, which can be found in
+                                            the left menu of the course. You are free to save notes along the way which
+                                            you can access for as long as you have access to the course.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 
+
+8
+       -->
+    <section class="py-12 bg-gray-50 sm:py-16 lg:py-20">
+        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+                    <div class="flex flex-col justify-between lg:col-span-5">
+                        <div class="lg:max-w-sm">
+                            <h2 class="text-3xl font-bold text-gray-900">
+                                Payments and Cancellations
+                            </h2>
+                            <p class="mt-4 text-base font-medium text-gray-500">
+
+                            </p>
+                        </div>
+
+                        <div class="mt-6 lg:mt-auto">
+                            <a href="#" title=""
+                                class="pb-2 text-sm font-medium text-gray-900 transition-all duration-200 border-b border-gray-900">
+
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7">
+                        <div class="flow-root">
+                            <div class="-my-4 divide-y divide-gray-900">
+                                <div x-data="{ id: 1, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1">How do I cancel a course?</span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+                                            Please contact customer service for more information about canceling a
+                                            course.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div x-data="{ id: 2, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1">What forms of payment do you accept?</span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+                                            We accept all major credit cards.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div x-data="{ id: 3, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1">International Orders</span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+                                            All credit card transactions are charged in the currency displayed on the
+                                            site.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div x-data="{ id: 4, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1">Expired Credit Cards</span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+                                            Credit cards can become inactive for a number of reasons, including card
+                                            expiration, inactivation, etc. If you are aware that the credit card we have
+                                            on file is out of date or no longer valid please update your credit card
+                                            details. To update, sign in and click Account from your dashboard so you're
+                                            redirected to the account management page. From here you can enter your new
+                                            credit card information. Be sure to save!
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 
+
+9
+       -->
+    <section class="py-12 bg-gray-50 sm:py-16 lg:py-20">
+        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+                    <div class="flex flex-col justify-between lg:col-span-5">
+                        <div class="lg:max-w-sm">
+                            <h2 class="text-3xl font-bold text-gray-900">
+                                Audio and Video
+                            </h2>
+                            <p class="mt-4 text-base font-medium text-gray-500">
+
+                            </p>
+                        </div>
+
+                        <div class="mt-6 lg:mt-auto">
+                            <a href="#" title=""
+                                class="pb-2 text-sm font-medium text-gray-900 transition-all duration-200 border-b border-gray-900">
+
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7">
+                        <div class="flow-root">
+                            <div class="-my-4 divide-y divide-gray-900">
+                                <div x-data="{ id: 1, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1">Troubleshooting audio issues</span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+                                            We recommend when having problems with audio to check your internet
+                                            connection, reset your internet connection if necessary, clear your cache,
+                                            and update your browser or try another browser. Additionally, check your
+                                            speaker/headphone connection and your audio system preferences.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div x-data="{ id: 2, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                                    role="region" class="py-6">
+                                    <h3>
+                                        <button @click="expanded = !expanded" :aria-expanded="expanded"
+                                            class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left text-gray-900">
+                                            <span class="flex-1">Troubleshooting video issues</span>
+                                            <span x-show="expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span x-show="!expanded" aria-hidden="true">
+                                                <!-- prettier-ignore -->
+                                                <svg class="w-5 h-5 text-gray-900" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </h3>
+
+                                    <div x-show="expanded" x-collapse>
+                                        <div class="py-4 text-xs font-medium text-gray-900">
+
+                                            We recommend when having problems viewing a video to check your internet
+                                            connection, reset your internet connection if necessary, clear your cache,
+                                            and update your browser or try another browser.
+                                            <br>
+                                            More info here:
+                                            <a
+                                                href="https://wistia.com/support/embed-and-share/playback-troubleshooting">https://wistia.com/support/embed-and-share/playback-troubleshooting</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</body>
+
+</html>
