@@ -2,7 +2,19 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        glacier: {
+          green: '#6dd4ad',
+          greenDark: '#2d9d90',
+          blue: '#539adb',
+          blueDark: '#143560'
+        }
+      },
+      fontFamily: {
+        pangea: ['Pangea']
+      }
+    }
   },
   plugins: [],
 }
