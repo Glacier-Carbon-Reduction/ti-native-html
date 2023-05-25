@@ -1,19 +1,26 @@
-var a=document.getElementsByClassName('small-10 columns');
-var newDiv = document.createElement('div');
-newDiv.innerHTML="support";
-a[0].appendChild(newDiv);
-newDiv.style.float = 'left';
-newDiv.style.position = 'absolute';
-newDiv.style.top = '50%';
-newDiv.style.left = '40%';
-newDiv.style.transform = 'translate(-50%, -50%)';
-newDiv.style.fontSize = "14px";
+var sa = document.createElement('a');
+sa.innerHTML = "Support"
+sa.href = "/support"
+var sd = document.createElement('div');
+sd.appendChild(sa)
+sd.className="dashboard-header__name"
+var sdd = document.createElement('div');
+sdd.className = "small-3 columns"
+sdd.appendChild(sd)
 
-var newDiv1 = document.createElement('div');
-newDiv1.innerHTML="Dashboard";
-a[0].appendChild(newDiv1);
-newDiv1.style.position = 'absolute';
-newDiv1.style.top = '70%';
-newDiv1.style.left = '15%';
-newDiv1.style.transform = 'translate(-50%, -50%)';
-newDiv1.style.fontSize = "14px";
+var da = document.createElement('a');
+da.innerHTML = "Dashboard"
+da.href = "/support"
+var dd = document.createElement('div');
+dd.appendChild(da)
+dd.className="dashboard-header__name"
+var ddd = document.createElement('div');
+ddd.className = "small-3 columns"
+ddd.appendChild(dd)
+
+var div1=document.getElementsByClassName('small-10 columns');
+div1[0].classList.replace("small-10", "small-4")
+
+var app = document.getElementsByClassName("row collapse")
+app[0].appendChild(sdd)
+app[0].appendChild(ddd)
