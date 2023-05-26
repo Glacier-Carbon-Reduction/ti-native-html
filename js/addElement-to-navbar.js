@@ -4,7 +4,7 @@ function updateHeaderLinks(mainGroup){
     spacer.innerHTML = `&nbsp`
   
     var dashboardLink = document.createElement('div')
-    dashboardLink.className = 'small-3 columns'
+    dashboardLink.className = 'small-4 column refresh-validator'
     dashboardLink.innerHTML = `
     <div class="dashboard-header__name" style="padding-top: 6.3px;">
       <a href="/learn/dashboard" style="display: flex; align-items: center; text-decoration: none;">
@@ -17,7 +17,7 @@ function updateHeaderLinks(mainGroup){
   `
   
     var supportLink = document.createElement('div')
-    supportLink.className = 'small-3 columns'
+    supportLink.className = 'small-4 column refresh-validator'
     supportLink.innerHTML = `
     <div class="dashboard-header__name" style="padding-top: 8.2px;">
       <a href="/support" style="display: flex; align-items: center; text-decoration: none;">

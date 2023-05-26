@@ -685,6 +685,84 @@ width: 100%;
 }
 
 /*
+# Course Consumption Page
+*/
+
+.course__container .topic__contained__sidebar {
+    display: none;
+}
+
+.course__container .topic__contained__content {
+    width: 100% !important;
+}
+
+.course__container .layout-panel {
+    background: transparent;
+}
+
+.course__container .discussion-threads {
+    background: white;
+    margin-top: 2rem;
+    border-radius: 20px;
+}
+
+.course__container .discussion-threads .discussion-card {
+    box-shadow: 4px 4px 30px 5px #a5a5a552;
+    border: none;
+}
+
+.course__container .discussion-threads div:nth-child(7) {
+    margin-top: 2rem;
+}
+
+.course__container .expandable-sidebar__toggle {
+    background-color: transparent;
+    color: #143560;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    text-transform: capitalize;
+}
+
+.course__container .expandable-sidebar__buttons {
+    display: none;
+}
+
+.course__container .btn, .btn--primary, directional__nav__button {
+    background-color: #6DD4AD;
+    color: #143560;
+    border-radius: 20px;
+    border: none;
+}
+
+.course__container .tabs, .tabs .tab-title>a.active {
+    background-color: #6DD4AD;
+    color: #143560;
+    padding: 0 1rem;
+    border-radius: 10px;
+    border: none;
+}
+
+.course__container .directional__nav__label {
+    visibility: visible;
+}
+
+.course__container .directional__nav__button__container a div {
+    background-color: #6DD4AD;
+    color: #143560 !important;
+    border-radius: 20px;
+    border: none;
+    padding: 0.3rem 1.2rem;
+}
+
+.course__container .directional__nav__button__container .directional__nav__button {
+    display: none;
+}
+
+.course__container .learner__content .directional__nav {
+    display: none;
+}
+
+/*
 ! Native glacier.eco website CSS
 */
 
