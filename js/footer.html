@@ -1,50 +1,50 @@
 <script>
   // Following code is expected to run with functions imported from Custom Code in header
   document.addEventListener('DOMContentLoaded', async function () {
-      // update sign-in page layout
-      if (
-          window.location.href.includes('/learn/sign_in') ||
-          window.location.href.includes('/learn/sign_out') ||
-          window.location.href.includes('/learn/forgot')
-      ) {
-          updateSignInPageLayout()
-      }
+    // update sign-in page layout
+    if (
+      window.location.href.includes('/learn/sign_in') ||
+      window.location.href.includes('/learn/sign_out') ||
+      window.location.href.includes('/learn/forgot')
+    ) {
+      updateSignInPageLayout()
+    }
 
-      await new Promise((resolve) => setTimeout(resolve, 1000))
+    await new Promise((resolve) => setTimeout(resolve, 1000))
 
-      //update course page layouts
-      if (window.location.href.includes('/learn/course/')) {
-          updateCoursePageHeader()
-          removeVideoSidebar()
-          removeTopNavigationButtons()
-      }
-
-      // Applying username to dashboard title
-      userNameReplacer()
-
-      // Applying custom header icons
-      var mainGroup = document.querySelector('.header__inner .small-12')
-      if (mainGroup) {
-          updateHeaderLinks(mainGroup)
-      }
-  })
-
-  //back-up
-  await new Promise((resolve) => setTimeout(resolve, 5000))
-
-  //update course page layouts
-  if (window.location.href.includes('/learn/course/')) {
+    //update course page layouts
+    if (window.location.href.includes('/learn/course/')) {
       updateCoursePageHeader()
       removeVideoSidebar()
       removeTopNavigationButtons()
-  }
+    }
 
-  // Applying username to dashboard title
-  userNameReplacer()
+    // Applying username to dashboard title
+    userNameReplacer()
 
-  // Applying custom header icons
-  var mainGroup = document.querySelector('.header__inner .small-12')
-  if (mainGroup) {
+    // Applying custom header icons
+    var mainGroup = document.querySelector('.header__inner .small-12')
+    if (mainGroup) {
       updateHeaderLinks(mainGroup)
-  }
+    }
+
+    //back-up
+    await new Promise((resolve) => setTimeout(resolve, 5000))
+
+    //update course page layouts
+    if (window.location.href.includes('/learn/course/')) {
+      updateCoursePageHeader()
+      removeVideoSidebar()
+      removeTopNavigationButtons()
+    }
+
+    // Applying username to dashboard title
+    userNameReplacer()
+
+    // Applying custom header icons
+    var mainGroup = document.querySelector('.header__inner .small-12')
+    if (mainGroup) {
+      updateHeaderLinks(mainGroup)
+    }
+  })
 </script>
