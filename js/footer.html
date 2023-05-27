@@ -1,6 +1,11 @@
 <script>
-  // Following code is expected to run with functions imported from Custom Code in header
-  document.addEventListener('DOMContentLoaded', async function () {
+  /**
+   *
+   *Following code is expected to run with functions imported from Custom Code in header
+   *
+   */
+
+  async function handleCustomCodeSequence() {
     // update sign-in page layout
     if (
       window.location.href.includes('/learn/sign_in') ||
@@ -8,6 +13,7 @@
       window.location.href.includes('/learn/forgot')
     ) {
       updateSignInPageLayout()
+      updateSignInToLogin()
     }
 
     await new Promise((resolve) => setTimeout(resolve, 1000))
@@ -19,32 +25,44 @@
       removeTopNavigationButtons()
     }
 
-    // Applying username to dashboard title
-    userNameReplacer()
+    var refreshValidator = document.querySelectorAll('.refresh-validator')
+    if (!(refreshValidator.length > 0)) {
+      // Applying username to dashboard title
+      userNameReplacer()
 
-    // Applying custom header icons
-    var mainGroup = document.querySelector('.header__inner .small-12')
-    if (mainGroup) {
-      updateHeaderLinks(mainGroup)
+      // Applying custom header icons
+      var mainGroup = document.querySelector('.header__inner .small-12')
+      if (mainGroup) {
+        updateHeaderLinks(mainGroup)
+      }
     }
+  }
 
-    //back-up
-    await new Promise((resolve) => setTimeout(resolve, 5000))
+  /**
+   *
+   * Event Handlers to trigger custom functions
+   *
+   */
 
-    //update course page layouts
-    if (window.location.href.includes('/learn/course/')) {
-      updateCoursePageHeader()
-      removeVideoSidebar()
-      removeTopNavigationButtons()
-    }
+  let currentUrl = location.href
+  const checkPageTransition = (event) => {
+    console.log("Trigger A");
+    requestAnimationFrame(async () => {
+        console.log("Trigger B");
+      if (currentUrl !== location.href) {
+        console.log(`url changed with ${event}`)
+        handleCustomCodeSequence()
+      }
+      currentUrl = location.href
+    }, true)
+  }
 
-    // Applying username to dashboard title
-    userNameReplacer()
+  document.addEventListener('DOMContentLoaded', async function () {
+    await handleCustomCodeSequence()
+  })
 
-    // Applying custom header icons
-    var mainGroup = document.querySelector('.header__inner .small-12')
-    if (mainGroup) {
-      updateHeaderLinks(mainGroup)
-    }
+  document.body.addEventListener('click', () => checkPageTransition('click'))
+  document.body.addEventListener('keyup', (e) => {
+    if (e.code === 'Enter') checkPageTransition('enter')
   })
 </script>

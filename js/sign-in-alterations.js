@@ -56,4 +56,18 @@ function updateSignInPageLayout() {
   pageContainer.appendChild(footerContainer)
 }
 
+function updateSignInToLogin() {
+  var form = document.querySelector('.session .row form')
+  var h2 = form.querySelector('h2')
+  if (h2.innerText == 'Sign In') {
+    h2.innerText = 'Login'
+  }
+
+  var button = form.querySelector('input[type="submit"]')
+  if (button.value == 'Sign In') {
+    button.value = 'Login'
+  }
+}
+
 updateSignInPageLayout()
+updateSignInToLogin()

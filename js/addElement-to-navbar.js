@@ -1,11 +1,11 @@
-function updateHeaderLinks(mainGroup){
-    var spacer = document.createElement('div')
-    spacer.className = 'small-1 columns'
-    spacer.innerHTML = `&nbsp`
-  
-    var dashboardLink = document.createElement('div')
-    dashboardLink.className = 'small-4 column refresh-validator'
-    dashboardLink.innerHTML = `
+function updateHeaderLinks(mainGroup) {
+  var spacer = document.createElement('div')
+  spacer.className = 'small-1 columns'
+  spacer.innerHTML = `&nbsp`
+
+  var dashboardLink = document.createElement('div')
+  dashboardLink.className = 'small-4 column refresh-validator'
+  dashboardLink.innerHTML = `
     <div class="dashboard-header__name" style="padding-top: 6.3px;">
       <a href="/learn/dashboard" style="display: flex; align-items: center; text-decoration: none;">
           <svg width="36" height="36" viewBox="0 0 46 49" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -15,10 +15,10 @@ function updateHeaderLinks(mainGroup){
       </a>
     </div>
   `
-  
-    var supportLink = document.createElement('div')
-    supportLink.className = 'small-4 column refresh-validator'
-    supportLink.innerHTML = `
+
+  var supportLink = document.createElement('div')
+  supportLink.className = 'small-4 column refresh-validator'
+  supportLink.innerHTML = `
     <div class="dashboard-header__name" style="padding-top: 8.2px;">
       <a href="/support" style="display: flex; align-items: center; text-decoration: none;">
           <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,18 +28,32 @@ function updateHeaderLinks(mainGroup){
       </a>
     </div>
   `
-  
-    var userProfile = document.getElementsByClassName('small-10 columns')
-    userProfile[0].classList.replace('small-10', 'small-3')
-  
-    var parentElement = mainGroup[0].parentNode
-    parentElement.insertBefore(spacer, mainGroup[0])
-    parentElement.insertBefore(dashboardLink, mainGroup[0])
-    parentElement.insertBefore(supportLink, mainGroup[0])
+
+  var userProfile = document.getElementsByClassName('small-10 columns')
+  userProfile[0].classList.replace('small-10', 'small-3')
+
+  var parentElement = mainGroup[0].parentNode
+  parentElement.insertBefore(spacer, mainGroup[0])
+  parentElement.insertBefore(dashboardLink, mainGroup[0])
+  parentElement.insertBefore(supportLink, mainGroup[0])
+}
+
+function makeLogoClickable() {
+  var logoElement = document.querySelector(
+    '.header--dashboard .company__beta-logo'
+  )
+  logoElement.addEventListener('click', function () {
+    if (window.location.href.includes('/learn/')) {
+      window.location.href = '/learn/dashboard'
+    } else {
+      window.location.href = '/'
+    }
+  })
+  logoElement.style.cursor = 'pointer'
 }
 
 var mainGroup = document.getElementsByClassName('row collapse')
 
 if (mainGroup) {
-    updateHeaderLinks(mainGroup)
+  updateHeaderLinks(mainGroup)
 }
