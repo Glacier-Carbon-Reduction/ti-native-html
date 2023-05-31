@@ -1,11 +1,14 @@
 <script>
   /**
-   *
    *Following code is expected to run with functions imported from Custom Code in header
-   *
    */
 
   async function handleCustomCodeSequence() {
+    var refreshValidator = document.querySelector('.refresh-validator')
+    if (refreshValidator) {
+      return
+    }
+
     // update sign-in page layout
     if (
       window.location.href.includes('/learn/sign_in') ||
@@ -14,55 +17,34 @@
     ) {
       updateSignInPageLayout()
       updateSignInToLogin()
-    }
+    } else {
+      // Applying custom header icons
+      await updatePageHeader()
 
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+      //update course page layouts
+      if (window.location.href.includes('/learn/course/')) {
+        removeVideoSidebar()
+        removeTopNavigationButtons()
+      }
 
-    //update course page layouts
-    if (window.location.href.includes('/learn/course/')) {
-      updateCoursePageHeader()
-      removeVideoSidebar()
-      removeTopNavigationButtons()
-    }
-
-    var refreshValidator = document.querySelectorAll('.refresh-validator')
-    if (!(refreshValidator.length > 0)) {
       // Applying username to dashboard title
       userNameReplacer()
-
-      // Applying custom header icons
-      var mainGroup = document.querySelector('.header__inner .small-12')
-      if (mainGroup) {
-        updateHeaderLinks(mainGroup)
-      }
     }
   }
 
   /**
-   *
    * Event Handlers to trigger custom functions
-   *
    */
-
-  let currentUrl = location.href
-  const checkPageTransition = (event) => {
-    console.log("Trigger A");
-    requestAnimationFrame(async () => {
-        console.log("Trigger B");
-      if (currentUrl !== location.href) {
-        console.log(`url changed with ${event}`)
-        handleCustomCodeSequence()
-      }
-      currentUrl = location.href
-    }, true)
-  }
 
   document.addEventListener('DOMContentLoaded', async function () {
     await handleCustomCodeSequence()
   })
 
-  document.body.addEventListener('click', () => checkPageTransition('click'))
-  document.body.addEventListener('keyup', (e) => {
-    if (e.code === 'Enter') checkPageTransition('enter')
-  })
+  // run every second
+  var savedUser = localStorage.getItem('userName')
+  var timer = savedUser ? 500 : 2000
+  document.body.addEventListener('click', () => (counter = 0))
+  const interval = setInterval(async () => {
+    await handleCustomCodeSequence()
+  }, timer)
 </script>
