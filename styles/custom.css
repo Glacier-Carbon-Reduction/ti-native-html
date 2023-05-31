@@ -300,6 +300,10 @@ button,
 }
 
 .custom-catalog-library .catalog-header {
+    display: none !important;
+}
+
+.custom-catalog-library .catalog-header {
     margin-bottom: 2rem;
 }
 
