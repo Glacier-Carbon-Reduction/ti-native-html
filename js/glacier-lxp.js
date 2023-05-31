@@ -28,7 +28,10 @@ function userNameReplacer() {
     return
   }
 
-  titleElement.innerHTML = 'Hi ' + userName.split(' ')[0] + '!'
+  titleElement.innerHTML = 'Glacier Climate Academy' + userName.split(' ')[0] + '!'
+  titleElement.style.marginTop = "20px" 
+  titleElement.style.width = "[-5px]"
+
 }
 
 function makeLogoClickable() {
@@ -185,6 +188,7 @@ async function updatePageHeader() {
     extraClass = 'support'
   }
 
+
   var newHeader = document.createElement('header')
   newHeader.className = 'pb-5 pt-5 bg-glacier-darkblue-600 refresh-validator'
   newHeader.innerHTML = `
@@ -194,7 +198,7 @@ async function updatePageHeader() {
       style="font-weight: lighter !important"
     >
       <div class="flex-shrink-0">
-        <a href="/" title="Glacier Home" class="flex">
+        <a href="${userAuth ? '/learn/dashboard' : '/learn/home'}" title="Glacier Home" class="flex">
           <img
             class="w-auto h-16 lg:h-20"
             src="https://glacier-projects.vercel.app/img/brand/logos/03_glacier_climate_academy/glacier_logo_climateacademy_1C_white.png"
@@ -207,7 +211,7 @@ async function updatePageHeader() {
         <a
           href="${userAuth ? '/learn/dashboard' : '/learn/sign_in'}"
           title="${userAuth ? 'Dashboard' : 'Sign In'}"
-          class="hidden lg:inline-flex text-base flex items-center font-medium text-white transition-all duration-200 hover-text-glacier-darkgreen-400 gap-3"
+          class="hidden lg:inline-flex text-base flex items-center font-medium text-white transition-all duration-200 hover-text-glacier-darkgreen-400 gap-3 ${ extraClass === 'dashboard' ? 'font-semibold' : ''}"
         >
           <svg
             width="36"
@@ -231,12 +235,12 @@ async function updatePageHeader() {
         <a
           href="/support"
           title="Help Page"
-          class="hidden lg:inline-flex text-base flex items-center font-medium text-white transition-all duration-200 hover-text-glacier-darkgreen-400 gap-3"
+          class="hidden lg:inline-flex text-base flex items-center font-medium text-white transition-all duration-200 hover-text-glacier-darkgreen-400 gap-3 ${ extraClass === 'support' ? 'font-semibold' : ''}"
         >
           <svg
-            width="30"
-            height="30"
-            viewBox="0 0 40 40"
+            width="36"
+            height="36"
+            viewBox="0 0 50 50"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
