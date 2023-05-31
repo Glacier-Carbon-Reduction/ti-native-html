@@ -28,9 +28,10 @@ function userNameReplacer() {
     return
   }
 
-  titleElement.innerHTML = 'Glacier Climate Academy' + userName.split(' ')[0] + '!'
+  titleElement.innerHTML = 'Welcome ' + userName.split(' ')[0] + '!'
   titleElement.style.marginTop = "20px" 
   titleElement.style.width = "[-5px]"
+  titleElement.style.wordSpacing ="2px"
 
 }
 
@@ -198,7 +199,7 @@ async function updatePageHeader() {
       style="font-weight: lighter !important"
     >
       <div class="flex-shrink-0">
-        <a href="${userAuth ? '/learn/dashboard' : '/learn/home'}" title="Glacier Home" class="flex">
+        <a href="${userAuth ? '/learn/dashboard' : '/'}" title="Glacier Home" class="flex">
           <img
             class="w-auto h-16 lg:h-20"
             src="https://glacier-projects.vercel.app/img/brand/logos/03_glacier_climate_academy/glacier_logo_climateacademy_1C_white.png"
