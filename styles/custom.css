@@ -295,8 +295,50 @@ button,
     transform: translateX(-50%);
 } */
 
-.custom-catalog-library .catalog-search-bar {
+.custom-catalog-library .catalog-search-bar .catalog-filters {
+    border-radius: 10px;
+}
+
+.custom-catalog-library .catalog-search-bar .catalog-filters__search {
     display: none !important;
+}
+
+.custom-catalog-library .catalog-search-bar .catalog-display-type {
+    display: none !important;
+}
+
+.custom-catalog-library .catalog-search-bar .catalog-filters__selections {
+    width: 75%;
+    border: none;
+}
+
+.custom-catalog-library .catalog-search-bar .catalog-filters__sort {
+    width: 25%;
+    background: transparent;
+}
+
+.custom-catalog-library .catalog-search-bar .catalog-active-filter {
+    padding: 0.2em 0.8em;
+    margin: 0.4em 0.5em;
+    font-size: 1rem;
+    background-color: #cacaca8c;
+    border-radius: 5px;
+}
+
+.custom-catalog-library .catalog-search-bar select {
+    padding-left: 1rem !important;
+    border-radius: 6px;
+}
+
+@media (max-width: 767px) {
+
+    .custom-catalog-library .catalog-search-bar .catalog-filters__selections {
+        width: 50%;
+    }
+
+    .custom-catalog-library .catalog-search-bar .catalog-filters__sort {
+        width: 50%;
+    }
 }
 
 .custom-catalog-library .catalog-header {
