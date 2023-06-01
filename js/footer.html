@@ -29,6 +29,9 @@
 
       // Applying username to dashboard title
       userNameReplacer()
+      await new Promise((r) => setTimeout(r, 2000))
+      expandFirstModuleListItem()
+      updateCourseResumeAnchorTags()
     }
   }
 
@@ -43,7 +46,9 @@
   // run every second
   var savedUser = localStorage.getItem('userName')
   var timer = savedUser ? 500 : 2000
-  document.body.addEventListener('click', () => (counter = 0))
+  document.body.addEventListener('click', () => {
+    counter = 0
+  })
   const interval = setInterval(async () => {
     await handleCustomCodeSequence()
   }, timer)
