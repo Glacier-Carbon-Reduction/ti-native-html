@@ -1,7 +1,7 @@
 /**
  * General Utils
  */
-function getCookie(name, getValue) {
+function getCookie (name, getValue) {
   var cookies = document.cookie.split(';')
   for (var i = 0; i < cookies.length; i++) {
     var cookie = cookies[i].trim()
@@ -21,7 +21,7 @@ function getCookie(name, getValue) {
 /**
  * Dashboard Page
  */
-function userNameReplacer() {
+function userNameReplacer () {
   var userName = localStorage.getItem('userName')
   var titleElement = document.getElementById('custom-dashboard-title')
   if (!titleElement || !userName || userName == '') {
@@ -31,7 +31,7 @@ function userNameReplacer() {
   titleElement.innerHTML = 'Welcome ' + userName.split(' ')[0] + '!'
 }
 
-function makeLogoClickable() {
+function makeLogoClickable () {
   var logoElement = document.querySelector(
     '.header--dashboard .company__beta-logo'
   )
@@ -52,7 +52,7 @@ function makeLogoClickable() {
  * Sign in Page
  */
 
-function updateSignInPageLayout() {
+function updateSignInPageLayout () {
   var pageContainer = document.querySelector('.session')
   pageContainer.classList.add('refresh-validator')
   pageContainer.classList.add('min-h-screen')
@@ -111,7 +111,7 @@ function updateSignInPageLayout() {
   pageContainer.appendChild(footerContainer)
 }
 
-function updateSignInToLogin() {
+function updateSignInToLogin () {
   var form = document.querySelector('.session .row form')
   var h2 = form.querySelector('h2')
   if (h2.innerText == 'Sign In') {
@@ -128,7 +128,7 @@ function updateSignInToLogin() {
  * Course Consumption Page
  */
 
-function removeVideoSidebar() {
+function removeVideoSidebar () {
   var sidebarComponent = document.querySelector('.topic__contained__sidebar')
   if (sidebarComponent) {
     sidebarComponent.remove()
@@ -137,7 +137,7 @@ function removeVideoSidebar() {
   }
 }
 
-function removeTopNavigationButtons() {
+function removeTopNavigationButtons () {
   var elements = document.querySelectorAll(
     '.course__container .learner__content .directional__nav'
   )
@@ -149,7 +149,7 @@ function removeTopNavigationButtons() {
 /**
  * All Pages
  */
-async function updatePageHeader() {
+async function updatePageHeader () {
   var userAuth = getCookie('authTokenExpires')
   var mainGroup = document.querySelector('.container')
   if (window.location.href.includes('/learn/course/')) {
@@ -361,4 +361,17 @@ async function updatePageHeader() {
   `
 
   mainGroup.prepend(newHeader)
+}
+
+// Button CTA Text
+function changeButtonText () {
+  var buttons = document.getElementsByClassName(
+    'btn btn--link btn--right btn--primary'
+  )
+  for (var i = 0; i < buttons.length; i++) {
+    var buttonContent = buttons[i].innerHTML
+    var buttonText = buttons[i].textContent.trim()
+    var newButton = buttonContent.replace(buttonText, 'Learn More')
+    buttons[i].innerHTML = newButton
+  }
 }
