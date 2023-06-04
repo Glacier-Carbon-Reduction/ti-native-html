@@ -341,8 +341,8 @@ button,
     }
 }
 
-.custom-catalog-library .catalog-header {
-    display: none !important;
+.custom-catalog-library .catalog-header {    
+    visibility: hidden;
 }
 
 .custom-catalog-library .catalog-header {
@@ -776,6 +776,7 @@ input[type="password"]:focus {
 }
 
 .course__detail__container .btn--secondary {
+    display: none;
     --tw-bg-opacity: 1;
     background-color: rgb(51 129 201/var(--tw-bg-opacity));
     color: white;
@@ -856,6 +857,10 @@ input[type="password"]:focus {
 }
 
 .course__container .tools-tab {
+    display: none;
+}
+
+.course__container .expandable-sidebar__toggle:has(.icon-mail){
     display: none;
 }
 

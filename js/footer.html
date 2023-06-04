@@ -1,4 +1,8 @@
 <script>
+  var isSessionLayout =
+    window.location.href.includes('/learn/sign_in') ||
+    window.location.href.includes('/learn/sign_out') ||
+    window.location.href.includes('/learn/forgot')
   /**
    *Following code is expected to run with functions imported from Custom Code in header
    */
@@ -10,14 +14,10 @@
     }
 
     // update sign-in page layout
-    if (
-      window.location.href.includes('/learn/sign_in') ||
-      window.location.href.includes('/learn/sign_out') ||
-      window.location.href.includes('/learn/forgot')
-    ) {
+    if (isSessionLayout) {
+      checkIfEmailConfirmationVisit()
       updateSignInPageLayout()
-      updateSignInToLogin()
-    } else {
+    } else if (!window.location.href.includes('/learn/survey')) {
       // Applying custom header icons
       await updatePageHeader()
 
@@ -29,6 +29,7 @@
 
       // Applying username to dashboard title
       userNameReplacer()
+
       await new Promise((r) => setTimeout(r, 2000))
       expandFirstModuleListItem()
       updateCourseResumeAnchorTags()
@@ -39,17 +40,19 @@
    * Event Handlers to trigger custom functions
    */
 
-  document.addEventListener('DOMContentLoaded', async function () {
-    await handleCustomCodeSequence()
-  })
+  if (!window.location.href.includes('/learn/manager')) {
+    document.addEventListener('DOMContentLoaded', async function () {
+      await handleCustomCodeSequence()
+    })
 
-  // run every second
-  var savedUser = localStorage.getItem('userName')
-  var timer = savedUser ? 500 : 2000
-  document.body.addEventListener('click', () => {
-    counter = 0
-  })
-  const interval = setInterval(async () => {
-    await handleCustomCodeSequence()
-  }, timer)
+    // run every second
+    var savedUser = localStorage.getItem('userName')
+    var timer = savedUser || isSessionLayout ? 500 : 2000
+    document.body.addEventListener('click', () => {
+      counter = 0
+    })
+    const interval = setInterval(async () => {
+      await handleCustomCodeSequence()
+    }, timer)
+  }
 </script>
