@@ -2,6 +2,7 @@
   var isSessionLayout =
     window.location.href.includes('/learn/sign_in') ||
     window.location.href.includes('/learn/sign_out') ||
+    window.location.href.includes('/learn/reset_password') ||
     window.location.href.includes('/learn/forgot')
   /**
    *Following code is expected to run with functions imported from Custom Code in header
@@ -17,12 +18,15 @@
     if (isSessionLayout) {
       checkIfEmailConfirmationVisit()
       updateSignInPageLayout()
+      changeGermanTextsOnPref()
     } else if (!window.location.href.includes('/learn/survey')) {
       // Applying custom header icons
       await updatePageHeader()
 
       //update course page layouts
-      if (window.location.href.includes('/learn/course/')) {
+      if (window.location.href.includes('/redeem')) {
+        trackCodeRedemptions()
+      } else if (window.location.href.includes('/learn/course/')) {
         removeVideoSidebar()
         removeTopNavigationButtons()
       }
@@ -53,6 +57,7 @@
     })
     const interval = setInterval(async () => {
       await handleCustomCodeSequence()
+      openCertificatesInNewWindow()
     }, timer)
   }
 </script>
