@@ -1,0 +1,41 @@
+<script>
+  function loadCertificate() {
+    const queryString = window.location.search
+    const urlParams = new URLSearchParams(queryString)
+    var container = document.getElementById('certificate-container')
+    var certId = 'unknown'
+    if (urlParams.has('certId')) {
+      certId = urlParams.get('certId')
+    }
+    if (container) {
+      var iframe = document.createElement('iframe')
+      iframe.id = 'certificate-frame'
+      iframe.src = `https://glacier-projects.vercel.app/native/certificate/${certId}`
+      iframe.style.width = '100%'
+      iframe.height = '1000px'
+      iframe.style.border = 'none'
+      container.appendChild(iframe)
+    }
+  }
+
+  loadCertificate()
+</script>
+
+<!-- 
+    
+<div class="pt-16 pb-10">
+  <div
+    id="certificate-container"
+    class="px-4 mx-auto max-width-1200 sm:px-6 lg:px-8"
+  >
+    <iframe
+      src="http://localhost:3010/native/certification/c52a4f4b-9cb9-401a-b4d4-e8b9f9566bdb"
+      width="100%"
+      height="1000px"
+      title="description"
+      style="border: none"
+    />
+  </div>
+</div>
+
+ -->
