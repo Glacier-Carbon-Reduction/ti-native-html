@@ -1,0 +1,27 @@
+<script>
+  function loadCertificate() {
+    var sysLanguage = localStorage.getItem('sys_language')
+    var container = document.getElementById('certificate-suspense-container')
+    var learnerId = window.CONF.preload.currentUser.currentUser.id
+    if (learnerId && container) {
+      var iframe = document.createElement('iframe')
+      iframe.id = 'certificate-frame'
+      iframe.src = `https://glacier-projects.vercel.app/native/certificateSuspense/${learnerId}?lang=${sysLanguage}`
+      iframe.style.width = '100%'
+      iframe.style.height = '52rem'
+      iframe.style.border = 'none'
+      container.appendChild(iframe)
+    }
+  }
+
+  loadCertificate()
+</script>
+
+<!-- 
+    
+<div
+  id="certificate-suspense-container"
+  class="px-4 mx-auto max-width-1200 sm:px-6 lg:px-8"
+></div>
+
+ -->

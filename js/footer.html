@@ -22,9 +22,9 @@
     } else if (!window.location.href.includes('/learn/survey')) {
       // Applying custom header icons
       await updatePageHeader()
-
       //update course page layouts
       if (window.location.href.includes('/redeem')) {
+        switchTitleLanguage()
         trackCodeRedemptions()
       } else if (window.location.href.includes('/learn/course/')) {
         removeVideoSidebar()
@@ -33,8 +33,9 @@
 
       // Applying username to dashboard title
       userNameReplacer()
-
-      await new Promise((r) => setTimeout(r, 2000))
+      await new Promise((r) => setTimeout(r, 1000))
+      languageSelector()
+      await new Promise((r) => setTimeout(r, 1000))
       expandFirstModuleListItem()
       updateCourseResumeAnchorTags()
     }

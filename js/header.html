@@ -20,6 +20,19 @@
     link.rel = "stylesheet";
     link.href = "https://glacier-projects.vercel.app/site-styling/glacier-lxp-master.css";
     document.head.appendChild(link);
+    
+    var sysLanguage = localStorage.getItem("sys_language");
+    if (sysLanguage && sysLanguage == "de") {
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = "https://glacier-projects.vercel.app/site-styling/glacier-lxp-de.css";
+      document.head.appendChild(link);
+    } else {
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = "https://glacier-projects.vercel.app/site-styling/glacier-lxp-en.css";
+      document.head.appendChild(link);
+    }
   }
 </script>
 
@@ -35,46 +48,48 @@
   
 <!-- Hotjar -->
 <script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:3503531,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:3503531,hjsv:6};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 </script>
 
+<!--Check if the URL does not contain /learn/manager -->
 <script>
+  if (!window.location.href.includes("/learn/manager")) {
+    // Custom Code Glacier JS
+    var glacierJS = document.createElement("script");
+    glacierJS.src = "https://glacier-projects.vercel.app/site-styling/glacier-lxp.min.js";
+    glacierJS.defer = true;
+    document.head.appendChild(glacierJS);
 
-if (!window.location.href.includes("/learn/manager")) {
-  // Custom Code Glacier JS
-  var glacierJS = document.createElement("script");
-  glacierJS.src = "https://glacier-projects.vercel.app/site-styling/glacier-lxp.js";
-  glacierJS.defer = true;
-  document.head.appendChild(glacierJS);
+    // Alpine JS
 
-  // Alpine JS
+    var collapseJS = document.createElement("script");
+    collapseJS.src = "https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js";
+    collapseJS.defer = true;
+    document.head.appendChild(collapseJS);
+    
+    var alpineJS = document.createElement("script");
+    alpineJS.src = "https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js";
+    alpineJS.defer = true;
+    document.head.appendChild(alpineJS);
+    
+    // HubSpot Embed Code
+    var hubspot = document.createElement("script");
+    hubspot.src = "//js-na1.hs-scripts.com/8684480.js";
+    hubspot.defer = true;
+    document.head.appendChild(hubspot);
 
-  var collapseJS = document.createElement("script");
-  collapseJS.src = "https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js";
-  collapseJS.defer = true;
-  document.head.appendChild(collapseJS);
-  
-  var alpineJS = document.createElement("script");
-  alpineJS.src = "https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js";
-  alpineJS.defer = true;
-  document.head.appendChild(alpineJS);
+  }
 
-  // HubSpot Embed Code
-  var hubspot = document.createElement("script");
-  hubspot.src = "//js-na1.hs-scripts.com/8684480.js";
-  hubspot.defer = true;
-  document.head.appendChild(hubspot);
-
-}
-</script>
-
-<script>
-
+  async function resizeIframe(obj) {
+    setInterval(async () => {
+      obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+    }, 1000)
+  }
 </script>
