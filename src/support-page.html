@@ -64,8 +64,7 @@
           <div class="lg:col-span-7">
             <div class="flow-root">
               <div x-data="{ active: 1 }" class="-my-4 divide-y divide-gray-900">
-                <div
-                  x-data="{ id: 1, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                <div x-data="{ id: 1, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
                   role="region" class="py-6">
                   <h3>
                     <button @click="expanded = !expanded" :aria-expanded="expanded"
