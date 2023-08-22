@@ -23,6 +23,13 @@
     background-position: center;
 }
 
+.bg-glacier-frostage {
+    background-image: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), -webkit-image-set(url('https://glacier-projects.vercel.app/img/brand/backgrounds/background-nature-4') 1x);
+    background-image: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-set(url('https://glacier-projects.vercel.app/img/brand/backgrounds/background-nature-4') 1x);
+    background-size: cover;
+    background-position: center;
+}
+
 .bg-shadow-inset-bottom {
     box-shadow: inset 0 -10px 35px 2px #282a2d;
 }
@@ -132,6 +139,10 @@ button,
 
 .home__content {
     padding: 0;
+}
+
+.header {
+    display: none;
 }
 
 .header--dashboard {
@@ -315,6 +326,7 @@ button,
 .custom-catalog-library .catalog-search-bar .catalog-filters__sort {
     width: 25%;
     background: transparent;
+    border-left: none;
 }
 
 .custom-catalog-library .catalog-search-bar .catalog-active-filter {
@@ -341,7 +353,7 @@ button,
     }
 }
 
-.custom-catalog-library .catalog-header {    
+.custom-catalog-library .catalog-header {
     visibility: hidden;
 }
 
@@ -413,6 +425,14 @@ button,
     background-color: #7DD8B5 !important;
 }
 
+.custom-catalog-library .catalog-grid-item__description {
+    display: none;
+}
+
+.custom-catalog-library .catalog-grid-item__hr {
+    border: none;
+}
+
 /* .custom-catalog-library .medium-9 {
 width: 100%;
 } */
@@ -463,6 +483,14 @@ width: 100%;
     border: solid #6DD4AD;
     padding-bottom: 2px;
     border-width: 0 0 3px 0;
+}
+
+.custom-tabbed-content .dashboard-access-list-item .text-white span {
+    color: white;
+}
+
+.custom-tabbed-content .dashboard-access-tab--active:after {
+    background-color: transparent;
 }
 
 .custom-tabbed-content .dashboard-access-list-item .btn--small {
@@ -547,6 +575,14 @@ width: 100%;
     display: none;
 }
 
+.widget--dashboard-stats .dashboard-stats li:nth-child(7) {
+    display: none;
+}
+
+.widget--dashboard-stats .dashboard-stats li:nth-child(10) {
+    display: none;
+}
+
 .widget--dashboard-stats .dashboard-stat * {
     font-family: ti-icons-rev2, 'Pangea' !important;
     border: 0 !important;
@@ -556,6 +592,31 @@ width: 100%;
 .widget--dashboard-stats .dashboard-stat__label {
     font-size: .8rem;
     text-transform: none;
+}
+
+/* 
+# Introduction Video widget
+*/
+
+.dashboard-tutorial-video {
+    max-width: 1000px;
+}
+
+.dashboard-tutorial-video .widget__title {
+    font-weight: 600;
+    font-size: 3rem;
+    line-height: 1;
+    margin-top: 0.5rem;
+    color: rgb(20 53 96);
+}
+
+.dashboard-tutorial-video .widget__subtitle {
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: rgb(20 53 96);
 }
 
 /* .custom-completion-record .dashboard-stat--available .dashboard-stat__value {
@@ -611,6 +672,34 @@ width: 100%;
     background-size: cover;
     background-position: right;
     background-image: -webkit-image-set(url('https://glacier-projects.vercel.app/img/brand/backgrounds/background-nature-3.jpeg') 1x);
+}
+
+.session:has(.session__container) {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    box-shadow: inset 0 -10px 35px 2px #282a2d;
+    padding: 0;
+}
+
+.session .row:has(.session__container) {
+    display: flex;
+    flex-grow: 1;
+    -webkit-box-flex: 1;
+    align-items: center;
+}
+
+.session .session__container .alert-box {
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-top: 2rem;
+}
+
+.session .session__container .alert-box.success {
+    background-color: #6DD4AD;
+    color: #143560;
 }
 
 .session .session__container {
@@ -860,7 +949,7 @@ input[type="password"]:focus {
     display: none;
 }
 
-.course__container .expandable-sidebar__toggle:has(.icon-mail){
+.course__container .discussion-threads {
     display: none;
 }
 
@@ -871,6 +960,18 @@ input[type="password"]:focus {
 
 .course__container .discussion-threads div:nth-child(7) {
     margin-top: 2rem;
+}
+
+.course__container .expandable-sidebar__toggle:has(.icon-pen) {
+    display: none;
+}
+
+.course__container .expandable-sidebar__toggle:has(.icon-mail) {
+    display: none;
+}
+
+.course__container .expandable-sidebar__toggle:has(.icon-compose) {
+    display: none;
 }
 
 .course__container .expandable-sidebar__toggle {
@@ -934,4 +1035,122 @@ directional__nav__button {
 .course__container .learner__sidebar-inner-list .syllabus__lesson .syllabus__lesson--title .syllabus__lesson--title-text {
     padding: 0.2rem 0;
     letter-spacing: 0.01em;
+}
+
+.course__container .course-progress__overall__bar {
+    visibility: hidden;
+}
+
+.course__container .comment__container {
+    margin-top: 2rem;
+}
+
+.course__container .comment__container .comment {
+    padding: 2rem;
+    border-radius: 20px;
+}
+
+.course__container .comment__container .ember-text-area {
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+/* 
+# Cookie Popover
+*/
+
+.cookie-popover__inner span {
+    font-size: 1rem;
+}
+
+.cookie-popover__inner span a {
+    color: #143560;
+    text-decoration: underline;
+}
+
+.cookie-popover__inner div {
+    margin-top: 1rem;
+}
+
+.cookie-popover__inner .btn {
+    border: 2px solid rgb(109 212 173);
+    font-family: 'Pangea' !important;
+    font-weight: 500;
+    color: rgb(20 53 96);
+    border-radius: 2rem;
+    padding: 10px 32px !important;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.cookie-popover__inner .btn--primary--manager--new {
+    background-color: rgb(109 212 173) !important;
+}
+
+
+/* 
+# Accounts Page
+*/
+
+.dashboard-account .dashboard-account-tabs li:nth-child(9) {
+    display: none;
+}
+
+.dashboard-account .btn--primary--manager--new {
+    background-color: #6DD4AD;
+    color: #143560;
+    border-radius: 20px;
+    border: none;
+}
+
+.dashboard-account .dashboard__user__avatar-upload {
+    border-radius: 20px;
+}
+
+.dashboard-account .field__input {
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+/* 
+# Survey Form Page
+*/
+
+.application__content--survey div:nth-child(n+2) {
+    max-width: 1200px;
+}
+
+.application__content--survey .header__title {
+    font-size: 1.2rem;
+    padding-bottom: 2rem;
+    padding-top: 5rem;
+}
+
+.application__content--survey label p {
+    font-size: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.application__content--survey {
+    margin-bottom: 10rem;
+}
+
+/* 
+# Redemption Form
+*/
+.widget--redemption-form:has(.already-member) {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.widget--redemption-form .alert-box {
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-top: 2rem;
+    font-weight: normal;
+}
+
+.widget--redemption-form .alert-box.success {
+    background-color: #6DD4AD;
+    color: #143560;
 }

@@ -1,0 +1,134 @@
+.widget:has(.force-full-width) {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.container:has(.learning-path_custom-layout) {
+    background-color: #F1F1F1;
+}
+
+.learning-path-custom-hero,
+.learning-path-body,
+.learning-path-timeline {
+    max-width: 82rem;
+    margin: auto;
+}
+
+.widget--learning-path-content-hero {
+    max-height: 1300px;
+}
+
+.learning-path-timeline-milestone-items .learning-path-timeline-milestone-item {
+    display: flex;
+    column-gap: 2rem;
+}
+
+.learning-path-timeline-milestone-items .learning-path-timeline-milestone-item__content-container {
+    padding: 2em 0em;
+}
+
+.column.small-centered:last-child,
+.columns.small-centered:last-child {
+    float: left;
+    width: 100% !important;
+}
+
+.learning-path-timeline-milestone-item__content {
+    width: 100%;
+}
+
+.learning-path-timeline-milestone-item__content .learning-path-milestone-item__title {
+    order: 1
+}
+
+.learning-path-timeline-milestone-item__content .learning-path-milestone__badge--required {
+    order: 2;
+    margin-bottom: 0px;
+    margin: auto;
+}
+
+.learning-path-timeline-milestone-item__content-container--left {
+    margin-left: -1.5rem;
+}
+
+.learning-path-timeline-milestone-item-circle,
+.learning-path-timeline-milestone-item__vertical-line,
+.learning-path-timeline-milestone-item__horizontal-line,
+.learning-path-timeline-milestone__header-criterion,
+.learning-path-timeline-milestone__header,
+.learning-path-milestone-item__info,
+.learning-path-milestone__badge--required {
+    display: none;
+}
+
+.learning-path-body .collapse,
+.hr__accent {
+    display: none;
+}
+
+.learning-path-body .medium-9 {
+    width: 100% !important;
+}
+
+.learning-path-timeline-milestone-items {
+    background-color: #F1F1F1;
+}
+
+.learning-path-timeline-milestone__header {
+    background-color: #F1F1F1;
+    border: none;
+    padding: 0em 1em 0 10%;
+}
+
+.learning-path-timeline-milestone__header-content {
+    padding: 0;
+}
+
+.h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.learning-path-milestone-item__description,
+.learning-path-milestone-item__alt-description p {
+    letter-spacing: 0.06em;
+    padding-bottom: 2rem;
+    font-size: 1rem;
+    color: rgb(20 53 96);
+}
+
+.btn--primary {
+    font-size: 1rem;
+    padding: 0.8rem 3rem;
+    border-radius: 99px !important;
+}
+
+.learning-path-progress-bar-item__index {
+    background: #F1F1F1;
+    border: none;
+    color: #a5afbf;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-size: 4rem;
+    font-weight: 800;
+    font-family: 'Pangea';
+}
+
+.learning-path-progress-bar-item--current .learning-path-progress-bar-item__index {
+    color: rgb(20 53 96);
+    background: #F1F1F1;
+}
+
+.learning-path-progress-bar-item__border {
+    border-top: 2px solid #cbcbcb;
+}
+
+@media (min-width: 48.063em) {
+    .medium-push-6 {
+        left: 48%;
+    }
+
+    .learning-path-timeline-milestone-items .learning-path-timeline-milestone-item {
+        column-gap: 5rem;
+    }
+}

@@ -1,0 +1,68 @@
+.topic__container h1 {
+    font-family: 'Pangea';
+    color: rgb(20 53 96);
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+}
+
+.topic__container h2 {
+    font-family: 'Pangea';
+    color: rgb(20 53 96);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.topic__container h3 {
+    font-family: 'Pangea';
+    color: rgb(20 53 96);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.topic__container h4 {
+    font-family: 'Pangea';
+    color: rgb(20 53 96);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.topic__container h5 {
+    font-family: 'Pangea';
+    color: rgb(20 53 96);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.topic__container h6 {
+    font-family: 'Pangea';
+    color: rgb(20 53 96);
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.topic__container p {
+    margin: 1rem 0;
+    font-family: 'PangeaText' !important;
+    color: #4F4F4F !important;
+}
+
+.topic__container a {
+    color: #519B90 !important;
+    text-decoration: underline;
+}
+
+.topic__container ol {
+    font-family: 'PangeaText' !important;
+    color: #4F4F4F !important;
+    font-size: 1rem;
+    list-style-type: decimal;
+    margin: 1rem 0;
+}
+
+.topic__container ul {
+    font-family: 'PangeaText' !important;
+    color: #4F4F4F !important;
+    font-size: 1rem;
+    list-style-type: disc;
+    margin: 1rem 0;
+}

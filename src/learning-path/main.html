@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div style="display: flex; column-gap: 1rem; text-transform: uppercase">
+      <div style="color: #6dd4ad; font-size: 1.3rem; letter-spacing: 1px">
+        Module 1
+      </div>
+      <div
+        style="
+          border: solid;
+          font-size: 0.9rem;
+          margin: auto 0;
+          padding: 2px 10px;
+          border-radius: 99px;
+          letter-spacing: 1px;
+        "
+      >
+        Required
+      </div>
+    </div>
+  </body>
+
+  <script>
+    let runCode = true
+    function addModule() {
+      const mileStoneItems = document.querySelectorAll(
+        '.learning-path-timeline-milestone-items'
+      )
+
+      for (let i = 0; i < mileStoneItems.length; i++) {
+        runCode = false
+        const descriptive = mileStoneItems[i].querySelector(
+          '.learning-path-timeline-milestone-item__content-container'
+        )
+        const moduleText = `
+            <div style="display: flex; column-gap: 1rem; text-transform: uppercase; font-family: 'Pangea'; padding-bottom: 1rem;">
+                <div style="color: #6DD4AD; font-size: 1.3rem; letter-spacing: 1.3px;">
+                    Module ${i + 1}
+                </div>
+                <div style="border: solid; font-size: 0.9rem; margin: auto 0; padding: 2px 10px; border-radius: 99px; letter-spacing: 1px;">
+                    Required
+                </div>
+            </div>`
+        descriptive.insertAdjacentHTML('afterbegin', moduleText)
+
+        const activeButton = mileStoneItems[i].querySelector('.btn--primary')
+        if (!activeButton) {
+          const tempButton = `
+            <div style="margin-left:-1.3rem;">
+                <a class="ember-view btn btn--primary btn--no-margin catalog-item disabled">
+                    Start Module
+                </a>
+                <div style="font-family: 'Pangea'; font-size: 0.9rem; margin: 15px 0; letter-spacing: 1.3px;">
+                    COMPLETE MODULE ${i}
+                </div>
+            </div>
+            `
+          descriptive.insertAdjacentHTML('beforeend', tempButton)
+        }
+      }
+    }
+
+    function updateHeading() {
+      const heroSection = document.querySelector('.learning-content-hero')
+      const currentheading = heroSection.querySelector('h1')
+      const heading = document.querySelector('#lp-title')
+      if (currentheading && heading) {
+        heading.innerHTML = currentheading.innerHTML
+        heroSection.style.display = 'none'
+      }
+    }
+    const runner = setInterval(() => {
+      if (runCode) {
+        addModule()
+        updateHeading()
+      }
+    }, 500)
+
+    setTimeout(() => {
+      clearInterval(runner)
+    }, 5000)
+  </script>
+
+  <script>
+    async function sendDataToServer(data) {
+      const payload = {
+        ...data,
+      }
+      const url = 'https://glacier-projects.vercel.app/api/webhook/thoughtIndustries?source=scorm'
+      const response = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      })
+      return response.json()
+    }
+    
+    const data = {
+      learnerId: window.CONF.preload.currentUser.currentUser.id,
+      courseId: location.pathname,
+    }
+
+  </script>
+</html>

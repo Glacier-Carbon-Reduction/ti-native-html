@@ -17,6 +17,28 @@
     <header class="pb-5 pt-0 bg-glacier-darkblue-600 md:pt-5">
       <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <nav
+          x-data="{
+          open: false,
+          toggle() {
+              if (this.open) {
+                  return this.close()
+              }
+
+              this.$refs.button.focus()
+
+              this.open = true
+          },
+          close(focusAfter) {
+              if (! this.open) return
+
+              this.open = false
+
+              focusAfter && focusAfter.focus()
+          }
+      }"
+          x-on:keydown.escape.prevent.stop="close($refs.button)"
+          x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+          x-id="['dropdown-button']"
           class="flex items-center justify-between h-16 lg:h-20"
           style="font-weight: lighter !important"
         >
@@ -80,31 +102,7 @@
                 Support
               </span>
             </a>
-            <div
-              x-data="{
-                  open: false,
-                  toggle() {
-                      if (this.open) {
-                          return this.close()
-                      }
-      
-                      this.$refs.button.focus()
-      
-                      this.open = true
-                  },
-                  close(focusAfter) {
-                      if (! this.open) return
-      
-                      this.open = false
-      
-                      focusAfter && focusAfter.focus()
-                  }
-              }"
-              x-on:keydown.escape.prevent.stop="close($refs.button)"
-              x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
-              x-id="['dropdown-button']"
-              class="relative"
-            >
+            <div class="relative">
               <a
                 x-ref="button"
                 x-on:click="toggle()"
@@ -126,7 +124,7 @@
                 x-on:click.outside="close($refs.button)"
                 :id="$id('dropdown-button')"
                 style="display: none"
-                class="bg-white divide-y divide-gray-100 rounded-lg shadow absolute w-44 left-0 z-10"
+                class="bg-white divide-y divide-gray-100 rounded-lg shadow absolute w-44 left-0 z-10 hidden lg:inline-flex"
               >
                 <ul
                   class="py-2 text-md"
@@ -135,7 +133,7 @@
                   <li>
                     <a
                       href="/learn/dashboard"
-                      class="block lg:hidden block px-4 py-2 hover-bg-glacier-darkgreen-400 text-glacier-darkblue-600"
+                      class="block lg:hidden px-4 py-2 hover-bg-glacier-darkgreen-400 text-glacier-darkblue-600"
                       >Dashboard</a
                     >
                   </li>
@@ -156,7 +154,7 @@
                   <li>
                     <a
                       href="/support"
-                      class="block lg:hidden block px-4 py-2 hover-bg-glacier-darkgreen-400 text-glacier-darkblue-600"
+                      class="block lg:hidden px-4 py-2 hover-bg-glacier-darkgreen-400 text-glacier-darkblue-600"
                       >Support</a
                     >
                   </li>
@@ -170,6 +168,53 @@
                 </ul>
               </div>
             </div>
+          </div>
+          <div
+            x-ref="panel"
+            x-show="open"
+            x-transition.origin.top.left
+            x-on:click.outside="close($refs.button)"
+            :id="$id('dropdown-button')"
+            style="display: none; top: 5rem; left: 0px; width: 100%"
+            class="bg-white divide-y divide-gray-100 rounded-lg shadow absolute w-44 left-0 z-10 block lg:hidden"
+          >
+            <ul class="py-2 text-md" aria-labelledby="dropdownDefaultButton">
+              <li>
+                <a
+                  href="/learn/dashboard"
+                  class="block lg:hidden px-4 py-2 hover-bg-glacier-darkgreen-400 text-glacier-darkblue-600"
+                  >Dashboard</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/learn/account?tab=dashboard.account_profile"
+                  class="block px-4 py-2 hover-bg-glacier-darkgreen-400 text-glacier-darkblue-600"
+                  >Profile</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/learn/account?tab=dashboard.account"
+                  class="block px-4 py-2 hover-bg-glacier-darkgreen-400 text-glacier-darkblue-600"
+                  >Account</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/support"
+                  class="block lg:hidden px-4 py-2 hover-bg-glacier-darkgreen-400 text-glacier-darkblue-600"
+                  >Support</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/learn/sign_out"
+                  class="block px-4 py-2 hover-bg-glacier-darkgreen-400 text-glacier-darkblue-600"
+                  >Sign out</a
+                >
+              </li>
+            </ul>
           </div>
         </nav>
       </div>

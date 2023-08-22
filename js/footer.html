@@ -59,6 +59,16 @@
     const interval = setInterval(async () => {
       await handleCustomCodeSequence()
       openCertificatesInNewWindow()
+      germanComponentVisualiser()
     }, timer)
   }
+</script>
+
+<script>
+  function redirectIfAlreadyRedeemed() {
+    if (window.CONF.preload.currentUser.currentUser.id) {
+      window.location.href = '/learn/dashboard'
+    }
+  }
+  setTimeout(redirectIfAlreadyRedeemed, 1000)
 </script>

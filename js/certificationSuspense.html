@@ -1,12 +1,10 @@
 <script>
-  function loadCertificate() {
-    var sysLanguage = localStorage.getItem('sys_language')
-    var container = document.getElementById('certificate-suspense-container')
-    var learnerId = window.CONF.preload.currentUser.currentUser.id
-    if (learnerId && container) {
+  function loadChatbot() {
+    var container = document.getElementById('chatbot-container')
+    if (container) {
       var iframe = document.createElement('iframe')
-      iframe.id = 'certificate-frame'
-      iframe.src = `https://glacier-projects.vercel.app/native/certificateSuspense/${learnerId}?lang=${sysLanguage}`
+      iframe.id = 'chatbot-frame'
+      iframe.src = `https://supportrep.ai/widget/cljkxubdc0004nrktugh75pif`
       iframe.style.width = '100%'
       iframe.style.height = '52rem'
       iframe.style.border = 'none'
@@ -14,7 +12,7 @@
     }
   }
 
-  loadCertificate()
+  loadChatbot()
 </script>
 
 <!-- 
@@ -25,3 +23,6 @@
 ></div>
 
  -->
+
+
+ <iframe src="https://supportrep.ai/widget/glacier/cljkxubdc0004nrktugh75pif" style="width: 100%; height: 52rem; border: none;"></iframe>

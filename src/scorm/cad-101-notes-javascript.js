@@ -1,15 +1,26 @@
 var myWindow = window.open( '', 'Print', 'width=842, height=595, scrollbars=1, resizable=0')
-var player = GetPlayer()
-var Plan1 = player.GetVar('Plan1')
-var Plan2 = player.GetVar('Plan2')
-var Plan3 = player.GetVar('Plan3')
-var Plan4 = player.GetVar('Plan4')
-var Plan5 = player.GetVar('Plan5')
-var Plan6 = player.GetVar('Plan6')
-var Plan7 = player.GetVar('Plan7')
-var YourTeam = player.GetVar('YourTeam')
-var YourCallToAction = player.GetVar('YourCallToAction')
-var YourCommunication = player.GetVar('YourCommunication')
+// var player = GetPlayer()
+// var Plan1 = player.GetVar('Plan1')
+// var Plan2 = player.GetVar('Plan2')
+// var Plan3 = player.GetVar('Plan3')
+// var Plan4 = player.GetVar('Plan4')
+// var Plan5 = player.GetVar('Plan5')
+// var Plan6 = player.GetVar('Plan6')
+// var Plan7 = player.GetVar('Plan7')
+// var YourTeam = player.GetVar('YourTeam')
+// var YourCallToAction = player.GetVar('YourCallToAction')
+// var YourCommunication = player.GetVar('YourCommunication')
+
+var Plan1 = "Test Text"
+var Plan2 = "Test Text"
+var Plan3 = "Test Text"
+var Plan4 = "Test Text"
+var Plan5 = "Test Text"
+var Plan6 = "Test Text"
+var Plan7 = "Test Text"
+var YourTeam = "Test Text"
+var YourCallToAction = "Test Text"
+var YourCommunication = "Test Text"
 var contents = `
 <!DOCTYPE html>
 <html lang="en">

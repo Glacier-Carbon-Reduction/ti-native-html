@@ -1,0 +1,27 @@
+<script>
+  let runCode = true
+  function updateList() {
+    var courseContainer = document.querySelector('.course__detail__content')
+    if (courseContainer) {
+      var listElements = courseContainer.querySelectorAll('ul li a')
+      for (let i = 0; i < listElements.length; i++) {
+        runCode = false
+        listElements[i].setAttribute(
+          'style',
+          'display: flex; justify-content: space-between;'
+        )
+        var icon = `<img src="https://cdn.iconscout.com/icon/free/png-256/down-arrow-16-460295.png" style="max-width: 20px; ">`
+        listElements[i].insertAdjacentHTML('beforeend', icon)
+      }
+    }
+  }
+  const runner = setInterval(() => {
+    if (runCode) {
+      addModule()
+    }
+  }, 500)
+
+  setTimeout(() => {
+    clearInterval(runner)
+  }, 5000)
+</script>
