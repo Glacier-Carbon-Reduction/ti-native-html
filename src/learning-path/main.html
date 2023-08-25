@@ -23,6 +23,31 @@
         Required
       </div>
     </div>
+
+    <section class="force-full-width bg-glacier-greengoo bg-cover py-10 sm:y-16 lg:py-24" style="background-color: rgb(45 157 144)">
+      <div class="learning-path-custom-hero px-4 mx-auto max-w-7xl sm:px-6 lg:px-8" style="padding-top: 16rem">
+        <p class="mt-4 text-base font-semibold tracking-wider uppercase text-white english-component" >
+          Learning Path
+        </p>
+        <p class="mt-4 text-base font-semibold tracking-wider uppercase text-white german-component" >
+          Lernweg
+        </p>
+        <h1 id="lp-title" class="mt-2 text-6xl font-semibold text-white"></h1>
+      </div>
+    </section>
+
+    <section id="progress-bar">
+      <div class="py-10 sm:py-16"></div>
+      <div class="py-10 sm:py-16">
+        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div class="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
+            <h1 class="text-5xl font-bold english-component">Your Progress</h1>
+            <h1 class="text-5xl font-bold german-component">Dein Fortschritt</h1>
+            <div></div>
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
 
   <script>
@@ -38,12 +63,20 @@
           '.learning-path-timeline-milestone-item__content-container'
         )
         const moduleText = `
-            <div style="display: flex; column-gap: 1rem; text-transform: uppercase; font-family: 'Pangea'; padding-bottom: 1rem;">
+            <div class="english-component flex" style="column-gap: 1rem; text-transform: uppercase; font-family: 'Pangea'; padding-bottom: 1rem;">
                 <div style="color: #6DD4AD; font-size: 1.3rem; letter-spacing: 1.3px;">
                     Module ${i + 1}
                 </div>
                 <div style="border: solid; font-size: 0.9rem; margin: auto 0; padding: 2px 10px; border-radius: 99px; letter-spacing: 1px;">
-                    Required
+                    Required / Erforderlich
+                </div>
+            </div>
+            <div class="german-component flex" style="column-gap: 1rem; text-transform: uppercase; font-family: 'Pangea'; padding-bottom: 1rem;">
+                <div style="color: #6DD4AD; font-size: 1.3rem; letter-spacing: 1.3px;">
+                    Modul ${i + 1}
+                </div>
+                <div style="border: solid; font-size: 0.9rem; margin: auto 0; padding: 2px 10px; border-radius: 99px; letter-spacing: 1px;">
+                    Required / Erforderlich
                 </div>
             </div>`
         descriptive.insertAdjacentHTML('afterbegin', moduleText)
@@ -51,7 +84,7 @@
         const activeButton = mileStoneItems[i].querySelector('.btn--primary')
         if (!activeButton) {
           const tempButton = `
-            <div style="margin-left:-1.3rem;">
+            <div class="english-component" style="margin-left:-1.3rem;">
                 <a class="ember-view btn btn--primary btn--no-margin catalog-item disabled">
                     Start Module
                 </a>
@@ -59,9 +92,25 @@
                     COMPLETE MODULE ${i}
                 </div>
             </div>
+            <div class="german-component" style="margin-left:-1.3rem;">
+                <a class="ember-view btn btn--primary btn--no-margin catalog-item disabled">
+                  Starte Modul
+                </a>
+                <div style="font-family: 'Pangea'; font-size: 0.9rem; margin: 15px 0; letter-spacing: 1.3px;">
+                  Schließe Modul ${i} ab
+                </div>
+            </div>
             `
           descriptive.insertAdjacentHTML('beforeend', tempButton)
         }
+      }
+
+      if(mileStoneItems.length <= 1) {
+        const progressSection = document.querySelector('#progress-bar')
+        progressSection.style.display = 'none'
+
+        const progressTimeline = document.querySelector('.widget--learning-path-content_standard')
+        progressTimeline.style.display = 'none'
       }
     }
 
@@ -89,23 +138,23 @@
   <script>
     async function sendDataToServer(data) {
       const payload = {
-        ...data,
+        ...data
       }
-      const url = 'https://glacier-projects.vercel.app/api/webhook/thoughtIndustries?source=scorm'
+      const url =
+        'https://glacier-projects.vercel.app/api/webhook/thoughtIndustries?source=scorm'
       const response = await fetch(url, {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-        },
+          'Content-type': 'application/json; charset=UTF-8'
+        }
       })
       return response.json()
     }
-    
+
     const data = {
       learnerId: window.CONF.preload.currentUser.currentUser.id,
-      courseId: location.pathname,
+      courseId: location.pathname
     }
-
   </script>
 </html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    function handler(){
+        const courseDetailSidebar = document.querySelector('.course__detail__sidebar')
+        courseDetailSidebar.style.display = 'none'
+
+        const courseImage = document.querySelector('.product__asset')
+        courseImage.style.display = 'none'
+        
+        const displayTabs = document.querySelector('.tabs')
+        displayTabs.style.display = 'none'
+
+        const courseDetailMain = document.querySelector('.course__detail__content')
+        courseDetailMain.style.width = '100%'
+        courseDetailMain.style.maxWidth = '80rem'
+        courseDetailMain.style.margin = 'auto'
+
+        runCode = false
+
+        const productItemList = document.querySelector('.products__list')
+        const firstItem = productItemList.querySelector('li')
+        firstItem.style.width = '50%'
+        productItemList.appendChild(firstItem.cloneNode(true))
+
+        const productItemContent = document.querySelectorAll('.products__list li button')
+        productItemContent.forEach((item) => {
+            item.style.width = '100%'
+        })
+
+        const firstItemContent = productItemContent[0]
+
+        const firstItemImg = firstItemContent.querySelector('img')
+        firstItemImg.src = 'https://glacier-projects.vercel.app/img/clients/logos/firstClimate_wide_color.png'
+      
+
+        const firstItemDescription = firstItemContent.querySelector('.block-grid__item__caption')
+        const firstInnerHtml = `
+        <h3 class="block-grid__item__title">Climate Action Essentials</h3>
+        <h3 class="block-grid__item__title">Sprinter Package</h3>
+
+        <div class="block-grid__item__description">
+            <p>Kickstart your organisations Climate Education journey with the following starter package. This will ensure all of your team is ready for the transformation to a sustainable business.</p>
+            
+            <h4>€ 1,500</h4>
+            <h4>€ 1,200</h4>
+            
+            <h5>Additionally:</h5>
+
+            <ul>
+                <li>Climate Change 101</li>
+                <li>Be a Climate Ranger</li>
+                <li>Personal Carbon Footprint</li>
+                <li>Climate Action Day</li>
+            </ul>
+        </div>
+        `
+
+        firstItemDescription.innerHTML = firstInnerHtml
+
+        const secondItemContent = productItemContent[1]
+        secondItemContent.removeAttribute('data-ember-action')
+
+        const secondItemImg = secondItemContent.querySelector('img')
+        secondItemImg.src = 'https://glacier-projects.vercel.app/img/brand/logos/01_glacier_logo/horizontal/glacier_logo_claim_claim_horizontal_4C.png'
+
+        const secondItemDescription = secondItemContent.querySelector('.block-grid__item__caption')
+        const secondInnerHtml = `
+        <h3 class="block-grid__item__title">Climate Academy</h3>
+        <h3 class="block-grid__item__title">Enterprise Version</h3>
+
+        <div class="block-grid__item__description">
+            <p>Adding to the starter package, you can opt in for additional courses and customize your journey to the best of your needs through this product. Contact our sales team for additional details. Please check out a few of the courses that we can offer below</p>
+
+            
+            <h5>Additionally:</h5>
+
+            <ul>
+                <li>Net Zero</li>
+                <li>Corporate Carbon Footpring</li>
+                <li>Circular Economy</li>
+                <li>ESG 101</li>
+            </ul>
+        </div>
+        `
+        secondItemDescription.innerHTML = secondInnerHtml
+
+        const secondItemPricing = secondItemContent.querySelector('.price')
+        secondItemPricing.style.display = 'none'
+
+        secondItemContent.addEventListener('click', () => {
+            window.open('https://www.eu-academy.glacier.eco/', '_blank')
+        })
+
+        const mainContainer = document.querySelector('.course__detail__container')
+        mainContainer.style.visibility = 'visible'
+
+    }
+
+    let runCode = true
+
+    const runner = setInterval(() => {
+      if (runCode) {
+        handler()
+      }
+    }, 500)
+
+    setTimeout(() => {
+      clearInterval(runner)
+    }, 5000)
+    
+</script>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section style="padding: 3rem 0;">
+        <div style="padding-left: 1rem; padding-right: 1rem; margin-left: auto; margin-right: auto; max-width: 89rem;">
+            <div style="max-width: 40rem; padding-left: 2rem; padding-right: 2rem; margin-left: auto; margin-right: auto; text-align: center;">
+                <h2 style="font-size: 1.875rem; font-weight: 700;">Make the wise decision for your business</h2>
+                <p style="margin-top: 1.5rem; font-size: 1.125rem;">Choose from our affordable 3 packages</p>
+            </div>
+    
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-left: auto; margin-right: auto; margin-top: 2rem; text-align: center;">
+
+                <div style="border: 1px solid #e5e7eb; border-radius: 1rem; overflow: hidden;">
+                    <div style="padding: 1.5rem 2.5rem;">
+                        <h3 style="font-size: 1.125rem; font-weight: 700;">Basic</h3>
+                        <p style="margin-top: 1rem; font-size: 3.25rem; font-weight: 700;">$99</p>
+                        <p style="margin-top: 1.25rem; font-size: 1rem; line-height: 1.75rem;">Best for small business owners, startups who needs landing page for their business.</p>
+                        <button data-ember-action="2287" style="display: inline-flex; align-items: center; justify-content: center; padding: 0.875rem 2rem; margin-top: 2rem; font-size: 1rem; font-weight: 700; border: 2px solid #6b7280; border-radius: 1rem; transition: all 0.2s;">Get Started</button>
+                        <p style="margin-top: 2rem; font-size: 1rem; font-weight: 700;">What's included:</p>
+                        <ul style="margin-top: 1rem; font-size: 1rem; font-weight: 500;">
+                            <li>130+ Coded Blocks</li>
+                            <li>Best for Developers, Freelancers</li>
+                            <li>Made with TailwindCSS</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="border: 1px solid #e5e7eb; border-radius: 1rem; overflow: hidden;">
+                    <div style="padding: 1.5rem 2.5rem;">
+                        <h3 style="font-size: 1.125rem; font-weight: 700;">Basic</h3>
+                        <p style="margin-top: 1rem; font-size: 3.25rem; font-weight: 700;">$99</p>
+                        <p style="margin-top: 1.25rem; font-size: 1rem; line-height: 1.75rem;">Best for small business owners, startups who needs landing page for their business.</p>
+                        <a href="#" role="button" style="display: inline-flex; align-items: center; justify-content: center; padding: 0.875rem 2rem; margin-top: 2rem; font-size: 1rem; font-weight: 700; border: 2px solid #6b7280; border-radius: 1rem; transition: all 0.2s;">Get Started</a>
+                        <p style="margin-top: 2rem; font-size: 1rem; font-weight: 700;">What's included:</p>
+                        <ul style="margin-top: 1rem; font-size: 1rem; font-weight: 500;">
+                            <li>130+ Coded Blocks</li>
+                            <li>Best for Developers, Freelancers</li>
+                            <li>Made with TailwindCSS</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        function handler(){
+
+            const mainImage = document.querySelector('.course__detail__asset picture')
+            mainImage.remove()
+    
+            const subscribeContainer = document.querySelector('.widget--bundle-purchase')
+            const subscribeContainerString = subscribeContainer.outerHTML.toString()
+    
+            const courseDetailMain = document.querySelector('.course__detail__content')
+            courseDetailMain.style.width = '100%'
+            courseDetailMain.style.maxWidth = '80rem'
+            courseDetailMain.style.margin = 'auto'
+            
+            const courseDetailSidebar = document.querySelector('.course__detail__sidebar')
+            courseDetailSidebar.style.width = '100%'
+            courseDetailSidebar.style.display = 'grid'
+            courseDetailSidebar.style.gridTemplateColumns = '1fr 1fr'
+            courseDetailSidebar.style.gap = '1.5rem'
+            courseDetailSidebar.style.marginLeft = 'auto'
+            courseDetailSidebar.style.marginRight = 'auto'
+            courseDetailSidebar.style.marginTop = '2rem'
+            courseDetailSidebar.style.textAlign = 'center'
+    
+            // select first child
+            const firstChild = courseDetailSidebar.querySelector('div')
+            firstChild.style.border = '1px solid #e5e7eb'
+            firstChild.style.borderRadius = '1rem'
+            firstChild.style.overflow = 'hidden'
+            firstChild.style.padding = '1.5rem 2.5rem'
+    
+    
+            const secondChild = `
+                <div style="border: 1px solid #e5e7eb; border-radius: 1rem; overflow: hidden;">
+                    <div style="padding: 1.5rem 2.5rem;">
+                        <img src="https://glacier-projects.vercel.app/img/brand/logos/01_glacier_logo/horizontal/glacier_logo_claim_claim_horizontal_4C.png" alt="Glacier" style="max-height: 100px; width: auto; max-width: 250px; margin: 3rem auto;" />
+                        <h2 class="h2 widget__title" style="color: #143560; margin-bottom: .25em;">Climate Academy</h2>
+                        <p class="widget__subtitle" style="color: #143560; margin-bottom: 1rem;">Enterprise Version</p>
+    
+                        <p style="margin-top: 1.25rem; font-size: 1rem; line-height: 1.75rem;">Adding to the starter package, you can opt in for additional courses and customize your journey to the best of your needs through this product. Contact our sales team for additional details. Please check out a few of the courses that we can offer below.</p>
+                        <a href="https://glacier.eco/registration-forms/anfrageformular" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; padding: 0.65rem 2rem; margin-top: 2rem; font-size: 1.2rem; border: 2px solid #6b7280; border-radius: 99rem; transition: all 0.2s;">Contact Sales</a>
+                        <p style="margin-top: 2rem; font-size: 1rem; font-weight: 700;">Additionally, customize your package with:</p>
+                       
+                    
+                         
+                        <ul style="margin-top: 1rem; font-size: 1rem; font-weight: 500;">
+                            <li>Net Zero</li>
+                            <li>Corporate Carbon Footprint</li>
+                            <li>Circular Economy</li>
+                            <li>ESG 101</li>
+                            <li>Personal Carbon Footprint</li>
+                        </ul>
+                    </div>
+                </div>
+            `
+    
+            firstChild.insertAdjacentHTML('afterend', secondChild)
+    
+    
+            runCode = false
+    
+        }
+    
+        let runCode = true
+    
+        const runner = setInterval(() => {
+          if (runCode) {
+            handler()
+          }
+        }, 500)
+    
+        setTimeout(() => {
+          clearInterval(runner)
+        }, 5000)
+        
+    </script>
+
+    <!-- <script>
+        function handler(){
+
+            const subscribeContainer = document.querySelector('.widget--bundle-purchase')
+            const subscribeContainerString = subscribeContainer.outerHTML.toString()
+            
+            const courseDetailSidebar = document.querySelector('.course__detail__sidebar')
+            courseDetailSidebar.remove()
+
+            runCode = false
+    
+            const courseDetailMain = document.querySelector('.course__detail__content')
+            courseDetailMain.style.width = '100%'
+            courseDetailMain.style.maxWidth = '80rem'
+            courseDetailMain.style.margin = 'auto'
+
+            const newChild = `
+            <section style="padding: 3rem 0;">
+                <div style="padding-left: 1rem; padding-right: 1rem; margin-left: auto; margin-right: auto; max-width: 89rem;">
+                    <div style="max-width: 40rem; padding-left: 2rem; padding-right: 2rem; margin-left: auto; margin-right: auto; text-align: center;">
+                        <h2 style="font-size: 1.875rem; font-weight: 700;">Make the wise decision for your business</h2>
+                        <p style="margin-top: 1.5rem; font-size: 1.125rem;">Choose from our affordable 2 packages</p>
+                    </div>
+            
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-left: auto; margin-right: auto; margin-top: 2rem; text-align: center;">
+
+                        <div style="border: 1px solid #e5e7eb; border-radius: 1rem; overflow: hidden;">
+                            <div style="padding: 1.5rem 2.5rem;">
+                                <h3 style="font-size: 1.125rem; font-weight: 700;">Basic</h3>
+                                <img src="https://glacier-projects.vercel.app/img/clients/logos/firstClimate_wide_color.png" alt="First Climate" style="max-height: 100px; width: auto; max-width: 250px; margin: 3rem auto;" />
+
+                                <p style="margin-top: 1.25rem; font-size: 1rem; line-height: 1.75rem;">Best for small business owners, startups who needs landing page for their business.</p>
+                                <div style="padding: 0.875rem 2rem; margin-top: 2rem; font-size: 1rem;">
+                                    ${subscribeContainerString}
+                                </div>
+                                <p style="margin-top: 2rem; font-size: 1rem; font-weight: 700;">What's included:</p>
+                                <ul style="margin-top: 1rem; font-size: 1rem; font-weight: 500;">
+                                    <li>Item Course</li>
+                                    <li>Item Course</li>
+                                    <li>Item Course</li>
+                                    <li>Item Course</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div style="border: 1px solid #e5e7eb; border-radius: 1rem; overflow: hidden;">
+                            <div style="padding: 1.5rem 2.5rem;">
+                                <h3 style="font-size: 1.125rem; font-weight: 700;">Basic</h3>
+                                <img src="https://glacier-projects.vercel.app/img/brand/logos/01_glacier_logo/horizontal/glacier_logo_claim_claim_horizontal_4C.png" alt="Glacier" style="max-height: 100px; width: auto; max-width: 250px; margin: 3rem auto;" />
+                                <p style="margin-top: 1.25rem; font-size: 1rem; line-height: 1.75rem;">Best for small business owners, startups who needs landing page for their business.</p>
+                                <a href="https://www.eu-academy.glacier.eco" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; padding: 0.875rem 2rem; margin-top: 2rem; font-size: 1rem; font-weight: 700; border: 2px solid #6b7280; border-radius: 1rem; transition: all 0.2s;">Contact Sales</a>
+                                <p style="margin-top: 2rem; font-size: 1rem; font-weight: 700;">What's included:</p>
+                                <ul style="margin-top: 1rem; font-size: 1rem; font-weight: 500;">
+                                    <li>Item Course</li>
+                                    <li>Item Course</li>
+                                    <li>Item Course</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            `
+            courseDetailMain.insertAdjacentHTML('beforeend', newChild)
+    
+        }
+    
+        let runCode = true
+    
+        const runner = setInterval(() => {
+          if (runCode) {
+            handler()
+          }
+        }, 500)
+    
+        setTimeout(() => {
+          clearInterval(runner)
+        }, 5000)
+        
+    </script> -->
+    
+</body>
+</html>

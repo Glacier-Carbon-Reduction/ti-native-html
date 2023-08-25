@@ -62,6 +62,51 @@
       germanComponentVisualiser()
     }, timer)
   }
+
+  </script>
+
+  
+  <script>
+
+  async function removeReviewSidebar() {
+    await new Promise((r) => setTimeout(r, 1000))
+    const sidebar = document.querySelector('#lessonRightSidebar')
+    if(sidebar){
+      const sectionButton = sidebar.querySelector('.next-section')
+      if(sectionButton) {
+        sectionButton.click()
+      }
+    }
+  }
+
+  (function(history){
+    // Backup the original methods
+    var pushState = history.pushState;
+    var replaceState = history.replaceState;
+
+    // Wrap pushState method
+    history.pushState = function() {
+        pushState.apply(history, arguments);
+        urlChanged('pushState', arguments);
+    };
+
+    // Wrap replaceState method
+    history.replaceState = function() {
+        replaceState.apply(history, arguments);
+        urlChanged('replaceState', arguments);
+    };
+
+    // Listen to the popstate event
+    window.addEventListener('popstate', function(e) {
+        urlChanged('popstate', arguments);
+    });
+
+    function urlChanged(type, args) {
+        removeReviewSidebar()
+    }
+
+  })(window.history);
+  
 </script>
 
 <script>

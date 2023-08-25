@@ -1,0 +1,25 @@
+<script>
+
+    let runCode = true
+    
+    function removeReviewSidebar() {
+      const sidebar = document.querySelector('#lessonRightSidebar')
+      if(sidebar){
+        const sectionButton = sidebar.querySelector('.next-section')
+        if(sectionButton) {
+          runCode = false
+          sectionButton.click()
+        }
+      }
+    }
+  
+    const runner = setInterval(() => {
+      if (runCode) {
+        removeReviewSidebar()
+      }
+    }, 200)
+  
+    setTimeout(() => {
+      clearInterval(runner)
+    }, 3000)
+  </script>
