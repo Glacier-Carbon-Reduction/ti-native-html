@@ -51,14 +51,12 @@
   </body>
 
   <script>
-    let runCode = true
-    function addModule() {
+    function addLearningPathStyledModule() {
       const mileStoneItems = document.querySelectorAll(
         '.learning-path-timeline-milestone-items'
       )
 
       for (let i = 0; i < mileStoneItems.length; i++) {
-        runCode = false
         const descriptive = mileStoneItems[i].querySelector(
           '.learning-path-timeline-milestone-item__content-container'
         )
@@ -68,7 +66,7 @@
                     Module ${i + 1}
                 </div>
                 <div style="border: solid; font-size: 0.9rem; margin: auto 0; padding: 2px 10px; border-radius: 99px; letter-spacing: 1px;">
-                    Required / Erforderlich
+                    ${i === 0 ? "Required / Erforderlich" : "On Demand / Optional"}
                 </div>
             </div>
             <div class="german-component flex" style="column-gap: 1rem; text-transform: uppercase; font-family: 'Pangea'; padding-bottom: 1rem;">
@@ -76,7 +74,7 @@
                     Modul ${i + 1}
                 </div>
                 <div style="border: solid; font-size: 0.9rem; margin: auto 0; padding: 2px 10px; border-radius: 99px; letter-spacing: 1px;">
-                    Required / Erforderlich
+                    ${i === 0 ? "Required / Erforderlich" : "On Demand / Optional"}
                 </div>
             </div>`
         descriptive.insertAdjacentHTML('afterbegin', moduleText)
@@ -107,32 +105,52 @@
 
       if(mileStoneItems.length <= 1) {
         const progressSection = document.querySelector('#progress-bar')
-        progressSection.style.display = 'none'
+        if(progressSection){
+          progressSection.style.display = 'none'
+        }
 
         const progressTimeline = document.querySelector('.widget--learning-path-content_standard')
-        progressTimeline.style.display = 'none'
+        if(progressTimeline){
+          progressTimeline.style.display = 'none'
+        }
       }
     }
 
-    function updateHeading() {
+    function updateLearningPathHeading() {
       const heroSection = document.querySelector('.learning-content-hero')
       const currentheading = heroSection.querySelector('h1')
       const heading = document.querySelector('#lp-title')
       if (currentheading && heading) {
         heading.innerHTML = currentheading.innerHTML
         heroSection.style.display = 'none'
+        heading.classList.add('script-processed')
       }
     }
-    const runner = setInterval(() => {
-      if (runCode) {
-        addModule()
-        updateHeading()
-      }
-    }, 500)
 
-    setTimeout(() => {
-      clearInterval(runner)
-    }, 5000)
+    function changeLearningPathFirstButton(){
+      const buttons = document.querySelectorAll('.btn--primary.catalog-item')
+      if(buttons.length > 0){
+        buttons[0].innerHTML = 'Zur Live Session'
+      }
+    }
+
+    function initiator(){
+      let runner = setInterval(() => {
+      const checkScript = document.querySelector('.script-processed')
+        if (!checkScript) {
+          updateLearningPathHeading()
+          addLearningPathStyledModule()
+          changeLearningPathFirstButton()
+        }
+      }, 500)
+
+      setTimeout(() => {
+        clearInterval(runner)
+      }, 5000)
+    }
+
+    initiator()
+
   </script>
 
   <script>
