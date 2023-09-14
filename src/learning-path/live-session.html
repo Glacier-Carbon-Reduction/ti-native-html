@@ -1,0 +1,27 @@
+<script>
+  function navigateToNextSection() {
+    const anchor = document.querySelector('.sidebar__container .next-section.btn')
+    if (anchor && anchor.hasAttribute('href')) {
+      return anchor.getAttribute('href')
+    }
+  }
+
+  function liveSessionScriptRunner() {
+    let timesRun = 0
+    const maxRuns = (5 * 1000) / 400
+
+    const interval = setInterval(() => {
+      timesRun += 1
+      const destination = navigateToNextSection()
+      if(destination){
+        timesRun = maxRuns
+        window.location.href = destination
+      }
+      if (timesRun >= maxRuns) {
+        clearInterval(interval)
+      }
+    }, 400)
+  }
+
+  liveSessionScriptRunner()
+</script>
