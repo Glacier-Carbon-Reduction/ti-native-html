@@ -1,9 +1,9 @@
 
 // Google tag (gtag.js)
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-WP2F2B0M4H');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-D1P0S4C02Q');
 
 
 // Hotjar Tracking Code for LXP SCORMs
