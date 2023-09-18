@@ -1,4 +1,3 @@
-
 // Google tag (gtag.js)
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -17,24 +16,47 @@ gtag('config', 'G-D1P0S4C02Q');
     console.log("Hotjar loaded");
 })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 
+let currentCourse = null
 
-document.addEventListener('DOMContentLoaded', function() {
-  window.onload = function() {
-      window.parent.postMessage("requestUserId", '*');
-  };
+// Initiate the postMessage listener
+document.addEventListener('DOMContentLoaded', function () {
+  window.onload = function () {
+    window.parent.postMessage('requestUserId', '*')
+  }
 
-  window.addEventListener('message', function(event) {
-
-    const pattern = /^https?:\/\/([a-z0-9-]+\.)*glacier\.eco(:[0-9]+)?$/i;
-    if (!pattern.test(event.origin)){
-      console.log("Message received from invalid origin:", event.origin);
-      return;
+  window.addEventListener('message', function (event) {
+    const pattern = /^https?:\/\/([a-z0-9-]+\.)*glacier\.eco(:[0-9]+)?$/i
+    if (!pattern.test(event.origin)) {
+      console.log('Message received from invalid origin:', event.origin)
+      return
     }
 
-      const receivedData = event.data;
-      if(receivedData && receivedData.userId){
-        localStorage.setItem('userId', receivedData.userId);
-        console.log("Message stored in localStorage:", receivedData);
-      }
-  });
-});
+    const receivedData = event.data
+    if (receivedData && receivedData.userId) {
+      localStorage.setItem('userId', receivedData.userId)
+      currentCourse = receivedData.course
+      console.log('Message stored in localStorage:', receivedData)
+    }
+  })
+})
+
+// Custom function to send events to API
+async function postEvent(eventData) {
+  try {
+    const response = await fetch('/api/webhook/scorm?source=iframeLXP', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        ...eventData,
+        userId: localStorage.getItem('userId'),
+        source: currentCourse || '_knownCourse_'
+      })
+    })
+    const data = await response.json()
+    console.log('Response from API:', data)
+  } catch (error) {
+    console.log(error)
+  }
+}
