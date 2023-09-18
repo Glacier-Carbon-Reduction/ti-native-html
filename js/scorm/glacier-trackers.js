@@ -35,7 +35,10 @@ document.addEventListener('DOMContentLoaded', function () {
     if (receivedData && receivedData.userId) {
       localStorage.setItem('userId', receivedData.userId)
       currentCourse = receivedData.course
-      console.log('Message stored in localStorage:', receivedData)
+      console.log('Message stored in localStorage')
+      if(receivedData.course && hj){
+        hj('overridePageName', receivedData.course);
+      }
     }
   })
 })
