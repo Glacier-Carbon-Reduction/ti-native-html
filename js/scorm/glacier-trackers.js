@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // Custom function to send events to API
 async function postEvent(eventData) {
   try {
-    const response = await fetch('/api/webhook/scorm?source=iframeLXP', {
+    const response = await fetch('https://glacier-projects.vercel.app/api/webhook/scorm?source=iframeLXP', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
