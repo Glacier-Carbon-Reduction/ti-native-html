@@ -1,0 +1,15 @@
+<script>
+  function removeNonEssentialElements() {
+    let liElements = document.querySelectorAll('.custom-catalog-library > li')
+
+    liElements.forEach((li) => {
+      let anchor = li.querySelector('a')
+      if (anchor && !anchor.href.includes('/learn/learning-path/')) {
+        li.remove()
+      }
+    })
+  }
+
+  setTimeout(removeNonEssentialElements, 1000)
+  setTimeout(removeNonEssentialElements, 2000)
+</script>

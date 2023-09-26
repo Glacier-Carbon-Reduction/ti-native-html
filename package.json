@@ -2,7 +2,8 @@
   "version": "0.2.10",
   "scripts": {
     "dev": "npx tailwindcss -i ./styles/tailwind.css -o ./styles/output.css --watch",
-    "prettier": "prettier --config \".prettierrc\"  \"./**/*.html\" --write"
+    "prettier": "prettier --config \".prettierrc\"  \"./**/*.html\" --write",
+    "prettier-folder": "prettier --config \".prettierrc\" \"src/email/templates/**/*.html\" --write"
   },
   "devDependencies": {
     "tailwindcss": "^3.3.2"
