@@ -65,14 +65,14 @@
 
 
        -->
-
-      <section class="py-12 bg-gray-50 sm:py-16 lg:py-20">
+<!-- This is a sample code of what the JS initiates. Kept here so that x-collapse gets initiated -->
+      <section class="py-12 bg-gray-50 sm:py-16 lg:py-20" style="display: none;">
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div class="max-w-6xl mx-auto">
             <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
               <div class="flex flex-col justify-between lg:col-span-5">
                 <div class="lg:max-w-sm">
-                  <h2 class="text-3xl font-bold">General</h2>
+                  <h2 class="text-3xl font-bold">{{modulename}}</h2>
                   <p class="mt-4 text-base font-medium text-gray-500"></p>
                 </div>
               </div>
@@ -80,11 +80,10 @@
               <div class="lg:col-span-7">
                 <div class="flow-root">
                   <div
-                    x-data="{ active: 1 }"
                     class="-my-4 divide-y divide-gray-900"
                   >
                     <div
-                      x-data="{ id: 1, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
+                      x-data="{ id: 999999, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
                       role="region"
                       class="py-6"
                     >
@@ -94,7 +93,7 @@
                           :aria-expanded="expanded"
                           class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left border-none focus:border-none"
                         >
-                          <span class="flex-1">Who is Glacier? </span>
+                          <span class="flex-1"></span>
                           <span x-show="expanded" aria-hidden="true">
                             <!-- prettier-ignore -->
                             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -114,125 +113,6 @@
 
                       <div x-show="expanded" x-collapse>
                         <div class="py-4 text-base font-medium">
-                          Glacier is a climate startup from Austria with the
-                          vision to bring Climate Action into the DNA of every
-                          company. Through empowerment & education of employees
-                          in various formats, such as a Climate Academy and a
-                          Climate Action Day, Climate Action in companies is
-                          made simple, understandable and concrete.
-                          <br />
-                          <br />
-                          With Glacier's support, employees can not only drive
-                          climate action in their company and make an immediate
-                          impact, but also connect with others facing the same
-                          big challenges and share best practices and
-                          experiences, creating a global community for Climate
-                          Action.
-                        </div>
-                      </div>
-                    </div>
-
-                    <div
-                      x-data="{ id: 2, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
-                      role="region"
-                      class="py-6"
-                    >
-                      <h3>
-                        <button
-                          @click="expanded = !expanded"
-                          :aria-expanded="expanded"
-                          class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left border-none focus:border-none"
-                        >
-                          <span class="flex-1"> What does Glacier offer?</span>
-                          <span x-show="expanded" aria-hidden="true">
-                            <!-- prettier-ignore -->
-                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                          stroke="currentColor" stroke-width="2">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                          </span>
-                          <span x-show="!expanded" aria-hidden="true">
-                            <!-- prettier-ignore -->
-                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                          stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-                        </svg>
-                          </span>
-                        </button>
-                      </h3>
-
-                      <div x-show="expanded" x-collapse>
-                        <div class="py-4 text-base font-medium">
-                          Glacier offers companies two programs to raise
-                          awareness, climate knowledge and climate competencies
-                          of their employees.
-                          <br />
-                          <br />
-                          <ul class="ml-10 list-disc">
-                            <li>
-                              The Glacier Climate Academy equips your employees
-                              with the necessary attitude, knowledge and skills
-                              to navigate humanities biggest challenge: climate
-                              change. Our modular and customizable learning
-                              paths range from climate essentials for the entire
-                              workforce to job and industry-specific deep dives
-                              offering advanced knowleadge and skills.
-                            </li>
-                            <br />
-                            <li>
-                              The Glacier Climate Action Day is an annual action
-                              day that takes place in hundreds of companies at
-                              the same time. Glacier provides an online live
-                              stream with international top speakers, as well as
-                              a selection of modules (workshops & activities).
-                              Companies, together with their employees, watch
-                              the livestream, do workshops and set climate
-                              actions. Glacier supports the preparation of a
-                              customized agenda.
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div
-                      x-data="{ id: 3, get expanded() { return this.active === this.id }, set expanded(value) { this.active = value ? this.id : null }, }"
-                      role="region"
-                      class="py-6"
-                    >
-                      <h3>
-                        <button
-                          @click="expanded = !expanded"
-                          :aria-expanded="expanded"
-                          class="flex items-center justify-between w-full space-x-6 text-base font-bold text-left border-none focus:border-none"
-                        >
-                          <span class="flex-1">
-                            Who can use the Glacier offer?
-                          </span>
-                          <span x-show="expanded" aria-hidden="true">
-                            <!-- prettier-ignore -->
-                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                          stroke="currentColor" stroke-width="2">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                          </span>
-                          <span x-show="!expanded" aria-hidden="true">
-                            <!-- prettier-ignore -->
-                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                          stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-                        </svg>
-                          </span>
-                        </button>
-                      </h3>
-
-                      <div x-show="expanded" x-collapse>
-                        <div class="py-4 text-base font-medium">
-                          Our offer is primarily aimed at companies. A
-                          participation in the Glacier Climate Action Day is
-                          usually organized by companies. The same applies to
-                          the Glacier Climate Academy, where companies provide
-                          their employees with further training.
                         </div>
                       </div>
                     </div>
