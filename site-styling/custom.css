@@ -456,6 +456,22 @@ button,
     border: none;
 }
 
+.custom-catalog-library-min .catalog-search-bar {
+    display: none;
+}
+
+.custom-catalog-library-min .medium-3.columns {
+    display: none;
+}
+
+.custom-catalog-library-min .pagination {
+    display: none;
+}
+
+.custom-catalog-library-min .medium-9.columns {
+    width: 100%;
+}
+
 /* .custom-catalog-library .medium-9 {
 width: 100%;
 } */
@@ -1758,4 +1774,23 @@ directional__nav__button {
 
 .dashboard__license-select__form .btn--primary {
     margin: 1rem 0;
+}
+
+/* 
+* Collapsable accordion element
+*/
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.accordion-icon {
+    transition: transform 0.3s ease-in-out;
+}
+
+.accordion-hidden {
+    display: block !important;
+    max-height: 0 !important;
 }
