@@ -100,18 +100,18 @@ function updateSignInPageLayout() {
   switch (true) {
     case window.location.hostname.includes('a1-'):
       footerLogo =
-        'https://res.cloudinary.com/df1dbnp0x/image/upload/v1692944343/img/clients/logos/a1_small_elpmzk.png'
+        'https://res.cloudinary.com/df1dbnp0x/image/upload/v1692944343/img/clients/logos/a1_small.png'
       height = '5rem'
       break
     case window.location.hostname.includes('firstclimate'):
       footerLogo =
-        'https://res.cloudinary.com/df1dbnp0x/image/upload/v1692944343/img/clients/logos/firstClimate_wide_wrlmnp.png'
+        'https://res.cloudinary.com/df1dbnp0x/image/upload/v1692944343/img/clients/logos/firstClimate_wide.png'
       height = '2.5rem'
       break
     case window.location.href.includes('generali-sme-entreprise'):
       footerLogo =
-        'https://res.cloudinary.com/df1dbnp0x/image/upload/v1693311948/img/clients/logos/sme_enterprize_wjmsgq.png'
-      height = '2.5rem'
+        'https://res.cloudinary.com/df1dbnp0x/image/upload/v1693311948/img/clients/logos/sme_enterprize_wide.png'
+      height = '3rem'
       break
   }
 
@@ -241,6 +241,24 @@ function removeTopNavigationButtons() {
   }
 }
 
+function iframeActivatePostMessage() {
+  document.addEventListener('DOMContentLoaded', function () {
+    window.addEventListener('message', function (event) {
+      if (event.data === 'requestUserId') {
+        const iframeWindow = document.querySelector('.sco--iframe')
+        if (iframeWindow) {
+          const iframeContentWindow = iframeWindow.contentWindow
+          const messageData = {
+            userId: window.CONF.preload.currentUser.currentUser.id,
+            course: window.location.pathname
+          }
+          iframeContentWindow.postMessage(messageData, '*')
+        }
+      }
+    })
+  })
+}
+
 /**
  * All Pages
  */
@@ -368,9 +386,7 @@ async function updatePageHeader() {
           ? `<a
               href="/learn/license"
               title="${
-                currentLanguage === 'de'
-                  ? 'Programm wählen'
-                  : 'Select Program'
+                currentLanguage === 'de' ? 'Programm wählen' : 'Select Program'
               }"
               class="${
                 userAuth || !checkIfMobileDevice ? 'hidden' : 'inline-flex'
@@ -392,11 +408,7 @@ async function updatePageHeader() {
                   ? 'font-weight: normal !important; border-bottom: 2px solid #6DD4AD; padding-bottom: 2px !important;'
                   : ''
               }">
-              ${
-                currentLanguage === 'de'
-                  ? 'Programm wählen'
-                  : 'Select Program'
-              }
+              ${currentLanguage === 'de' ? 'Programm wählen' : 'Select Program'}
               </span>
             </a>`
           : ''
