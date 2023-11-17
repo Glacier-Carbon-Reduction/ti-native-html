@@ -227,7 +227,7 @@ function updatePageHeader() {
           >
             <svg x-show="!open" width="32px" height="32px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M24.6668 15C25.2191 15 25.6668 15.4477 25.6668 16C25.6668 16.5063 25.2906 16.9247 24.8025 16.9909L24.6668 17H7.3335C6.78121 17 6.3335 16.5523 6.3335 16C6.3335 15.4937 6.7097 15.0753 7.1978 15.0091L7.3335 15H24.6668Z" fill="white"/> <path d="M24.6668 20.3333C25.2191 20.3333 25.6668 20.7811 25.6668 21.3333C25.6668 21.8396 25.2906 22.258 24.8025 22.3242L24.6668 22.3333H7.3335C6.78121 22.3333 6.3335 21.8856 6.3335 21.3333C6.3335 20.8271 6.7097 20.4087 7.1978 20.3425L7.3335 20.3333H24.6668Z" fill="white"/> <path d="M24.6668 9.66667C25.2191 9.66667 25.6668 10.1144 25.6668 10.6667C25.6668 11.1729 25.2906 11.5913 24.8025 11.6575L24.6668 11.6667H7.3335C6.78121 11.6667 6.3335 11.219 6.3335 10.6667C6.3335 10.1604 6.7097 9.74202 7.1978 9.6758L7.3335 9.66667H24.6668Z" fill="white"/> </svg>
             
-            <svg x-show="open" width="28px" height="28x" aria-hidden="true" fill="none" stroke="#FFF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" ><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" ></path></svg>
+            <svg x-show="open" width="28px" height="28px" aria-hidden="true" fill="none" stroke="#FFF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" ><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" ></path></svg>
           </a>
           `
               : ''
@@ -354,5 +354,13 @@ function embedWistiaVideo(videoId) {
         </iframe>`
 
     dynamicEmbed.innerHTML = embedCode
+  }
+}
+
+function userNameReplacer() {
+  const userName = window.CONF?.preload?.currentUser?.currentUser?.firstName
+  const userNameElement = document.getElementById('banner-username')
+  if (userName && userNameElement) {
+    userNameElement.textContent = ' ' + userName
   }
 }
