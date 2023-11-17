@@ -1,0 +1,7 @@
+/* html [lang="de"] {
+    display: block;
+} */
+
+html [lang="en"] {
+    display: none;
+}

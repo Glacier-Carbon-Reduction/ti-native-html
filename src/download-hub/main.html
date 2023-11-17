@@ -24,6 +24,19 @@
     </div>
   </section>
 
+  <section class="bg-glacier-darkgreen-600 bg-glacier-greengoo py-10 sm:py-16 lg:py-24">
+    <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 pt-16">
+      <div class="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
+        <div>
+          <p class="text-base font-semibold text-white uppercase tracking-widest">DOWNLOAD HUB</p>
+          <h1 class="mt-4 font-bold text-white lg:mt-8 text-4xl md:text-5xl">Let the downloads begin!</h1>
+          <p class="mt-4 text-base text-white lg:mt-8 sm:text-xl">Welcome to your Download Hub, where you can find and
+            download all learning resources in one place.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="bg-glacier-darkblue-600 pt-10 sm:pt-16 pb-5">
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
       <svg width="47" height="41" viewBox="0 0 47 41" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,14 +61,14 @@
           </p>
           <br />
           <p class="text-white mt-2 text-base">
-            Use these resources for your continued climate action, and to inspire others to join us on this journey!
+            Use these resources for your continued climate action in your company, and to inspire others to join us on this journey!
           </p>
         </div>
         <div class="pl-5">
           <h2 class="text-white text-xl font-semibold">Resource types available for you:</h2>
           <div class="flex items-center py-2">
             <div style="width: 50px;" class="flex items-center justify-center">
-              <svg width="14" height="19" viewBox="0 0 14 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg width="16" height="21" viewBox="0 0 14 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_88_317)">
                   <path
                     d="M0 2.07812C0 0.931445 0.915104 0 2.04167 0H11.9583C13.0849 0 14 0.931445 14 2.07812V18.0277C14 18.5658 13.5698 19 13.0448 19C12.8479 19 12.6583 18.9369 12.4943 18.8256L7 14.9105L1.50573 18.8256C1.34531 18.9406 1.15208 19 0.955208 19C0.430208 19 0 18.5621 0 18.0277V2.07812ZM2.04167 0.59375C1.23594 0.59375 0.583333 1.25801 0.583333 2.07812V18.0277C0.583333 18.2393 0.751042 18.4062 0.955208 18.4062C1.03177 18.4062 1.10833 18.384 1.17031 18.3357L6.83229 14.302C6.93437 14.2314 7.06563 14.2314 7.16771 14.302L12.8297 18.3357C12.8917 18.3803 12.9682 18.4062 13.0448 18.4062C13.2526 18.4062 13.4167 18.2355 13.4167 18.0277V2.07812C13.4167 1.25801 12.7641 0.59375 11.9583 0.59375H2.04167Z"
@@ -90,7 +103,7 @@
                 </g>
                 <defs>
                   <clipPath id="clip0_88_328">
-                    <rect width="15" height="20" fill="white" />
+                    <rect width="18" height="22" fill="white" />
                   </clipPath>
                 </defs>
               </svg>
@@ -129,7 +142,7 @@
 
           <div class="flex items-center py-2">
             <div style="width: 50px;" class="flex items-center justify-center">
-              <svg width="17" height="20" viewBox="0 0 17 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg width="19" height="22" viewBox="0 0 17 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M16.3929 3.75C16.3929 2.71484 15.577 1.875 14.5714 1.875H2.42857C1.42299 1.875 0.607143 2.71484 0.607143 3.75V16.25C0.607143 17.2852 1.42299 18.125 2.42857 18.125H14.5714C15.577 18.125 16.3929 17.2852 16.3929 16.25V3.75ZM14.5714 1.25C15.9109 1.25 17 2.37109 17 3.75V16.25C17 17.6289 15.9109 18.75 14.5714 18.75H2.42857C1.08906 18.75 0 17.6289 0 16.25V3.75C0 2.37109 1.08906 1.25 2.42857 1.25H14.5714ZM11.752 10.2227L7.19844 14.9102C7.0808 15.0312 6.88728 15.0312 6.76964 14.9102C6.65201 14.7891 6.65201 14.5898 6.76964 14.4688L11.1069 10L6.76585 5.53516C6.64821 5.41406 6.64821 5.21484 6.76585 5.09375C6.88348 4.97266 7.07701 4.97266 7.19464 5.09375L11.7482 9.78125C11.8658 9.90234 11.8658 10.1016 11.7482 10.2227H11.752Z"
                   fill="white" />
@@ -141,7 +154,9 @@
       </div>
 
       <div class="flex justify-center pt-10">
-        <div class="flex items-center mx-auto">
+        <div 
+          class="items-center mx-auto" 
+          style="display: inline-flex; align-items: baseline;">
           <div style="width: 50px;" class="flex items-center justify-center">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0_88_334)">
@@ -224,7 +239,7 @@
 
   function generateHTML(data, index) {
     let html = `
-        <section class="py-12 bg-gray-50 sm:py-16 lg:py-20">
+        <section class="py-12 bg-gray-50 sm:py-16 lg:py-20 download-hub-section">
             <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="max-w-6xl mx-auto">
                     <div class="flex justify-between items-center">
@@ -234,7 +249,8 @@
                           <button
                             onclick="handleDownloadClick('${data.folder.zipFile.id}', '${data.folder.zipFile.name}')"
                             id="${data.folder.zipFile.id}"
-                            class="text-white bg-glacier-darkgreen-400 font-medium rounded text-sm px-5 py-1">
+                            style="border: none; font-weight: 500;"
+                            class="inline-flex items-center px-6 py-4 transition-all duration-200 bg-glacier-darkgreen-400 hover-bg-glacier-darkgreen-600 text-glacier-darkblue-600 hover-text-white rounded-full">
                               Download Collection
                           </button>
                           ` : ''

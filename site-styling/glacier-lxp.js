@@ -696,16 +696,8 @@ function germanComponentVisualiser() {
 
 function languageSelector() {
   var currentLanguage = localStorage.getItem('sys_language')
-  // var languageSelector = document.querySelector('.learner__language__selector')
   const queryString = window.location.search
   const urlParams = new URLSearchParams(queryString)
-  // if (languageSelector) {
-  //   if (languageSelector.innerText === 'English') {
-  //     localStorage.setItem('sys_language', 'en')
-  //   } else {
-  //     localStorage.setItem('sys_language', 'de')
-  //   }
-  // } else
   if (urlParams.has('sys_lang') && urlParams.get('sys_lang') === 'de') {
     localStorage.setItem('sys_language', 'de')
   } else if (urlParams.has('sys_lang') && urlParams.get('sys_lang') === 'en') {
