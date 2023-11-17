@@ -814,6 +814,8 @@ ul {
     scale: 0.8;
 }
 
+.dashboard-access-list-item .icon-navigatedown:before{content:""}
+
 .dashboard-access-list-item .icon-navigateright {
     border: 2.5px solid var(--Spring);
     padding: 1px;
@@ -821,6 +823,9 @@ ul {
     border-radius: 100px;
     scale: 0.8;
 }
+
+.dashboard-access-list-item .icon-navigateright:before{content:""}
+
 
 .dashboard-access-list-item .icon-navigateright:hover {
     background: var(--Spring);
