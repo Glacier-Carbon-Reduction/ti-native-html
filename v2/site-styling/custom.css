@@ -524,7 +524,7 @@ button,
 * LXP Styling Overrides
 */
 
-.header {
+body:not(.manager) .header {
     display: none;
 }
 
@@ -730,6 +730,10 @@ ul {
 
 .dashboard-access .dashboard-access-list-item .col-span-3 {
     display: none;
+}
+
+.dashboard-access-list-item .btn--primary.btn--small {
+    white-space: nowrap;
 }
 
 .dashboard-access .dashboard-access-list-item-expander {
