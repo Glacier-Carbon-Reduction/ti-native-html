@@ -322,14 +322,19 @@ function updatePageHeader() {
   mainGroup.prepend(newHeader)
 }
 
+function triggerScrollIntoView(objectId) {
+  const targetElement = document.getElementById(objectId)
+
+  if (targetElement) {
+    targetElement.scrollIntoView({ behavior: 'smooth' })
+  }
+}
+
 function scrollToModuleCatalogOnFilter() {
   const queryString = window.location.search
   const urlParams = new URLSearchParams(queryString)
   if (urlParams.has('labels')) {
-    const customElement = document.getElementById('custom-module-catalog')
-    if (customElement) {
-      customElement.scrollIntoView()
-    }
+    triggerScrollIntoView('custom-module-catalog')
   }
 }
 
@@ -349,8 +354,7 @@ function embedWistiaVideo(videoId) {
           webkitallowfullscreen 
           oallowfullscreen 
           msallowfullscreen 
-          width="100%" 
-          height="660px">
+          width="100%">
         </iframe>`
 
     dynamicEmbed.innerHTML = embedCode
