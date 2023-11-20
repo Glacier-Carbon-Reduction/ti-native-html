@@ -339,7 +339,7 @@ function scrollToModuleCatalogOnFilter() {
 }
 
 function embedWistiaVideo(videoId) {
-  const dynamicEmbed = document.getElementById('dynamic-content-space')
+  const dynamicEmbed = document.getElementById('lxp-intro-video')
   if (dynamicEmbed) {
     var embedCode = `
         <iframe 
