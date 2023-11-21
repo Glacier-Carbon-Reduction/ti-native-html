@@ -451,6 +451,8 @@ async function checkForCertificate() {
         visualProps.fontColor = visualProps.fontColor || '#FFFFFF'
         const html = generateCetificateSuspense('pending', visualProps)
         certificateContainer.innerHTML = html
+        certificateContainer.classList.add('force-full-width')
+        certificateContainer.classList.add('custom-section-top-full')
       } else {
         console.log('No certificate data found.')
       }
