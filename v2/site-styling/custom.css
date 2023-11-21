@@ -557,11 +557,6 @@ ul {
     margin: 0
 }
 
-.widget:has(.force-full-width) {
-    padding: 0 !important;
-    margin: 0 !important;
-}
-
 .widget {
     display: flex;
     justify-content: center;
@@ -569,9 +564,9 @@ ul {
 
 .widget>* {
     width: 100%;
-    max-width: 1200px;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    max-width: 1224px;
+    padding-left: 12px;
+    padding-right: 12px;
 }
 
 /* 
@@ -906,7 +901,7 @@ ul {
     object-fit: cover;
     object-position: left;
     border-radius: 8px;
-    aspect-ratio: 244 / 280;
+    aspect-ratio: 224 / 280;
     width: auto;
 }
 
