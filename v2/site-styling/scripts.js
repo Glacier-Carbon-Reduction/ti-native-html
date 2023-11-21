@@ -427,7 +427,7 @@ function generateCetificateSuspense(event, visualProps) {
 }
 
 async function checkForCertificate() {
-  const certificateContainer = document.getElementById('certificate-suspense-container')
+  const certificateContainer = document.getElementById('certificate-validate-container')
   const userId = window.CONF.preload.currentUser.currentUser.id;
   if (certificateContainer && userId) {
     try {
@@ -458,4 +458,19 @@ async function checkForCertificate() {
       console.log(error)
     }
   }
+}
+
+function showLoading() {
+  const alertBoxShell = document.getElementById('customAlertBox')
+  if(alertBoxShell) alertBoxShell.style.display = 'block';
+}
+
+function hideLoading() {
+  const alertBoxShell = document.getElementById('customAlertBox')
+  if(alertBoxShell) alertBoxShell.style.display = 'none';
+}
+
+function updateMessage(message) {
+  const alertBoxShell = document.getElementById('customAlertBox')
+  if(alertBoxShell) alertBoxShell.textContent = message;
 }
