@@ -1,5 +1,4 @@
-let INTERNAL_SYSTEM_PATH = 'https://internal.glacier.eco'
-let currentUserLanguage = window.CONF?.preload?.currentUser?.currentUser?.lang
+currentUserLanguage = window.CONF?.preload?.currentUser?.currentUser?.lang
 
 async function waiter() {
   await new Promise((resolve) => setTimeout(resolve, 800))

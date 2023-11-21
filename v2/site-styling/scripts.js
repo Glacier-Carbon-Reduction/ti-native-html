@@ -2,6 +2,9 @@
  * Global Utility Functions
  */
 
+let INTERNAL_SYSTEM_PATH = 'https://internal.glacier.eco'
+let currentUserLanguage = window.CONF?.preload?.currentUser?.currentUser?.lang
+
 function watchNestedProperty(obj, value, callback) {
   let lastValue = obj[value]
 
