@@ -1,4 +1,4 @@
-const INTERNAL_SYSTEM_PATH = 'https://internal.glacier.eco'
+let INTERNAL_SYSTEM_PATH = 'https://internal.glacier.eco'
 let currentUserLanguage = window.CONF?.preload?.currentUser?.currentUser?.lang
 
 async function waiter() {
