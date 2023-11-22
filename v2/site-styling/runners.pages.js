@@ -8,6 +8,7 @@ async function waiter() {
   applyStylesForFirefox()
   embedWistiaVideo(currentUserLanguage === 'de' ? '1o3n779t75' : 'sh9w3ogy2l')
   checkForCertificate()
+  courseInformationPageModifier()
 }
 
 waiter()

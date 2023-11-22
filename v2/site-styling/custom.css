@@ -18,6 +18,7 @@
     --Spring-Dark: #5FBC99;
     --desktop-device-width: 1518px;
     --desktop-content-width: 1200px;
+    --Text: #424141;
 
     --adaptive-grey-900: #676666;
 
@@ -59,6 +60,7 @@ h5,
 h6,
 a,
 button,
+li,
 .pagination {
     font-family: PangeaText !important;
     color: rgb(20 53 96);
@@ -562,7 +564,8 @@ ul {
     justify-content: center;
 }
 
-.widget>* {
+.widget>*,
+.home__content>* {
     width: 100%;
     max-width: 1224px;
     padding-left: 12px;
@@ -620,6 +623,8 @@ ul {
     background: var(--Spring);
     color: var(--Ocean);
     border: none;
+    margin: 0;
+    font-size: var(--natural-size-sm);
 }
 
 .btn--primary:hover,
@@ -705,6 +710,9 @@ ul {
     color: var(--adaptive-grey-900);
     font-size: var(--natural-size-xs);
     font-weight: var(--font-weight-regular);
+    width: 20px;
+    height: 20px;
+    padding-top: 2px;
 }
 
 .dashboard-access .dashboard-access-tab.dashboard-access-tab--active .dashboard-access-tab__count {
@@ -1050,4 +1058,105 @@ ul {
 
 .certificate-greyscale-filter {
     filter: grayscale(100%) brightness(50%);
+}
+
+/* 
+* Course Information Page Styling
+*/
+
+.home.course-group .container {
+    padding-top: 0;
+}
+
+.course__detail__container .course__detail__sidebar, .course-purchase__mobile-button {
+    display: none;
+}
+
+
+.course__detail__container .course__detail__content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.course__detail__container .course__detail__content .course__detail__header {
+    display: none;
+}
+
+.course__detail__container .course__detail__content .tabs {
+    display: none;
+}
+
+.course__detail__container .course__detail__content .tabs-content {
+    border: none;
+}
+
+.course__detail__container .course__detail__asset .picturefill img {
+    width: 340px;
+    height: 420px;
+    border-radius: 8px;
+    object-fit: cover;
+    object-position: left;
+}
+
+.course__detail__container .course__detail__content h3,
+h4,
+h5 {
+    font-family: Pangea !important;
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-xs);
+    line-height: 110%;
+    color: var(--Ocean);
+    margin-bottom: 12px;
+}
+
+.course__detail__container .course__detail__content p,
+li {
+    font-family: PangeaText !important;
+    font-size: var(--natural-size-md);
+    line-height: 160%;
+    color: var(--Text);
+}
+
+.course__detail__container .course__detail__content p,
+ul,
+ol {
+    margin-bottom: 20px;
+}
+
+.course-information-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+    .course__detail__container .course__detail__content {
+        display: block;
+    }
+
+    .course-information-header .btn {
+        display: none;
+    }
+
+    .course__detail__container .course__detail__asset .picturefill img {
+        width: 180px;
+        height: 232px;
+    }
+
+    .mobile-footer-nav-bar {
+        background: #fff;
+        bottom: 0;
+        -webkit-box-shadow: 0 -1px 2px #e9e9e9;
+        box-shadow: 0 -1px 2px #e9e9e9;
+        left: 0;
+        margin: 0;
+        padding: 12px 20px;
+        position: fixed;
+        width: 100%;
+        z-index: 30005;
+    }
 }
