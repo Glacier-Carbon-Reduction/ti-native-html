@@ -1093,6 +1093,10 @@ ul {
     border: none;
 }
 
+.course__detail__container .course__detail__content .tabs-content>.content {
+    padding: 0;
+}
+
 .course__detail__container .course__detail__asset .picturefill img {
     width: 340px;
     height: 420px;
