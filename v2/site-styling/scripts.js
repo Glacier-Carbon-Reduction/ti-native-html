@@ -246,7 +246,7 @@ function updatePageHeader() {
         class="bg-white divide-y divide-gray-100 shadow absolute left-0 z-10 block lg:hidden nav-menu-mobile"
       >
         <ul
-          class="py-8 px-4 text-md no-bullets flex flex-col gap-5"
+          class="pt-8 px-4 text-md no-bullets flex flex-col gap-5"
           aria-labelledby="dropdownMobileButton"
         >
         ${
@@ -493,10 +493,9 @@ function updateMessage(message) {
   if (alertBoxShell) alertBoxShell.textContent = message
 }
 
-function applyStylesForFirefox() {
-  const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1
-  if (isFirefox) {
-
+function applyStylesForHasPsuedoClass() {
+  const checkHasSupport = window.CSS && CSS.supports && CSS.supports('selector(:has(*))')
+  if (!checkHasSupport) {
     const glacierWidgets = document.querySelectorAll('.bg-glacier-greengoo')
     glacierWidgets.forEach((widget) => {
       const parentEl = widget.parentElement
@@ -517,7 +516,7 @@ function applyStylesForFirefox() {
     expanderItems.forEach((item) => {
       item.addEventListener('click', async function () {
         await new Promise((resolve) => setTimeout(resolve, 800))
-        applyStylesForFirefox()
+        applyStylesForHasPsuedoClass()
       })
     })
 

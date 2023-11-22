@@ -5,7 +5,7 @@ async function waiter() {
   currentUserLanguage = window.CONF?.preload?.currentUser?.currentUser?.lang
   updatePageHeader()
   userNameReplacer()
-  applyStylesForFirefox()
+  applyStylesForHasPsuedoClass()
   embedWistiaVideo(currentUserLanguage === 'de' ? '1o3n779t75' : 'sh9w3ogy2l')
   checkForCertificate()
   courseInformationPageModifier()
