@@ -513,13 +513,7 @@ li,
 }
 
 .wistia_embed {
-    height: 660px;
-}
-
-@media screen and (max-width: 425px) {
-    .wistia_embed {
-        height: 220px;
-    }
+    aspect-ratio: 16 / 9;
 }
 
 /* 
@@ -637,6 +631,22 @@ ul {
     color: white;
 }
 
+.btn--alt {
+    height: 40px;
+    padding: 5px 18px;
+    display: flex;
+    justify-content: center;
+    font-family: PangeaText;
+    font-weight: var(--font-weight-medium);
+    align-items: center;
+    border-radius: 100px;
+    background: none;
+    color: var(--Ocean);
+    border: 1px solid var(--Ocean, #143560);
+    margin: 0;
+    font-size: var(--natural-size-sm);
+}
+
 .btn--small {
     height: 32px;
     padding: 0px 12px;
@@ -752,8 +762,9 @@ ul {
 }
 
 .dashboard-access-list-item-expansion img {
-    width: 120px;
+    width: auto;
     height: 150px;
+    aspect-ratio: 224 / 280;
     border-radius: 8px;
     object-fit: cover;
     object-position: left;
@@ -764,6 +775,10 @@ ul {
     font-size: var(--natural-size-sm);
     line-height: 160%;
     margin-bottom: 12px;
+}
+
+.dashboard-access-list-item-expansion .dashboard-access-list-view-detail-page {
+    margin: 12px 0;
 }
 
 .dashboard-access-list-item-expansion .user-engagement-stat--hours,
@@ -850,6 +865,22 @@ ul {
     .dashboard-access-list-item-expansion .row .columns:has(.dashboard-access-list-item__description) {
         display: grid;
         grid-template-columns: 3fr 2fr;
+        gap: 28px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .dashboard-access-list-item-expansion .columns:has(img) {
+        width: 15%;
+    }
+
+    .dashboard-access-list-item-expansion .columns:has(.dashboard-access-list-item__description) {
+        width: 85%;
+    }
+
+    .dashboard-access-list-item-expansion .row .columns:has(.dashboard-access-list-item__description) {
+        display: grid;
+        grid-template-columns: 3fr 2fr 1fr;
         gap: 28px;
     }
 }
@@ -1098,8 +1129,9 @@ ul {
 }
 
 .course__detail__container .course__detail__asset .picturefill img {
-    width: 340px;
+    width: auto;
     height: 420px;
+    aspect-ratio: 224 / 280;
     border-radius: 8px;
     object-fit: cover;
     object-position: left;
@@ -1151,7 +1183,6 @@ ol {
     }
 
     .course__detail__container .course__detail__asset .picturefill img {
-        width: 180px;
         height: 232px;
     }
 

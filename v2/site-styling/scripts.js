@@ -521,7 +521,26 @@ function applyStylesForHasPsuedoClass() {
     })
 
     const screenWidth = window.innerWidth
-    if (screenWidth >= 768) {
+    if (screenWidth >= 1024) {
+      const dashboardItems = document.querySelectorAll('.dashboard-access-list-item-expansion .columns')
+      dashboardItems.forEach((item) => {
+        if (item.querySelector('img')) {
+          item.style.width = '15%'
+        }
+        if (item.querySelector('.dashboard-access-list-item__description')) {
+          item.style.width = '85%'
+        }
+      })
+
+      const dashboardRows = document.querySelectorAll('.dashboard-access-list-item-expansion .row .columns')
+      dashboardRows.forEach((row) => {
+        if (row.querySelector('.dashboard-access-list-item__description')) {
+          row.style.display = 'grid'
+          row.style.gridTemplateColumns = '3fr 2fr 1fr'
+          row.style.gap = '28px'
+        }
+      })
+    } else if (screenWidth >= 768) {
       const dashboardItems = document.querySelectorAll('.dashboard-access-list-item-expansion .columns')
       dashboardItems.forEach((item) => {
         if (item.querySelector('img')) {
