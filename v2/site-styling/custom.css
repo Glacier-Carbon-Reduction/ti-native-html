@@ -1526,6 +1526,7 @@ hr {
     align-content: center;
     justify-content: center;
     border-radius: 100px;
+    aspect-ratio: 1 / 1;
 }
 
 .course__container .learner__sidebar .learner__sidebar-inner-list .syllabus__lesson .syllabus__lesson--title .completed__indicator icon-check,
@@ -1752,13 +1753,6 @@ hr {
     border: none;
 }
 
-
-
-
-
-
-
-
 .quiz__container .choices__list li.choice--selected,
 .quiz__container .choices__list li.choice--selected:hover,
 .quiz__container .choices__list li.choice--multiple.choice--selected.choice--selected--neutral,
@@ -1854,13 +1848,6 @@ hr {
     font-weight: var(--font-weight-semibold);
     color: #D00000;
 }
-
-
-
-
-
-
-
 
 .topic__container__quiz .quiz__container .choices__list li.choice--selected.choice--selected--true,
 .topic__container__quiz .quiz__container .choices__list li.choice--selected.choice--selected--true:hover,
@@ -1978,13 +1965,7 @@ hr {
     height: auto;
 }
 
-.course__container .quiz__container .quiz__results .question-results__messages.row--flex .question-results__grade-remaining {
-    border: none;
-    font-size: var(--natural-size-md);
-    text-transform: none;
-    padding: 0;
-}
-
+.course__container .quiz__container .quiz__results .question-results__messages.row--flex .question-results__grade-remaining,
 .course__container .quiz__container .quiz__results .question-results__messages.row--flex .question-results__message.large-5 {
     border: none;
     font-size: var(--natural-size-md);
@@ -2030,4 +2011,11 @@ hr {
 .course__container .quiz__container .question-results__grade .large-offset-3.text-center .panel.panel--alt .results__grade__status.results__grade__status--passed {
     color: var(--Meadow-Dark);
     font-weight: var(--font-weight-semibold);
+}
+
+
+@media screen and (max-width: 426px) {
+    .course__container .quiz__container .quiz__results .results__controls {
+        display: inline-grid;
+    }
 }
