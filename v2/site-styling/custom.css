@@ -1247,6 +1247,10 @@ ol {
     display: none;
 }
 
+.course__container .learner__content .learner-section__title__container {
+    margin-bottom: 12px;
+}
+
 .course__container .learner__content .learner-section__title__container .text-right {
     display: none;
 }
@@ -1414,6 +1418,9 @@ hr {
 
 .course__container .learner__sidebar .expandable-sidebar__content .syllabus__section-list {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .course__container .learner__sidebar .expandable-sidebar__content .syllabus__section-list::before {
