@@ -1368,11 +1368,12 @@ ol {
 
 .course__container .learner__sidebar .learner__sidebar__expandables {
     margin-top: 0;
-    min-height: calc(100vh - 190px);
+    min-height: calc(100vh - 120px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     font-family: PangeaText;
+    padding-bottom: 72px;
 }
 
 .course__container .learner__sidebar .learner__sidebar__expandables .expandable-sidebar__link {
@@ -1647,6 +1648,7 @@ hr {
 
     .course__container .learner__sidebar .learner__sidebar__expandables {
         min-height: calc(100vh - 140px);
+        padding-bottom: 0;
     }
 
     .course__container .learner__content .directional__nav {
