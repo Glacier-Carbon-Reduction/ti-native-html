@@ -678,7 +678,7 @@ function updateSignInPageLayout() {
           </div>
         </div>
   
-        <div class="col-span-2 md:col-span-1 md:order-2">
+        <div class="col-span-2 md:col-span-1 md:order-2 pangia-text-force">
           <div
             class="flex items-center text-white justify-center sm:justify-between md:justify-center space-x-9 lg:space-x-16  text-sm"
           >

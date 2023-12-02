@@ -67,6 +67,10 @@ li,
     color: rgb(20 53 96);
 }
 
+body input {
+    font-family: PangeaText !important;
+}
+
 .bg-glacier-mountains {
     background-image: -webkit-image-set(url('https://glacier-projects.vercel.app/img/brand/backgrounds/background-nature-1.jpeg') 1x);
     background-image: image-set(url('https://glacier-projects.vercel.app/img/brand/backgrounds/background-nature-1.jpeg') 1x);
@@ -266,7 +270,11 @@ li,
 }
 
 .pangia-force * {
-    font-family: Pangea, PangeaText !important;
+    font-family: Pangea !important;
+}
+
+.pangia-text-force * {
+    font-family: PangeaText !important;
 }
 
 .display-text {
@@ -552,6 +560,10 @@ p,
 pre,
 ul {
     margin: 0
+}
+
+.field__label {
+    font-family: PangeaText;
 }
 
 .widget {
@@ -1503,9 +1515,9 @@ hr {
 
 .course__container .learner__sidebar .learner__sidebar-inner-list .syllabus__lesson .syllabus__lesson--title .syllabus__lesson--title-text.syllabus__lesson--disabled:before {
     content: " ";
-    background: rgb(209 229 221);
+    background: #e9e9e9;
     border-radius: 100px;
-    border: var(--Spring) 2px solid;
+    border: #c2c2c2 2px solid;
     height: 20px;
     aspect-ratio: 1 / 1;
     display: flex;
@@ -2041,9 +2053,14 @@ hr {
     padding: 0;
     font-family: PangeaText;
     font-size: var(--natural-size-md);
+    color: var(--Text);
     text-transform: none;
     line-height: 160%;
     margin: 0;
+}
+
+.course__container .quiz__container .question-results__grade .large-offset-3.text-center .panel.panel--alt .results__grade-percentage {
+    font-weight: 600;
 }
 
 .course__container .quiz__container .question-results__grade .large-offset-3.text-center .panel.panel--alt .results__grade__status.results__grade__status--passed {
