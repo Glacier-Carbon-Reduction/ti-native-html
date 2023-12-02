@@ -10,6 +10,98 @@
     padding-bottom: 2.5rem
 }
 
+@media (min-width:768px) {
+    .container {
+        max-width: 768px
+    }
+
+    .md\:order-1 {
+        order: 1
+    }
+
+    .md\:order-2 {
+        order: 2
+    }
+
+    .md\:order-3 {
+        order: 3
+    }
+
+    .md\:col-span-1 {
+        grid-column: span 1/span 1
+    }
+
+    .md\:col-span-3 {
+        grid-column: span 3/span 3
+    }
+
+    .md\:ml-auto {
+        margin-left: auto
+    }
+
+    .md\:flex {
+        display: flex
+    }
+
+    .md\:hidden {
+        display: none
+    }
+
+    .md\:grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+
+    .md\:grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr))
+    }
+
+    .md\:items-center {
+        align-items: center
+    }
+
+    .md\:justify-center {
+        justify-content: center
+    }
+
+    .md\:py-32 {
+        padding-top: 8rem;
+        padding-bottom: 8rem
+    }
+
+    .md\:py-48 {
+        padding-top: 12rem;
+        padding-bottom: 12rem
+    }
+
+    .md\:gap-36 {
+        gap: 9rem
+    }
+
+    .md\:space-x-10>:not([hidden])~:not([hidden]) {
+        --tw-space-x-reverse: 0;
+        margin-right: calc(2.5rem * var(--tw-space-x-reverse));
+        margin-left: calc(2.5rem * calc(1 - var(--tw-space-x-reverse)))
+    }
+
+    .md\:pt-5 {
+        padding-top: 1.25rem
+    }
+
+    .md\:text-left {
+        text-align: left
+    }
+
+    .md\:text-5xl {
+        font-size: 3rem;
+        line-height: 1
+    }
+
+    .md\:text-6xl {
+        font-size: 3.75rem;
+        line-height: 1
+    }
+}
+
 @media (min-width:1024px) {
     .container {
         max-width: 1024px
