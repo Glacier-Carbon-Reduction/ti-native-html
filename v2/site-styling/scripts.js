@@ -599,3 +599,175 @@ function courseInformationPageModifier() {
     container.insertBefore(courseInformationHeader, container.firstChild)
   }
 }
+
+/**
+ * Legacy Functions
+ */
+
+function checkIfEmailConfirmationVisit() {
+  var url = new URL(window.location.href)
+  if (url.searchParams.has('confirm-email')) {
+    var pageContainer = document.querySelector('.session__form')
+    if (pageContainer) {
+      var h2 = pageContainer.querySelector('h2')
+      var p = pageContainer.querySelector('p')
+      var input = pageContainer.querySelector('input[type="submit"]')
+      if (url.searchParams.has('de')) {
+        h2.innerHTML = 'Bitte bestätige deine E-Mail-Adresse'
+        p.innerHTML = 'Gib deine E-Mail-Adresse unten ein und wir senden dir einen Link, um dein Passwort zu setzen.'
+        input.setAttribute('value', 'Bestätigen')
+      } else {
+        h2.innerHTML = 'Please confirm your email address'
+        p.innerHTML = 'Enter your email below and we will send you a link to set your password.'
+        input.setAttribute('value', 'Confirm')
+      }
+    }
+  }
+}
+
+function updateSignInPageLayout() {
+  var pageContainer = document.querySelector('.session')
+  pageContainer.classList.add('refresh-validator')
+
+  var footerLogo =
+    'https://glacier-projects.vercel.app/img/brand/logos/01_glacier_logo/horizontal/glacier_logo_horizontal_1C_white.png'
+  var height = '2rem'
+  switch (true) {
+    case window.location.hostname.includes('a1-'):
+      footerLogo = 'https://res.cloudinary.com/df1dbnp0x/image/upload/v1692944343/img/clients/logos/a1_small.png'
+      height = '5rem'
+      break
+    case window.location.hostname.includes('firstclimate'):
+      footerLogo =
+        'https://res.cloudinary.com/df1dbnp0x/image/upload/v1692944343/img/clients/logos/firstClimate_wide.png'
+      height = '2.5rem'
+      break
+    case window.location.href.includes('generali-sme-entreprise'):
+      footerLogo =
+        'https://res.cloudinary.com/df1dbnp0x/image/upload/v1693311948/img/clients/logos/sme_enterprize_wide.png'
+      height = '3rem'
+      break
+  }
+
+  var footerContainer = document.createElement('footer')
+  footerContainer.className = 'py-6'
+  footerContainer.innerHTML = `
+    <div class="px-6 mx-auto sm:px-8 lg:px-12 max-w-7xl">
+      <div class="grid items-center grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-3">
+        <div class="md:order-1">
+          <img
+            class="w-auto"
+            src="${footerLogo}"
+            alt="Logo"
+            style="height: ${height}"
+          />
+        </div>
+  
+        <div class="md:order-3">
+          <div class="flex items-center justify-end space-x-6 text-sm">
+            <a
+              href="https://glacier.eco/impressum"
+              title="Impressum"
+              class="text-white"
+            >
+              Impressum
+            </a>
+          </div>
+        </div>
+  
+        <div class="col-span-2 md:col-span-1 md:order-2">
+          <div
+            class="flex items-center text-white justify-center sm:justify-between md:justify-center space-x-9 lg:space-x-16  text-sm"
+          >
+            Do you need help? &nbsp;
+            <a
+              href="/support"
+              title="Support"
+              class="text-white"
+            >
+              Support
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>`
+
+  pageContainer.appendChild(footerContainer)
+}
+
+function changeGermanTextsOnPref() {
+  var pageTitle = document.querySelector('.session__form h2')
+  if (pageTitle && pageTitle.innerText === 'Passwort zurücksetzen') {
+    var formTitle = document.querySelector('.session__form p')
+    if (formTitle.innerHTML === 'Please enter your new password below.') {
+      formTitle.innerHTML = 'Bitte erstelle dein neues Passwort.'
+      var newPassword = document.querySelector('input[placeholder="New Password"]')
+      if (newPassword) {
+        newPassword.setAttribute('placeholder', 'Neues Passwort')
+      }
+      var newPasswordLabel = document.querySelector('label[for="password"]')
+      if (newPasswordLabel) {
+        newPasswordLabel.firstChild.data = 'Neues Passwort'
+      }
+      var newPasswordConfirm = document.querySelector('input[placeholder="Confirm New Password"]')
+      if (newPasswordConfirm) {
+        newPasswordConfirm.setAttribute('placeholder', 'Neues Passwort bestätigen')
+      }
+      var newPasswordConfirmLabel = document.querySelector('label[for="password-confirm"]')
+      if (newPasswordConfirmLabel) {
+        newPasswordConfirmLabel.firstChild.data = 'Neues Passwort bestätigen'
+      }
+    }
+  }
+}
+
+function authPageModifiers() {
+  if (
+    window.location.href.includes('/learn/sign_in') ||
+    window.location.href.includes('/learn/sign_out') ||
+    window.location.href.includes('/learn/reset_password') ||
+    window.location.href.includes('/learn/forgot')
+  ) {
+    console.log('auth page');
+    checkIfEmailConfirmationVisit()
+    updateSignInPageLayout()
+    changeGermanTextsOnPref()
+  }
+}
+
+function trackCodeRedemptions() {
+  const submitButton = document.querySelector(
+    '.widget--redemption-form .btn.btn--primary.btn--expand'
+  )
+
+  submitButton.addEventListener('click', async function () {
+    const queryString = window.location.search
+    const urlParams = new URLSearchParams(queryString)
+    let emailInput = document.querySelector(
+      'input[placeholder="E-Mail-Adresse"]'
+    )
+    if (!emailInput) {
+      emailInput = document.querySelector('input[placeholder="Email Address"]')
+    }
+    const data = {
+      email: emailInput?.value || 'unknown',
+      ...Object.fromEntries(urlParams)
+    }
+    await fetch('https://glacier-projects.vercel.app/api/webhook/lxp_redeem', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': 'glacier-projects'
+      },
+      body: JSON.stringify(data)
+    })
+  })
+}
+
+function redeemPageModifiers() {
+  if (window.location.href.includes('/redeem')) {
+    console.log('redeem page');
+    trackCodeRedemptions()
+  }
+}

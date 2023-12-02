@@ -3,6 +3,9 @@ currentUserLanguage = window.CONF?.preload?.currentUser?.currentUser?.lang
 async function waiter() {
   await new Promise((resolve) => setTimeout(resolve, 800))
   currentUserLanguage = window.CONF?.preload?.currentUser?.currentUser?.lang
+
+  authPageModifiers()
+  redeemPageModifiers()
   updatePageHeader()
   userNameReplacer()
   applyStylesForHasPsuedoClass()
@@ -12,3 +15,6 @@ async function waiter() {
 }
 
 waiter()
+
+// const mainStylesheet = document.getElementById('main-custom-stylesheet').sheet
+// mainStylesheet.disabled = true
