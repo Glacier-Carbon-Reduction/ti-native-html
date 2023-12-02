@@ -14,3 +14,11 @@ if (window.CONF?.preload?.currentUser) {
     }
   })
 }
+
+async function mainWaiter() {
+  await new Promise((resolve) => setTimeout(resolve, 800))
+  authPageModifiers()
+  redeemPageModifiers()
+}
+
+mainWaiter()

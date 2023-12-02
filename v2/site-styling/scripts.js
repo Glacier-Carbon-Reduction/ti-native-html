@@ -627,6 +627,9 @@ function checkIfEmailConfirmationVisit() {
 
 function updateSignInPageLayout() {
   var pageContainer = document.querySelector('.session')
+  if (!pageContainer || pageContainer.classList.contains('refresh-validator')) {
+    return
+  }
   pageContainer.classList.add('refresh-validator')
 
   var footerLogo =
