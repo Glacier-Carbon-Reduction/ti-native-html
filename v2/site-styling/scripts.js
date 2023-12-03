@@ -745,7 +745,7 @@ function authPageModifiers() {
 }
 
 function trackCodeRedemptions() {
-  console.log('tracking code redemptions');
+  console.log('tracking code redemptions')
   const submitButton = document.querySelector('.widget--redemption-form .btn.btn--primary.btn--expand')
 
   submitButton.addEventListener('click', async function () {
@@ -772,7 +772,7 @@ function trackCodeRedemptions() {
 }
 
 function performRedemptionPageTransformations() {
-  console.log('performing redemption page transformations');
+  console.log('performing redemption page transformations')
   const footer = document.querySelector('.footer')
   if (footer) {
     footer.remove()
@@ -887,7 +887,7 @@ function performRedemptionPageTransformations() {
 }
 
 async function performDelayedTransformations() {
-  console.log('performing delayed transformations');
+  console.log('performing delayed transformations')
   let rowCollapses = document.querySelectorAll('.row.collapse')
   let target = null
   while (!target) {
@@ -941,8 +941,22 @@ function redeemPageModifiers() {
 }
 
 async function performRegistrationPageTransformations() {
-  await new Promise((resolve) => setTimeout(resolve, 500))
-  console.log('performing registration page transformations');
+  console.log('performing registration page transformations')
+  let widget = document.querySelector('.widget--registration-form')
+  let timeoutId
+  const timeout = 3000 // 3 seconds
+  const interval = 100 // Check every 100ms
+  const startTime = Date.now()
+
+  while (!widget && Date.now() - startTime < timeout) {
+    await new Promise((resolve) => {
+      timeoutId = setTimeout(resolve, interval)
+    })
+    widget = document.querySelector('.widget--registration-form')
+  }
+
+  clearTimeout(timeoutId)
+
   const footer = document.querySelector('.footer')
   if (footer) {
     footer.remove()
@@ -956,7 +970,7 @@ async function performRegistrationPageTransformations() {
       homeContent.style.display = 'flex'
       homeContent.style.minHeight = '93vh'
     }
-    let widget = document.querySelector('.widget--registration-form')
+
     if (widget) {
       const div = widget.querySelector('div')
       div.classList.add('session__container')
