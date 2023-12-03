@@ -745,6 +745,7 @@ function authPageModifiers() {
 }
 
 function trackCodeRedemptions() {
+  console.log('tracking code redemptions');
   const submitButton = document.querySelector('.widget--redemption-form .btn.btn--primary.btn--expand')
 
   submitButton.addEventListener('click', async function () {
@@ -771,6 +772,7 @@ function trackCodeRedemptions() {
 }
 
 function performRedemptionPageTransformations() {
+  console.log('performing redemption page transformations');
   const footer = document.querySelector('.footer')
   if (footer) {
     footer.remove()
@@ -885,6 +887,7 @@ function performRedemptionPageTransformations() {
 }
 
 async function performDelayedTransformations() {
+  console.log('performing delayed transformations');
   let rowCollapses = document.querySelectorAll('.row.collapse')
   let target = null
   while (!target) {
@@ -937,7 +940,9 @@ function redeemPageModifiers() {
   }
 }
 
-function performRegistrationPageTransformations() {
+async function performRegistrationPageTransformations() {
+  await new Promise((resolve) => setTimeout(resolve, 500))
+  console.log('performing registration page transformations');
   const footer = document.querySelector('.footer')
   if (footer) {
     footer.remove()
