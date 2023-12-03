@@ -732,6 +732,8 @@ function authPageModifiers() {
   if (
     window.location.href.includes('/learn/sign_in') ||
     window.location.href.includes('/learn/sign_out') ||
+    window.location.href.includes('/learn/register') ||
+    window.location.href.includes('/learn/redeem') ||
     window.location.href.includes('/learn/reset_password') ||
     window.location.href.includes('/learn/forgot')
   ) {
@@ -768,102 +770,7 @@ function trackCodeRedemptions() {
   })
 }
 
-function redeemPageModifiers() {
-  if (window.location.href.includes('/redeem')) {
-    console.log('redeem page')
-    trackCodeRedemptions()
-  }
-}
-
-function performTransformations() {
-  const footer = document.querySelector('.footer')
-  if (footer) {
-    footer.remove()
-  }
-  const container = document.querySelector('.container')
-  const session = document.querySelector('.session')
-  if (container && !session) {
-    container.classList.add('session')
-    let homeContent = document.querySelector('.home__content')
-    if (homeContent) {
-      homeContent.style.display = 'flex'
-      homeContent.style.minHeight = '93vh'
-    }
-    let widget = document.querySelector('.widget--registration-form')
-    if (widget) {
-      const div = widget.querySelector('div')
-      div.classList.add('session__container')
-      div.style.padding = '3rem 2rem'
-      div.style.margin = '0 auto'
-
-      const alreadyMember = div.querySelector('.text-centered')
-      if (alreadyMember) {
-        alreadyMember.remove()
-      }
-
-      const logo = document.createElement('div')
-      logo.classList.add('company__beta-logo')
-      div.prepend(logo)
-
-      const nameInputs = div.querySelectorAll('.small-6.columns')
-      nameInputs.forEach((nameInput) => {
-        nameInput.classList.remove('small-6')
-      })
-
-      const form = div.querySelector('.small-offset-3')
-      const formParent = form.parentNode
-      form.classList.remove('small-offset-3')
-      form.classList.remove('small-6')
-      form.style.maxWidth = '600px'
-      form.style.padding = '0 2rem'
-      formParent.style.margin = 'auto'
-
-      let row = div.querySelector('.row')
-      row = row.querySelector('.row')
-      row = row.querySelectorAll('.row')
-      let formSubmit = row[1]
-      const column1 = formSubmit.querySelector('.medium-8')
-      column1.style.width = '100%'
-      column1.style.marginBottom = '1rem'
-      column1.style.marginTop = '1rem'
-
-      const column2 = formSubmit.querySelector('.medium-4')
-      column2.style.width = '100%'
-      column2.style.marginBottom = '1.5rem'
-      column2.style.marginTop = '1rem'
-
-      const button = column2.querySelector('button')
-      button.style.maxWidth = '200px'
-      button.style.margin = 'auto'
-
-      const column3 = document.createElement('div')
-      column3.style.width = '100%'
-      column3.innerHTML = `
-          <p style="text-align: center;">
-          <span lang="de">Bereits Mitglied? </span>
-            <span lang="en">Already a member? </span>
-            <a href="/learn/sign_in" class="btn btn--link btn--inherit-font underline">
-              <span>Login</span>
-            </a>
-          </p>`
-      formSubmit.append(column3)
-
-      const inputs = div.querySelectorAll('input[type=text], input[type=email], input[type=password]')
-      inputs.forEach((input) => {
-        let currentPlaceholder = input.getAttribute('placeholder')
-        if (currentPlaceholder === 'Password Confirmation') {
-          currentPlaceholder = 'Confirm Password'
-        }
-        if (currentPlaceholder === 'Passwortbestätigung') {
-          currentPlaceholder = 'Passwort bestätigen'
-        }
-        input.setAttribute('placeholder', currentPlaceholder + '*')
-      })
-    }
-  }
-}
-
-function performTransformations() {
+function performRedemptionPageTransformations() {
   const footer = document.querySelector('.footer')
   if (footer) {
     footer.remove()
@@ -1018,5 +925,109 @@ async function performDelayedTransformations() {
         button.style.textTransform = 'uppercase'
       }
     })
+  }
+}
+
+function redeemPageModifiers() {
+  if (window.location.href.includes('/redeem')) {
+    console.log('redeem page')
+    trackCodeRedemptions()
+    performRedemptionPageTransformations()
+    performDelayedTransformations()
+  }
+}
+
+function performRegistrationPageTransformations() {
+  const footer = document.querySelector('.footer')
+  if (footer) {
+    footer.remove()
+  }
+  const container = document.querySelector('.container')
+  const session = document.querySelector('.session')
+  if (container && !session) {
+    container.classList.add('session')
+    let homeContent = document.querySelector('.home__content')
+    if (homeContent) {
+      homeContent.style.display = 'flex'
+      homeContent.style.minHeight = '93vh'
+    }
+    let widget = document.querySelector('.widget--registration-form')
+    if (widget) {
+      const div = widget.querySelector('div')
+      div.classList.add('session__container')
+      div.style.padding = '3rem 2rem'
+      div.style.margin = '0 auto'
+
+      const alreadyMember = div.querySelector('.text-centered')
+      if (alreadyMember) {
+        alreadyMember.remove()
+      }
+
+      const logo = document.createElement('div')
+      logo.classList.add('company__beta-logo')
+      div.prepend(logo)
+
+      const nameInputs = div.querySelectorAll('.small-6.columns')
+      nameInputs.forEach((nameInput) => {
+        nameInput.classList.remove('small-6')
+      })
+
+      const form = div.querySelector('.small-offset-3')
+      const formParent = form.parentNode
+      form.classList.remove('small-offset-3')
+      form.classList.remove('small-6')
+      form.style.maxWidth = '600px'
+      form.style.padding = '0 2rem'
+      formParent.style.margin = 'auto'
+
+      let row = div.querySelector('.row')
+      row = row.querySelector('.row')
+      row = row.querySelectorAll('.row')
+      let formSubmit = row[1]
+      const column1 = formSubmit.querySelector('.medium-8')
+      column1.style.width = '100%'
+      column1.style.marginBottom = '1rem'
+      column1.style.marginTop = '1rem'
+
+      const column2 = formSubmit.querySelector('.medium-4')
+      column2.style.width = '100%'
+      column2.style.marginBottom = '1.5rem'
+      column2.style.marginTop = '1rem'
+
+      const button = column2.querySelector('button')
+      button.style.maxWidth = '200px'
+      button.style.margin = 'auto'
+
+      const column3 = document.createElement('div')
+      column3.style.width = '100%'
+      column3.innerHTML = `
+          <p style="text-align: center;">
+          <span lang="de">Bereits Mitglied? </span>
+            <span lang="en">Already a member? </span>
+            <a href="/learn/sign_in" class="btn btn--link btn--inherit-font underline">
+              <span>Login</span>
+            </a>
+          </p>`
+      formSubmit.append(column3)
+
+      const inputs = div.querySelectorAll('input[type=text], input[type=email], input[type=password]')
+      inputs.forEach((input) => {
+        let currentPlaceholder = input.getAttribute('placeholder')
+        if (currentPlaceholder === 'Password Confirmation') {
+          currentPlaceholder = 'Confirm Password'
+        }
+        if (currentPlaceholder === 'Passwortbestätigung') {
+          currentPlaceholder = 'Passwort bestätigen'
+        }
+        input.setAttribute('placeholder', currentPlaceholder + '*')
+      })
+    }
+  }
+}
+
+function redeemPageModifiers() {
+  if (window.location.href.includes('/register')) {
+    console.log('register page')
+    performRegistrationPageTransformations()
   }
 }
