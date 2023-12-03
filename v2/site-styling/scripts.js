@@ -928,12 +928,12 @@ async function performDelayedTransformations() {
   }
 }
 
-function redeemPageModifiers() {
+async function redeemPageModifiers() {
   if (window.location.href.includes('/redeem')) {
     console.log('redeem page')
     trackCodeRedemptions()
+    await performDelayedTransformations()
     performRedemptionPageTransformations()
-    performDelayedTransformations()
   }
 }
 
