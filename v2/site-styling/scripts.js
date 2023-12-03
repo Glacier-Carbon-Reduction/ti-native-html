@@ -42,6 +42,10 @@ function getCookie(name, getValue) {
  */
 
 function updatePageHeader() {
+  if (window.location.href.includes('/redeem') || window.location.href.includes('/register')) {
+    return
+  }
+
   var userAuth = getCookie('authTokenExpires')
   var mainGroup = document.querySelector('.container')
   if (window.location.href.includes('/learn/course/')) {
@@ -731,7 +735,7 @@ function authPageModifiers() {
     window.location.href.includes('/learn/reset_password') ||
     window.location.href.includes('/learn/forgot')
   ) {
-    console.log('auth page');
+    console.log('auth page')
     checkIfEmailConfirmationVisit()
     updateSignInPageLayout()
     changeGermanTextsOnPref()
@@ -739,16 +743,12 @@ function authPageModifiers() {
 }
 
 function trackCodeRedemptions() {
-  const submitButton = document.querySelector(
-    '.widget--redemption-form .btn.btn--primary.btn--expand'
-  )
+  const submitButton = document.querySelector('.widget--redemption-form .btn.btn--primary.btn--expand')
 
   submitButton.addEventListener('click', async function () {
     const queryString = window.location.search
     const urlParams = new URLSearchParams(queryString)
-    let emailInput = document.querySelector(
-      'input[placeholder="E-Mail-Adresse"]'
-    )
+    let emailInput = document.querySelector('input[placeholder="E-Mail-Adresse"]')
     if (!emailInput) {
       emailInput = document.querySelector('input[placeholder="Email Address"]')
     }
@@ -770,7 +770,253 @@ function trackCodeRedemptions() {
 
 function redeemPageModifiers() {
   if (window.location.href.includes('/redeem')) {
-    console.log('redeem page');
+    console.log('redeem page')
     trackCodeRedemptions()
+  }
+}
+
+function performTransformations() {
+  const footer = document.querySelector('.footer')
+  if (footer) {
+    footer.remove()
+  }
+  const container = document.querySelector('.container')
+  const session = document.querySelector('.session')
+  if (container && !session) {
+    container.classList.add('session')
+    let homeContent = document.querySelector('.home__content')
+    if (homeContent) {
+      homeContent.style.display = 'flex'
+      homeContent.style.minHeight = '93vh'
+    }
+    let widget = document.querySelector('.widget--registration-form')
+    if (widget) {
+      const div = widget.querySelector('div')
+      div.classList.add('session__container')
+      div.style.padding = '3rem 2rem'
+      div.style.margin = '0 auto'
+
+      const alreadyMember = div.querySelector('.text-centered')
+      if (alreadyMember) {
+        alreadyMember.remove()
+      }
+
+      const logo = document.createElement('div')
+      logo.classList.add('company__beta-logo')
+      div.prepend(logo)
+
+      const nameInputs = div.querySelectorAll('.small-6.columns')
+      nameInputs.forEach((nameInput) => {
+        nameInput.classList.remove('small-6')
+      })
+
+      const form = div.querySelector('.small-offset-3')
+      const formParent = form.parentNode
+      form.classList.remove('small-offset-3')
+      form.classList.remove('small-6')
+      form.style.maxWidth = '600px'
+      form.style.padding = '0 2rem'
+      formParent.style.margin = 'auto'
+
+      let row = div.querySelector('.row')
+      row = row.querySelector('.row')
+      row = row.querySelectorAll('.row')
+      let formSubmit = row[1]
+      const column1 = formSubmit.querySelector('.medium-8')
+      column1.style.width = '100%'
+      column1.style.marginBottom = '1rem'
+      column1.style.marginTop = '1rem'
+
+      const column2 = formSubmit.querySelector('.medium-4')
+      column2.style.width = '100%'
+      column2.style.marginBottom = '1.5rem'
+      column2.style.marginTop = '1rem'
+
+      const button = column2.querySelector('button')
+      button.style.maxWidth = '200px'
+      button.style.margin = 'auto'
+
+      const column3 = document.createElement('div')
+      column3.style.width = '100%'
+      column3.innerHTML = `
+          <p style="text-align: center;">
+          <span lang="de">Bereits Mitglied? </span>
+            <span lang="en">Already a member? </span>
+            <a href="/learn/sign_in" class="btn btn--link btn--inherit-font underline">
+              <span>Login</span>
+            </a>
+          </p>`
+      formSubmit.append(column3)
+
+      const inputs = div.querySelectorAll('input[type=text], input[type=email], input[type=password]')
+      inputs.forEach((input) => {
+        let currentPlaceholder = input.getAttribute('placeholder')
+        if (currentPlaceholder === 'Password Confirmation') {
+          currentPlaceholder = 'Confirm Password'
+        }
+        if (currentPlaceholder === 'Passwortbestätigung') {
+          currentPlaceholder = 'Passwort bestätigen'
+        }
+        input.setAttribute('placeholder', currentPlaceholder + '*')
+      })
+    }
+  }
+}
+
+function performTransformations() {
+  const footer = document.querySelector('.footer')
+  if (footer) {
+    footer.remove()
+  }
+  const container = document.querySelector('.container')
+  const session = document.querySelector('.session')
+  if (container && !session) {
+    container.classList.add('session')
+    let homeContent = document.querySelector('.home__content')
+    if (homeContent) {
+      homeContent.style.display = 'flex'
+      homeContent.style.minHeight = '93vh'
+    }
+    let widget = document.querySelector('.widget--redemption-form')
+    if (widget) {
+      const div = widget.querySelector('div')
+      div.classList.add('session__container')
+      div.style.padding = '3rem 2rem'
+      div.style.margin = '0 auto'
+
+      const heading = div.querySelector('div')
+      heading.innerHTML = `
+          <h2 class="h2 widget__title">
+            <span lang="de">Registrieren</span>
+            <span lang="en">Register</span>
+          </h2>`
+
+      const logo = document.createElement('div')
+      logo.classList.add('company__beta-logo')
+      div.prepend(logo)
+
+      const alreadyMember = div.querySelector('.already-member')
+      if (alreadyMember) {
+        alreadyMember.remove()
+      }
+
+      const subtitle = div.querySelector('.widget__subtitle')
+      if (subtitle) {
+        subtitle.remove()
+      }
+
+      const hr = div.querySelector('hr')
+      if (hr) {
+        hr.remove()
+      }
+
+      const form = div.querySelectorAll('.medium-6')
+      form.forEach((form) => {
+        form.classList.remove('medium-6')
+        form.classList.remove('small-6')
+        form.style.maxWidth = '600px'
+        form.style.padding = '0 2rem'
+      })
+
+      const rowCollapses = div.querySelectorAll('.row.collapse')
+      rowCollapses.forEach((rowCollapse) => {
+        if (
+          rowCollapse.innerText.includes('Add Another Code') ||
+          rowCollapse.innerText.includes('Weiteren Code hinzufügen')
+        ) {
+          rowCollapse.remove()
+        }
+      })
+
+      const nameInputs = div.querySelectorAll('.small-6.name-input')
+      nameInputs.forEach((nameInput) => {
+        nameInput.classList.remove('small-6')
+        nameInput.classList.remove('name-input')
+      })
+
+      let row = div.querySelector('.medium-4.columns.text-right')
+      let formSubmit = row.parentNode
+      const column1 = formSubmit.querySelector('.medium-8')
+      column1.style.width = '100%'
+      column1.style.marginBottom = '1rem'
+      column1.style.marginTop = '1rem'
+
+      const column2 = formSubmit.querySelector('.medium-4')
+      column2.style.width = '100%'
+      column2.style.marginBottom = '1.5rem'
+      column2.style.marginTop = '1rem'
+
+      const button = column2.querySelector('button')
+      button.style.maxWidth = '200px'
+      button.style.margin = 'auto'
+
+      const column3 = document.createElement('div')
+      column3.style.width = '100%'
+      column3.innerHTML = `
+          <p style="text-align: center;">
+            <span lang="de">Bereits Mitglied? </span>
+            <span lang="en">Already a member? </span>
+            <a href="/learn/sign_in" class="btn btn--link btn--inherit-font underline">
+              <span>Login</span>
+            </a>
+          </p>`
+      formSubmit.append(column3)
+
+      const inputs = div.querySelectorAll('input[type=text], input[type=email], input[type=password]')
+      inputs.forEach((input) => {
+        let currentPlaceholder = input.getAttribute('placeholder')
+        if (currentPlaceholder === 'Password Confirmation') {
+          currentPlaceholder = 'Confirm Password'
+        }
+        if (currentPlaceholder === 'Passwortbestätigung') {
+          currentPlaceholder = 'Passwort bestätigen'
+        }
+        input.setAttribute('placeholder', currentPlaceholder + '*')
+      })
+    }
+  }
+}
+
+async function performDelayedTransformations() {
+  let rowCollapses = document.querySelectorAll('.row.collapse')
+  let target = null
+  while (!target) {
+    await new Promise((resolve) => setTimeout(resolve, 500))
+    rowCollapses = document.querySelectorAll('.row.collapse')
+    rowCollapses.forEach((rowCollapse) => {
+      if (rowCollapse.innerText.includes('Validate') || rowCollapse.innerText.includes('Überprüfen')) {
+        target = rowCollapse
+        const inputContainer = target.querySelector('.medium-8')
+        if (inputContainer) {
+          inputContainer.classList.remove('medium-8')
+          inputContainer.classList.add('medium-10')
+        }
+
+        const buttonContainer = target.querySelector('.medium-4')
+        if (buttonContainer) {
+          buttonContainer.classList.remove('medium-4')
+          buttonContainer.classList.add('medium-2')
+        }
+
+        const inputs = target.querySelectorAll('input[type=text], input[type=email], input[type=password]')
+        inputs.forEach((input) => {
+          let currentPlaceholder = input.getAttribute('placeholder')
+          if (currentPlaceholder === 'Den Code hier eingeben') {
+            currentPlaceholder = 'Registrierungscode'
+          } else if (currentPlaceholder === 'Enter Code Here') {
+            currentPlaceholder = 'Enter Registration Code Here'
+          }
+
+          input.setAttribute('placeholder', currentPlaceholder + '*')
+        })
+
+        const button = target.querySelector('button')
+        button.style.height = '1.5rem'
+        button.style.marginTop = '0.5rem'
+        button.style.padding = '0'
+        button.style.fontSize = '.7rem'
+        button.style.textTransform = 'uppercase'
+      }
+    })
   }
 }
