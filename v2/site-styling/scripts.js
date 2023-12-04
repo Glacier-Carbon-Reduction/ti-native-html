@@ -37,6 +37,21 @@ function getCookie(name, getValue) {
   return null
 }
 
+function showLoading() {
+  const alertBoxShell = document.getElementById('customAlertBox')
+  if(alertBoxShell) alertBoxShell.style.display = 'block';
+}
+
+function hideLoading() {
+  const alertBoxShell = document.getElementById('customAlertBox')
+  if(alertBoxShell) alertBoxShell.style.display = 'none';
+}
+
+function updateMessage(message) {
+  const alertBoxShell = document.getElementById('customAlertBox')
+  if(alertBoxShell) alertBoxShell.textContent = message;
+}
+
 /**
  * LXP Level Functions
  */

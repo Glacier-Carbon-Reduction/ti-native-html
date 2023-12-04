@@ -1,4 +1,4 @@
-if (window.CONF?.preload?.currentUser) {
+if (window.CONF?.preload?.currentUser.currentUser.lang) {
   watchNestedProperty(window.CONF.preload.currentUser.currentUser, 'lang', (newValue) => {
     console.log('Language changed to:', newValue)
     const langStylesheetDE = document.getElementById('lang-stylesheet-de').sheet

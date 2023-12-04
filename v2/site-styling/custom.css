@@ -525,6 +525,30 @@ body input {
     aspect-ratio: 16 / 9;
 }
 
+.resize-16-9 {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+html {
+    scroll-behavior: smooth;
+    transition: scroll-behavior 0.3s cubic-bezier(0.32, 0.04, 0.15, 1);
+}
+
+#customAlertBox {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 30px;
+    font-size: 1.2rem;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
 /* 
 * LXP Styling Overrides
 */
@@ -535,6 +559,10 @@ body:not(.manager) .header {
 
 .container {
     max-width: 100% !important;
+}
+
+.container > .home__content {
+    padding: 0;
 }
 
 .no-bullets {
@@ -572,7 +600,7 @@ ul {
 }
 
 body:not(.redeem):not(.register) .widget>*,
-body:not(.redeem):not(.register) .home__content>* {
+body:not(.redeem):not(.register):not(.support) .home__content>* {
     width: 100%;
     max-width: 1224px;
     padding-left: 12px;
@@ -1949,6 +1977,18 @@ hr {
     font-size: var(--natural-size-xs);
     font-weight: var(--font-weight-semibold);
     color: var(--Meadow-Dark);
+}
+
+.course__container .topic__container__quiz .quiz__container .choices__list .choice .row.choice {
+    order: 1;
+}
+
+.course__container .topic__container__quiz .quiz__container .choices__list .choice .choice__response {
+    order: 2;
+}
+
+.course__container .topic__container__quiz .quiz__container .choices__list .choice .choice__review {
+    order: 3;
 }
 
 .course__container .topic__container__quiz .quiz__container .choices__list .choice__review .text-sm {
