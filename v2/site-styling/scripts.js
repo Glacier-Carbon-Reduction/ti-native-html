@@ -210,10 +210,9 @@ function updatePageHeader() {
             </div>
           </div>
           <a
-            onClick="toggleAccordion('nav-menu-mobile')"
+            onClick="toggleAccordion('nav-menu-mobile', this)"
             type="button"
             class="natural-text natural-text-lg flex lg:hidden items-center text-white transition-all duration-200 gap-3 cursor-pointer"
-            type="button"
           >
             <svg class="accordion-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M24.6666 15C25.2189 15 25.6666 15.4477 25.6666 16C25.6666 16.5063 25.2904 16.9247 24.8023 16.9909L24.6666 17H7.33331C6.78103 17 6.33331 16.5523 6.33331 16C6.33331 15.4937 6.70952 15.0753 7.19762 15.0091L7.33331 15H24.6666Z" fill="white"/> <path d="M24.6666 20.3333C25.2189 20.3333 25.6666 20.781 25.6666 21.3333C25.6666 21.8396 25.2904 22.258 24.8023 22.3242L24.6666 22.3333H7.33331C6.78103 22.3333 6.33331 21.8856 6.33331 21.3333C6.33331 20.8271 6.70952 20.4087 7.19762 20.3425L7.33331 20.3333H24.6666Z" fill="white"/> <path d="M24.6666 9.66666C25.2189 9.66666 25.6666 10.1144 25.6666 10.6667C25.6666 11.1729 25.2904 11.5913 24.8023 11.6575L24.6666 11.6667H7.33331C6.78103 11.6667 6.33331 11.2189 6.33331 10.6667C6.33331 10.1604 6.70952 9.74201 7.19762 9.67579L7.33331 9.66666H24.6666Z" fill="white"/> </svg>
             
@@ -570,14 +569,19 @@ function courseInformationPageModifier() {
   }
 }
 
-function toggleAccordion(id) {
+function toggleAccordion(id, element) {
   const accordion = document.getElementById(`accordion-${id}`)
   if (!accordion) {
     console.log(`accordion-${id} not found`)
     return
   }
   const content = accordion.querySelector('.accordion-content')
-  const icons = accordion.querySelectorAll('.accordion-icon')
+  let icons = []
+  if(element){
+    icons = element.querySelectorAll('.accordion-icon')
+  } else {
+    icons = accordion.querySelectorAll('.accordion-icon')
+  }
 
   if (content.style.maxHeight === '0px' || content.style.maxHeight === '') {
     content.classList.remove('accordion-hidden')

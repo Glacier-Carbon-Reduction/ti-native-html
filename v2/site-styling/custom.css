@@ -765,6 +765,10 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
     box-shadow: inset 0px 0px 30px 20px var(--Spring-Dark);
 }
 
+.learner__language__selector {
+    z-index: 40000;
+}
+
 /* 
 * Course Progress Dashboard padding: 1rem 2rem;
 */
@@ -1430,13 +1434,25 @@ ol {
     background-color: white;
 }
 
-.course__container .learner__content .directional__nav .directional__nav__button__container {
+.course__container .learner__content .directional__nav .directional__nav__button__container--prev {
+    background-color: white;
+    border-radius: 100px;
+    border: 1px var(--Ocean) solid;
+}
+
+.course__container .learner__content .directional__nav .directional__nav__button__container--prev:hover {
+    background-color: var(--Ocean);
+    transition: all 0.3s ease;
+    color: white !important;
+}
+
+.course__container .learner__content .directional__nav .directional__nav__button__container--next {
     background-color: var(--Spring);
     border-radius: 100px;
     border: none;
 }
 
-.course__container .learner__content .directional__nav .directional__nav__button__container:hover {
+.course__container .learner__content .directional__nav .directional__nav__button__container--next:hover {
     background-color: var(--Spring-Dark);
     transition: all 0.3s ease;
     color: white !important;
@@ -1448,7 +1464,7 @@ ol {
     font-weight: var(--font-weight-medium);
     font-family: PangeaText;
     line-height: 160%;
-    padding: 0px 12px;
+    padding: 5px 18px;
 }
 
 .course__container .learner__content .directional__nav a:hover {
@@ -1846,6 +1862,10 @@ hr {
 
 .course__container .quiz__container .topic__index {
     display: none;
+}
+
+.course__container .quiz__container .btn--primary.btn--right {
+    float: left;
 }
 
 .quiz__container--assessment .choices__list li,
