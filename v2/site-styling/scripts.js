@@ -39,17 +39,17 @@ function getCookie(name, getValue) {
 
 function showLoading() {
   const alertBoxShell = document.getElementById('customAlertBox')
-  if(alertBoxShell) alertBoxShell.style.display = 'block';
+  if (alertBoxShell) alertBoxShell.style.display = 'block'
 }
 
 function hideLoading() {
   const alertBoxShell = document.getElementById('customAlertBox')
-  if(alertBoxShell) alertBoxShell.style.display = 'none';
+  if (alertBoxShell) alertBoxShell.style.display = 'none'
 }
 
 function updateMessage(message) {
   const alertBoxShell = document.getElementById('customAlertBox')
-  if(alertBoxShell) alertBoxShell.textContent = message;
+  if (alertBoxShell) alertBoxShell.textContent = message
 }
 
 /**
@@ -97,10 +97,7 @@ function updatePageHeader() {
   newHeader.className = 'py-4 bg-ocean refresh-validator-header nav-root'
   newHeader.innerHTML = `
     <nav
-        x-data="{ open: false, toggle() { if (this.open) { return this.close(); } this.$refs.button.focus(); this.open = true; }, close(focusAfter) { if (! this.open){ return; } this.open = false; focusAfter && focusAfter.focus(); } }"
-        x-on:keydown.escape.prevent.stop="close($refs.button)"
-        x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
-        x-id="['dropdown-button-mobile']"
+        id="dropdown-button-mobile"
         class="nav-main"
         style="font-weight: lighter !important"
     >
@@ -143,35 +140,35 @@ function updatePageHeader() {
               ${userAuth ? 'Dashboard' : 'Sign In'}
             </span>
           </a>
-  
+
+          ${
+            userAuth
+              ? `
           <a
-            href="/support"
-            title="Help Page"
+            href="/pages/download-hub"
+            title="Download Hub"
             class="hidden lg:inline-flex natural-text natural-text-lg items-center text-white transition-all duration-200 hover:text-spring-dark gap-3 ${
-              extraClass === 'support' ? 'font-medium' : ''
+              extraClass === 'downloadhub' ? 'font-medium' : ''
             }"
           >
-            <svg width="24" height="24" viewBox="0 0 40 40" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" > <path d="M22.5469 10H17.4531C14.7188 10 12.5 12.2188 12.5 14.9531V15.7812C12.5 16.1267 12.7808 16.4062 13.125 16.4062C13.4692 16.4062 13.75 16.1267 13.75 15.7812V14.9531C13.75 12.9141 15.4141 11.25 17.4531 11.25H22.5461C24.5859 11.25 26.25 12.9141 26.25 14.9531C26.25 16.2969 25.52 17.5375 24.3703 18.1773L19.2031 20.7578C18.4609 21.1016 18 21.9531 18 22.8047V24.375C18 24.7205 18.2807 25 18.625 25C18.9692 25 19.25 24.7205 19.25 24.375V22.8047C19.25 22.408 19.4648 22.0417 19.7871 21.8625L24.9504 19.2805C26.5234 18.4141 27.5 16.75 27.5 14.9531C27.5 12.2188 25.2812 10 22.5469 10ZM18.75 27.5C18.0625 27.5 17.5 28.0625 17.5 28.75C17.5 29.4375 18.0625 30 18.75 30C19.4375 30 20 29.4403 20 28.75C20 28.0597 19.4375 27.5 18.75 27.5ZM20 0C8.95312 0 0 8.95312 0 20C0 31.0469 8.95312 40 20 40C31.0469 40 40 31.0469 40 20C40 8.95312 31.0469 0 20 0ZM20 38.75C9.66406 38.75 1.25 30.3359 1.25 20C1.25 9.66406 9.66406 1.25 20 1.25C30.3359 1.25 38.75 9.66406 38.75 20C38.75 30.3359 30.3359 38.75 20 38.75Z"/> </svg>
-            <span class="${extraClass === 'support' ? 'nav-list-active' : ''}">
-              Support
+            <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"> <g clip-path="url(#clip0_206_48)"> <path d="M16.5 0.5C16.5 0.225 16.275 0 16 0C15.725 0 15.5 0.225 15.5 0.5V22.2938L8.35625 15.1438C8.1625 14.95 7.84375 14.95 7.65 15.1438C7.45625 15.3375 7.45625 15.6562 7.65 15.85L15.65 23.85C15.8438 24.0438 16.1625 24.0438 16.3563 23.85L24.3563 15.85C24.55 15.6562 24.55 15.3375 24.3563 15.1438C24.1625 14.95 23.8438 14.95 23.65 15.1438L16.5 22.2938V0.5ZM8.9625 20H4C1.79375 20 0 21.7938 0 24V28C0 30.2062 1.79375 32 4 32H28C30.2062 32 32 30.2062 32 28V24C32 21.7938 30.2062 20 28 20H23.0375L22.0375 21H28C29.6562 21 31 22.3438 31 24V28C31 29.6562 29.6562 31 28 31H4C2.34375 31 1 29.6562 1 28V24C1 22.3438 2.34375 21 4 21H9.9625L8.9625 20ZM27 27C26.7348 27 26.4804 26.8946 26.2929 26.7071C26.1054 26.5196 26 26.2652 26 26C26 25.7348 26.1054 25.4804 26.2929 25.2929C26.4804 25.1054 26.7348 25 27 25C27.2652 25 27.5196 25.1054 27.7071 25.2929C27.8946 25.4804 28 25.7348 28 26C28 26.2652 27.8946 26.5196 27.7071 26.7071C27.5196 26.8946 27.2652 27 27 27ZM25 26C25 26.5304 25.2107 27.0391 25.5858 27.4142C25.9609 27.7893 26.4696 28 27 28C27.5304 28 28.0391 27.7893 28.4142 27.4142C28.7893 27.0391 29 26.5304 29 26C29 25.4696 28.7893 24.9609 28.4142 24.5858C28.0391 24.2107 27.5304 24 27 24C26.4696 24 25.9609 24.2107 25.5858 24.5858C25.2107 24.9609 25 25.4696 25 26Z" fill="white"/> </g> <defs> <clipPath id="clip0_206_48"> <rect width="32" height="32" fill="white"/> </clipPath> </defs> </svg>
+            <span class="${extraClass === 'downloadhub' ? 'nav-list-active' : ''}">
+              Download Hub
             </span>
           </a>
+          `
+              : ``
+          }
   
           ${
             userAuth && userName
               ? `
           <div
-          x-data="{ open: false, toggle() { if (this.open) { return this.close(); } this.$refs.button.focus(); this.open = true; }, close(focusAfter) { if (! this.open){ return; } this.open = false; focusAfter && focusAfter.focus(); } }"
-            x-on:keydown.escape.prevent.stop="close($refs.button)"
-            x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
-            x-id="['dropdown-button']"
+            id="accordion-nav-menu"
             class="relative"
           >
             <a
-              x-ref="button"
-              x-on:click="toggle()"
-              :aria-expanded="open"
-              :aria-controls="$id('dropdown-button')"
+              onClick="toggleAccordion('nav-menu')"
               type="button"
               class="natural-text natural-text-lg hidden lg:inline-flex items-center text-white transition-all duration-200 hover:text-spring-dark gap-3 cursor-pointer"
               type="button"
@@ -180,93 +177,58 @@ function updatePageHeader() {
               <svg width="20px" height="20px" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" > <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" ></path> </svg>
             </a>
             <div
-              x-ref="panel"
-              x-show="open"
-              x-transition.origin.top.left
-              x-on:click.outside="close($refs.button)"
-              :id="$id('dropdown-button')"
-              style="display: none; top: 3rem; width: 100%"
-              class="bg-white divide-y divide-gray-100 rounded-lg shadow absolute w-44 left-0 z-10 hidden lg:inline-flex"
+              style="top: 3rem; width: 100%"
+              class="bg-white divide-y divide-gray-100 rounded-lg shadow absolute w-44 left-0 z-10 hidden lg:inline-flex accordion-content accordion-hidden"
             >
               <ul
                 class="py-2 text-md no-bullets"
                 style="width: 100%;"
-                aria-labelMobiledropdownDefaultButton"
               >
-                <li class="block lg:hidden">
-                  <a
-                    href="/learn/dashboard"
-                    class="px-4 py-2 hover:bg-spring text-ocean natural-text natural-text-lg"
-                    >
-                    Dashboard
+                <li class="block lg:hidden hover:bg-spring py-2">
+                  <a href="/learn/dashboard" >
+                    <span class="px-4 text-ocean natural-text natural-text-lg">Dashboard</span>
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="/learn/account?tab=dashboard.account_profile"
-                    class="block px-4 py-2 hover:bg-spring text-ocean"
-                    >
-                      <span lang="de">Profil</span>
-                      <span lang="en">Profile</span>
+                <li class="hover:bg-spring py-2">
+                  <a href="/learn/account?tab=dashboard.account">
+                    <span lang="de" class="px-4 text-ocean natural-text natural-text-lg">Mein Konto</span>
+                    <span lang="en" class="px-4 text-ocean natural-text natural-text-lg">My Account</span>
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="/learn/account?tab=dashboard.account"
-                    class="block px-4 py-2 hover:bg-spring text-ocean"
-                    >
-                    Account
+                <li class="hover:bg-spring py-2">
+                  <a href="/support">
+                    <span class="px-4 text-ocean natural-text natural-text-lg">Support</span>
                   </a>
                 </li>
-                <li class="block lg:hidden">
-                  <a
-                    href="/support"
-                    class="px-4 py-2 hover:bg-spring text-ocean natural-text natural-text-lg"
-                    >
-                    Support
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/learn/sign_out"
-                    class="block px-4 py-2 hover:bg-spring text-ocean"
-                    >
-                    <span lang="de">Abmelden</span>
-                    <span lang="en">Sign out</span>
+                <li class="hover:bg-spring py-2">
+                  <a href="/learn/sign_out">
+                    <span lang="de" class="px-4 text-ocean natural-text natural-text-lg">Abmelden</span>
+                    <span lang="en" class="px-4 text-ocean natural-text natural-text-lg">Sign out</span>
                   </a>
                 </li>
               </ul>
             </div>
           </div>
           <a
-            x-ref="button"
-            x-on:click="toggle()"
-            :aria-expanded="open"
-            :aria-controls="$id('dropdown-button-mobile')"
+            onClick="toggleAccordion('nav-menu-mobile')"
             type="button"
             class="natural-text natural-text-lg flex lg:hidden items-center text-white transition-all duration-200 gap-3 cursor-pointer"
             type="button"
           >
-            <svg x-show="!open" width="32px" height="32px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M24.6668 15C25.2191 15 25.6668 15.4477 25.6668 16C25.6668 16.5063 25.2906 16.9247 24.8025 16.9909L24.6668 17H7.3335C6.78121 17 6.3335 16.5523 6.3335 16C6.3335 15.4937 6.7097 15.0753 7.1978 15.0091L7.3335 15H24.6668Z" fill="white"/> <path d="M24.6668 20.3333C25.2191 20.3333 25.6668 20.7811 25.6668 21.3333C25.6668 21.8396 25.2906 22.258 24.8025 22.3242L24.6668 22.3333H7.3335C6.78121 22.3333 6.3335 21.8856 6.3335 21.3333C6.3335 20.8271 6.7097 20.4087 7.1978 20.3425L7.3335 20.3333H24.6668Z" fill="white"/> <path d="M24.6668 9.66667C25.2191 9.66667 25.6668 10.1144 25.6668 10.6667C25.6668 11.1729 25.2906 11.5913 24.8025 11.6575L24.6668 11.6667H7.3335C6.78121 11.6667 6.3335 11.219 6.3335 10.6667C6.3335 10.1604 6.7097 9.74202 7.1978 9.6758L7.3335 9.66667H24.6668Z" fill="white"/> </svg>
+            <svg class="accordion-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M24.6666 15C25.2189 15 25.6666 15.4477 25.6666 16C25.6666 16.5063 25.2904 16.9247 24.8023 16.9909L24.6666 17H7.33331C6.78103 17 6.33331 16.5523 6.33331 16C6.33331 15.4937 6.70952 15.0753 7.19762 15.0091L7.33331 15H24.6666Z" fill="white"/> <path d="M24.6666 20.3333C25.2189 20.3333 25.6666 20.781 25.6666 21.3333C25.6666 21.8396 25.2904 22.258 24.8023 22.3242L24.6666 22.3333H7.33331C6.78103 22.3333 6.33331 21.8856 6.33331 21.3333C6.33331 20.8271 6.70952 20.4087 7.19762 20.3425L7.33331 20.3333H24.6666Z" fill="white"/> <path d="M24.6666 9.66666C25.2189 9.66666 25.6666 10.1144 25.6666 10.6667C25.6666 11.1729 25.2904 11.5913 24.8023 11.6575L24.6666 11.6667H7.33331C6.78103 11.6667 6.33331 11.2189 6.33331 10.6667C6.33331 10.1604 6.70952 9.74201 7.19762 9.67579L7.33331 9.66666H24.6666Z" fill="white"/> </svg>
             
-            <svg x-show="open" width="28px" height="28px" aria-hidden="true" fill="none" stroke="#FFF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" ><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" ></path></svg>
+            <svg class="accordion-icon hidden" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M9.95958 9.95956C10.3146 9.60454 10.8702 9.57226 11.2616 9.86274L11.3738 9.95956L22.0405 20.6262C22.431 21.0168 22.431 21.6499 22.0405 22.0404C21.6854 22.3955 21.1299 22.4277 20.7384 22.1373L20.6262 22.0404L9.95958 11.3738C9.56906 10.9832 9.56906 10.3501 9.95958 9.95956Z" fill="white"/> <path d="M20.6262 9.95956C21.0168 9.56904 21.6499 9.56904 22.0405 9.95956C22.3955 10.3146 22.4278 10.8701 22.1373 11.2616L22.0405 11.3738L11.3738 22.0404C10.9833 22.431 10.3501 22.431 9.95958 22.0404C9.60456 21.6854 9.57228 21.1299 9.86276 20.7384L9.95958 20.6262L20.6262 9.95956Z" fill="white"/> </svg>
           </a>
           `
               : ''
           }
         </div>
         <div
-        x-ref="panel"
-        x-show="open"
-        x-transition.origin.top.left
-        x-on:click.outside="close($refs.button)"
-        :id="$id('dropdown-button-mobile')"
-        style="display: none;"
-        class="bg-white divide-y divide-gray-100 shadow absolute left-0 z-10 block lg:hidden nav-menu-mobile"
-      >
+          id="accordion-nav-menu-mobile"
+          class="bg-white divide-y divide-gray-100 shadow absolute left-0 z-10 block lg:hidden nav-menu-mobile"
+        >
         <ul
-          class="pt-8 px-4 text-md no-bullets flex flex-col gap-5"
-          aria-labelledby="dropdownMobileButton"
+          class="pt-8 px-4 text-md no-bullets flex flex-col gap-5 accordion-content accordion-hidden"
         >
         ${
           multiLicence
@@ -296,27 +258,16 @@ function updatePageHeader() {
           </li>
           <li class="px-4 block">
             <a
-              href="/learn/account?tab=dashboard.account_profile"
-              class="text-ocean natural-text natural-text-lg ${
-                extraClass === 'profile' ? 'nav-menu-mobile-active' : ''
-              }"
-              >
-                <span lang="de">Profil</span>
-                <span lang="en">Profile</span>
-            </a>
-          </li>
-          <li class="px-4 block">
-            <a
               href="/learn/account?tab=dashboard.account"
               class="text-ocean natural-text natural-text-lg ${
                 extraClass === 'account' ? 'nav-menu-mobile-active' : ''
               }"
               >
-                <span lang="de">Account</span>
-                <span lang="en">Account</span>
+                <span lang="de">Mein Konto</span>
+                <span lang="en">My Account</span>
               </a>
           </li>
-          <li class="px-4 block lg:hidden">
+          <li class="px-4 block">
             <a
               href="/support"
               class="text-ocean natural-text natural-text-lg ${
@@ -617,6 +568,28 @@ function courseInformationPageModifier() {
 
     container.insertBefore(courseInformationHeader, container.firstChild)
   }
+}
+
+/**
+ * iFrame actions
+ */
+
+function iframeActivatePostMessage() {
+  document.addEventListener('DOMContentLoaded', function () {
+    window.addEventListener('message', function (event) {
+      if (event.data === 'requestUserId') {
+        const iframeWindow = document.querySelector('.sco--iframe')
+        if (iframeWindow) {
+          const iframeContentWindow = iframeWindow.contentWindow
+          const messageData = {
+            userId: window.CONF.preload.currentUser.currentUser.id,
+            course: window.location.pathname
+          }
+          iframeContentWindow.postMessage(messageData, '*')
+        }
+      }
+    })
+  })
 }
 
 /**
