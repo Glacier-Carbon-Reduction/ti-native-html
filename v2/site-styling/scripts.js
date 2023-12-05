@@ -570,6 +570,29 @@ function courseInformationPageModifier() {
   }
 }
 
+function toggleAccordion(id) {
+  const accordion = document.getElementById(`accordion-${id}`)
+  if (!accordion) {
+    console.log(`accordion-${id} not found`)
+    return
+  }
+  const content = accordion.querySelector('.accordion-content')
+  const icons = accordion.querySelectorAll('.accordion-icon')
+
+  if (content.style.maxHeight === '0px' || content.style.maxHeight === '') {
+    content.classList.remove('accordion-hidden')
+    content.style.maxHeight = content.scrollHeight + 'px'
+    icons.forEach((icon) => icon.classList.toggle('hidden'))
+  } else {
+    content.style.maxHeight = '0px'
+    setTimeout(() => {
+      content.classList.add('accordion-hidden')
+    }, 300)
+    icons.forEach((icon) => icon.classList.toggle('hidden'))
+  }
+}
+
+
 /**
  * iFrame actions
  */
