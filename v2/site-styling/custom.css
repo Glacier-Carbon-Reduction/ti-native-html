@@ -2386,6 +2386,7 @@ body.account .dashboard-account .medium-3.columns .dashboard-account-tabs .dashb
     border-radius: 8px;
     background: var(--Spring);
 }
+
 body.account .dashboard-account .medium-3.columns .dashboard-account-tabs .dashboard-account-tab--active .dashboard-account-tab__label {
     color: var(--Ocean);
     font-size: var(--natural-size-sm);
@@ -2410,10 +2411,6 @@ body.account .dashboard-account .medium-3.columns .dashboard-account-tabs .dashb
 body.account .dashboard-account .medium-3.columns ul li:nth-child(n+7) {
     display: none;
 }
-
-/* body.account .dashboard-account .dashboard--content-panel .section-container .small-12.columns {
-    margin-top: 12px;
-} */
 
 body.account .dashboard-account .dashboard--content-panel .section-container .small-12.columns p {
     display: none;
@@ -2534,4 +2531,57 @@ body.account .dashboard-account #multifactor-label {
     margin-bottom: 12px;
     font-weight: 200;
     color: var(--Text);
+}
+
+/*
+* License Page Styling
+*/
+
+body.license {
+    background-color: white;
+}
+
+body.license .dashboard__license-select {
+    margin-top: 48px;
+}
+
+body.license .dashboard__license-select h1 {
+    font-family: Pangea;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--Ocean);
+    margin-bottom: 10px;
+    letter-spacing: -2px;
+}
+
+body.license .dashboard__license-select .dashboard__license-select__form {
+    margin-top: 48px;
+    box-shadow: none;
+    border: 1px var(--Grey-Dark) solid;
+    background: var(--Grey);
+    padding: 60px 12px 30px 12px;
+}
+
+body.license .dashboard__license-select .dashboard__license-select__form .btn {
+    float: none;
+    margin: 30px auto;
+    border-radius: var(--Button, 100px);
+    background: var(--Ocean, #143560);
+    color: white;
+    display: flex;
+    height: 40px;
+    padding: 0px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    min-width: 200px;
+}
+
+body.license .dashboard__license-select .dashboard__license-select__form .field__input {
+    border-radius: 8px;
+    border: 1px solid var(--Borders, #E0E0E0);
+    background: white;
+    box-shadow: none;
+    font-size: var(--natural-size-md);
+    height: 50px;
 }
