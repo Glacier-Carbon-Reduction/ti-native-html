@@ -2342,3 +2342,196 @@ input[type='password']:focus {
 .field__input--select {
     font-size: 14px;
 }
+
+/* 
+* Profile Page Styling
+*/
+
+body.account .dashboard-account {
+    width: 100%;
+    max-width: 1224px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 48px;
+    margin: auto;
+    text-align: center;
+}
+
+body.account .dashboard-account::before {
+    content: "Mein Konto";
+    font-family: Pangea;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--Ocean);
+    margin-bottom: 20px;
+}
+
+body.account .dashboard-account>div {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 28px;
+}
+
+body.account .dashboard-account .medium-3.columns .dashboard-account-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+body.account .dashboard-account .medium-3.columns .dashboard-account-tabs .dashboard-account-tab button {
+    padding: 8px 12px !important;
+}
+
+body.account .dashboard-account .medium-3.columns .dashboard-account-tabs .dashboard-account-tab--active {
+    border-radius: 8px;
+    background: var(--Spring);
+}
+body.account .dashboard-account .medium-3.columns .dashboard-account-tabs .dashboard-account-tab--active .dashboard-account-tab__label {
+    color: var(--Ocean);
+    font-size: var(--natural-size-sm);
+    font-weight: var(--font-weight-medium);
+}
+
+body.account .dashboard-account .medium-3.columns .dashboard-account-tabs .dashboard-account-tab--inactive {
+    border-radius: 8px;
+    background: var(--Grey);
+}
+
+body.account .dashboard-account .medium-3.columns .dashboard-account-tabs .dashboard-account-tab--inactive:hover {
+    background: var(--Grey-Dark);
+}
+
+body.account .dashboard-account .medium-3.columns .dashboard-account-tabs .dashboard-account-tab--inactive .dashboard-account-tab__label {
+    color: var(--TextDim);
+    font-size: var(--natural-size-sm);
+    font-weight: var(--font-weight-medium);
+}
+
+body.account .dashboard-account .medium-3.columns ul li:nth-child(n+7) {
+    display: none;
+}
+
+/* body.account .dashboard-account .dashboard--content-panel .section-container .small-12.columns {
+    margin-top: 12px;
+} */
+
+body.account .dashboard-account .dashboard--content-panel .section-container .small-12.columns p {
+    display: none;
+}
+
+body.account .dashboard-account .dashboard--content-panel .section-container {
+    box-shadow: none;
+    border: 1px var(--Grey-Dark) solid;
+    background: var(--Grey);
+    padding: 40px 0px;
+}
+
+body.account .dashboard-account .dashboard--content-panel .section-container .medium-6 {
+    width: 100%;
+}
+
+body.account .dashboard-account .dashboard--content-panel .section-container a,
+body.account .dashboard-account .dashboard--content-panel .section-container input,
+body.account .dashboard-account .dashboard--content-panel .section-container button {
+    max-width: 450px;
+    margin: auto;
+    margin-top: 12px;
+    text-align: left;
+    height: 45px;
+}
+
+body.account .dashboard-account .dashboard--content-panel .section-container label {
+    display: none;
+}
+
+body.account .dashboard-account .field--show-floating-label .field__input {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+body.account .dashboard-account .dashboard--content-panel .section-container .panel.panel--alt {
+    border: none;
+    padding: 0;
+}
+
+body.account .dashboard-account .dashboard--content-panel .section__body {
+    background: transparent;
+}
+
+body.account .dashboard-account .dashboard--content-panel .section__header {
+    background: transparent;
+    webkit-box-shadow: none;
+    box-shadow: none;
+    text-align: center;
+    padding-bottom: 0;
+}
+
+body.account .dashboard-account .dashboard--content-panel .section__header .section__title {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--Ocean);
+    text-transform: capitalize;
+}
+
+body.account .dashboard-account .dashboard--content-panel .row .medium-3.columns {
+    display: none;
+}
+
+body.account .dashboard-account .dashboard--content-panel .row .medium-9.columns {
+    width: 100%;
+}
+
+body.account .dashboard-account .dashboard--content-panel .row .medium-9.columns.profile__name {
+    margin-top: 0;
+}
+
+body.account .dashboard-account .dashboard--content-panel .row .medium-9.columns.profile__name .row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+body.account .dashboard-account .dashboard--content-panel .ember-text-field,
+body.account .dashboard-account .dashboard--content-panel .field__input {
+    border-radius: 8px;
+    border: 1px solid var(--Borders, #E0E0E0);
+    background: white;
+    box-shadow: none;
+    font-size: var(--natural-size-md);
+}
+
+body.account .dashboard-account .dashboard--content-panel .field__label {
+    text-align: left;
+    font-size: var(--natural-size-xs);
+    color: var(--TextDim);
+}
+
+body.account .dashboard-account .btn {
+    float: none;
+    margin: 0;
+    border-radius: var(--Button, 100px);
+    background: var(--Ocean, #143560);
+    color: white;
+    display: flex;
+    height: 40px;
+    padding: 0px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    min-width: 200px;
+}
+
+body.account .dashboard-account .btn:hover,
+body.account .dashboard-account .btn:active,
+body.account .dashboard-account .btn:focus {
+    background: var(--Ocean-Dark, #0f2c4a);
+    color: white;
+}
+
+body.account .dashboard-account #multifactor-label {
+    margin-bottom: 12px;
+    font-weight: 200;
+    color: var(--Text);
+}
