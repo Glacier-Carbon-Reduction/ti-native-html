@@ -515,6 +515,7 @@ body input {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    padding: 0 24px;
     gap: 12px;
     align-self: stretch;
 }
@@ -740,7 +741,7 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
     border-radius: 100px;
     background: none;
     color: var(--Ocean);
-    border: 1px solid var(--Ocean, #143560);
+    border: 1px solid var(--Ocean);
     margin: 0;
     font-size: var(--natural-size-sm);
 }
@@ -2194,8 +2195,6 @@ hr {
     }
 }
 
-
-
 /*
 # Login page styling
 */
@@ -2358,7 +2357,7 @@ body.account .dashboard-account {
 }
 
 body.account .dashboard-account::before {
-    content: "Mein Konto";
+    content: var(--MyAccount);
     font-family: Pangea;
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-semibold);
@@ -2493,7 +2492,7 @@ body.account .dashboard-account .dashboard--content-panel .row .medium-9.columns
 body.account .dashboard-account .dashboard--content-panel .ember-text-field,
 body.account .dashboard-account .dashboard--content-panel .field__input {
     border-radius: 8px;
-    border: 1px solid var(--Borders, #E0E0E0);
+    border: 1px solid var(--Grey-Dark);
     background: white;
     box-shadow: none;
     font-size: var(--natural-size-md);
@@ -2509,7 +2508,7 @@ body.account .dashboard-account .btn {
     float: none;
     margin: 0;
     border-radius: var(--Button, 100px);
-    background: var(--Ocean, #143560);
+    background: var(--Ocean);
     color: white;
     display: flex;
     height: 40px;
@@ -2517,7 +2516,7 @@ body.account .dashboard-account .btn {
     justify-content: center;
     align-items: center;
     gap: 4px;
-    min-width: 200px;
+    min-width: 150px;
 }
 
 body.account .dashboard-account .btn:hover,
@@ -2531,6 +2530,15 @@ body.account .dashboard-account #multifactor-label {
     margin-bottom: 12px;
     font-weight: 200;
     color: var(--Text);
+}
+
+@media screen and (max-width: 426px) {
+    body.account .dashboard-account .medium-3.columns .dashboard-account-tabs {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        justify-content: center;
+        gap: 12px;
+    }
 }
 
 /*
@@ -2566,7 +2574,7 @@ body.license .dashboard__license-select .dashboard__license-select__form .btn {
     float: none;
     margin: 30px auto;
     border-radius: var(--Button, 100px);
-    background: var(--Ocean, #143560);
+    background: var(--Ocean);
     color: white;
     display: flex;
     height: 40px;
@@ -2577,9 +2585,15 @@ body.license .dashboard__license-select .dashboard__license-select__form .btn {
     min-width: 200px;
 }
 
+body.license .dashboard__license-select .dashboard__license-select__form .btn:hover,
+body.license .dashboard__license-select .dashboard__license-select__form .btn:active {
+    background: var(--Ocean-Dark);
+    color: white;
+}
+
 body.license .dashboard__license-select .dashboard__license-select__form .field__input {
     border-radius: 8px;
-    border: 1px solid var(--Borders, #E0E0E0);
+    border: 1px solid var(--Grey-Dark);
     background: white;
     box-shadow: none;
     font-size: var(--natural-size-md);

@@ -89,8 +89,6 @@ function updatePageHeader() {
     extraClass = 'licence'
   } else if (window.location.href.includes('/learn/account?tab=dashboard.account')) {
     extraClass = 'account'
-  } else if (window.location.href.includes('/learn/account?tab=dashboard.account_profile')) {
-    extraClass = 'profile'
   }
 
   var newHeader = document.createElement('header')
@@ -170,10 +168,14 @@ function updatePageHeader() {
             <a
               onClick="toggleAccordion('nav-menu')"
               type="button"
-              class="natural-text natural-text-lg hidden lg:inline-flex items-center text-white transition-all duration-200 hover:text-spring-dark gap-3 cursor-pointer"
+              class="natural-text natural-text-lg hidden lg:inline-flex items-center text-white transition-all duration-200 hover:text-spring-dark gap-3 cursor-pointer ${
+                extraClass === 'account' ? 'font-medium' : ''
+              }"
               type="button"
             >
-              ${userName}
+              <span class="${extraClass === 'account' ? 'nav-list-active' : ''}">
+                ${userName}
+              </span>
               <svg width="20px" height="20px" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" > <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" ></path> </svg>
             </a>
             <div
@@ -190,7 +192,7 @@ function updatePageHeader() {
                   </a>
                 </li>
                 <li class="hover:bg-spring py-2">
-                  <a href="/learn/account?tab=dashboard.account">
+                  <a href="/learn/account?tab=dashboard.account_profile">
                     <span lang="de" class="px-4 text-ocean natural-text natural-text-lg">Mein Konto</span>
                     <span lang="en" class="px-4 text-ocean natural-text natural-text-lg">My Account</span>
                   </a>
@@ -257,7 +259,7 @@ function updatePageHeader() {
           </li>
           <li class="px-4 block">
             <a
-              href="/learn/account?tab=dashboard.account"
+              href="/learn/account?tab=dashboard.account_profile"
               class="text-ocean natural-text natural-text-lg ${
                 extraClass === 'account' ? 'nav-menu-mobile-active' : ''
               }"

@@ -5,3 +5,7 @@
 html [lang="en"] {
     display: none;
 }
+
+:root {
+    --MyAccount: "Mein Konto"
+}
