@@ -7,5 +7,5 @@ html [lang="en"] {
 }
 
 :root {
-    --MyAccount: "Mein Konto"
+    --CustomText-MyAccount: "Mein Konto"
 }

@@ -1259,8 +1259,8 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
 }
 
 .course__detail__container .course__detail__content h3,
-h4,
-h5 {
+.course__detail__container .course__detail__content h4,
+.course__detail__container .course__detail__content h5 {
     font-family: Pangea !important;
     font-weight: var(--font-weight-semibold);
     font-size: var(--font-size-xs);
@@ -1270,7 +1270,7 @@ h5 {
 }
 
 .course__detail__container .course__detail__content p,
-li {
+.course__detail__container .course__detail__content li {
     font-family: PangeaText !important;
     font-size: var(--natural-size-md);
     line-height: 160%;
@@ -1278,8 +1278,8 @@ li {
 }
 
 .course__detail__container .course__detail__content p,
-ul,
-ol {
+.course__detail__container .course__detail__content ul,
+.course__detail__container .course__detail__content ol {
     margin-bottom: 20px;
 }
 
@@ -1385,6 +1385,7 @@ ol {
 .course__container .learner__content .learner__container__toggle .btn,
 .btn:active,
 .btn:focus {
+    margin-top: -1px;
     visibility: visible;
     border-radius: 100px;
     color: var(--Ocean);
@@ -1719,12 +1720,22 @@ hr {
     padding-bottom: 4rem;
 }
 
+.course__container .topic__content p,
+.course__container .topic__content li {
+    font-family: PangeaText !important;
+    font-size: var(--natural-size-md);
+    line-height: 160%;
+    color: var(--Text);
+    margin: 8px 0;
+}
+
 .course__container .topic__content.topic__content--full-width {
     padding-left: 0;
     padding-right: 0;
 }
 
-.course__container .topic__container .topic__contained__content {
+.course__container .topic__container .topic__contained__content,
+.course__container .topic__container .topic__content {
     width: 100%;
 }
 
@@ -1738,6 +1749,62 @@ hr {
 
 .course__container .topic__container .topic__contained__sidebar {
     display: none;
+}
+
+.course__container .sidebar__container--right .h4.no-outline {
+    display: none;
+}
+
+.course__container .sidebar__container--right p.h5 {
+    font-size: 12px;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding-top: 20px;
+}
+
+.course__container .sidebar__container--right .h3.heading.heading--primary {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    padding-top: 5px;
+    padding-bottom: 20px;
+}
+
+.course__container .sidebar__container--right .panel.panel--secondary {
+    background: var(--Grey);
+    border-radius: 8px;
+    border: none;
+    padding-bottom: 50px;
+}
+
+.course__container .sidebar__container--right .panel.panel--secondary p {
+    color: var(--Text);
+}
+
+.course__container .sidebar__container--right .panel.panel--secondary textarea {
+    border-radius: 8px;
+}
+
+.course__container .sidebar__container--right .panel.panel--secondary .sidebar__testimonial__rating {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-top: 12px;
+}
+
+.course__container .sidebar__container--right .panel.panel--secondary .sidebar__testimonial__rating:after {
+    content: none;
+}
+
+.course__container .sidebar__container--right .btn.btn--primary {
+    margin-top: -67px;
+    margin-left: 18px;
+    max-width: 200px;
+}
+
+.course__container .sidebar__container--right .icon-star:before {
+    color: var(--TextDim);
 }
 
 @media screen and (max-width: 768px) {
@@ -1819,6 +1886,10 @@ hr {
     border: none;
     margin: 0;
     font-size: var(--natural-size-sm);
+}
+
+.course__container .quiz__container {
+    padding: 0;
 }
 
 .course__container .quiz__container .question__body.question__body--strong,
@@ -2357,7 +2428,7 @@ body.account .dashboard-account {
 }
 
 body.account .dashboard-account::before {
-    content: var(--MyAccount);
+    content: var(--CustomText-MyAccount);
     font-family: Pangea;
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-semibold);
@@ -2469,11 +2540,12 @@ body.account .dashboard-account .dashboard--content-panel .section__header .sect
     text-transform: capitalize;
 }
 
-body.account .dashboard-account .dashboard--content-panel .row .medium-3.columns {
+body.account .dashboard-account .dashboard--content-panel .row .medium-3.columns:not(.small-12) {
     display: none;
 }
 
-body.account .dashboard-account .dashboard--content-panel .row .medium-9.columns {
+body.account .dashboard-account .dashboard--content-panel .row .medium-9.columns,
+body.account .dashboard-account .dashboard--content-panel .row .medium-3.columns.small-12 {
     width: 100%;
 }
 
@@ -2498,6 +2570,13 @@ body.account .dashboard-account .dashboard--content-panel .field__input {
     font-size: var(--natural-size-md);
 }
 
+body.account .dashboard-account .dashboard--content-panel input[type=password].ember-text-field::placeholder,
+body.account .dashboard-account .dashboard--content-panel input[type=password].ember-text-field::-webkit-input-placeholder {
+    color: blue;
+    visibility: visible;
+    content: "Current Password";
+}
+
 body.account .dashboard-account .dashboard--content-panel .field__label {
     text-align: left;
     font-size: var(--natural-size-xs);
@@ -2507,7 +2586,7 @@ body.account .dashboard-account .dashboard--content-panel .field__label {
 body.account .dashboard-account .btn {
     float: none;
     margin: 0;
-    border-radius: var(--Button, 100px);
+    border-radius: var(--Button, 100px) !important;
     background: var(--Ocean);
     color: white;
     display: flex;
