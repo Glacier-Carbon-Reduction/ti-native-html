@@ -641,9 +641,21 @@ function performAccountsPageTransformations() {
 
     // Select the submit button within the form
     const submitButton = parentForm.querySelector('button')
+    const validateSpan = submitButton.querySelector('span')
+    if(validateSpan) return;
+    const appendText = `<span lang="de">Änderungen speichern</span><span lang="en">Save changes</span>`
 
-    // update the submit button text
-    submitButton.innerHTML = `<span lang="de">Änderungen speichern</span><span lang="en">Save changes</span>`
+    // Find the second script tag (it's assumed to be the one after the first script tag)
+    let firstScriptTag = submitButton.querySelector('script')
+    let secondScriptTag = firstScriptTag.nextElementSibling
+
+    // Remove all nodes between the two script tags
+    while (firstScriptTag.nextSibling !== secondScriptTag) {
+      submitButton.removeChild(firstScriptTag.nextSibling)
+    }
+
+    // Insert the new content
+    secondScriptTag.insertAdjacentHTML('beforebegin', appendText)
   }
 
   const accountSection = document.getElementById('account-section-1')
@@ -656,9 +668,21 @@ function performAccountsPageTransformations() {
 
     // Select the submit button within the form
     const submitButton = parentForm.querySelector('button')
+    const validateSpan = submitButton.querySelector('span')
+    if(validateSpan) return;
+    const appendText = `<span lang="de">E-Mail Adresse ändern</span><span lang="en">Change email address</span>`
 
-    // update the submit button text
-    submitButton.innerHTML = `<span lang="de">E-Mail Adresse ändern</span><span lang="en">Change email address</span>`
+    // Find the second script tag (it's assumed to be the one after the first script tag)
+    let firstScriptTag = submitButton.querySelector('script')
+    let secondScriptTag = firstScriptTag.nextElementSibling
+
+    // Remove all nodes between the two script tags
+    while (firstScriptTag.nextSibling !== secondScriptTag) {
+      submitButton.removeChild(firstScriptTag.nextSibling)
+    }
+
+    // Insert the new content
+    secondScriptTag.insertAdjacentHTML('beforebegin', appendText)
 
     // select all inputs of type password
     const passwordInputs = accountSection.querySelectorAll('input[type="password"]')
