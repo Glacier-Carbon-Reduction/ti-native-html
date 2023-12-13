@@ -760,6 +760,14 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
     font-size: var(--natural-size-sm);
 }
 
+.btn--alt:hover,
+.btn--alt:focus,
+.btn--alt:active {
+    background: var(--Ocean);
+    color: white;
+    border: none;
+}
+
 .btn--small {
     height: 32px;
     padding: 0px 12px;

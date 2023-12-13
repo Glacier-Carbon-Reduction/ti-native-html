@@ -229,7 +229,7 @@ function updatePageHeader() {
           class="bg-white divide-y divide-gray-100 shadow absolute left-0 z-10 block lg:hidden nav-menu-mobile"
         >
         <ul
-          class="pt-8 px-4 text-md no-bullets flex flex-col gap-5 accordion-content accordion-hidden"
+          class="pt-8 pb-3 px-4 text-md no-bullets flex flex-col gap-5 accordion-content accordion-hidden"
         >
         ${
           multiLicence
@@ -298,7 +298,12 @@ function updatePageHeader() {
   document.addEventListener('click', function (event) {
     const navMenu = document.getElementById('accordion-nav-menu')
     const navMenuContent = navMenu.querySelector('.accordion-content')
-    if (navMenuContent && navMenuContent.style.maxHeight !== '0px') {
+    if (
+      navMenuContent &&
+      navMenuContent.style.maxHeight &&
+      navMenuContent.style.maxHeight !== '0px' &&
+      navMenuContent.style.maxHeight !== ''
+    ) {
       const isClickInsideNavMenu = navMenu.contains(event.target)
       if (!isClickInsideNavMenu) {
         toggleAccordion('nav-menu')
@@ -607,7 +612,7 @@ function toggleAccordion(id, element) {
 
   if (content.style.maxHeight === '0px' || content.style.maxHeight === '') {
     content.classList.remove('accordion-hidden')
-    content.style.maxHeight = content.scrollHeight + 5 + 'px'
+    content.style.maxHeight = content.scrollHeight + 10 + 'px'
     icons.forEach((icon) => icon.classList.toggle('hidden'))
   } else {
     content.style.maxHeight = '0px'
