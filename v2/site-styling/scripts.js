@@ -183,27 +183,27 @@ function updatePageHeader() {
               class="bg-white divide-y divide-gray-100 rounded shadow-lg absolute w-44 left-0 z-10 hidden lg:inline-flex accordion-content accordion-hidden"
             >
               <ul
-                class="py-2 pl-2 text-md no-bullets"
+                class="py-2 text-md no-bullets"
                 style="width: 100%;"
               >
-                <li class="block lg:hidden hover:bg-spring py-2">
-                  <a href="/learn/dashboard" >
+                <li class="block lg:hidden hover:bg-spring py-2 pl-2">
+                  <a class='w-full block' href="/learn/dashboard">
                     <span class="px-4 text-ocean natural-text natural-text-lg">Dashboard</span>
                   </a>
                 </li>
-                <li class="hover:bg-spring py-2">
-                  <a href="/support">
+                <li class="hover:bg-spring py-2 pl-2">
+                  <a class='w-full block' href="/support">
                     <span class="px-4 text-ocean natural-text natural-text-lg">Support</span>
                   </a>
                 </li>
-                <li class="hover:bg-spring py-2">
-                  <a href="/learn/account?tab=dashboard.account_profile">
+                <li class="hover:bg-spring py-2 pl-2">
+                  <a class='w-full block' href="/learn/account?tab=dashboard.account_profile">
                     <span lang="de" class="px-4 text-ocean natural-text natural-text-lg">Mein Konto</span>
                     <span lang="en" class="px-4 text-ocean natural-text natural-text-lg">My Account</span>
                   </a>
                 </li>
-                <li class="hover:bg-spring py-2">
-                  <a href="/learn/sign_out">
+                <li class="hover:bg-spring py-2 pl-2">
+                  <a class='w-full block' href="/learn/sign_out">
                     <span lang="de" class="px-4 text-ocean natural-text natural-text-lg">Abmelden</span>
                     <span lang="en" class="px-4 text-ocean natural-text natural-text-lg">Sign out</span>
                   </a>
@@ -229,7 +229,7 @@ function updatePageHeader() {
           class="bg-white divide-y divide-gray-100 shadow absolute left-0 z-10 block lg:hidden nav-menu-mobile"
         >
         <ul
-          class="pt-8 pb-3 px-4 text-md no-bullets flex flex-col gap-5 accordion-content accordion-hidden"
+          class="pt-8 pb-8 px-4 text-md no-bullets flex flex-col gap-5 accordion-content accordion-hidden"
         >
         ${
           multiLicence
@@ -658,7 +658,7 @@ function performAccountsPageTransformations() {
     const submitButton = parentForm.querySelector('button')
 
     // update the submit button text
-    submitButton.innerHTML = `<span lang="de">E-Mail adresse ändern</span><span lang="en">Change email address</span>`
+    submitButton.innerHTML = `<span lang="de">E-Mail Adresse ändern</span><span lang="en">Change email address</span>`
 
     // select all inputs of type password
     const passwordInputs = accountSection.querySelectorAll('input[type="password"]')
