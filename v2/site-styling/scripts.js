@@ -192,14 +192,14 @@ function updatePageHeader() {
                   </a>
                 </li>
                 <li class="hover:bg-spring py-2">
-                  <a href="/learn/account?tab=dashboard.account_profile">
-                    <span lang="de" class="px-4 text-ocean natural-text natural-text-lg">Mein Konto</span>
-                    <span lang="en" class="px-4 text-ocean natural-text natural-text-lg">My Account</span>
+                  <a href="/support">
+                    <span class="px-4 text-ocean natural-text natural-text-lg">Support</span>
                   </a>
                 </li>
                 <li class="hover:bg-spring py-2">
-                  <a href="/support">
-                    <span class="px-4 text-ocean natural-text natural-text-lg">Support</span>
+                  <a href="/learn/account?tab=dashboard.account_profile">
+                    <span lang="de" class="px-4 text-ocean natural-text natural-text-lg">Mein Konto</span>
+                    <span lang="en" class="px-4 text-ocean natural-text natural-text-lg">My Account</span>
                   </a>
                 </li>
                 <li class="hover:bg-spring py-2">
@@ -259,17 +259,6 @@ function updatePageHeader() {
           </li>
           <li class="px-4 block">
             <a
-              href="/learn/account?tab=dashboard.account_profile"
-              class="text-ocean natural-text natural-text-lg ${
-                extraClass === 'account' ? 'nav-menu-mobile-active' : ''
-              }"
-              >
-                <span lang="de">Mein Konto</span>
-                <span lang="en">My Account</span>
-              </a>
-          </li>
-          <li class="px-4 block">
-            <a
               href="/support"
               class="text-ocean natural-text natural-text-lg ${
                 extraClass === 'support' ? 'nav-menu-mobile-active' : ''
@@ -278,6 +267,17 @@ function updatePageHeader() {
                 <span lang="de">Support</span>
                 <span lang="en">Support</span>
             </a>
+          </li>
+          <li class="px-4 block">
+            <a
+              href="/learn/account?tab=dashboard.account_profile"
+              class="text-ocean natural-text natural-text-lg ${
+                extraClass === 'account' ? 'nav-menu-mobile-active' : ''
+              }"
+              >
+                <span lang="de">Mein Konto</span>
+                <span lang="en">My Account</span>
+              </a>
           </li>
           <li class="px-4 block">
             <a
@@ -467,11 +467,20 @@ function updateMessage(message) {
 function applyStylesForHasPsuedoClass() {
   const checkHasSupport = window.CSS && CSS.supports && CSS.supports('selector(:has(*))')
   if (!checkHasSupport) {
-    const glacierWidgets = document.querySelectorAll('.bg-glacier-greengoo')
-    glacierWidgets.forEach((widget) => {
+    const glacierGreengooWidgets = document.querySelectorAll('.bg-glacier-greengoo')
+    glacierGreengooWidgets.forEach((widget) => {
       const parentEl = widget.parentElement
       parentEl.style.background =
         'linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), url("https://glacier-projects.vercel.app/img/brand/backgrounds/background-nature-2.jpeg"), lightgray 50% / cover no-repeat'
+      parentEl.style.backgroundSize = 'cover'
+      parentEl.style.backgroundPosition = 'center'
+    })
+
+    const glacierBlueHazeWidgets = document.querySelectorAll('.bg-glacier-blue-haze')
+    glacierBlueHazeWidgets.forEach((widget) => {
+      const parentEl = widget.parentElement
+      parentEl.style.background =
+        'linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), url("https://res.cloudinary.com/df1dbnp0x/image/upload/v1702445650/img/brand/banner/Climate-Academy_Hero_g5rg7c.jpg"), lightgray 50% / cover no-repeat'
       parentEl.style.backgroundSize = 'cover'
       parentEl.style.backgroundPosition = 'center'
     })
@@ -579,7 +588,7 @@ function toggleAccordion(id, element) {
   }
   const content = accordion.querySelector('.accordion-content')
   let icons = []
-  if(element){
+  if (element) {
     icons = element.querySelectorAll('.accordion-icon')
   } else {
     icons = accordion.querySelectorAll('.accordion-icon')
@@ -597,7 +606,6 @@ function toggleAccordion(id, element) {
     icons.forEach((icon) => icon.classList.toggle('hidden'))
   }
 }
-
 
 /**
  * iFrame actions

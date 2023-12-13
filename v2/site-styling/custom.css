@@ -106,6 +106,12 @@ body input {
     background-position: center;
 }
 
+.widget:has(.bg-glacier-blue-haze) {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), url('https://res.cloudinary.com/df1dbnp0x/image/upload/v1702445650/img/brand/banner/Climate-Academy_Hero_g5rg7c.jpg'), lightgray 50% / cover no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
 .widget:has(.bg-ocean-full) {
     background-color: var(--Ocean);
 }
@@ -577,6 +583,8 @@ button.expand-toggle-btn:hover {
     border-radius: 100px;
     color: var(--Ocean);
     transition: all 0.1s ease-in-out;
+    height: 28px;
+    width: 28px;
 }
 
 .expand-toggle-icon i:hover {
@@ -584,7 +592,12 @@ button.expand-toggle-btn:hover {
 }
 
 .expand-toggle-icon i:before {
-    font-weight: 800;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.expand-toggle-btn:hover>.expand-toggle-icon i {
+    background-color: var(--Spring);
 }
 
 .accordion-content {
@@ -871,6 +884,11 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
     display: flex;
 }
 
+.dashboard-access .dashboard-access-list-item-expander:hover>i {
+    background: var(--Spring);
+    transition: all 0.2s ease-in-out;
+}
+
 .dashboard-access .dashboard-access-list-item-expander__title {
     font-family: PangeaText;
     font-size: var(--natural-size-md);
@@ -948,10 +966,18 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
     margin-right: 4px;
     border-radius: 100px;
     scale: 0.8;
+    height: 28px;
+    width: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .dashboard-access-list-item .icon-navigatedown:before {
-    content: ""
+    content: "";
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .dashboard-access-list-item .icon-navigateright {
@@ -960,10 +986,18 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
     margin-right: 4px;
     border-radius: 100px;
     scale: 0.8;
+    height: 28px;
+    width: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .dashboard-access-list-item .icon-navigateright:before {
-    content: ""
+    content: "";
+    font-size: 18px;
+    font-weight: 600;
 }
 
 
@@ -971,6 +1005,7 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
     background: var(--Spring);
     transition: all 0.2s ease-in-out;
 }
+
 
 @media screen and (min-width: 768px) {
     .dashboard-access-list-item-expansion .columns:has(img) {
@@ -2461,6 +2496,7 @@ body.account .dashboard-account .medium-3.columns .dashboard-account-tabs .dashb
     color: var(--Ocean);
     font-size: var(--natural-size-sm);
     font-weight: var(--font-weight-medium);
+    margin-top: -2px;
 }
 
 body.account .dashboard-account .medium-3.columns .dashboard-account-tabs .dashboard-account-tab--inactive {
@@ -2476,6 +2512,7 @@ body.account .dashboard-account .medium-3.columns .dashboard-account-tabs .dashb
     color: var(--TextDim);
     font-size: var(--natural-size-sm);
     font-weight: var(--font-weight-medium);
+    margin-top: -2px;
 }
 
 body.account .dashboard-account .medium-3.columns ul li:nth-child(n+7) {
@@ -2507,12 +2544,23 @@ body.account .dashboard-account .dashboard--content-panel .section-container but
     height: 45px;
 }
 
+body.account .dashboard-account .dashboard--content-panel .section-container input {
+    height: 50px;
+}
+
+body.account .dashboard-account .dashboard--content-panel .section-container .field__input-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
 body.account .dashboard-account .dashboard--content-panel .section-container label {
-    display: none;
+    max-width: 450px;
+    margin-top: 18px;
+    margin-left: 5px;
 }
 
 body.account .dashboard-account .field--show-floating-label .field__input {
-    padding-top: 0 !important;
+    padding-top: 18px !important;
     padding-bottom: 0 !important;
 }
 
@@ -2570,11 +2618,9 @@ body.account .dashboard-account .dashboard--content-panel .field__input {
     font-size: var(--natural-size-md);
 }
 
-body.account .dashboard-account .dashboard--content-panel input[type=password].ember-text-field::placeholder,
 body.account .dashboard-account .dashboard--content-panel input[type=password].ember-text-field::-webkit-input-placeholder {
-    color: blue;
-    visibility: visible;
-    content: "Current Password";
+    font-family: PangeaText;
+    font-size: var(--natural-size-sm);
 }
 
 body.account .dashboard-account .dashboard--content-panel .field__label {
