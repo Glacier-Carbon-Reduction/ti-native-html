@@ -179,11 +179,11 @@ function updatePageHeader() {
               <svg width="20px" height="20px" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" > <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" ></path> </svg>
             </a>
             <div
-              style="top: 3rem; width: 100%"
-              class="bg-white divide-y divide-gray-100 rounded-lg shadow absolute w-44 left-0 z-10 hidden lg:inline-flex accordion-content accordion-hidden"
+              style="top: 40px; width: 140%; margin-left: -50px;"
+              class="bg-white divide-y divide-gray-100 rounded shadow-lg absolute w-44 left-0 z-10 hidden lg:inline-flex accordion-content accordion-hidden"
             >
               <ul
-                class="py-2 text-md no-bullets"
+                class="py-2 pl-2 text-md no-bullets"
                 style="width: 100%;"
               >
                 <li class="block lg:hidden hover:bg-spring py-2">
@@ -294,6 +294,17 @@ function updatePageHeader() {
     `
 
   mainGroup.prepend(newHeader)
+
+  document.addEventListener('click', function (event) {
+    const navMenu = document.getElementById('accordion-nav-menu')
+    const navMenuContent = navMenu.querySelector('.accordion-content')
+    if (navMenuContent && navMenuContent.style.maxHeight !== '0px') {
+      const isClickInsideNavMenu = navMenu.contains(event.target)
+      if (!isClickInsideNavMenu) {
+        toggleAccordion('nav-menu')
+      }
+    }
+  })
 }
 
 function triggerScrollIntoView(objectId) {
@@ -596,7 +607,7 @@ function toggleAccordion(id, element) {
 
   if (content.style.maxHeight === '0px' || content.style.maxHeight === '') {
     content.classList.remove('accordion-hidden')
-    content.style.maxHeight = content.scrollHeight + 'px'
+    content.style.maxHeight = content.scrollHeight + 5 + 'px'
     icons.forEach((icon) => icon.classList.toggle('hidden'))
   } else {
     content.style.maxHeight = '0px'
@@ -604,6 +615,65 @@ function toggleAccordion(id, element) {
       content.classList.add('accordion-hidden')
     }, 300)
     icons.forEach((icon) => icon.classList.toggle('hidden'))
+  }
+}
+
+function alertBannerCloser() {
+  const alertBox = document.querySelector('.alert-box.success')
+  if (alertBox) {
+    alertBox.remove()
+  }
+}
+
+function performAccountsPageTransformations() {
+  console.log('performing accounts page transformations')
+  // if dom contains input of type email
+  const personalSection = document.getElementById('account-section-0')
+  if (personalSection) {
+    const lastNameInput = personalSection.querySelector('input#lastname')
+    // Select the grandparent element, assuming it's a form
+    const parentForm = lastNameInput.closest('form')
+
+    // Select the submit button within the form
+    const submitButton = parentForm.querySelector('button')
+
+    // update the submit button text
+    submitButton.innerHTML = `<span lang="de">Änderungen speichern</span><span lang="en">Save changes</span>`
+  }
+
+  const accountSection = document.getElementById('account-section-1')
+  if (accountSection) {
+    const emailInput = accountSection.querySelector('input#email')
+    emailInput.setAttribute('placeholder', currentUserLanguage === 'de' ? 'Neue E-Mail-Adresse' : 'New E-Mail-Address')
+
+    // Select the grandparent element, assuming it's a form
+    const parentForm = emailInput.closest('form')
+
+    // Select the submit button within the form
+    const submitButton = parentForm.querySelector('button')
+
+    // update the submit button text
+    submitButton.innerHTML = `<span lang="de">E-Mail adresse ändern</span><span lang="en">Change email address</span>`
+
+    // select all inputs of type password
+    const passwordInputs = accountSection.querySelectorAll('input[type="password"]')
+    passwordInputs.forEach((input) => {
+      input.setAttribute(
+        'placeholder',
+        currentUserLanguage === 'de' ? 'Bestätige mit deinem Passwort' : 'Confirm with your password'
+      )
+    })
+  }
+}
+
+function accountsPageModifiers() {
+  if (window.location.href.includes('/learn/account')) {
+    performAccountsPageTransformations()
+    // const tabs = document.querySelectorAll('.dashboard-account-tab')
+    // if (tabs.length === 0) return
+    // tabs.forEach((tab) => {
+    //   tab.addEventListener('click', alertBannerCloser)
+    // })
   }
 }
 

@@ -8,6 +8,7 @@
 :root {
     --Ocean: #143560;
     --Ocean-Dark: #0B2950;
+    --Ocean-Extra-Dark: #081F3C;
     --Sky: #539ADB;
     --Sky-Dark: #3381C9;
     --Grey: #F1F1F1;
@@ -64,7 +65,7 @@ button,
 li,
 .pagination {
     font-family: PangeaText !important;
-    color: rgb(20 53 96);
+    color: var(--Ocean);
 }
 
 body input {
@@ -878,10 +879,13 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
 
 .dashboard-access-list-item .btn--primary.btn--small {
     white-space: nowrap;
+    padding: 0px 16px;
+    margin-top: -7px;
 }
 
 .dashboard-access .dashboard-access-list-item-expander {
     display: flex;
+    gap: 5px;
 }
 
 .dashboard-access .dashboard-access-list-item-expander:hover>i {
@@ -1133,7 +1137,7 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
 }
 
 .widget--catalog_standard .catalog-grid-item .btn--link:hover {
-    background: var(--Ocean-Dark) !important;
+    background: var(--Ocean-Extra-Dark) !important;
 }
 
 .widget--catalog_standard .catalog-grid-item .catalog__ribbon.catalog__ribbon--attached {
@@ -2306,7 +2310,7 @@ hr {
 */
 
 .session {
-    background-color: rgb(20 53 96);
+    background-color: var(--Ocean);
     background-repeat: no-repeat;
     background-size: cover, contain, cover;
     background-position: center, right, left;
@@ -2340,6 +2344,13 @@ hr {
     align-items: center;
 }
 
+.session .session__container .h2 {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
 .session .session__container .alert-box {
     border-radius: 10px;
     font-size: 1rem;
@@ -2348,8 +2359,8 @@ hr {
 }
 
 .session .session__container .alert-box.success {
-    background-color: #6dd4ad;
-    color: #143560;
+    background-color: var(--Spring);
+    color: var(--Ocean);
 }
 
 .session .session__container {
@@ -2379,7 +2390,7 @@ hr {
 
 .session h2 {
     margin-top: 2rem;
-    color: rgb(20 53 96);
+    color: var(--Ocean);
     font-size: 2rem;
     line-height: 3.804rem;
     font-weight: 600;
@@ -2405,23 +2416,28 @@ input[type='password']:focus {
 
 .session .session__container input::placeholder {
     font-family: 'Pangea' !important;
-    color: rgb(20 53 96);
+    color: var(--Ocean);
 }
 
 .session .session__container .session__forgot .btn {
     font-family: 'Pangea' !important;
-    color: rgb(20 53 96);
+    color: var(--Ocean);
 }
 
 .session input[type='submit'] {
-    border: 2px solid rgb(109 212 173);
-    font-family: 'Pangea' !important;
-    font-weight: 500;
-    letter-spacing: 0.03rem;
-    background-color: rgb(109 212 173);
-    color: rgb(20 53 96);
+    height: 40px;
+    padding: 5px 18px;
+    display: flex;
+    justify-content: center;
+    font-family: PangeaText;
+    font-weight: var(--font-weight-medium);
+    align-items: center;
     border-radius: 100px;
-    font-size: 1.125rem;
+    background: var(--Spring);
+    color: var(--Ocean);
+    border: none;
+    margin: 0;
+    font-size: var(--natural-size-sm);
 }
 
 /*
@@ -2435,11 +2451,11 @@ input[type='password']:focus {
 
 .widget--redemption-form .btn--primary,
 .widget--registration-form .btn--primary {
-    border: 2px solid rgb(109 212 173);
+    border: 2px solid var(--Spring);
     font-weight: 500;
     letter-spacing: 0.03rem;
-    background-color: rgb(109 212 173);
-    color: rgb(20 53 96);
+    background-color: var(--Spring);
+    color: var(--Ocean);
     border-radius: 100px !important;
     font-size: 1.125rem;
 }
@@ -2494,7 +2510,7 @@ body.account .dashboard-account .medium-3.columns .dashboard-account-tabs .dashb
 
 body.account .dashboard-account .medium-3.columns .dashboard-account-tabs .dashboard-account-tab--active .dashboard-account-tab__label {
     color: var(--Ocean);
-    font-size: var(--natural-size-sm);
+    font-size: var(--natural-size-md);
     font-weight: var(--font-weight-medium);
     margin-top: -2px;
 }
@@ -2510,7 +2526,7 @@ body.account .dashboard-account .medium-3.columns .dashboard-account-tabs .dashb
 
 body.account .dashboard-account .medium-3.columns .dashboard-account-tabs .dashboard-account-tab--inactive .dashboard-account-tab__label {
     color: var(--TextDim);
-    font-size: var(--natural-size-sm);
+    font-size: var(--natural-size-md);
     font-weight: var(--font-weight-medium);
     margin-top: -2px;
 }
@@ -2546,6 +2562,10 @@ body.account .dashboard-account .dashboard--content-panel .section-container but
 
 body.account .dashboard-account .dashboard--content-panel .section-container input {
     height: 50px;
+}
+
+body.account .dashboard-account .dashboard--content-panel .section-container button {
+    padding: 0 40px;
 }
 
 body.account .dashboard-account .dashboard--content-panel .section-container .field__input-wrapper {
@@ -2618,9 +2638,10 @@ body.account .dashboard-account .dashboard--content-panel .field__input {
     font-size: var(--natural-size-md);
 }
 
-body.account .dashboard-account .dashboard--content-panel input[type=password].ember-text-field::-webkit-input-placeholder {
+body.account .dashboard-account .dashboard--content-panel input.ember-text-field::-webkit-input-placeholder {
     font-family: PangeaText;
     font-size: var(--natural-size-sm);
+    font-style: normal;
 }
 
 body.account .dashboard-account .dashboard--content-panel .field__label {
@@ -2655,6 +2676,20 @@ body.account .dashboard-account #multifactor-label {
     margin-bottom: 12px;
     font-weight: 200;
     color: var(--Text);
+}
+
+body.account .dashboard-account .dashboard--content-panel .alert-box {
+    border-radius: 10px;
+}
+
+body.account .dashboard-account .dashboard--content-panel .alert-box.success {
+    color: var(--Ocean);
+    background-color: var(--Spring);
+}
+
+body.account .dashboard-account .dashboard--content-panel span {
+    font-family: PangeaText;
+    font-size: var(--natural-size-md);
 }
 
 @media screen and (max-width: 426px) {
