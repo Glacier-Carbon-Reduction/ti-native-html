@@ -83,10 +83,12 @@ function updatePageHeader() {
   var extraClass = ''
   if (window.location.href.includes('/learn/dashboard')) {
     extraClass = 'dashboard'
-  } else if (window.location.href.includes('/support')) {
-    extraClass = 'support'
+  // } else if (window.location.href.includes('/support')) {
+  //   extraClass = 'support'
   } else if (window.location.href.includes('learn/license')) {
     extraClass = 'licence'
+  } else if (window.location.href.includes('pages/download-hub')) {
+    extraClass = 'downloadhub'
   } else if (window.location.href.includes('/learn/account?tab=dashboard.account')) {
     extraClass = 'account'
   }
