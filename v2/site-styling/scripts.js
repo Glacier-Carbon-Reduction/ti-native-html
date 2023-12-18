@@ -83,8 +83,8 @@ function updatePageHeader() {
   var extraClass = ''
   if (window.location.href.includes('/learn/dashboard')) {
     extraClass = 'dashboard'
-  // } else if (window.location.href.includes('/support')) {
-  //   extraClass = 'support'
+    // } else if (window.location.href.includes('/support')) {
+    //   extraClass = 'support'
   } else if (window.location.href.includes('learn/license')) {
     extraClass = 'licence'
   } else if (window.location.href.includes('pages/download-hub')) {
@@ -644,7 +644,7 @@ function performAccountsPageTransformations() {
     // Select the submit button within the form
     const submitButton = parentForm.querySelector('button')
     const validateSpan = submitButton.querySelector('span')
-    if(validateSpan) return;
+    if (validateSpan) return
     const appendText = `<span lang="de">Änderungen speichern</span><span lang="en">Save changes</span>`
 
     // Find the second script tag (it's assumed to be the one after the first script tag)
@@ -671,7 +671,7 @@ function performAccountsPageTransformations() {
     // Select the submit button within the form
     const submitButton = parentForm.querySelector('button')
     const validateSpan = submitButton.querySelector('span')
-    if(validateSpan) return;
+    if (validateSpan) return
     const appendText = `<span lang="de">E-Mail Adresse ändern</span><span lang="en">Change email address</span>`
 
     // Find the second script tag (it's assumed to be the one after the first script tag)
@@ -705,6 +705,22 @@ function accountsPageModifiers() {
     // tabs.forEach((tab) => {
     //   tab.addEventListener('click', alertBannerCloser)
     // })
+  }
+}
+
+function coursePageSidebarHideHandler() {
+  const activeSidebar = document.querySelector('.learner__container--toggled')
+  if (activeSidebar && window.matchMedia('(max-width: 768px)').matches) {
+    const toggleButton = document.querySelector('.learner__container__toggle button')
+    if (toggleButton) {
+      toggleButton.click()
+    }
+  }
+}
+
+function coursePageModifiers() {
+  if (window.location.href.includes('/learn/course')) {
+    coursePageSidebarHideHandler()
   }
 }
 

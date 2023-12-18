@@ -1,7 +1,7 @@
 currentUserLanguage = window.CONF?.preload?.currentUser?.currentUser?.lang
 
 function redirector() {
-  if(window.location.pathname.startsWith('/learning-paths/')){
+  if (window.location.pathname.startsWith('/learning-paths/')) {
     const path = window.location.pathname.split('/learning-paths/')[1]
     const newPath = window.location.origin + '/learn/learning-path/' + path
     window.location.replace(newPath)
@@ -25,3 +25,4 @@ async function waiter() {
 
 redirector()
 waiter()
+coursePageModifiers()

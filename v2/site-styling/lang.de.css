@@ -7,5 +7,6 @@ html [lang="en"] {
 }
 
 :root {
-    --CustomText-MyAccount: "Mein Konto"
+    --CustomText-MyAccount: "Mein Konto";
+    --CustomText-Course-NextBtn: "Weiter";
 }

@@ -1333,6 +1333,10 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
     padding-top: 0;
 }
 
+.home.course-group .learner__language__selector {
+    display: none;
+}
+
 .course__detail__container .course__detail__sidebar,
 .course-purchase__mobile-button {
     display: none;
@@ -1576,6 +1580,26 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
     background-color: var(--Spring-Dark);
     transition: all 0.3s ease;
     color: white !important;
+}
+
+.course__container .learner__content .directional__nav .directional__nav__button__container--next .disabled button {
+    font-size: var(--natural-size-md);
+    font-family: PangeaText;
+    margin: auto;
+    padding: 10px 28px;
+}
+
+.course__container .learner__content .directional__nav .directional__nav__button__container--next .disabled button::before {
+    content: var(--CustomText-Course-NextBtn, "Next");
+    color: var(--adaptive-grey-900);
+}
+
+.course__container .learner__content .directional__nav .directional__nav__button__container--next:has(.disabled) {
+    background-color: var(--Grey-Dark);
+}
+
+.course__container .learner__content .directional__nav .directional__nav__button__container--next:has(.disabled):hover {
+    background-color: var(--Grey-Dark);
 }
 
 .course__container .learner__content .directional__nav a {
@@ -1871,6 +1895,10 @@ hr {
 
 .course__container .topic__container .topic__contained__sidebar {
     display: none;
+}
+
+.course__container .sidebar__container--right {
+    z-index: 300010;
 }
 
 .course__container .sidebar__container--right .h4.no-outline {
@@ -2736,6 +2764,11 @@ body.account .dashboard-account .dashboard--content-panel .section-container but
     margin-top: 12px;
     text-align: left;
     height: 45px;
+}
+
+body.account .dashboard-account .dashboard--content-panel .section-container a,
+body.account .dashboard-account .dashboard--content-panel .section-container button {
+    text-align: center;
 }
 
 body.account .dashboard-account .dashboard--content-panel .section-container input {
