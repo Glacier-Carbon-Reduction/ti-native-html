@@ -12,16 +12,21 @@ async function waiter() {
   await new Promise((resolve) => setTimeout(resolve, 800))
   currentUserLanguage = window.CONF?.preload?.currentUser?.currentUser?.lang
 
-  authPageModifiers()
-  redeemPageModifiers()
-  updatePageHeader()
-  userNameReplacer()
-  applyStylesForHasPsuedoClass()
-  embedWistiaVideo(currentUserLanguage === 'de' ? '1o3n779t75' : 'sh9w3ogy2l')
-  checkForCertificate()
-  courseInformationPageModifier()
-  accountsPageModifiers()
-  addOpenInNewTabButtonForPDF(4000)
+  const checker_1 = authPageModifiers()
+  const checker_2 = redeemPageModifiers()
+  const checker_3 = updatePageHeader()
+
+  if (!(checker_1 || checker_2 || checker_3)) {
+    waiter()
+  } else {
+    userNameReplacer()
+    applyStylesForHasPsuedoClass()
+    embedWistiaVideo(currentUserLanguage === 'de' ? '1o3n779t75' : 'sh9w3ogy2l')
+    checkForCertificate()
+    courseInformationPageModifier()
+    accountsPageModifiers()
+    addOpenInNewTabButtonForPDF(4000)
+  }
 }
 
 redirector()

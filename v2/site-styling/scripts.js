@@ -312,6 +312,8 @@ function updatePageHeader() {
       }
     }
   })
+
+  return true
 }
 
 function triggerScrollIntoView(objectId) {
@@ -751,10 +753,12 @@ async function addOpenInNewTabButtonForPDF(waitTime) {
     await new Promise((resolve) => setTimeout(resolve, waitTime))
   }
   const pdfIframe = document.getElementById('pdf-viewer')
-  if (pdfIframe) {
-    pdfIframe.style.height = '420px'
+  const button = document.getElementById('pdf-open-in-new-tab')
+  if (pdfIframe && !button) {
+    pdfIframe.style.height = '500px'
     const pdfUrl = pdfIframe.getAttribute('src')
     const newTabButton = document.createElement('a')
+    newTabButton.setAttribute('id', 'pdf-open-in-new-tab')
     newTabButton.classList.add('btn')
     newTabButton.classList.add('btn--secondary')
     newTabButton.classList.add('btn--fitcontent')
@@ -912,6 +916,7 @@ function authPageModifiers() {
     checkIfEmailConfirmationVisit()
     updateSignInPageLayout()
     changeGermanTextsOnPref()
+    return true
   }
 }
 
@@ -1108,6 +1113,7 @@ function redeemPageModifiers() {
     trackCodeRedemptions()
     performRedemptionPageTransformations()
     performDelayedTransformations()
+    return true
   }
 }
 
