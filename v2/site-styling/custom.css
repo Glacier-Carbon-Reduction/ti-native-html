@@ -7,8 +7,7 @@
 
 :root {
     --Ocean: #143560;
-    --Ocean-Dark: #0B2950;
-    --Ocean-Extra-Dark: #081F3C;
+    --Ocean-Dark: #081F3C;
     --Sky: #539ADB;
     --Sky-Dark: #3381C9;
     --Grey-Light: #E9E9E9;
@@ -528,6 +527,16 @@ body input {
     align-self: stretch;
 }
 
+@media screen and (max-width: 768px) {
+    .custom-section-top,
+    .custom-section-top-full,
+    .custom-section-bottom,
+    .title-section-div {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
 .der-flex-8p {
     display: flex;
     flex-direction: column;
@@ -783,10 +792,36 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
     border: none;
 }
 
+.btn--secondary {
+    height: 40px;
+    padding: 5px 18px;
+    display: flex;
+    justify-content: center;
+    font-family: PangeaText;
+    font-weight: var(--font-weight-medium);
+    align-items: center;
+    border-radius: 100px;
+    background: var(--Ocean);
+    color: white;
+    border: none;
+    margin: 0;
+    font-size: var(--natural-size-sm);
+}
+
+.btn--secondary:hover,
+.btn--secondary:focus,
+.btn--secondary:active {
+    background: var(--Ocean-Dark);
+}
+
 .btn--small {
     height: 32px;
     padding: 0px 12px;
     font-size: var(--natural-size-sm);
+}
+
+.btn--fitcontent {
+    width: fit-content;
 }
 
 .transition-loader .loading__spinner {
@@ -1212,7 +1247,7 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
 }
 
 .widget--catalog_standard .catalog-grid-item .btn--link:hover {
-    background: var(--Ocean-Extra-Dark) !important;
+    background: var(--Ocean-Dark) !important;
 }
 
 .widget--catalog_standard .catalog-grid-item .catalog__ribbon.catalog__ribbon--attached {
@@ -2980,6 +3015,7 @@ body.license .dashboard__license-select .dashboard__license-select__form .field_
     aspect-ratio: auto;
     background: transparent;
     padding: 48px 0;
+    margin-top: 16px;
 }
 
 .learning-path_custom-layout .learning-content-hero .learning-content__back-button,
@@ -3124,7 +3160,7 @@ body.license .dashboard__license-select .dashboard__license-select__form .field_
     box-shadow: 0 0 0 11px #fff, 0 0 0 12px var(--Ocean), 0 0 0 17px #fff, 0 0 0 18px var(--Ocean);
 }
 
-.learning-path_custom-layout .learning-path-timeline-milestone-item-circle--current {
+.learning-path_custom-layout .learning-path-timeline-milestone-item-circle--completed {
     background-color: var(--Spring);
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -3133,6 +3169,12 @@ body.license .dashboard__license-select .dashboard__license-select__form .field_
 @media screen and (max-width: 426px) {
     .learning-path_custom-layout .learning-content-hero h1 {
         font-size: var(--font-size-lg);
+    }
+
+    .learning-path_custom-layout .learning-path-timeline-milestone-item__content {
+        margin-left: 50px;
+        margin-right: auto;
+        width: 80%;
     }
 }
 
@@ -3146,7 +3188,7 @@ body.license .dashboard__license-select .dashboard__license-select__form .field_
 
     .learning-path_custom-layout .row.collapse.learning-path-timeline-milestone__header {
         position: absolute;
-        top: 118px;
+        top: 150px;
         left: 50%;
         transform: translateX(-50%);
         width: 100%;

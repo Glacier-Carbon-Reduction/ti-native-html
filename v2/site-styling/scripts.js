@@ -68,7 +68,7 @@ function updatePageHeader() {
   }
 
   var refreshValidator = document.querySelector('.refresh-validator-header')
-  if (refreshValidator) {
+  if (refreshValidator || !mainGroup) {
     return
   }
 
@@ -744,6 +744,35 @@ function iframeActivatePostMessage() {
       }
     })
   })
+}
+
+async function addOpenInNewTabButtonForPDF(waitTime) {
+  if (waitTime) {
+    await new Promise((resolve) => setTimeout(resolve, waitTime))
+  }
+  const pdfIframe = document.getElementById('pdf-viewer')
+  if (pdfIframe) {
+    pdfIframe.style.height = '420px'
+    const pdfUrl = pdfIframe.getAttribute('src')
+    const newTabButton = document.createElement('a')
+    newTabButton.classList.add('btn')
+    newTabButton.classList.add('btn--secondary')
+    newTabButton.classList.add('btn--fitcontent')
+    newTabButton.classList.add('mt-4')
+    newTabButton.setAttribute('href', pdfUrl)
+    newTabButton.setAttribute('target', '_blank')
+    newTabButton.setAttribute('rel', 'noopener noreferrer')
+    newTabButton.innerHTML = `
+    <span lang="de">Dokument in neuem Tab öffnen</span>
+    <span lang="en">Open document in new tab</span>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16.9498 7.04999L7.0498 16.95" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M10 7L16.95 7.049L17 14" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+
+    `
+    pdfIframe.insertAdjacentElement('afterend', newTabButton)
+  }
 }
 
 /**

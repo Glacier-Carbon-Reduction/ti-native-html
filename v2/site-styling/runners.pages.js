@@ -21,6 +21,7 @@ async function waiter() {
   checkForCertificate()
   courseInformationPageModifier()
   accountsPageModifiers()
+  addOpenInNewTabButtonForPDF(4000)
 }
 
 redirector()
