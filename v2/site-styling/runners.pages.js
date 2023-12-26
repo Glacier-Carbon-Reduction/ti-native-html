@@ -17,6 +17,7 @@ async function waiter() {
   const checker_3 = updatePageHeader()
 
   if (!(checker_1 || checker_2 || checker_3)) {
+    console.log('Delayed waiter')
     waiter()
   } else {
     userNameReplacer()
