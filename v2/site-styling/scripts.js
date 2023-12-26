@@ -4,6 +4,7 @@
 
 let INTERNAL_SYSTEM_PATH = 'https://internal.glacier.eco'
 let currentUserLanguage = window.CONF?.preload?.currentUser?.currentUser?.lang
+let languageWatcherActive = false
 
 function watchNestedProperty(obj, value, callback) {
   let lastValue = obj[value]
@@ -723,6 +724,27 @@ function coursePageSidebarHideHandler() {
 function coursePageModifiers() {
   if (window.location.href.includes('/learn/course')) {
     coursePageSidebarHideHandler()
+  }
+}
+
+function watchLanguageChange() {
+  if (window.CONF?.preload?.currentUser.currentUser.lang && !languageWatcherActive) {
+    watchNestedProperty(window.CONF.preload.currentUser.currentUser, 'lang', (newValue) => {
+      console.log('Language changed to:', newValue)
+      const langStylesheetDE = document.getElementById('lang-stylesheet-de').sheet
+      const langStylesheetEN = document.getElementById('lang-stylesheet-en').sheet
+      if (langStylesheetDE && langStylesheetEN) {
+        if (newValue === 'de') {
+          langStylesheetDE.disabled = false
+          langStylesheetEN.disabled = true
+        } else {
+          langStylesheetDE.disabled = true
+          langStylesheetEN.disabled = false
+        }
+      }
+    })
+
+    languageWatcherActive = true
   }
 }
 
