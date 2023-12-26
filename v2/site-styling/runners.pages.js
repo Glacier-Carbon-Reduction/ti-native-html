@@ -21,10 +21,9 @@ async function waiter() {
     waiter()
   } else {
     watchLanguageChange()
-    userNameReplacer()
+    dashboardUsageBasedTransformations()
     applyStylesForHasPsuedoClass()
     embedWistiaVideo(currentUserLanguage === 'de' ? '1o3n779t75' : 'sh9w3ogy2l')
-    checkForCertificate()
     courseInformationPageModifier()
     accountsPageModifiers()
     addOpenInNewTabButtonForPDF(4000)

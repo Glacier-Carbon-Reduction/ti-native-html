@@ -3,7 +3,9 @@
  */
 
 let INTERNAL_SYSTEM_PATH = 'https://internal.glacier.eco'
-let currentUserLanguage = window.CONF?.preload?.currentUser?.currentUser?.lang
+let currentUserLanguage =
+  window.CONF?.preload?.currentUser?.currentUser?.lang ||
+  window?.CONF?.preload?.currentUser?.clients?.[0]?.defaultLanguage
 let languageWatcherActive = false
 
 function watchNestedProperty(obj, value, callback) {
@@ -356,11 +358,89 @@ function embedWistiaVideo(videoId) {
   }
 }
 
-function userNameReplacer() {
+async function dashboardUsageBasedTransformations() {
   const userName = window.CONF?.preload?.currentUser?.currentUser?.firstName
-  const userNameElement = document.getElementById('banner-username')
-  if (userName && userNameElement) {
-    userNameElement.textContent = ' ' + userName
+  const certificateIssued = await checkForCertificate()
+  const bannerPretitleElement = document.getElementById('banner-pretitle')
+  const bannerTitleElement = document.getElementById('banner-title')
+  const bannerDescriptionElement = document.getElementById('banner-description')
+  const bannerButtonElement = document.getElementById('banner-button')
+
+  if (!bannerPretitleElement || !bannerTitleElement || !bannerDescriptionElement || !bannerButtonElement) {
+    return
+  }
+
+  switch (true) {
+    case certificateIssued === 2:
+      {
+        if (currentUserLanguage === 'de') {
+          bannerPretitleElement.textContent = 'HERZLICHEN GLÜCKWUNSCH, CLIMATE RANGER!'
+          bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
+          bannerDescriptionElement.textContent =
+            'Gratuliere, du hast alle Klimaschutz-Module erfolgreich abschlossen! Dein offizielles Zertifikat wartet auf dich.'
+          bannerButtonElement.textContent = `Hol' dir dein Zertifikat`
+        } else {
+          bannerPretitleElement.textContent = 'CONGRATULATIONS, CLIMATE RANGER!'
+          bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
+          bannerDescriptionElement.textContent =
+            'You have successfully completed all the climate action modules! Your official certificate is awaiting you.'
+          bannerButtonElement.textContent = `Get your certificate`
+        }
+
+        bannerButtonElement.onclick = function () {
+          triggerScrollIntoView('certificate-section')
+        }
+      }
+      break
+
+    case certificateIssued === 1:
+      {
+        if (currentUserLanguage === 'de') {
+          bannerPretitleElement.textContent = 'SETZE DEINE LERNREISE FORT!'
+          bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
+          bannerDescriptionElement.textContent =
+            'Wähle dein nächstes Lernmodul and erweitere deine Klimaschutz-Kompetenzen.'
+          bannerButtonElement.textContent = `Weiter geht's`
+        } else {
+          bannerPretitleElement.textContent = 'CONTINUE YOUR LEARNING JOURNEY!'
+          bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
+          bannerDescriptionElement.textContent =
+            'Discover the next module and take your climate competences to the next level.'
+          bannerButtonElement.textContent = `Let's continue`
+        }
+        bannerButtonElement.style.display = 'none'
+      }
+      break
+
+    default: {
+      if (currentUserLanguage === 'de') {
+        bannerPretitleElement.textContent = 'LERNE DIE PLATTFORM KENNEN'
+        bannerTitleElement.textContent = 'Willkommen' + (userName ? ' ' + userName : '') + '!'
+        bannerDescriptionElement.textContent =
+          'Das erste Mal hier? Dann schau dir doch das kurze Erklärungsvideo an, das wir für dich vorbereitet haben.'
+        bannerButtonElement.textContent = `Zum Einführungsvideo`
+      } else {
+        bannerPretitleElement.textContent = 'GET TO KNOW THE PLATFORM'
+        bannerTitleElement.textContent = 'Welcome' + (userName ? ' ' + userName : '') + '!'
+        bannerDescriptionElement.textContent =
+          'First time around? Then check out our short explanation video we prepared for you!'
+        bannerButtonElement.textContent = `Watch Intro Video`
+      }
+
+      bannerButtonElement.onclick = function () {
+        triggerScrollIntoView('dashboard-experience')
+      }
+    }
+  }
+
+  const progressSectionElement = document.getElementById('learning-progress-section')
+  const dashboardAccessTabsElement = document.querySelector('ul.dashboard-access-tabs')
+  const dashboardAccessTabsCount = dashboardAccessTabsElement?.querySelectorAll('li')?.length
+  if (dashboardAccessTabsCount > 0) {
+    console.log('User has active courses.')
+    progressSectionElement.classList.remove('hidden')
+  } else {
+    console.log('User has no active courses.')
   }
 }
 
@@ -392,7 +472,7 @@ function generateCetificateSuspense(event, visualProps) {
     : 'https://res.cloudinary.com/df1dbnp0x/image/upload/v1692944345/img/certificate/certificate-blank_base.jpg'
 
   return `
-  <div class="mx-auto max-width-1200 der-flex-8p">
+  <div id="certificate-section" class="mx-auto max-width-1200 der-flex-8p">
     <h3 class="display-text display-text-semibold display-text-xl sm:display-text-lg">
       <span lang="en">${title[event]['en']}</span>
       <span lang="de">${title[event]['de']}</span>
@@ -437,7 +517,10 @@ function generateCetificateSuspense(event, visualProps) {
 
 async function checkForCertificate() {
   const certificateContainer = document.getElementById('certificate-validate-container')
-  const userId = window.CONF.preload.currentUser.currentUser.id
+  // check for url query param forceUserId for testing
+  const urlParams = new URLSearchParams(window.location.search)
+  const forceUserId = urlParams.get('forceUserId')
+  const userId = forceUserId || window.CONF.preload.currentUser.currentUser.id
   if (certificateContainer && userId) {
     try {
       const data = await fetch(
@@ -452,6 +535,7 @@ async function checkForCertificate() {
         visualProps.fontColor = visualProps.fontColor || '#FFFFFF'
         const html = generateCetificateSuspense('complete', visualProps)
         certificateContainer.innerHTML = html
+        return 2
       } else if (json && json.completionData && json.completionData.displayProps?.image) {
         const visualProps = json.completionData.displayProps
         const learnerName = visualProps.hideName ? '' : json.completionData.learnerName
@@ -461,8 +545,13 @@ async function checkForCertificate() {
         certificateContainer.innerHTML = html
         certificateContainer.classList.add('force-full-width')
         certificateContainer.classList.add('custom-section-top-full')
+        if (json.completionData.userStatus !== 'not_started') {
+          return 1
+        }
+        return 0
       } else {
         console.log('No certificate data found.')
+        return 0
       }
     } catch (error) {
       console.log(error)
@@ -730,7 +819,7 @@ function coursePageModifiers() {
 function watchLanguageChange() {
   if (window.CONF?.preload?.currentUser.currentUser.lang && !languageWatcherActive) {
     watchNestedProperty(window.CONF.preload.currentUser.currentUser, 'lang', (newValue) => {
-      console.log('Language changed to:', newValue)
+      console.log('Language watcher changed to:', newValue)
       const langStylesheetDE = document.getElementById('lang-stylesheet-de').sheet
       const langStylesheetEN = document.getElementById('lang-stylesheet-en').sheet
       if (langStylesheetDE && langStylesheetEN) {
@@ -746,9 +835,10 @@ function watchLanguageChange() {
 
     languageWatcherActive = true
   } else if (!window.CONF?.preload?.currentUser.currentUser.lang) {
+    console.log('Language static changed to:', currentUserLanguage)
     const langStylesheetDE = document.getElementById('lang-stylesheet-de').sheet
     const langStylesheetEN = document.getElementById('lang-stylesheet-en').sheet
-    if (window?.CONF?.preload?.currentUser?.clients?.[0]?.defaultLanguage === 'de') {
+    if (currentUserLanguage === 'de') {
       langStylesheetDE.disabled = false
       langStylesheetEN.disabled = true
     } else {
