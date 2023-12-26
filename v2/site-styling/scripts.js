@@ -467,9 +467,14 @@ function generateCetificateSuspense(event, visualProps) {
     }
   }
 
-  const image = visualProps?.image
-    ? visualProps.image.replace('.webp', '_base.jpeg')
-    : 'https://res.cloudinary.com/df1dbnp0x/image/upload/v1692944345/img/certificate/certificate-blank_base.jpg'
+  let image = visualProps?.image
+  if (image && image.startsWith('/img/')) {
+    image = INTERNAL_SYSTEM_PATH + image.replace('.webp', '_base.jpeg')
+  } else if (image) {
+    image = image.replace('.webp', '_base.jpeg')
+  } else {
+    image = 'https://res.cloudinary.com/df1dbnp0x/image/upload/v1692944345/img/certificate/certificate-blank_base.jpg'
+  }
 
   return `
   <div id="certificate-section" class="mx-auto max-width-1200 der-flex-8p">
