@@ -1381,9 +1381,10 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
     transition: all 0.3s ease-in-out;
 }
 
-.certificate-container:hover .certificate-text {
+.certificate-container.certificate-complete:hover .certificate-text {
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
+    cursor: pointer;
 }
 
 .certificate-centered-content {

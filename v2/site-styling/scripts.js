@@ -489,9 +489,9 @@ function generateCetificateSuspense(event, visualProps) {
   </div>
   <div class="custom-section">
     ${
-      event === 'pending'
+      event === 'complete'
         ? `
-    <div class="certificate-container certificate-greyscale-filter" style="background-image: url('${image}');">
+    <div class="certificate-container certificate-complete" style="background-image: url('${image}');">
       <a href="/pages/glacier-certification?learnerId=${visualProps.learnerId} " target="_blank" rel="noopener noreferrer">
         <div class="certificate-text">
           <div class="certificate-centered-content">
@@ -505,7 +505,7 @@ function generateCetificateSuspense(event, visualProps) {
     </div>
     `
         : `
-    <div class="certificate-container" style="background-image: url('${image}');">
+    <div class="certificate-container certificate-greyscale-filter" style="background-image: url('${image}');">
         <div class="certificate-text">
           <div class="certificate-centered-content">
             <p class="certificate-learner-name" style="color: ${visualProps.fontColor}">
