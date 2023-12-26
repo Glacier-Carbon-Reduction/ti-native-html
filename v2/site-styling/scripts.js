@@ -745,6 +745,16 @@ function watchLanguageChange() {
     })
 
     languageWatcherActive = true
+  } else if (!window.CONF?.preload?.currentUser.currentUser.lang) {
+    const langStylesheetDE = document.getElementById('lang-stylesheet-de').sheet
+    const langStylesheetEN = document.getElementById('lang-stylesheet-en').sheet
+    if (window?.CONF?.preload?.currentUser?.clients?.[0]?.defaultLanguage === 'de') {
+      langStylesheetDE.disabled = false
+      langStylesheetEN.disabled = true
+    } else {
+      langStylesheetDE.disabled = true
+      langStylesheetEN.disabled = false
+    }
   }
 }
 
