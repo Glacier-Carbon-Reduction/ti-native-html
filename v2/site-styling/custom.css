@@ -522,7 +522,6 @@ body input {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 0 24px;
     gap: 12px;
     align-self: stretch;
 }
@@ -3359,4 +3358,107 @@ body.home.support .widget {
 
 body.home.support .title-section-div .btn-primary {
     margin-left: auto;
+}
+
+/* 
+* Footer Styling
+*/
+
+footer.footer {
+    padding: 0;
+}
+
+footer.footer .footer__inner {
+    padding: 0;
+}
+
+footer .footer__company__info {
+    display: none;
+}
+
+.footer-main {
+    background-color: var(--Ocean);
+    padding: 20px 0;
+    font-family: PangeaText;
+}
+
+.footer-address p {
+    line-height: 2;
+}
+
+.footer-links p,
+.footer-contact p {
+    color: white;
+    font-size: var(--natural-size-md);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: 24px;
+}
+
+.footer-main p,
+.footer-main a {
+    color: white;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 24px 48px;
+    border-bottom: 1px solid white;
+}
+
+.widget .footer-container {
+    padding: 24px 0;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-main li {
+    margin-bottom: 10px;
+}
+
+
+.footer-main a,
+.footer-social a svg {
+    color: white;
+    transition: color 0.3s;
+}
+
+.footer-social {
+    text-align: center;
+    padding: 20px 0;
+    display: flex;
+    gap: 12px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    padding: 25px 0;
+    text-align: center;
+}
+
+.footer-main a:hover,
+.footer-social a svg:hover {
+    color: var(--Spring);
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 426px) {
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .footer-container div {
+        margin-bottom: 20px;
+    }
 }
