@@ -855,7 +855,7 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
 .learner__language__selector {
     z-index: 40000;
     left: 10px;
-    bottom: 10px;
+    bottom: 20px;
 }
 
 .learner__language__selector .learner__language__selector__btn {
@@ -1210,6 +1210,15 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
     }
 }
 
+/* pure ovveride */
+@media only screen and (min-width: 48.063em) {
+
+    .learn.dashboard .widget,
+    .learn.transcript .widget {
+        padding: 1rem;
+    }
+}
+
 /* 
 * Module Catalog Styling
 */
@@ -1369,12 +1378,13 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    border-radius: 12px;
 }
 
 .certificate-text {
     width: 100%;
     /* Take 100% of the container width */
-    padding-top: 66.66%;
+    padding-top: 65.66%;
     /* For 3:2 aspect ratio (2/3 = 0.6666) */
     position: relative;
     color: transparent;
@@ -1424,6 +1434,13 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
 
 .home.course-group .container {
     padding-top: 0;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
+.home.course-group .container .home__content {
+    flex: 1;
 }
 
 .home.course-group .learner__language__selector {
@@ -2191,13 +2208,16 @@ hr {
     width: 85%; */
     border: 2px solid var(--Grey);
     background: var(--Grey);
-    border-radius: 100px;
+    /* border-radius: 100px; */
+    position: fixed;
+    left: 0;
+    bottom: 85px;
 }
 
 .course__container .quiz__container .topic__index .topic__index__number span {
     border: 6px solid var(--Grey);
     color: transparent;
-    border-radius: 100px;
+    /* border-radius: 100px; */
     padding: 0;
     height: 0;
 }
@@ -2206,7 +2226,7 @@ hr {
     border-color: var(--Ocean);
 }
 
-.course__container .quiz__container .btn--primary.btn--right {
+.course__container .quiz__container .btn--right {
     float: left;
 }
 
@@ -2637,6 +2657,12 @@ hr {
 
     .course__container .quiz__container .quiz__results .results__controls {
         display: inline-grid;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .course__container .quiz__container .topic__index {
+        bottom: 70px;
     }
 }
 
