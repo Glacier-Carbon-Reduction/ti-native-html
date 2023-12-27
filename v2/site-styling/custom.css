@@ -740,7 +740,7 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
 }
 
 .nav-list-active {
-    color: var(--Spring-Dark);
+    font-weight: var(--font-weight-semibold);
     border-bottom: 2px solid var(--Spring-Dark);
     padding-bottom: 2px !important;
     margin-bottom: -3px;
