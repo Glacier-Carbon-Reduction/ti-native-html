@@ -23,8 +23,16 @@
     gap: 3rem;
 }
 
-mt-4 {
+.mt-4 {
     margin-top: 1rem
+}
+
+.mb-16 {
+    margin-bottom: 4rem
+}
+
+.mb-24 {
+    margin-bottom: 6rem
 }
 
 @media (min-width:768px) {

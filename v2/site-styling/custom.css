@@ -1328,7 +1328,7 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
     background: var(--Spring) !important;
     color: var(--Ocean) !important;
     font-weight: var(--font-weight-semibold);
-    max-width: 100px;
+    width: fit-content;
 }
 
 .widget--catalog_standard .catalog-grid-item .catalog__ribbon.catalog__ribbon--attached .catalog__ribbon-corner {
@@ -1364,9 +1364,15 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
     }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1280px) {
+@media screen and (min-width: 426px) and (max-width: 768px) {
     .widget--catalog_standard .small-block-grid-1.large-block-grid-3.medium-block-grid-2 {
         grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1280px) {
+    .widget--catalog_standard .small-block-grid-1.large-block-grid-3.medium-block-grid-2 {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 }
 
@@ -2128,9 +2134,9 @@ hr {
         padding: 12px 20px;
     }
 
-    .sidebar--open--right .sidebar__container.sidebar__container--right {
+    /* .sidebar--open--right .sidebar__container.sidebar__container--right {
         width: 100%;
-    }
+    } */
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
@@ -2252,10 +2258,6 @@ hr {
 .course__container .quiz__container .topic__index .topic__index__number--active span {
     border-top-right-radius: 100px;
     border-bottom-right-radius: 100px;
-}
-
-.course__container .quiz__container .btn--right {
-    float: left;
 }
 
 .quiz__container--survey .results__list li {
@@ -2546,6 +2548,10 @@ hr {
     color: white;
 }
 
+.course__container .quiz__container .quiz__results .results__controls .btn.btn--success {
+    display: none;
+}
+
 .course__container .quiz__container .quiz__results .question-results__messages.row--flex {
     -webkit-box-align: start;
     -ms-flex-align: inherit;
@@ -2691,6 +2697,12 @@ hr {
 @media screen and (max-width: 768px) {
     .course__container .quiz__container .topic__index {
         bottom: 71px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .course__container .quiz__container .btn--right {
+        float: left;
     }
 }
 

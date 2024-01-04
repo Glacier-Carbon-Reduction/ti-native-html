@@ -434,8 +434,14 @@ async function dashboardUsageBasedTransformations() {
   }
 
   const progressSectionElement = document.getElementById('learning-progress-section')
-  const dashboardAccessTabsElement = document.querySelector('ul.dashboard-access-tabs')
-  const dashboardAccessTabsCount = dashboardAccessTabsElement?.querySelectorAll('li')?.length
+  let dashboardAccessTabsElement = document.querySelector('ul.dashboard-access-tabs')
+  let dashboardAccessTabsCount = dashboardAccessTabsElement?.querySelectorAll('li')?.length
+  if (!dashboardAccessTabsCount || dashboardAccessTabsCount === 0) {
+    // wait for 2 seconds and check again
+    await new Promise((resolve) => setTimeout(resolve, 2000))
+    dashboardAccessTabsElement = document.querySelector('ul.dashboard-access-tabs')
+    dashboardAccessTabsCount = dashboardAccessTabsElement?.querySelectorAll('li')?.length
+  }
   if (dashboardAccessTabsCount > 0) {
     console.log('User has active courses.')
     progressSectionElement.classList.remove('hidden')
