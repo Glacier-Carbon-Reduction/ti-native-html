@@ -859,6 +859,13 @@ function watchLanguageChange() {
   }
 }
 
+function showUnderConstructionPage() {
+  const userEmail = window.CONF?.preload?.currentUser?.currentUser?.email
+  if(userEmail && !userEmail.includes('@glacier.eco')) {
+    window.location.href = '/pages/maintenance-mode'
+  }
+}
+
 /**
  * iFrame actions
  */
