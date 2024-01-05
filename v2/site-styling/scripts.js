@@ -861,7 +861,10 @@ function watchLanguageChange() {
 
 function showUnderConstructionPage() {
   const userEmail = window.CONF?.preload?.currentUser?.currentUser?.email
-  if(userEmail && !userEmail.includes('@glacier.eco')) {
+  if (
+    (!userEmail || (userEmail && !userEmail.includes('@glacier.eco'))) &&
+    !window.location.href.includes('/pages/maintenance-mode')
+  ) {
     window.location.href = '/pages/maintenance-mode'
   }
 }
@@ -917,6 +920,12 @@ async function addOpenInNewTabButtonForPDF(waitTime) {
     `
     pdfIframe.insertAdjacentElement('afterend', newTabButton)
   }
+}
+
+async function resizeIframe(obj) {
+  setInterval(async () => {
+    obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px'
+  }, 1000)
 }
 
 /**
