@@ -534,8 +534,14 @@ async function checkForCertificate() {
   const userId = forceUserId || window.CONF.preload.currentUser.currentUser.id
   if (certificateContainer && userId) {
     try {
+      let activeLicence = window.CONF.preload.currentUser.currentUser.activeLicense
+      let primaryLicense = window.CONF.preload.currentUser.clients[0].primaryLicense.id
+      if (!activeLicence) activeLicence = window.CONF.preload.currentUser.allocatedLicenses[0].license.id
+      if (activeLicence === primaryLicense) activeLicence = undefined
+
       const data = await fetch(
-        `${INTERNAL_SYSTEM_PATH}/api/lxp/user/${userId}/certificates?lang=${currentUserLanguage}`
+        `${INTERNAL_SYSTEM_PATH}/api/lxp/user/${userId}/certificates?lang=${currentUserLanguage}` +
+          (activeLicence ? `&subLicenseId=${activeLicence}` : '')
       )
       const json = await data.json()
       if (json && json.certificationData) {
