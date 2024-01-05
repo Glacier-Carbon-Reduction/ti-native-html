@@ -777,13 +777,13 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
 
 .btn--primary:hover,
 .btn-primary:hover,
-btn--primary--manager--new:hover,
+.btn--primary--manager--new:hover,
 .btn--primary:focus,
 .btn-primary:focus,
-btn--primary--manager--new:focus,
+.btn--primary--manager--new:focus,
 .btn--primary:active,
 .btn-primary:active,
-btn--primary--manager--new:active {
+.btn--primary--manager--new:active {
     background: var(--Spring-Dark);
     color: white;
 }
