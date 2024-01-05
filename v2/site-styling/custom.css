@@ -758,7 +758,8 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
 }
 
 .btn--primary,
-.btn-primary {
+.btn-primary,
+.btn--primary--manager--new {
     height: 40px;
     padding: 5px 18px;
     display: flex;
@@ -776,10 +777,13 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
 
 .btn--primary:hover,
 .btn-primary:hover,
+btn--primary--manager--new:hover,
 .btn--primary:focus,
 .btn-primary:focus,
+btn--primary--manager--new:focus,
 .btn--primary:active,
-.btn-primary:active {
+.btn-primary:active,
+btn--primary--manager--new:active {
     background: var(--Spring-Dark);
     color: white;
 }
@@ -3531,4 +3535,23 @@ footer .footer__company__info {
     .footer-container div {
         margin-bottom: 20px;
     }
+}
+
+/* 
+# Cookie Popover
+*/
+
+.cookie-popover__inner span {
+    font-size: 1rem;
+}
+
+.cookie-popover__inner span a {
+    color: var(--Ocean-Dark);
+    text-decoration: underline;
+}
+
+.cookie-popover__inner div {
+    margin-top: 1rem;
+    display: flex;
+    gap: 12px;
 }
