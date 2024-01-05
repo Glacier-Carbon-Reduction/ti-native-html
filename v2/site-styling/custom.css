@@ -2172,6 +2172,10 @@ hr {
 * Course Consumption Page - Quiz Styling
 */
 
+body.learn.course #hubspot-messages-iframe-container {
+    display: none !important;
+}
+
 .course__container .quiz-start__content {
     background-color: transparent;
 }
