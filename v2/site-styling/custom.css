@@ -6,6 +6,11 @@
 */
 
 :root {
+
+    --font: PangeaText;
+    --alt-font: Pangea;
+    --accent-color: #143560;
+    
     --Ocean: #143560;
     --Ocean-Dark: #081F3C;
     --Sky: #539ADB;
