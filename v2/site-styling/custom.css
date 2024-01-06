@@ -10,7 +10,7 @@
     --font: PangeaText;
     --alt-font: Pangea;
     --accent-color: #143560;
-    
+
     --Ocean: #143560;
     --Ocean-Dark: #081F3C;
     --Sky: #539ADB;
@@ -1442,6 +1442,10 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
 
 .certificate-greyscale-filter {
     filter: grayscale(100%) brightness(50%);
+}
+
+.catalog-learning-paths {
+    display: none;
 }
 
 /* 

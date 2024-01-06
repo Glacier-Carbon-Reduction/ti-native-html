@@ -670,9 +670,10 @@ function applyStylesForHasPsuedoClass() {
   }
 }
 
-function courseInformationPageModifier() {
+async function courseInformationPageModifier() {
   const path = window.location.pathname.split('/')[1]
   if (path === 'courses') {
+    await new Promise((resolve) => setTimeout(resolve, 2000))
     const container = document.querySelector('.course__detail__container')
     if (!container) return
 
@@ -872,6 +873,26 @@ function showUnderConstructionPage() {
     !window.location.href.includes('/pages/maintenance-mode')
   ) {
     window.location.href = '/pages/maintenance-mode'
+  }
+}
+
+async function catalogLearningPathTransformations() {
+  const learningPathContainer = document.querySelector('.catalog-learning-paths')
+  if (learningPathContainer) {
+    let learningPathCards = learningPathContainer.querySelectorAll('.catalog-item')
+    let i = 0
+    while (learningPathCards.length === 0 && i < 10) {
+      await new Promise((resolve) => setTimeout(resolve, 1000))
+      learningPathCards = learningPathContainer.querySelectorAll('.catalog-item')
+      i++
+    }
+    learningPathCards.forEach((card) => {
+      const buttonText = card.querySelector('.btn.btn--link.btn--right.btn--primary').innerText.trim()
+      if (!buttonText.includes('Learning Path')) {
+        card.parentElement.style.display = 'none'
+      }
+    })
+    learningPathContainer.style.display = 'block'
   }
 }
 
