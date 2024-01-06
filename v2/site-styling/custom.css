@@ -3117,6 +3117,7 @@ body.account .dashboard-account .btn {
     align-items: center;
     gap: 4px;
     min-width: 150px;
+    text-align: center;
 }
 
 body.account .dashboard-account .btn:hover,

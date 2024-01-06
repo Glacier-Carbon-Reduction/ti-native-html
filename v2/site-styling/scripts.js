@@ -673,12 +673,22 @@ function applyStylesForHasPsuedoClass() {
 async function courseInformationPageModifier() {
   const path = window.location.pathname.split('/')[1]
   if (path === 'courses') {
-    await new Promise((resolve) => setTimeout(resolve, 2000))
     const container = document.querySelector('.course__detail__container')
     if (!container) return
 
-    const courseTitle = document.querySelector('.course__detail__container .course__detail__content h1')
-    const courseButton = document.querySelector('.course__detail__container .course__detail__sidebar .btn.btn--primary')
+    let courseTitle = document.querySelector('.course__detail__container .course__detail__content h1')
+    let courseButton = document.querySelector('.course__detail__container .course__detail__sidebar .btn.btn--primary')
+    if (!courseButton) {
+      await new Promise((resolve) => setTimeout(resolve, 1000))
+      courseTitle = document.querySelector('.course__detail__container .course__detail__content h1')
+      courseButton = document.querySelector('.course__detail__container .course__detail__sidebar .btn.btn--primary')
+    }
+    if (!courseButton) {
+      await new Promise((resolve) => setTimeout(resolve, 1000))
+      courseTitle = document.querySelector('.course__detail__container .course__detail__content h1')
+      courseButton = document.querySelector('.course__detail__container .course__detail__sidebar .btn.btn--primary')
+    }
+
     const courseInformationHeader = document.createElement('div')
     courseInformationHeader.classList.add('course-information-header')
     courseInformationHeader.classList.add('column')
