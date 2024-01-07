@@ -898,7 +898,8 @@ async function catalogLearningPathTransformations() {
     }
     learningPathCards.forEach((card) => {
       const buttonText = card.querySelector('.btn.btn--link.btn--right.btn--primary').innerText.trim()
-      if (!buttonText.includes('Learning Path')) {
+      const cardHref = card.getAttribute('href')
+      if (!buttonText.includes('Learning Path') && !cardHref.includes('/learning-paths/')) {
         card.parentElement.style.display = 'none'
       }
     })
