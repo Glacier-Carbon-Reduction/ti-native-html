@@ -31,7 +31,7 @@ async function waiter() {
   }
 }
 
-showUnderConstructionPage()
+// showUnderConstructionPage()
 redirector()
 waiter()
 coursePageModifiers()
