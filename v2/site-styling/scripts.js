@@ -564,7 +564,7 @@ async function checkForCertificate() {
         certificateContainer.classList.add('custom-section-top-full')
         if (json.completionData.userStatus !== 'not_started') {
           return 1
-        } else if (json.completionData.userStatus !== 'courses_complete_quiz_incomplete') {
+        } else if (json.completionData.userStatus === 'courses_complete_quiz_incomplete') {
           const hiddenQuiz = document.querySelectorAll('.hidden-closing-feedback')
           hiddenQuiz.forEach((quiz) => {
             quiz.style.display = 'block'

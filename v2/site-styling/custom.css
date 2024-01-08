@@ -663,7 +663,7 @@ button.expand-toggle-btn:hover {
     max-width: 1224px !important;
 }
 
-.hidden-closing-feedback {
+.learn.dashboard .widget.hidden-closing-feedback {
     display: none;
 }
 
