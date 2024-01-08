@@ -562,14 +562,14 @@ async function checkForCertificate() {
         certificateContainer.innerHTML = html
         certificateContainer.classList.add('force-full-width')
         certificateContainer.classList.add('custom-section-top-full')
-        if (json.completionData.userStatus !== 'not_started') {
-          return 1
-        } else if (json.completionData.userStatus === 'courses_complete_quiz_incomplete') {
+        if (json.completionData.userStatus === 'courses_complete_quiz_incomplete') {
           const hiddenQuiz = document.querySelectorAll('.hidden-closing-feedback')
           hiddenQuiz.forEach((quiz) => {
             quiz.style.display = 'block'
           })
 
+          return 1
+        } else if (json.completionData.userStatus !== 'not_started') {
           return 1
         }
         return 0
