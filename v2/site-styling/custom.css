@@ -1428,7 +1428,8 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
 
 .certificate-learner-name {
     text-align: center;
-    font-size: 4.5vw;
+    font-size: clamp(10px, 4.5vw, 60px);
+    padding: 0 1rem;
     font-weight: 700;
     color: your-font-color;
 }
@@ -1449,6 +1450,12 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
 
 .catalog-learning-paths {
     display: none;
+}
+
+@media screen and (max-width: 425px) {
+    .certificate-learner-name {
+        font-size: clamp(10px, 4vw, 30px);
+    }
 }
 
 /* 
@@ -3447,10 +3454,6 @@ body.home.support .widget {
     padding: 1rem !important;
 }
 
-body.home.support .title-section-div .btn-primary {
-    margin-left: auto;
-}
-
 /* 
 * Footer Styling
 */
@@ -3557,6 +3560,10 @@ footer .footer__company__info {
 /* 
 # Cookie Popover
 */
+
+.cookie-popover {
+    z-index: 500005;
+}
 
 .cookie-popover__inner span {
     font-size: 1rem;

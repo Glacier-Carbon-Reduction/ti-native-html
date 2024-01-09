@@ -416,14 +416,14 @@ async function dashboardUsageBasedTransformations() {
       if (currentUserLanguage === 'de') {
         bannerPretitleElement.textContent = 'LERNE DIE PLATTFORM KENNEN'
         bannerTitleElement.textContent = 'Willkommen' + (userName ? ' ' + userName : '') + '!'
-        bannerDescriptionElement.textContent =
-          'Das erste Mal hier? Dann schau dir doch das kurze Erklärungsvideo an, das wir für dich vorbereitet haben.'
+        bannerDescriptionElement.innerHTML =
+          'Das erste Mal hier?<br>Dann schau dir doch das kurze Erklärungsvideo an, das wir für dich vorbereitet haben.'
         bannerButtonElement.textContent = `Zum Einführungsvideo`
       } else {
         bannerPretitleElement.textContent = 'GET TO KNOW THE PLATFORM'
         bannerTitleElement.textContent = 'Welcome' + (userName ? ' ' + userName : '') + '!'
-        bannerDescriptionElement.textContent =
-          'First time around? Then check out our short explanation video we prepared for you!'
+        bannerDescriptionElement.innerHTML =
+          'First time around?<br>Then check out our short explanation video we prepared for you!'
         bannerButtonElement.textContent = `Watch Intro Video`
       }
 
