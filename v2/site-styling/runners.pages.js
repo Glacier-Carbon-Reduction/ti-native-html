@@ -23,7 +23,7 @@ async function waiter() {
     watchLanguageChange()
     dashboardUsageBasedTransformations()
     applyStylesForHasPsuedoClass()
-    embedWistiaVideo(currentUserLanguage)
+    embedWistiaVideo(currentUserLanguage === 'de' ? 'sh9w3ogy2l' : '1o3n779t75')
     catalogLearningPathTransformations()
     courseInformationPageModifier()
     accountsPageModifiers()

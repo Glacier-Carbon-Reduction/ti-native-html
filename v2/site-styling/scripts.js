@@ -335,19 +335,9 @@ function scrollToModuleCatalogOnFilter() {
   }
 }
 
-function embedWistiaVideo(currentUserLanguage) {
-  let videoId = null
-  let dynamicEmbed = null
-  
-  if (document.getElementById('lxp-intro-video')) {
-    dynamicEmbed = document.getElementById('lxp-intro-video')
-    videoId = currentUserLanguage === 'de' ? 'sh9w3ogy2l' : '1o3n779t75'
-  } else if (document.getElementById('rb-intro-video')) {
-    dynamicEmbed = document.getElementById('rb-intro-video')
-    videoId = 'dguhry7ia5'
-  }
-
-  if (dynamicEmbed && videoId) {
+function embedWistiaVideo(videoId) {
+  const dynamicEmbed = document.getElementById('lxp-intro-video')
+  if (dynamicEmbed) {
     var embedCode = `
         <iframe 
           src="https://fast.wistia.net/embed/iframe/${videoId}" 
@@ -565,6 +555,9 @@ async function checkForCertificate() {
         return 2
       } else if (json && json.completionData && json.completionData.displayProps?.image) {
         const visualProps = json.completionData.displayProps
+        if (visualProps.introVideo) {
+          embedWistiaVideo(visualProps.introVideo)
+        }
         const learnerName = visualProps.hideName ? '' : json.completionData.learnerName
         visualProps.learnerName = learnerName
         visualProps.fontColor = visualProps.fontColor || '#FFFFFF'
