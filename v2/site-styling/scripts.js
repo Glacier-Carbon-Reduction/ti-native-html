@@ -335,9 +335,19 @@ function scrollToModuleCatalogOnFilter() {
   }
 }
 
-function embedWistiaVideo(videoId) {
-  const dynamicEmbed = document.getElementById('lxp-intro-video')
-  if (dynamicEmbed) {
+function embedWistiaVideo(currentUserLanguage) {
+  let videoId = null
+  let dynamicEmbed = null
+  
+  if (document.getElementById('lxp-intro-video')) {
+    dynamicEmbed = document.getElementById('lxp-intro-video')
+    videoId = currentUserLanguage === 'de' ? 'sh9w3ogy2l' : '1o3n779t75'
+  } else if (document.getElementById('rb-intro-video')) {
+    dynamicEmbed = document.getElementById('rb-intro-video')
+    videoId = 'dguhry7ia5'
+  }
+
+  if (dynamicEmbed && videoId) {
     var embedCode = `
         <iframe 
           src="https://fast.wistia.net/embed/iframe/${videoId}" 
