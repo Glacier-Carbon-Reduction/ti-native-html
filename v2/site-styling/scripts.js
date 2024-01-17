@@ -682,51 +682,52 @@ function applyStylesForHasPsuedoClass() {
 
 async function courseInformationPageModifier() {
   const path = window.location.pathname.split('/')[1]
-  if (path === 'courses') {
-    const container = document.querySelector('.course__detail__container')
-    if (!container) return
+  if (path !== 'courses') return
 
-    let startTime = Date.now()
-    let courseTitle
-    let courseButton
+  let startTime = Date.now()
+  let container
+  let courseTitle
+  let courseButton
+  let i = 0
+  while (true) {
+    i++
+    container = document.querySelector('.course__detail__container')
+    courseTitle = document.querySelector('.course__detail__container .course__detail__content h1')
+    courseButton = document.querySelector('.course__detail__container .course__detail__sidebar .btn.btn--primary')
 
-    while (true) {
-      courseTitle = document.querySelector('.course__detail__container .course__detail__content h1')
-      courseButton = document.querySelector('.course__detail__container .course__detail__sidebar .btn.btn--primary')
-
-      if (courseButton || Date.now() - startTime > 6000) {
-        break
-      }
-      await new Promise((resolve) => setTimeout(resolve, 500))
+    if (courseButton || Date.now() - startTime > 6000) {
+      console.log('course information page modifier found the elements at iteration: ' + i)
+      break
     }
-
-    const courseInformationHeader = document.createElement('div')
-    courseInformationHeader.classList.add('course-information-header')
-    courseInformationHeader.classList.add('column')
-    courseInformationHeader.classList.add('custom-section-top')
-
-    if (courseTitle) {
-      courseTitle.classList.remove('h2')
-      courseTitle.classList.add('display-text')
-      courseTitle.classList.add('display-text-xl')
-      courseTitle.classList.add('sm:display-text-lg')
-      courseTitle.classList.add('display-text-semibold')
-      courseInformationHeader.appendChild(courseTitle)
-    }
-    if (courseButton) {
-      courseButton.classList.remove('btn--alt')
-      courseButton.classList.remove('btn--expand')
-      const clonedButton = courseButton.cloneNode(true)
-      courseInformationHeader.appendChild(courseButton)
-
-      const courseNavButton = document.createElement('div')
-      courseNavButton.classList.add('mobile-footer-nav-bar')
-      courseNavButton.appendChild(clonedButton)
-      container.appendChild(courseNavButton)
-    }
-
-    container.insertBefore(courseInformationHeader, container.firstChild)
+    await new Promise((resolve) => setTimeout(resolve, 500))
   }
+
+  const courseInformationHeader = document.createElement('div')
+  courseInformationHeader.classList.add('course-information-header')
+  courseInformationHeader.classList.add('column')
+  courseInformationHeader.classList.add('custom-section-top')
+
+  if (courseTitle) {
+    courseTitle.classList.remove('h2')
+    courseTitle.classList.add('display-text')
+    courseTitle.classList.add('display-text-xl')
+    courseTitle.classList.add('sm:display-text-lg')
+    courseTitle.classList.add('display-text-semibold')
+    courseInformationHeader.appendChild(courseTitle)
+  }
+  if (courseButton) {
+    courseButton.classList.remove('btn--alt')
+    courseButton.classList.remove('btn--expand')
+    const clonedButton = courseButton.cloneNode(true)
+    courseInformationHeader.appendChild(courseButton)
+
+    const courseNavButton = document.createElement('div')
+    courseNavButton.classList.add('mobile-footer-nav-bar')
+    courseNavButton.appendChild(clonedButton)
+    container.appendChild(courseNavButton)
+  }
+
+  container.insertBefore(courseInformationHeader, container.firstChild)
 }
 
 function toggleAccordion(id, element) {
