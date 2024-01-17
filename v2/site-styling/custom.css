@@ -3579,3 +3579,45 @@ footer .footer__company__info {
     display: flex;
     gap: 12px;
 }
+
+
+/* 
+* Onboarding Survey Styling
+*/
+
+body.survey .application__content--survey {
+    max-width: var(--desktop-content-width);
+    margin: auto;
+    position: relative;
+    height: 100dvh;
+    padding: 4rem 2rem;
+}
+
+body.survey .application__content--survey .header__title {
+    padding: 32px 12px;
+}
+
+body.survey .application__content--survey .header__title h1 span {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+    color: var(--Ocean);
+    font-family: Pangea !important;
+    line-height: initial;
+}
+
+body.survey .application__content--survey .items__list label p {
+    font-size: var(--natural-size-md);
+    font-weight: var(--font-weight-regular);
+    line-height: 160%;
+    margin-bottom: 8px;
+}
+
+body.survey .application__content--survey .items__list select {
+    border-radius: 8px;
+}
+
+body.survey .application__content--survey .items__list ul {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px var(--Grey-Light) solid;
+}

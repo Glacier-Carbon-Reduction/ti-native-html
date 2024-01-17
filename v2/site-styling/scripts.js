@@ -686,17 +686,18 @@ async function courseInformationPageModifier() {
     const container = document.querySelector('.course__detail__container')
     if (!container) return
 
-    let courseTitle = document.querySelector('.course__detail__container .course__detail__content h1')
-    let courseButton = document.querySelector('.course__detail__container .course__detail__sidebar .btn.btn--primary')
-    if (!courseButton) {
-      await new Promise((resolve) => setTimeout(resolve, 1000))
+    let startTime = Date.now()
+    let courseTitle
+    let courseButton
+
+    while (true) {
       courseTitle = document.querySelector('.course__detail__container .course__detail__content h1')
       courseButton = document.querySelector('.course__detail__container .course__detail__sidebar .btn.btn--primary')
-    }
-    if (!courseButton) {
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-      courseTitle = document.querySelector('.course__detail__container .course__detail__content h1')
-      courseButton = document.querySelector('.course__detail__container .course__detail__sidebar .btn.btn--primary')
+
+      if (courseButton || Date.now() - startTime > 6000) {
+        break
+      }
+      await new Promise((resolve) => setTimeout(resolve, 500))
     }
 
     const courseInformationHeader = document.createElement('div')
