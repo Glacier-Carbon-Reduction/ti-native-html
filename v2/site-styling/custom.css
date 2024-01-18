@@ -2125,6 +2125,84 @@ hr {
     color: var(--Text);
 }
 
+.course__container .list-roll__container li.topic__list__item {
+    padding: 0;
+    background: var(--Grey);
+    border-radius: 8px;
+    border: none;
+}
+
+.course__container .list-roll__container .topic__list__info.topic__list__info--full-width {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 6px 12px;
+}
+
+.course__container .list-roll__container .topic__list__info.topic__list__info--full-width .topic__list__title {
+    margin: 0;
+}
+
+.course__container .list-roll__container .topic__list__info.topic__list__info--full-width .topic__list__title .h3 {
+    font-size: var(--natural-size-md);
+    line-height: 160%;
+    color: var(--Text);
+    font-family: PangeaText;
+}
+
+.course__container .list-roll__container .topic__list__info.topic__list__info--full-width .topic__list__description {
+    flex-basis: 100%;
+}
+
+.course__container .list-roll__container .topic__list__info.topic__list__info--full-width .topic__list__description p {
+    font-size: var(--natural-size-sm);
+    line-height: 160%;
+    color: var(--Text);
+    font-family: PangeaText;
+}
+
+.course__container .list-roll__container .topic__list__info.topic__list__info--full-width .btn.btn--link {
+    margin-bottom: 0;
+}
+
+.course__container .list-roll__container .topic__list__info.topic__list__info--full-width .btn.btn--link span {
+    display: none;
+}
+
+.course__container .list-roll__container .topic__list__info.topic__list__info--full-width .btn.btn--link .icon-navigatedown,
+.course__container .list-roll__container .topic__list__info.topic__list__info--full-width .btn.btn--link .icon-navigateup {
+    border: 2.5px solid var(--Ocean);
+    padding: 1px;
+    margin-right: 4px;
+    border-radius: 100px;
+    scale: 0.8;
+    height: 28px;
+    width: 28px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.course__container .list-roll__container .topic__list__info.topic__list__info--full-width .btn.btn--link .icon-navigatedown:before {
+    content: "";
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--Ocean);
+}
+
+
+.course__container .list-roll__container .topic__list__info.topic__list__info--full-width .btn.btn--link .icon-navigateup:before {
+    content: "";
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--Ocean);
+    /* transition: all 0.2s ease-in-out; */
+}
+
 @media screen and (max-width: 768px) {
     .course__container .learner__content .layout-panel {
         padding: 0;
