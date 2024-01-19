@@ -1777,9 +1777,21 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
     padding-bottom: 72px;
 }
 
+/* .course__container .learner__sidebar .learner__sidebar__expandables .ember-view {
+    order: 0;
+}
+
+.course__container .learner__sidebar .learner__sidebar__expandables .ember-view.course-completion-progress {
+    order: 1;
+} */
+
 .course__container .learner__sidebar .learner__sidebar__expandables .expandable-sidebar__link {
     display: none;
 }
+
+/* .course__container .learner__sidebar .learner__sidebar__expandables .expandable-sidebar:has(.sidebar__resources) .expandable-sidebar__link {
+    display: block;
+} */
 
 .course__container .learner__sidebar .learner__sidebar__expandables .course-progress .clearfix,
 hr {
@@ -2130,6 +2142,7 @@ hr {
     background: var(--Grey);
     border-radius: 8px;
     border: none;
+    margin: 12px 0;
 }
 
 .course__container .list-roll__container .topic__list__info.topic__list__info--full-width {
@@ -2138,7 +2151,7 @@ hr {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    padding: 6px 12px;
+    padding: 10px 12px;
 }
 
 .course__container .list-roll__container .topic__list__info.topic__list__info--full-width .topic__list__title {
