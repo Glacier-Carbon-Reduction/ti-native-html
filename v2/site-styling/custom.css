@@ -1777,21 +1777,50 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
     padding-bottom: 72px;
 }
 
-/* .course__container .learner__sidebar .learner__sidebar__expandables .ember-view {
+.course__container .learner__sidebar .learner__sidebar__expandables .ember-view {
     order: 0;
 }
 
 .course__container .learner__sidebar .learner__sidebar__expandables .ember-view.course-completion-progress {
     order: 1;
-} */
+}
 
 .course__container .learner__sidebar .learner__sidebar__expandables .expandable-sidebar__link {
     display: none;
 }
 
-/* .course__container .learner__sidebar .learner__sidebar__expandables .expandable-sidebar:has(.sidebar__resources) .expandable-sidebar__link {
+.course__container .learner__sidebar .learner__sidebar__expandables .expandable-sidebar:has(.sidebar__resources) .expandable-sidebar__link {
     display: block;
-} */
+}
+
+.course__container .learner__sidebar .learner__sidebar__expandables .expandable-sidebar__link .expandable-sidebar__toggle {
+    background-color: transparent;
+    text-transform: none;
+    color: var(--Text);
+    font-size: var(--natural-size-md);
+    font-weight: var(--font-weight-regular);
+}
+
+.course__container .learner__sidebar .learner__sidebar__expandables .sidebar__resources>li {
+    border: none;
+    padding: 6px 1px 6px 40px;
+}
+
+.course__container .learner__sidebar .learner__sidebar__expandables .sidebar__resources .resources__count {
+    display: none;
+}
+
+.course__container .learner__sidebar .learner__sidebar__expandables .resources__category__label {
+    text-transform: none;
+    color: var(--Text);
+    font-size: var(--natural-size-sm);
+    font-weight: var(--font-weight-regular);
+}
+
+.course__container .learner__sidebar .learner__sidebar__expandables .expandable-sidebar__link .expandable-sidebar__toggle .icon-inbox:before {
+    font-size: 1.2rem;
+    margin-right: 8px;
+}
 
 .course__container .learner__sidebar .learner__sidebar__expandables .course-progress .clearfix,
 hr {
@@ -2232,6 +2261,15 @@ hr {
 .course__container .list-roll__container .topic__list__info.topic__list__info--full-width .btn.btn--link .icon-navigatedown:hover {
     background: var(--Spring);
     transition: all 0.2s ease-in-out;
+}
+
+.course__container .learner__content .tools__container .files__list .heading {
+    margin: 16px 0;
+}
+
+.course__container .learner__content .tools__container .files__list .items__list li {
+    margin-bottom: 8px;
+    border-radius: 12px;
 }
 
 @media screen and (max-width: 768px) {

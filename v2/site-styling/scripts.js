@@ -561,7 +561,20 @@ async function checkForCertificate() {
         const learnerName = visualProps.hideName ? '' : json.completionData.learnerName
         visualProps.learnerName = learnerName
         visualProps.fontColor = visualProps.fontColor || '#FFFFFF'
-        const html = generateCetificateSuspense('pending', visualProps)
+        let certStatus = 'pending'
+        if (json.completionData.displayProps.bypassValidation) {
+          let startTime = Date.now()
+          let completedModules
+          while (true) {
+            completedModules = document.querySelectorAll('.catalog-grid-item__completed')
+            if (completedModules || Date.now() - startTime > 6000) {
+              certStatus = 'complete'
+              break
+            }
+            await new Promise((resolve) => setTimeout(resolve, 500))
+          }
+        }
+        const html = generateCetificateSuspense(certStatus, visualProps)
         certificateContainer.innerHTML = html
         certificateContainer.classList.add('force-full-width')
         certificateContainer.classList.add('custom-section-top-full')
