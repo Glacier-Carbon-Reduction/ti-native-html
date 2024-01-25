@@ -2999,6 +2999,11 @@ input[type='password']:focus {
     color: var(--Ocean);
 }
 
+.session .session__container .medium-centered.columns {
+    max-width: none !important;
+    min-width: 30vw;
+}
+
 .session input[type='submit'] {
     height: 40px;
     padding: 5px 18px;

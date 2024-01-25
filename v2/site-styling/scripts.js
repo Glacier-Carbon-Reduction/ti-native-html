@@ -571,7 +571,7 @@ async function checkForCertificate() {
             if (completedModules) {
               certStatus = 'complete'
               break
-            } else if (Date.now() - startTime > 6000){
+            } else if (Date.now() - startTime > 6000) {
               break
             }
             await new Promise((resolve) => setTimeout(resolve, 500))
@@ -1029,20 +1029,24 @@ function updateSignInPageLayout() {
   var footerLogo =
     'https://glacier-projects.vercel.app/img/brand/logos/01_glacier_logo/horizontal/glacier_logo_horizontal_1C_white.png'
   var height = '2rem'
+  var visibility = 'hidden'
   switch (true) {
     case window.location.hostname.includes('a1-'):
       footerLogo = 'https://res.cloudinary.com/df1dbnp0x/image/upload/v1692944343/img/clients/logos/a1_small.png'
       height = '5rem'
+      visibility = 'visible'
       break
     case window.location.hostname.includes('firstclimate'):
       footerLogo =
         'https://res.cloudinary.com/df1dbnp0x/image/upload/v1692944343/img/clients/logos/firstClimate_wide.png'
       height = '2.5rem'
+      visibility = 'visible'
       break
     case window.location.href.includes('generali-sme-entreprise'):
       footerLogo =
         'https://res.cloudinary.com/df1dbnp0x/image/upload/v1693311948/img/clients/logos/sme_enterprize_wide.png'
       height = '3rem'
+      visibility = 'visible'
       break
   }
 
@@ -1056,7 +1060,7 @@ function updateSignInPageLayout() {
             class="w-auto"
             src="${footerLogo}"
             alt="Logo"
-            style="height: ${height}"
+            style="height: ${height}; visibility: ${visibility}"
           />
         </div>
   
