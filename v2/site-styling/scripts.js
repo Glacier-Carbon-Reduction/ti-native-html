@@ -370,6 +370,9 @@ async function dashboardUsageBasedTransformations() {
     return
   }
 
+  const climateHour = document.getElementById('climate-hour')
+  const climateHourActive = !!climateHour
+
   switch (true) {
     case certificateIssued === 2:
       {
@@ -389,6 +392,28 @@ async function dashboardUsageBasedTransformations() {
 
         bannerButtonElement.onclick = function () {
           triggerScrollIntoView('certificate-section')
+        }
+      }
+      break
+
+    case climateHourActive:
+      {
+        if (currentUserLanguage === 'de') {
+          bannerPretitleElement.textContent = 'SETZE DEINE LERNREISE FORT!'
+          bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
+          bannerDescriptionElement.textContent =
+            'Wähle dein nächstes Lernmodul and erweitere deine Klimaschutz-Kompetenzen.'
+          bannerButtonElement.textContent = `Weiter geht's`
+        } else {
+          bannerPretitleElement.textContent = 'COMPLETE YOUR LEARNING JOURNEY!'
+          bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
+          bannerDescriptionElement.textContent =
+            'You are almost there! You only need to complete the Final Quiz to receive your certificate for the Climate Hours!'
+          bannerButtonElement.textContent = `Complete the Final Quiz`
+        }
+
+        bannerButtonElement.onclick = function () {
+          triggerScrollIntoView('dashboard-experience')
         }
       }
       break
