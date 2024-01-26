@@ -370,7 +370,7 @@ async function dashboardUsageBasedTransformations() {
     return
   }
 
-  const climateHour = document.getElementById('climate-hour')
+  const climateHour = document.querySelector('.climate-hour')
   const climateHourActive = !!climateHour
 
   switch (true) {
@@ -565,7 +565,7 @@ function generateCetificateSuspense(event, visualProps) {
               ${visualProps.learnerName}
             </p>
           </div>
-          <div class="certificate-download-text">Download</div>
+          <div class="certificate-download-text">.</div>
         </div>
     </div>`
     }
@@ -618,7 +618,7 @@ async function checkForCertificate() {
             if (completedModules.length > 0) {
               certStatus = 'complete'
               break
-            } else if (Date.now() - startTime > 6000) {
+            } else if (Date.now() - startTime > 2000) {
               break
             }
             await new Promise((resolve) => setTimeout(resolve, 500))
