@@ -374,6 +374,50 @@ async function dashboardUsageBasedTransformations() {
   const climateHourActive = !!climateHour
 
   switch (true) {
+    case climateHourActive && certificateIssued === 2:
+      {
+        if (currentUserLanguage === 'de') {
+          bannerPretitleElement.textContent = 'HERZLICHEN GLÜCKWUNSCH, CLIMATE RANGER!'
+          bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
+          bannerDescriptionElement.textContent =
+            'du hast das Abschlussquiz erfolgreich abgeschlossen! Dein offizielles Zertifikat wartet schon auf dich.'
+          bannerButtonElement.textContent = `Hol' dir dein Zertifikat`
+        } else {
+          bannerPretitleElement.textContent = 'CONGRATULATIONS, CLIMATE RANGER!'
+          bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
+          bannerDescriptionElement.textContent =
+            'You have successfully completed the Final Quiz! Your official certificate is awaiting you.'
+          bannerButtonElement.textContent = `Get your certificate`
+        }
+
+        bannerButtonElement.onclick = function () {
+          triggerScrollIntoView('certificate-section')
+        }
+      }
+      break
+
+    case climateHourActive:
+      {
+        if (currentUserLanguage === 'de') {
+          bannerPretitleElement.textContent = 'SETZE DEINE LERNREISE FORT!'
+          bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
+          bannerDescriptionElement.textContent =
+            'du hast es fast geschafftl! Schließe noch das Abschlussquiz ab und erhalte dein persönliches Zertifikat für die Climate Hours!'
+          bannerButtonElement.textContent = `Abschlussquiz`
+        } else {
+          bannerPretitleElement.textContent = 'COMPLETE YOUR LEARNING JOURNEY!'
+          bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
+          bannerDescriptionElement.textContent =
+            'You are almost there! You only need to complete the Final Quiz to receive your certificate for the Climate Hours!'
+          bannerButtonElement.textContent = `Complete the Final Quiz`
+        }
+
+        bannerButtonElement.onclick = function () {
+          triggerScrollIntoView('dashboard-experience')
+        }
+      }
+      break
+
     case certificateIssued === 2:
       {
         if (currentUserLanguage === 'de') {
@@ -392,28 +436,6 @@ async function dashboardUsageBasedTransformations() {
 
         bannerButtonElement.onclick = function () {
           triggerScrollIntoView('certificate-section')
-        }
-      }
-      break
-
-    case climateHourActive:
-      {
-        if (currentUserLanguage === 'de') {
-          bannerPretitleElement.textContent = 'SETZE DEINE LERNREISE FORT!'
-          bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
-          bannerDescriptionElement.textContent =
-            'Wähle dein nächstes Lernmodul and erweitere deine Klimaschutz-Kompetenzen.'
-          bannerButtonElement.textContent = `Weiter geht's`
-        } else {
-          bannerPretitleElement.textContent = 'COMPLETE YOUR LEARNING JOURNEY!'
-          bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
-          bannerDescriptionElement.textContent =
-            'You are almost there! You only need to complete the Final Quiz to receive your certificate for the Climate Hours!'
-          bannerButtonElement.textContent = `Complete the Final Quiz`
-        }
-
-        bannerButtonElement.onclick = function () {
-          triggerScrollIntoView('dashboard-experience')
         }
       }
       break
