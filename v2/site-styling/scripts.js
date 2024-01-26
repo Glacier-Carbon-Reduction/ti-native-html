@@ -615,7 +615,7 @@ async function checkForCertificate() {
           let completedModules
           while (true) {
             completedModules = document.querySelectorAll('.catalog-grid-item__completed')
-            if (completedModules) {
+            if (completedModules.length > 0) {
               certStatus = 'complete'
               break
             } else if (Date.now() - startTime > 6000) {
