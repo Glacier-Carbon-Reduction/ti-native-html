@@ -2666,13 +2666,17 @@ body.learn.course #hubspot-messages-iframe-container {
     color: var(--Meadow-Dark);
 } */
 
+.topic__container__quiz .quiz__container .choices__list li.choice--selected {
+    display: block;
+}
+
 .course__container .topic__container__quiz .quiz__container .choices__list .choice .row.choice {
     order: 1;
 }
 
 .course__container .topic__container__quiz .quiz__container .choices__list .choice .choice__response {
     order: 2;
-    display: none;
+    /* display: none; */
 }
 
 .course__container .topic__container__quiz .quiz__container .choices__list .choice .choice__review {
