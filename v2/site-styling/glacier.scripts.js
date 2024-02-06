@@ -8,6 +8,7 @@ let currentUserLanguage =
   window?.CONF?.preload?.currentUser?.clients?.[0]?.defaultLanguage
 let languageWatcherActive = false
 let pageSwticherReachable = false
+let unreachablePageSwitherCodeInitiated = false
 
 function watchNestedProperty(obj, value, callback) {
   let lastValue = obj[value]

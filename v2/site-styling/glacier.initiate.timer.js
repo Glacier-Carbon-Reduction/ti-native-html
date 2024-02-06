@@ -35,8 +35,9 @@ let lastUrl = window.location.href
 
 setInterval(function () {
   const currentUrl = window.location.href
-  if (currentUrl !== lastUrl && !pageSwticherReachable) {
+  if ((!unreachablePageSwitherCodeInitiated || currentUrl !== lastUrl) && !pageSwticherReachable) {
     lastUrl = currentUrl
+    unreachablePageSwitherCodeInitiated = true
 
     currentUserLanguage =
       window.CONF?.preload?.currentUser?.currentUser?.lang ||
