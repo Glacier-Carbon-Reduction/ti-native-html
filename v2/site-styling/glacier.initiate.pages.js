@@ -1,6 +1,8 @@
 currentUserLanguage = window.CONF?.preload?.currentUser?.currentUser?.lang ||
 window?.CONF?.preload?.currentUser?.clients?.[0]?.defaultLanguage
 
+pageSwticherReachable = true
+
 function redirector() {
   if (window.location.pathname.startsWith('/learning-paths/')) {
     const path = window.location.pathname.split('/learning-paths/')[1]

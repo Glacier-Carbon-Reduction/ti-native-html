@@ -35,7 +35,7 @@ let lastUrl = window.location.href
 
 setInterval(function () {
   const currentUrl = window.location.href
-  if (currentUrl !== lastUrl) {
+  if (currentUrl !== lastUrl && !pageSwticherReachable) {
     lastUrl = currentUrl
 
     currentUserLanguage =
