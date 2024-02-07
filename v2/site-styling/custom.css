@@ -1434,6 +1434,10 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
     color: your-font-color;
 }
 
+.certificate-learner-name-min {
+    font-size: clamp(10px, 2.5vw, 60px);
+}
+
 .certificate-download-text {
     position: absolute;
     inset: 0;
@@ -1453,7 +1457,9 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
 }
 
 @media screen and (max-width: 425px) {
-    .certificate-learner-name {
+
+    .certificate-learner-name,
+    .certificate-learner-name-min {
         font-size: clamp(10px, 4vw, 30px);
     }
 }

@@ -499,7 +499,7 @@ async function dashboardUsageBasedTransformations() {
   }
 }
 
-function generateCetificateSuspense(event, visualProps) {
+function generateCetificateContainerTitle(event, visualProps) {
   const title = {
     complete: {
       en: 'Congratulations!',
@@ -532,7 +532,7 @@ function generateCetificateSuspense(event, visualProps) {
   }
 
   return `
-  <div id="certificate-section" class="mx-auto max-width-1200 der-flex-8p">
+  <div id="certificate-section custom-section-top-full pb-8" class="mx-auto max-width-1200 der-flex-8p">
     <h3 class="display-text display-text-semibold display-text-xl sm:display-text-lg">
       <span lang="en">${title[event]['en']}</span>
       <span lang="de">${title[event]['de']}</span>
@@ -542,109 +542,178 @@ function generateCetificateSuspense(event, visualProps) {
       <span lang="de">${description[event]['de']}</span>
     </p>
   </div>
-  <div class="custom-section">
-    ${
-      event === 'complete'
-        ? `
-    <div class="certificate-container certificate-complete" style="background-image: url('${image}');">
-      <a href="/pages/glacier-certification?learnerId=${visualProps.learnerId} " target="_blank" rel="noopener noreferrer">
-        <div class="certificate-text">
-          <div class="certificate-centered-content">
-            <p class="certificate-learner-name" style="color: ${visualProps.fontColor}">
-              ${visualProps.learnerName}
-            </p>
-          </div>
-          <div class="certificate-download-text">Download</div>
+  `
+}
+
+function generateCetificateSuspense(event, visualProps) {
+  let image = visualProps?.image
+  if (image && image.startsWith('/img/')) {
+    image = INTERNAL_SYSTEM_PATH + image.replace('.webp', '_base.jpeg')
+  } else if (image) {
+    image = image.replace('.webp', '_base.jpeg')
+  } else {
+    image = 'https://res.cloudinary.com/df1dbnp0x/image/upload/v1692944345/img/certificate/certificate-blank_base.jpg'
+  }
+
+  if (event === 'complete') {
+    return `<div class="certificate-container certificate-complete" style="background-image: url('${image}');">
+    <a href="/pages/glacier-certification?learnerId=${visualProps.learnerId} " target="_blank" rel="noopener noreferrer">
+      <div class="certificate-text">
+        <div class="certificate-centered-content">
+          <p class="certificate-learner-name certificate-learner-name-min" style="color: ${visualProps.fontColor}">
+            ${visualProps.learnerName}
+          </p>
         </div>
-      </a>
-    </div>
-    `
-        : `
-    <div class="certificate-container certificate-greyscale-filter" style="background-image: url('${image}');">
+        <div class="certificate-download-text">Download</div>
+      </div>
+    </a>
+  </div>`
+  }
+
+  return `<div class="certificate-container certificate-greyscale-filter" style="background-image: url('${image}');">
         <div class="certificate-text">
           <div class="certificate-centered-content">
-            <p class="certificate-learner-name" style="color: ${visualProps.fontColor}">
+            <p class="certificate-learner-name certificate-learner-name-min" style="color: ${visualProps.fontColor}">
               ${visualProps.learnerName}
             </p>
           </div>
           <div class="certificate-download-text">.</div>
         </div>
     </div>`
-    }
-  </div>
-  `
 }
 
 async function checkForCertificate() {
-  const certificateContainer = document.getElementById('certificate-validate-container')
+  const certificateContainerSection = document.getElementById('certificate-validate-container')
   // check for url query param forceUserId for testing
   const urlParams = new URLSearchParams(window.location.search)
   const forceUserId = urlParams.get('forceUserId')
+  const forceLicenseId = urlParams.get('forceLicenseId')
+  const sandboxMode = urlParams.get('sandboxMode')
   const userId = forceUserId || window.CONF.preload.currentUser.currentUser.id
-  if (certificateContainer && userId) {
+  let stat = null
+  if (certificateContainerSection && userId) {
     try {
-      let activeLicence = window.CONF.preload.currentUser.currentUser.activeLicense
+      let activeLicence = forceLicenseId || window.CONF.preload.currentUser.currentUser.activeLicense
       let primaryLicense = window.CONF.preload.currentUser.clients[0].primaryLicense?.id
       if (!activeLicence) activeLicence = window.CONF.preload.currentUser.allocatedLicenses[0].license?.id
       if (activeLicence === primaryLicense) activeLicence = undefined
 
       const data = await fetch(
-        `${INTERNAL_SYSTEM_PATH}/api/lxp/user/${userId}/certificates?lang=${currentUserLanguage}` +
-          (activeLicence ? `&subLicenseId=${activeLicence}` : '')
+        `${INTERNAL_SYSTEM_PATH}/api/lxp/user/${userId}/dashboardStats?lang=${currentUserLanguage}` +
+          (activeLicence ? `&subLicenseId=${activeLicence}` : '') +
+          (sandboxMode === 'true' ? '&source=sandbox' : '')
       )
       const json = await data.json()
-      if (json && json.certificationData) {
-        const visualProps = json.certificationData.dataProps.visualProp
-        const learnerName = visualProps.hideName ? '' : json.certificationData.dataProps.learnerName
-        visualProps.learnerName = learnerName
-        visualProps.learnerId = userId
-        visualProps.fontColor = visualProps.fontColor || '#FFFFFF'
-        const html = generateCetificateSuspense('complete', visualProps)
-        certificateContainer.innerHTML = html
-        return 2
-      } else if (json && json.completionData && json.completionData.displayProps?.image) {
-        const visualProps = json.completionData.displayProps
+      let propHtmls = []
+      let visualPropsGlobal = null
+      let completionStatus = null
+
+      if (json && json.completionData && json.completionData.length > 0) {
+        const visualProps = json.completionData[0].displayProps
         if (visualProps.introVideo) {
           embedWistiaVideo(visualProps.introVideo)
         }
-        const learnerName = visualProps.hideName ? '' : json.completionData.learnerName
-        visualProps.learnerName = learnerName
-        visualProps.learnerId = userId
-        visualProps.fontColor = visualProps.fontColor || '#FFFFFF'
-        let certStatus = 'pending'
-        if (json.completionData.displayProps.bypassValidation) {
-          let startTime = Date.now()
-          let completedModules
-          while (true) {
-            completedModules = document.querySelectorAll('.catalog-grid-item__completed')
-            if (completedModules.length > 0) {
-              certStatus = 'complete'
-              break
-            } else if (Date.now() - startTime > 2000) {
-              break
+
+        for (const completionData of json.completionData) {
+          const visualProps = completionData.displayProps
+          if (!visualPropsGlobal) {
+            visualPropsGlobal = visualProps
+          }
+          completionStatus = 'pending'
+          const learnerName = visualProps.hideName ? '' : completionData.learnerName
+          visualProps.learnerName = learnerName
+          visualProps.learnerId = userId
+          visualProps.fontColor = visualProps.fontColor || '#FFFFFF'
+          let certStatus = 'pending'
+          if (completionData.displayProps.bypassValidation) {
+            let startTime = Date.now()
+            let completedModules
+            while (true) {
+              completedModules = document.querySelectorAll('.catalog-grid-item__completed')
+              if (completedModules.length > 0) {
+                certStatus = 'complete'
+                break
+              } else if (Date.now() - startTime > 2000) {
+                break
+              }
+              await new Promise((resolve) => setTimeout(resolve, 500))
             }
-            await new Promise((resolve) => setTimeout(resolve, 500))
+          }
+          const html = generateCetificateSuspense(certStatus, visualProps)
+          propHtmls.push(html)
+
+          if (completionData.userStatus === 'courses_complete_quiz_incomplete') {
+            const hiddenQuiz = document.querySelectorAll('.hidden-closing-feedback')
+            hiddenQuiz.forEach((quiz) => {
+              quiz.style.display = 'block'
+            })
+
+            if (stat === null) {
+              stat = 1
+            }
+          } else if (completionData.userStatus !== 'not_started') {
+            if (stat === null) {
+              stat = 1
+            }
           }
         }
-        const html = generateCetificateSuspense(certStatus, visualProps)
-        certificateContainer.innerHTML = html
-        certificateContainer.classList.add('force-full-width')
-        certificateContainer.classList.add('custom-section-top-full')
-        if (json.completionData.userStatus === 'courses_complete_quiz_incomplete') {
-          const hiddenQuiz = document.querySelectorAll('.hidden-closing-feedback')
-          hiddenQuiz.forEach((quiz) => {
-            quiz.style.display = 'block'
-          })
-
-          return 1
-        } else if (json.completionData.userStatus !== 'not_started') {
-          return 1
-        }
-        return 0
-      } else {
-        console.log('No certificate data found.')
-        return 0
       }
+
+      if (json && json.certificates && json.certificates.length > 0) {
+        for (const certificate of json.certificates) {
+          const visualProps = certificate.dataProps.visualProp
+          if (!visualPropsGlobal) {
+            visualPropsGlobal = visualProps
+          }
+          if (completionStatus === null) {
+            completionStatus = 'complete'
+          }
+          const learnerName = visualProps.hideName ? '' : certificate.dataProps.learnerName
+          visualProps.learnerName = learnerName
+          visualProps.learnerId = userId
+          visualProps.fontColor = visualProps.fontColor || '#FFFFFF'
+          const html = generateCetificateSuspense('complete', visualProps)
+          propHtmls.push(html)
+          if (stat === null) {
+            stat = 2
+          }
+        }
+      }
+
+      if (propHtmls.length > 0) {
+        const certificateContainer = document.createElement('div')
+        certificateContainer.innerHTML = propHtmls.join('')
+        certificateContainer.classList.add('force-full-width', 'custom-section')
+        if (propHtmls.length === 1) {
+          certificateContainer.classList.add('single-item')
+          const learnerNameMin = certificateContainer.querySelector('.certificate-learner-name-min')
+          if (learnerNameMin) {
+            learnerNameMin.classList.remove('certificate-learner-name-min')
+          }
+        } else {
+          certificateContainer.classList.add('grid', 'grid-cols-1', 'md:grid-cols-2', 'gap-4')
+          if (propHtmls.length % 2 !== 0) {
+            const lastItemHtml = propHtmls.pop()
+            certificateContainer.innerHTML = propHtmls.join('')
+            const lastItemContainer = document.createElement('div')
+            lastItemContainer.innerHTML = lastItemHtml
+            lastItemContainer.classList.add('col-span-2')
+            lastItemContainer
+              .querySelector('.certificate-learner-name-min')
+              .classList.remove('certificate-learner-name-min')
+            certificateContainer.appendChild(lastItemContainer)
+          }
+        }
+        const containerTitle = generateCetificateContainerTitle(completionStatus, visualPropsGlobal)
+        certificateContainerSection.innerHTML = containerTitle
+        certificateContainerSection.appendChild(certificateContainer)
+      }
+
+      if (stat === null) {
+        stat = 0
+      }
+
+      return stat
     } catch (error) {
       console.log(error)
     }
