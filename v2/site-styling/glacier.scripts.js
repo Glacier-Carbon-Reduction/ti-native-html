@@ -505,6 +505,10 @@ function generateCetificateContainerTitle(event, visualProps) {
       en: 'Congratulations!',
       de: 'Herzlichen Glückwunsch!'
     },
+    halfway: {
+      en: 'Your certificate awaits!',
+      de: 'Dein Zertifikat warten auf dich!'
+    },
     pending: {
       en: 'Your Certificate Awaits!',
       de: 'Dein Zertifikat wartet auf dich!'
@@ -515,6 +519,10 @@ function generateCetificateContainerTitle(event, visualProps) {
     complete: {
       en: 'Receive your certificate now, share your achievements and your newly acquired knowledge.',
       de: 'Erhalte dein Zertifikat, teile deinen Erfolg und dein neu erlangtes Wissen.'
+    },
+    halfway: {
+      en: 'Receive your certificate after completing the Glacier Climate Essentials.',
+      de: 'Erhalte dein Zertifikat nach Abschluss der Climate Essentials!'
     },
     pending: {
       en: 'Complete all modules and receive your official Certificate for the Glacier Climate Essentials.',
@@ -667,13 +675,15 @@ async function checkForCertificate() {
           }
           if (completionStatus === null) {
             completionStatus = 'complete'
+          } else if (completionStatus === 'pending') {
+            completionStatus = 'halfway'
           }
           const learnerName = visualProps.hideName ? '' : certificate.dataProps.learnerName
           visualProps.learnerName = learnerName
           visualProps.learnerId = userId
           visualProps.fontColor = visualProps.fontColor || '#FFFFFF'
           const html = generateCetificateSuspense('complete', visualProps)
-          propHtmls.push(html)
+          propHtmls.unshift(html)
           if (stat === null) {
             stat = 2
           }
