@@ -382,13 +382,13 @@ async function dashboardUsageBasedTransformations() {
           bannerPretitleElement.textContent = 'HERZLICHEN GLÜCKWUNSCH, CLIMATE RANGER!'
           bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
           bannerDescriptionElement.textContent =
-            'du hast das Abschlussquiz erfolgreich abgeschlossen! Dein offizielles Zertifikat wartet schon auf dich.'
+            'du hast das Abschlussquiz erfolgreich abgeschlossen!</br>Dein offizielles Zertifikat wartet schon auf dich.'
           bannerButtonElement.textContent = `Hol' dir dein Zertifikat`
         } else {
           bannerPretitleElement.textContent = 'CONGRATULATIONS, CLIMATE RANGER!'
           bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
           bannerDescriptionElement.textContent =
-            'You have successfully completed the Final Quiz! Your official certificate is awaiting you.'
+            'You have successfully completed the Final Quiz!</br>Your official certificate is awaiting you.'
           bannerButtonElement.textContent = `Get your certificate`
         }
 
@@ -404,13 +404,13 @@ async function dashboardUsageBasedTransformations() {
           bannerPretitleElement.textContent = 'SETZE DEINE LERNREISE FORT!'
           bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
           bannerDescriptionElement.textContent =
-            'du hast es fast geschafftl! Schließe noch das Abschlussquiz ab und erhalte dein persönliches Zertifikat für die Climate Hours!'
+            'du hast es fast geschafftl!</br>Schließe noch das Abschlussquiz ab und erhalte dein persönliches Zertifikat für die Climate Hours!'
           bannerButtonElement.textContent = `Abschlussquiz`
         } else {
           bannerPretitleElement.textContent = 'COMPLETE YOUR LEARNING JOURNEY!'
           bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
           bannerDescriptionElement.textContent =
-            'You are almost there! You only need to complete the Final Quiz to receive your certificate for the Climate Hours!'
+            'You are almost there!</br>You only need to complete the Final Quiz to receive your certificate for the Climate Hours!'
           bannerButtonElement.textContent = `Complete the Final Quiz`
         }
 
@@ -426,13 +426,13 @@ async function dashboardUsageBasedTransformations() {
           bannerPretitleElement.textContent = 'HERZLICHEN GLÜCKWUNSCH, CLIMATE RANGER!'
           bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
           bannerDescriptionElement.textContent =
-            'Gratuliere, du hast alle Klimaschutz-Module erfolgreich abschlossen! Dein offizielles Zertifikat wartet auf dich.'
+            'Gratuliere, du hast alle Klimaschutz-Module erfolgreich abschlossen!</br>Dein offizielles Zertifikat wartet auf dich.'
           bannerButtonElement.textContent = `Hol' dir dein Zertifikat`
         } else {
           bannerPretitleElement.textContent = 'CONGRATULATIONS, CLIMATE RANGER!'
           bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
           bannerDescriptionElement.textContent =
-            'You have successfully completed all the climate action modules! Your official certificate is awaiting you.'
+            'You have successfully completed all the climate action modules!</br>Your official certificate is awaiting you.'
           bannerButtonElement.textContent = `Get your certificate`
         }
 
@@ -540,7 +540,7 @@ function generateCetificateContainerTitle(event, visualProps) {
   }
 
   return `
-  <div id="certificate-section custom-section-top-full pb-8" class="mx-auto max-width-1200 der-flex-8p">
+  <div id="certificate-section" class="mx-auto max-width-1200 der-flex-8p custom-section-top-full pb-8">
     <h3 class="display-text display-text-semibold display-text-xl sm:display-text-lg">
       <span lang="en">${title[event]['en']}</span>
       <span lang="de">${title[event]['de']}</span>
