@@ -647,7 +647,7 @@ async function checkForCertificate() {
               await new Promise((resolve) => setTimeout(resolve, 500))
             }
           }
-          const html = generateCetificateSuspense(certStatus, visualProps, json.completionData.conditionId)
+          const html = generateCetificateSuspense(certStatus, visualProps, completionData.conditionId)
           propHtmls.push(html)
 
           if (completionData.userStatus === 'courses_complete_quiz_incomplete') {
@@ -682,7 +682,7 @@ async function checkForCertificate() {
           visualProps.learnerName = learnerName
           visualProps.learnerId = userId
           visualProps.fontColor = visualProps.fontColor || '#FFFFFF'
-          const html = generateCetificateSuspense('complete', visualProps, json.certificationData.conditionId)
+          const html = generateCetificateSuspense('complete', visualProps, certificate.conditionId)
           propHtmls.unshift(html)
           if (stat === null) {
             stat = 2
