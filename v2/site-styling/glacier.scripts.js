@@ -381,13 +381,13 @@ async function dashboardUsageBasedTransformations() {
         if (currentUserLanguage === 'de') {
           bannerPretitleElement.textContent = 'HERZLICHEN GLÜCKWUNSCH, CLIMATE RANGER!'
           bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
-          bannerDescriptionElement.textContent =
+          bannerDescriptionElement.innerHTML =
             'du hast das Abschlussquiz erfolgreich abgeschlossen!</br>Dein offizielles Zertifikat wartet schon auf dich.'
           bannerButtonElement.textContent = `Hol' dir dein Zertifikat`
         } else {
           bannerPretitleElement.textContent = 'CONGRATULATIONS, CLIMATE RANGER!'
           bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
-          bannerDescriptionElement.textContent =
+          bannerDescriptionElement.innerHTML =
             'You have successfully completed the Final Quiz!</br>Your official certificate is awaiting you.'
           bannerButtonElement.textContent = `Get your certificate`
         }
@@ -403,13 +403,13 @@ async function dashboardUsageBasedTransformations() {
         if (currentUserLanguage === 'de') {
           bannerPretitleElement.textContent = 'SETZE DEINE LERNREISE FORT!'
           bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
-          bannerDescriptionElement.textContent =
+          bannerDescriptionElement.innerHTML =
             'du hast es fast geschafftl!</br>Schließe noch das Abschlussquiz ab und erhalte dein persönliches Zertifikat für die Climate Hours!'
           bannerButtonElement.textContent = `Abschlussquiz`
         } else {
           bannerPretitleElement.textContent = 'COMPLETE YOUR LEARNING JOURNEY!'
           bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
-          bannerDescriptionElement.textContent =
+          bannerDescriptionElement.innerHTML =
             'You are almost there!</br>You only need to complete the Final Quiz to receive your certificate for the Climate Hours!'
           bannerButtonElement.textContent = `Complete the Final Quiz`
         }
@@ -425,13 +425,13 @@ async function dashboardUsageBasedTransformations() {
         if (currentUserLanguage === 'de') {
           bannerPretitleElement.textContent = 'HERZLICHEN GLÜCKWUNSCH, CLIMATE RANGER!'
           bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
-          bannerDescriptionElement.textContent =
+          bannerDescriptionElement.innerHTML =
             'Gratuliere, du hast alle Klimaschutz-Module erfolgreich abschlossen!</br>Dein offizielles Zertifikat wartet auf dich.'
           bannerButtonElement.textContent = `Hol' dir dein Zertifikat`
         } else {
           bannerPretitleElement.textContent = 'CONGRATULATIONS, CLIMATE RANGER!'
           bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
-          bannerDescriptionElement.textContent =
+          bannerDescriptionElement.innerHTML =
             'You have successfully completed all the climate action modules!</br>Your official certificate is awaiting you.'
           bannerButtonElement.textContent = `Get your certificate`
         }
@@ -447,13 +447,13 @@ async function dashboardUsageBasedTransformations() {
         if (currentUserLanguage === 'de') {
           bannerPretitleElement.textContent = 'SETZE DEINE LERNREISE FORT!'
           bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
-          bannerDescriptionElement.textContent =
+          bannerDescriptionElement.innerHTML =
             'Wähle dein nächstes Lernmodul and erweitere deine Klimaschutz-Kompetenzen.'
           bannerButtonElement.textContent = `Weiter geht's`
         } else {
           bannerPretitleElement.textContent = 'CONTINUE YOUR LEARNING JOURNEY!'
           bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
-          bannerDescriptionElement.textContent =
+          bannerDescriptionElement.innerHTML =
             'Discover the next module and take your climate competences to the next level.'
           bannerButtonElement.textContent = `Let's continue`
         }
