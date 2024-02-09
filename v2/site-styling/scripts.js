@@ -497,7 +497,7 @@ async function dashboardUsageBasedTransformations() {
   }
 }
 
-function generateCetificateSuspense(event, visualProps) {
+function generateCetificateSuspense(event, visualProps, conditionId) {
   const title = {
     complete: {
       en: 'Congratulations!',
@@ -545,7 +545,7 @@ function generateCetificateSuspense(event, visualProps) {
       event === 'complete'
         ? `
     <div class="certificate-container certificate-complete" style="background-image: url('${image}');">
-      <a href="/pages/glacier-certification?learnerId=${visualProps.learnerId} " target="_blank" rel="noopener noreferrer">
+      <a href="/pages/glacier-certification?learnerId=${visualProps.learnerId}&conditionId=${conditionId}" target="_blank" rel="noopener noreferrer">
         <div class="certificate-text">
           <div class="certificate-centered-content">
             <p class="certificate-learner-name" style="color: ${visualProps.fontColor}">
@@ -597,7 +597,7 @@ async function checkForCertificate() {
         visualProps.learnerName = learnerName
         visualProps.learnerId = userId
         visualProps.fontColor = visualProps.fontColor || '#FFFFFF'
-        const html = generateCetificateSuspense('complete', visualProps)
+        const html = generateCetificateSuspense('complete', visualProps, json.certificationData.conditionId)
         certificateContainer.innerHTML = html
         return 2
       } else if (json && json.completionData && json.completionData.displayProps?.image) {
@@ -624,7 +624,7 @@ async function checkForCertificate() {
             await new Promise((resolve) => setTimeout(resolve, 500))
           }
         }
-        const html = generateCetificateSuspense(certStatus, visualProps)
+        const html = generateCetificateSuspense(certStatus, visualProps, json.completionData.conditionId)
         certificateContainer.innerHTML = html
         certificateContainer.classList.add('force-full-width')
         certificateContainer.classList.add('custom-section-top-full')
