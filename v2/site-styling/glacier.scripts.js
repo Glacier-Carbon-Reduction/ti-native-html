@@ -613,6 +613,8 @@ async function checkForCertificate() {
       )
       const json = await data.json()
       let propHtmls = []
+      let certPropHtmls = []
+      let conditionalPropHtmls = []
       let visualPropsGlobal = null
       let completionStatus = null
 
@@ -648,7 +650,7 @@ async function checkForCertificate() {
             }
           }
           const html = generateCetificateSuspense(certStatus, visualProps, completionData.conditionId)
-          propHtmls.push(html)
+          conditionalPropHtmls.push(html)
 
           if (completionData.userStatus === 'courses_complete_quiz_incomplete') {
             const hiddenQuiz = document.querySelectorAll('.hidden-closing-feedback')
@@ -683,12 +685,14 @@ async function checkForCertificate() {
           visualProps.learnerId = userId
           visualProps.fontColor = visualProps.fontColor || '#FFFFFF'
           const html = generateCetificateSuspense('complete', visualProps, certificate.conditionId)
-          propHtmls.unshift(html)
+          certPropHtmls.push(html)
           if (stat === null) {
             stat = 2
           }
         }
       }
+
+      propHtmls = conditionalPropHtmls.concat(certPropHtmls)
 
       if (propHtmls.length > 0) {
         const certificateContainer = document.createElement('div')
