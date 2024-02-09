@@ -553,7 +553,7 @@ function generateCetificateContainerTitle(event, visualProps) {
   `
 }
 
-function generateCetificateSuspense(event, visualProps) {
+function generateCetificateSuspense(event, visualProps, conditionId) {
   let image = visualProps?.image
   if (image && image.startsWith('/img/')) {
     image = INTERNAL_SYSTEM_PATH + image.replace('.webp', '_base.jpeg')
@@ -565,7 +565,7 @@ function generateCetificateSuspense(event, visualProps) {
 
   if (event === 'complete') {
     return `<div class="certificate-container certificate-complete" style="background-image: url('${image}');">
-    <a href="/pages/glacier-certification?learnerId=${visualProps.learnerId} " target="_blank" rel="noopener noreferrer">
+    <a href="/pages/glacier-certification?learnerId=${visualProps.learnerId}&conditionId=${conditionId}" target="_blank" rel="noopener noreferrer">
       <div class="certificate-text">
         <div class="certificate-centered-content">
           <p class="certificate-learner-name certificate-learner-name-min" style="color: ${visualProps.fontColor}">
@@ -647,7 +647,7 @@ async function checkForCertificate() {
               await new Promise((resolve) => setTimeout(resolve, 500))
             }
           }
-          const html = generateCetificateSuspense(certStatus, visualProps)
+          const html = generateCetificateSuspense(certStatus, visualProps, json.completionData.conditionId)
           propHtmls.push(html)
 
           if (completionData.userStatus === 'courses_complete_quiz_incomplete') {
@@ -682,7 +682,7 @@ async function checkForCertificate() {
           visualProps.learnerName = learnerName
           visualProps.learnerId = userId
           visualProps.fontColor = visualProps.fontColor || '#FFFFFF'
-          const html = generateCetificateSuspense('complete', visualProps)
+          const html = generateCetificateSuspense('complete', visualProps, json.certificationData.conditionId)
           propHtmls.unshift(html)
           if (stat === null) {
             stat = 2
