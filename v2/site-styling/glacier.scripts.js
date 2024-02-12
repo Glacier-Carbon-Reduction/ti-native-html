@@ -593,6 +593,7 @@ function generateCetificateSuspense(event, visualProps, conditionId) {
 
 async function checkForCertificate() {
   const certificateContainerSection = document.getElementById('certificate-validate-container')
+  const dynamicVideoEmbed = document.getElementById('lxp-intro-video')
   // check for url query param forceUserId for testing
   const urlParams = new URLSearchParams(window.location.search)
   const forceUserId = urlParams.get('forceUserId')
@@ -600,7 +601,7 @@ async function checkForCertificate() {
   const sandboxMode = urlParams.get('sandboxMode')
   const userId = forceUserId || window.CONF.preload.currentUser.currentUser.id
   let stat = null
-  if (certificateContainerSection && userId) {
+  if ((certificateContainerSection || dynamicVideoEmbed) && userId) {
     try {
       let activeLicence = forceLicenseId || window.CONF.preload.currentUser.currentUser.activeLicense
       let primaryLicense = window.CONF.preload.currentUser.clients[0].primaryLicense?.id
@@ -620,11 +621,6 @@ async function checkForCertificate() {
       let completionStatus = null
 
       if (json && json.completionData && json.completionData.length > 0) {
-        const visualProps = json.completionData[0].displayProps
-        if (visualProps.introVideo) {
-          embedWistiaVideo(visualProps.introVideo)
-        }
-
         for (const completionData of json.completionData) {
           const visualProps = completionData.displayProps
           if (!visualPropsGlobal) {
@@ -693,9 +689,13 @@ async function checkForCertificate() {
         }
       }
 
+      if (dynamicVideoEmbed && visualPropsGlobal && visualPropsGlobal.introVideo) {
+        embedWistiaVideo(visualPropsGlobal.introVideo)
+      }
+
       propHtmls = conditionalPropHtmls.concat(certPropHtmls)
 
-      if (propHtmls.length > 0) {
+      if (certificateContainerSection && propHtmls.length > 0) {
         const certificateContainer = document.createElement('div')
         certificateContainer.innerHTML = propHtmls.join('')
         certificateContainer.classList.add('force-full-width', 'custom-section')
