@@ -152,6 +152,7 @@ function updatePageHeader() {
           <a
             href="/pages/download-hub"
             title="Download Hub"
+            lang="en"
             class="hidden lg:inline-flex natural-text natural-text-lg items-center text-white transition-all duration-200 hover:text-spring-dark gap-3 ${
               extraClass === 'downloadhub' ? 'font-medium' : ''
             }"
