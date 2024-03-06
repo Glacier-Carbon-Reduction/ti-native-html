@@ -718,7 +718,7 @@ ul {
 }
 
 body:not(.redeem):not(.register) .widget>*,
-body:not(.redeem):not(.register):not(.support) .home__content>* {
+body:not(.redeem):not(.register):not(.support):not(.live-stream) .home__content>* {
     width: 100%;
     max-width: 1224px;
     padding-left: 12px;
@@ -3782,4 +3782,12 @@ body.survey .application__content--survey .items__list ul {
     border-radius: 12px;
     overflow: hidden;
     border: 1px var(--Grey-Light) solid;
+}
+
+/* 
+* Live Stream Page Styling
+*/
+
+body.live-stream .home__content>* {
+    width: 100%;
 }
