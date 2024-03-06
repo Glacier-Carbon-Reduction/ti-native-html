@@ -19,6 +19,11 @@
     padding-bottom: 3rem
 }
 
+.px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem
+}
+
 .gap-12 {
     gap: 3rem;
 }
@@ -90,6 +95,10 @@
 
     .md\:block {
         display: block
+    }
+
+    .md\:grid {
+        display: grid
     }
 
     .md\:grid-cols-2 {
