@@ -718,7 +718,7 @@ ul {
 }
 
 body:not(.redeem):not(.register) .widget>*,
-body:not(.redeem):not(.register):not(.support):not(.live-stream) .home__content>* {
+body:not(.redeem):not(.register):not(.support):not(.live-stream) .home__content>*:not(.no-width-lock) {
     width: 100%;
     max-width: 1224px;
     padding-left: 12px;
