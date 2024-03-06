@@ -151,6 +151,10 @@
         font-size: 3.75rem;
         line-height: 1
     }
+
+    .md\:grid-cols-12 {
+        grid-template-columns: repeat(12, minmax(0, 1fr))
+    }
 }
 
 @media (min-width:1024px) {

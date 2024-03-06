@@ -739,6 +739,22 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
     margin: auto;
 }
 
+.btn-square {
+    border-radius: 8px;
+    margin-bottom: 1px;
+    border: none;
+    font-size: .875rem;
+    padding: 8px 28px;
+    position: relative;
+    background: var(--Grey-Dark);
+}
+
+.btn-square:hover,
+.btn-square-active {
+    background: var(--Spring);
+    font-weight: 700;
+}
+
 /* 
 * Navigation Menu Styling
 */
