@@ -667,7 +667,8 @@ button.expand-toggle-btn:hover {
     display: none;
 }
 
-.no-width-lock {
+.no-width-lock,
+.ember-view:has(.no-width-lock) {
     width: 100%;
     max-width: none !important;
     padding-left: 0 !important;
