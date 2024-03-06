@@ -673,7 +673,11 @@ button.expand-toggle-btn:hover {
     max-width: none !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
-    margin: 2rem 0 !important;
+}
+
+.force-vertical-gap-2 {
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
 }
 
 /* 
