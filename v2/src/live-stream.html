@@ -202,26 +202,24 @@
       })
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
-      const carouselContainer = document.getElementById('carouselContainer')
-      const isMobile = window.innerWidth <= 768
+    const carouselContainer = document.getElementById('carouselContainer')
+    const isMobile = window.innerWidth <= 768
 
-      if (isMobile) {
-        // Convert grid to flex for the scrolling animation
-        carouselContainer.classList.remove('grid', 'grid-cols-5')
-        carouselContainer.classList.add('scrolling-carousel')
+    if (isMobile) {
+      // Convert grid to flex for the scrolling animation
+      carouselContainer.classList.remove('grid', 'grid-cols-5')
+      carouselContainer.classList.add('scrolling-carousel')
 
-        // Optional: Adjust the animation duration based on the number of items
-        const svgCount = carouselContainer.querySelectorAll('svg').length
-        carouselContainer.style.animationDuration = `${4 * svgCount}s` // Adjust as necessary
+      // Optional: Adjust the animation duration based on the number of items
+      const svgCount = carouselContainer.querySelectorAll('svg').length
+      carouselContainer.style.animationDuration = `${10 * svgCount}s` // Adjust as necessary
 
-        // Clone and append children for a continuous effect
-        const children = Array.from(carouselContainer.children)
-        children.forEach((child) => {
-          const clone = child.cloneNode(true)
-          carouselContainer.appendChild(clone)
-        })
-      }
-    })
+      // Clone and append children for a continuous effect
+      const children = Array.from(carouselContainer.children)
+      children.forEach((child) => {
+        const clone = child.cloneNode(true)
+        carouselContainer.appendChild(clone)
+      })
+    }
   </script>
 </html>

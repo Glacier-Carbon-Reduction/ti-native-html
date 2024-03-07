@@ -3823,13 +3823,13 @@ body.survey .application__content--survey .items__list ul {
     }
 
     100% {
-        transform: translateX(-100%);
+        transform: translateX(calc(-100% / 3));
     }
 }
 
 .scrolling-carousel {
     display: flex;
-    animation: scroll 10s linear infinite;
+    animation: scroll 30s linear infinite;
     overflow-x: auto;
     white-space: nowrap;
 }
