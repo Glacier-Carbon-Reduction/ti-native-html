@@ -3812,3 +3812,28 @@ body.survey .application__content--survey .items__list ul {
     overflow: hidden;
     border: 1px var(--Grey-Light) solid;
 }
+
+/* 
+* Carousel Styling
+*/
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.scrolling-carousel {
+    display: flex;
+    animation: scroll 10s linear infinite;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.scrolling-carousel svg {
+    flex: 0 0 auto;
+}

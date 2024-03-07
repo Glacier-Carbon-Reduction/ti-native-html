@@ -86,7 +86,11 @@ function updatePageHeader() {
   var multiLicence = userLicences.length > 1
 
   var liveStream = false
-  if (window.CONF?.preload?.currentUser?.currentUser?.client?.id === 'c1171be0-8e5d-40b3-9782-4fbca8bacb62') {
+  if (
+    ['c1171be0-8e5d-40b3-9782-4fbca8bacb62', '9d20d754-8346-4536-beba-17aafa375c09'].includes(
+      window.CONF?.preload?.currentUser?.currentUser?.client?.id
+    )
+  ) {
     liveStream = true
   }
 
