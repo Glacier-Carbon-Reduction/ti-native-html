@@ -50,16 +50,7 @@
             ></iframe>
           </div>
         </div>
-        <div class="col-span-4 toggle-frame md:block" id="slido-container">
-          <iframe
-            src="https://app.sli.do/event/oX5mSpJr9GDwuUFMFQyq7N"
-            height="100%"
-            width="100%"
-            frameborder="0"
-            style="min-height: 500px"
-            title="Slido"
-          ></iframe>
-        </div>
+        <div class="col-span-4 toggle-frame md:block" id="slido-container"></div>
       </div>
     </section>
 
@@ -202,24 +193,48 @@
       })
     }
 
-    const carouselContainer = document.getElementById('carouselContainer')
-    const isMobile = window.innerWidth <= 768
+    function startCarouselOnMobile() {
+      const carouselContainer = document.getElementById('carouselContainer')
+      const isMobile = window.innerWidth <= 768
 
-    if (isMobile) {
-      // Convert grid to flex for the scrolling animation
-      carouselContainer.classList.remove('grid', 'grid-cols-5')
-      carouselContainer.classList.add('scrolling-carousel')
+      if (isMobile) {
+        // Convert grid to flex for the scrolling animation
+        carouselContainer.classList.remove('grid', 'grid-cols-5')
+        carouselContainer.classList.add('scrolling-carousel')
 
-      // Optional: Adjust the animation duration based on the number of items
-      const svgCount = carouselContainer.querySelectorAll('svg').length
-      carouselContainer.style.animationDuration = `${10 * svgCount}s` // Adjust as necessary
+        // Optional: Adjust the animation duration based on the number of items
+        const svgCount = carouselContainer.querySelectorAll('svg').length
+        carouselContainer.style.animationDuration = `${10 * svgCount}s` // Adjust as necessary
 
-      // Clone and append children for a continuous effect
-      const children = Array.from(carouselContainer.children)
-      children.forEach((child) => {
-        const clone = child.cloneNode(true)
-        carouselContainer.appendChild(clone)
-      })
+        // Clone and append children for a continuous effect
+        const children = Array.from(carouselContainer.children)
+        children.forEach((child) => {
+          const clone = child.cloneNode(true)
+          carouselContainer.appendChild(clone)
+        })
+      }
     }
+
+    function embedSlidoIframe() {
+      const slidoIframe = document.createElement('iframe')
+      const companyName = window.CONF?.preload?.company?.name
+      const userName =
+        window.CONF?.preload?.currentUser?.currentUser?.firstName +
+        ' ' +
+        window.CONF?.preload?.currentUser?.currentUser?.lastName
+      const userEmail = window.CONF?.preload?.currentUser?.currentUser?.email
+      slidoIframe.src = encodeURI(
+        `https://app.sli.do/event/oX5mSpJr9GDwuUFMFQyq7N?user_name=${userName}&user_email=${userEmail}&user_company=${companyName}`
+      )
+      slidoIframe.width = '100%'
+      slidoIframe.height = '100%'
+      slidoIframe.frameBorder = '0'
+      slidoIframe.style = 'min-height: 500px'
+      slidoIframe.title = 'Slido'
+      document.getElementById('slido-container').appendChild(slidoIframe)
+    }
+
+    embedSlidoIframe()
+    startCarouselOnMobile()
   </script>
 </html>

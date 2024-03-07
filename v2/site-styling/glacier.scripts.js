@@ -87,7 +87,10 @@ function updatePageHeader() {
 
   var liveStream = false
   if (
-    ['c1171be0-8e5d-40b3-9782-4fbca8bacb62', '9d20d754-8346-4536-beba-17aafa375c09'].includes(
+    [
+      'c1171be0-8e5d-40b3-9782-4fbca8bacb62', 
+      // '9d20d754-8346-4536-beba-17aafa375c09'
+  ].includes(
       window.CONF?.preload?.currentUser?.currentUser?.client?.id
     )
   ) {
