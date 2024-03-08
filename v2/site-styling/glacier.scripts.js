@@ -1103,7 +1103,7 @@ async function checkForUpcomingLivestream() {
     `${INTERNAL_SYSTEM_PATH}/api/lxp/client/${panoramaId}/fetchClientProperties?subLicenseId=${licenseId}`
   )
   const data = await response.json()
-  if (data?.value?.livestreamLink) {
+  if (data?.value?.liveStreamDate && new Date(data.value.liveStreamDate) <= new Date()) {
     const livestreamNavLink = document.getElementById('nav-live-stream')
     const livestreamNavDrop = document.getElementById('nav-live-stream-dropdown')
 
@@ -1118,7 +1118,6 @@ async function checkForUpcomingLivestream() {
     }
   }
 }
-
 
 /**
  * iFrame actions
