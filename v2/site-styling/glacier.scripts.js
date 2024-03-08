@@ -85,18 +85,6 @@ function updatePageHeader() {
   var userLicences = window.CONF.preload.currentUser.allocatedLicenses
   var multiLicence = userLicences.length > 1
 
-  var liveStream = false
-  if (
-    [
-      'c1171be0-8e5d-40b3-9782-4fbca8bacb62', 
-      // '9d20d754-8346-4536-beba-17aafa375c09'
-  ].includes(
-      window.CONF?.preload?.currentUser?.currentUser?.client?.id
-    )
-  ) {
-    liveStream = true
-  }
-
   var extraClass = ''
   if (window.location.href.includes('/learn/dashboard')) {
     extraClass = 'dashboard'
@@ -131,21 +119,18 @@ function updatePageHeader() {
         </div>
   
         <div class="lg:flex lg:items-center lg:ml-auto lg:space-x-10">
-        ${
-          liveStream
-            ? `<a
-                href="/pages/live-stream"
-                title="Livestream"
-                class="hidden lg:inline-flex natural-text natural-text-lg items-center text-white transition-all duration-200 hover:text-spring-dark gap-3"
-              >
-              <svg xmlns="http://www.w3.org/2000/svg" width="29" height="26" viewBox="0 0 29 26" fill="none"> <path d="M2.12465 0.582772C1.27882 2.37508 0.805556 4.38571 0.805556 6.50296C0.805556 8.62022 1.27882 10.6309 2.12465 12.4232C2.22031 12.6263 2.13472 12.87 1.93333 12.9664C1.73194 13.0629 1.49028 12.9766 1.39462 12.7735C0.498438 10.8695 0 8.74716 0 6.50296C0 4.25878 0.498438 2.13644 1.39462 0.232434C1.49028 0.0293402 1.73194 -0.0569748 1.93333 0.0394949C2.13472 0.135965 2.22031 0.379678 2.12465 0.582772ZM27.6054 0.232434C28.5016 2.13644 29 4.25878 29 6.50296C29 8.74716 28.5016 10.8695 27.6054 12.7735C27.5097 12.9766 27.2681 13.0629 27.0667 12.9664C26.8653 12.87 26.7797 12.6263 26.8753 12.4232C27.7212 10.6309 28.1944 8.62022 28.1944 6.50296C28.1944 4.38571 27.7212 2.37508 26.8753 0.582772C26.7797 0.379678 26.8653 0.135965 27.0667 0.0394949C27.2681 -0.0569748 27.5097 0.0293402 27.6054 0.232434ZM16.9167 6.50296C16.9167 5.8566 16.6621 5.2367 16.2088 4.77965C15.7556 4.3226 15.1409 4.06584 14.5 4.06584C13.8591 4.06584 13.2444 4.3226 12.7912 4.77965C12.3379 5.2367 12.0833 5.8566 12.0833 6.50296C12.0833 7.14933 12.3379 7.76923 12.7912 8.22628C13.2444 8.68333 13.8591 8.94009 14.5 8.94009C15.1409 8.94009 15.7556 8.68333 16.2088 8.22628C16.6621 7.76923 16.9167 7.14933 16.9167 6.50296ZM17.7222 6.50296C17.7222 8.15818 16.4937 9.52907 14.9028 9.72708V25.5938C14.9028 25.8172 14.7215 26 14.5 26C14.2785 26 14.0972 25.8172 14.0972 25.5938V9.72708C12.5063 9.52907 11.2778 8.15818 11.2778 6.50296C11.2778 4.71066 12.7227 3.25346 14.5 3.25346C16.2773 3.25346 17.7222 4.71066 17.7222 6.50296ZM6.33872 3.00975C5.89063 4.08614 5.63889 5.26409 5.63889 6.50296C5.63889 7.74184 5.89063 8.92486 6.33872 9.99618C6.42431 10.2044 6.32865 10.443 6.12726 10.5293C5.92587 10.6156 5.6842 10.5192 5.59861 10.3161C5.10521 9.14319 4.83333 7.85354 4.83333 6.50296C4.83333 5.15239 5.10521 3.86274 5.59861 2.69495C5.6842 2.48678 5.92083 2.39031 6.12726 2.4817C6.33368 2.57309 6.42934 2.80665 6.33872 3.01482V3.00975ZM23.4014 2.69495C23.8948 3.86274 24.1667 5.15239 24.1667 6.50296C24.1667 7.85354 23.8948 9.14319 23.4014 10.311C23.3158 10.5192 23.0792 10.6156 22.8727 10.5242C22.6663 10.4328 22.5707 10.1993 22.6613 9.99111C23.1144 8.91978 23.3611 7.74184 23.3611 6.49789C23.3611 5.25394 23.1094 4.08107 22.6613 3.00467C22.5757 2.7965 22.6714 2.55786 22.8727 2.47155C23.0741 2.38523 23.3158 2.4817 23.4014 2.6848V2.69495Z" fill="white"/> </svg>
-                <span class="${extraClass === 'livestream' ? 'nav-list-active' : ''}">
-                  <span lang="de">Livestream</span>
-                  <span lang="en">Livestream</span>
-                </span>
-              </a>`
-            : ''
-        }
+        <a
+          href="/pages/live-stream"
+          title="Livestream"
+          id="nav-live-stream"
+          class="hidden natural-text natural-text-lg items-center text-white transition-all duration-200 hover:text-spring-dark gap-3"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="29" height="26" viewBox="0 0 29 26" fill="none"> <path d="M2.12465 0.582772C1.27882 2.37508 0.805556 4.38571 0.805556 6.50296C0.805556 8.62022 1.27882 10.6309 2.12465 12.4232C2.22031 12.6263 2.13472 12.87 1.93333 12.9664C1.73194 13.0629 1.49028 12.9766 1.39462 12.7735C0.498438 10.8695 0 8.74716 0 6.50296C0 4.25878 0.498438 2.13644 1.39462 0.232434C1.49028 0.0293402 1.73194 -0.0569748 1.93333 0.0394949C2.13472 0.135965 2.22031 0.379678 2.12465 0.582772ZM27.6054 0.232434C28.5016 2.13644 29 4.25878 29 6.50296C29 8.74716 28.5016 10.8695 27.6054 12.7735C27.5097 12.9766 27.2681 13.0629 27.0667 12.9664C26.8653 12.87 26.7797 12.6263 26.8753 12.4232C27.7212 10.6309 28.1944 8.62022 28.1944 6.50296C28.1944 4.38571 27.7212 2.37508 26.8753 0.582772C26.7797 0.379678 26.8653 0.135965 27.0667 0.0394949C27.2681 -0.0569748 27.5097 0.0293402 27.6054 0.232434ZM16.9167 6.50296C16.9167 5.8566 16.6621 5.2367 16.2088 4.77965C15.7556 4.3226 15.1409 4.06584 14.5 4.06584C13.8591 4.06584 13.2444 4.3226 12.7912 4.77965C12.3379 5.2367 12.0833 5.8566 12.0833 6.50296C12.0833 7.14933 12.3379 7.76923 12.7912 8.22628C13.2444 8.68333 13.8591 8.94009 14.5 8.94009C15.1409 8.94009 15.7556 8.68333 16.2088 8.22628C16.6621 7.76923 16.9167 7.14933 16.9167 6.50296ZM17.7222 6.50296C17.7222 8.15818 16.4937 9.52907 14.9028 9.72708V25.5938C14.9028 25.8172 14.7215 26 14.5 26C14.2785 26 14.0972 25.8172 14.0972 25.5938V9.72708C12.5063 9.52907 11.2778 8.15818 11.2778 6.50296C11.2778 4.71066 12.7227 3.25346 14.5 3.25346C16.2773 3.25346 17.7222 4.71066 17.7222 6.50296ZM6.33872 3.00975C5.89063 4.08614 5.63889 5.26409 5.63889 6.50296C5.63889 7.74184 5.89063 8.92486 6.33872 9.99618C6.42431 10.2044 6.32865 10.443 6.12726 10.5293C5.92587 10.6156 5.6842 10.5192 5.59861 10.3161C5.10521 9.14319 4.83333 7.85354 4.83333 6.50296C4.83333 5.15239 5.10521 3.86274 5.59861 2.69495C5.6842 2.48678 5.92083 2.39031 6.12726 2.4817C6.33368 2.57309 6.42934 2.80665 6.33872 3.01482V3.00975ZM23.4014 2.69495C23.8948 3.86274 24.1667 5.15239 24.1667 6.50296C24.1667 7.85354 23.8948 9.14319 23.4014 10.311C23.3158 10.5192 23.0792 10.6156 22.8727 10.5242C22.6663 10.4328 22.5707 10.1993 22.6613 9.99111C23.1144 8.91978 23.3611 7.74184 23.3611 6.49789C23.3611 5.25394 23.1094 4.08107 22.6613 3.00467C22.5757 2.7965 22.6714 2.55786 22.8727 2.47155C23.0741 2.38523 23.3158 2.4817 23.4014 2.6848V2.69495Z" fill="white"/> </svg>
+            <span class="${extraClass === 'livestream' ? 'nav-list-active' : ''}">
+              <span lang="de">Livestream</span>
+              <span lang="en">Livestream</span>
+            </span>
+        </a>
 
         ${
           multiLicence
@@ -268,21 +253,20 @@ function updatePageHeader() {
         <ul
           class="pt-8 pb-8 px-4 text-md no-bullets flex flex-col gap-5 accordion-content accordion-hidden"
         >
-        ${
-          liveStream
-            ? `<li class="px-4 block lg:hidden">
-                <a
-                  href="/pages/live-stream"
-                  class="text-ocean natural-text natural-text-lg ${
-                    extraClass === 'livestream' ? 'nav-menu-mobile-active' : ''
-                  }"
-                  >
-                  <span lang="de">Livestream</span>
-                  <span lang="en">Livestream</span>
-                </a>
-              </li>`
-            : ''
-        }
+          <li
+            id="nav-live-stream-dropdown"
+            class="px-4 hidden"
+          >
+            <a
+              href="/pages/live-stream"
+              class="text-ocean natural-text natural-text-lg ${
+                extraClass === 'livestream' ? 'nav-menu-mobile-active' : ''
+              }"
+              >
+              <span lang="de">Livestream</span>
+              <span lang="en">Livestream</span>
+            </a>
+          </li>
         ${
           multiLicence
             ? `<li class="px-4 block lg:hidden">
@@ -1111,6 +1095,30 @@ async function catalogLearningPathTransformations() {
     learningPathContainer.style.display = 'block'
   }
 }
+
+async function checkForUpcomingLivestream() {
+  const panoramaId = window.CONF?.preload?.currentUser?.currentUser?.client?.id
+  const licenseId = window.CONF?.preload?.currentUser?.currentUser?.activeLicense
+  const response = await fetch(
+    `${INTERNAL_SYSTEM_PATH}/api/lxp/client/${panoramaId}/fetchClientProperties?subLicenseId=${licenseId}`
+  )
+  const data = await response.json()
+  if (data?.value?.livestreamLink) {
+    const livestreamNavLink = document.getElementById('nav-live-stream')
+    const livestreamNavDrop = document.getElementById('nav-live-stream-dropdown')
+
+    if (livestreamNavLink) {
+      livestreamNavLink.classList.add('lg:inline-flex')
+    }
+
+    if (livestreamNavDrop) {
+      livestreamNavDrop.classList.remove('hidden')
+      livestreamNavDrop.classList.add('block')
+      livestreamNavDrop.classList.add('lg:hidden')
+    }
+  }
+}
+
 
 /**
  * iFrame actions

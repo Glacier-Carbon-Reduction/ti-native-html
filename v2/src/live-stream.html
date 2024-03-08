@@ -18,6 +18,7 @@
   </head>
 
   <body>
+
     <section class="mt-4 mb-16 no-width-lock">
       <div class="flex md:hidden justify-around gap-2 m-3 py-4">
         <button
@@ -36,20 +37,7 @@
         </button>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-12">
-        <div class="col-span-8 toggle-frame hidden md:block" id="livesteam-container">
-          <div class="mx-auto">
-            <iframe
-              src="https://www.youtube.com/embed/5CV1sfKuHfc"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              width="100%"
-              height="100%"
-              style="aspect-ratio: 16/9"
-            ></iframe>
-          </div>
-        </div>
+        <div class="col-span-8 toggle-frame hidden md:block" id="livesteam-container"></div>
         <div class="col-span-4 toggle-frame md:block" id="slido-container"></div>
       </div>
     </section>
@@ -72,10 +60,10 @@
           Mach das Abschlussquiz und hole dir dein personalisiertes Zertifikat.
         </p>
 
-        <button id="banner-button" class="btn btn-primary mt-4">
+        <a id="finalQuiz" href="#" class="btn btn-primary mt-4 disabled">
           <span lang="de" class="natural-text natural-text-lg natural-text-medium px-4"> Zum Abschlussquiz </span>
           <span lang="en" class="natural-text natural-text-lg natural-text-medium px-4"> Take Final Quiz </span>
-        </button>
+        </a>
       </div>
     </section>
 
@@ -215,7 +203,7 @@
       }
     }
 
-    function embedSlidoIframe() {
+    function embedSlidoIframe(slidoEventUrl) {
       const slidoIframe = document.createElement('iframe')
       const companyName = window.CONF?.preload?.company?.name
       const userName =
@@ -224,7 +212,7 @@
         window.CONF?.preload?.currentUser?.currentUser?.lastName
       const userEmail = window.CONF?.preload?.currentUser?.currentUser?.email
       slidoIframe.src = encodeURI(
-        `https://app.sli.do/event/oX5mSpJr9GDwuUFMFQyq7N?user_name=${userName}&user_email=${userEmail}&user_company=${companyName}`
+        `${slidoEventUrl}?user_name=${userName}&user_email=${userEmail}&user_company=${companyName}`
       )
       slidoIframe.width = '100%'
       slidoIframe.height = '100%'
@@ -234,7 +222,53 @@
       document.getElementById('slido-container').appendChild(slidoIframe)
     }
 
-    embedSlidoIframe()
+    function embedLivesteamIframe(livestreamUrl) {
+      const livestreamIframe = document.createElement('iframe')
+      livestreamIframe.src = livestreamUrl
+      livestreamIframe.width = '100%'
+      livestreamIframe.height = '100%'
+      livestreamIframe.frameBorder = '0'
+      livestreamIframe.allow =
+        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+      livestreamIframe.allowFullscreen = true
+      livestreamIframe.title = 'Livestream'
+      livestreamIframe.style = 'aspect-ratio: 16/9'
+      document.getElementById('livesteam-container').appendChild(livestreamIframe)
+    }
+
+    async function fetchClientProperties() {
+      const panoramaId = window.CONF?.preload?.currentUser?.currentUser?.client?.id
+      const licenseId = window.CONF?.preload?.currentUser?.currentUser?.activeLicense
+      const response = await fetch(
+        `${INTERNAL_SYSTEM_PATH}/api/lxp/client/${panoramaId}/fetchClientProperties?subLicenseId=${licenseId}`
+      )
+      const data = await response.json()
+
+      if (data.value) {
+        const dataProps = data.value
+        if (dataProps.slidoLink) {
+          embedSlidoIframe(dataProps.slidoLink)
+        }
+
+        if (dataProps.livestreamLink) {
+          embedLivesteamIframe(dataProps.livestreamLink)
+        }
+
+        if (
+          dataProps.quizLink &&
+          (!dataProps.quizOpenTime || (dataProps.quizOpenTime && new Date(dataProps.quizOpenTime) < new Date()))
+        ) {
+          const quizLink = document.getElementById('finalQuiz')
+          quizLink.href = '/learn/course/' + dataProps.quizLink
+          quizLink.target = '_blank'
+          quizLink.classList.remove('disabled')
+        }
+      }
+
+      return data
+    }
+
+    fetchClientProperties()
     startCarouselOnMobile()
   </script>
 </html>
