@@ -20,6 +20,7 @@ async function waiter() {
     console.log('Delayed waiter')
     waiter()
   } else {
+    checkForUpcomingLivestream()
     watchLanguageChange()
     dashboardUsageBasedTransformations()
     applyStylesForHasPsuedoClass()
