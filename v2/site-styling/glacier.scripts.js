@@ -1116,6 +1116,12 @@ async function checkForUpcomingLivestream() {
       livestreamNavDrop.classList.add('block')
       livestreamNavDrop.classList.add('lg:hidden')
     }
+
+    const redirect = localStorage.getItem('livestream-redirect')
+    if (!(redirect === 'true')) {
+      localStorage.setItem('livestream-redirect', 'true')
+      window.location.href = '/pages/live-stream'
+    }
   }
 }
 
