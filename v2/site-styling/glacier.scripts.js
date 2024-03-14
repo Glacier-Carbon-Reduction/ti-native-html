@@ -408,7 +408,8 @@ async function dashboardUsageBasedTransformations() {
     case climateHourActive && certificateIssued === 2:
       {
         if (currentUserLanguage === 'de') {
-          bannerPretitleElement.textContent = 'HERZLICHEN GLÜCKWUNSCH, CLIMATE RANGER!'
+           
+          bannerPretitleElement.textContent = 'HERZLICHEN GLÜCKWUNSCH, CLIMATE RANGER! '
           bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
           bannerDescriptionElement.innerHTML =
             'du hast das Abschlussquiz erfolgreich abgeschlossen!</br>Dein offizielles Zertifikat wartet schon auf dich.'
