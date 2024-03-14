@@ -409,11 +409,11 @@ async function dashboardUsageBasedTransformations() {
       {
         if (currentUserLanguage === 'de') {
            
-          bannerPretitleElement.textContent = 'HERZLICHEN GLÜCKWUNSCH, CLIMATE RANGER! '
+          bannerPretitleElement.textContent = 'HERZLICHEN GLÜCKWUNSCH, CLIMATE RANGER!'
           bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
           bannerDescriptionElement.innerHTML =
-            'du hast das Abschlussquiz erfolgreich abgeschlossen!</br>Dein offizielles Zertifikat wartet schon auf dich.'
-          bannerButtonElement.textContent = `Hol' dir dein Zertifikat`
+            'Du hast das Abschlussquiz erfolgreich abgeschlossen!</br>Dein offizielles Zertifikat wartet schon auf dich.'
+          bannerButtonElement.textContent = `Hol dir dein Zertifikat`
         } else {
           bannerPretitleElement.textContent = 'CONGRATULATIONS, CLIMATE RANGER!'
           bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
@@ -434,8 +434,8 @@ async function dashboardUsageBasedTransformations() {
           bannerPretitleElement.textContent = 'SETZE DEINE LERNREISE FORT!'
           bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
           bannerDescriptionElement.innerHTML =
-            'du hast es fast geschafftl!</br>Schließe noch das Abschlussquiz ab und erhalte dein persönliches Zertifikat für die Climate Hours!'
-          bannerButtonElement.textContent = `Abschlussquiz`
+            'Du hast es fast geschafft!</br>Schließe noch das Abschlussquiz ab und erhalte dein persönliches Zertifikat für die Climate Hours!'
+          bannerButtonElement.textContent = `Zum Abschlussquiz`
         } else {
           bannerPretitleElement.textContent = 'COMPLETE YOUR LEARNING JOURNEY!'
           bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
