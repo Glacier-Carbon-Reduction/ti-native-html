@@ -408,7 +408,6 @@ async function dashboardUsageBasedTransformations() {
     case climateHourActive && certificateIssued === 2:
       {
         if (currentUserLanguage === 'de') {
-           
           bannerPretitleElement.textContent = 'HERZLICHEN GLÜCKWUNSCH, CLIMATE RANGER!'
           bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
           bannerDescriptionElement.innerHTML =
@@ -718,7 +717,12 @@ async function checkForCertificate() {
         }
       }
 
-      if (dynamicVideoEmbed && visualPropsGlobal && visualPropsGlobal.introVideo) {
+      if (
+        dynamicVideoEmbed &&
+        visualPropsGlobal &&
+        visualPropsGlobal.introVideo &&
+        visualPropsGlobal.introVideo !== ''
+      ) {
         embedWistiaVideo(visualPropsGlobal.introVideo)
       }
 
