@@ -1628,6 +1628,7 @@ function redeemPageModifiers() {
     console.log('redeem page')
     trackCodeRedemptions()
     performRedemptionPageTransformations()
+    checkForReferralInvitation()
     performDelayedTransformations()
     return true
   }
