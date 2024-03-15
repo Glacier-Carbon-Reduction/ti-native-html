@@ -33,6 +33,7 @@ async function waiter() {
     courseInformationPageModifier()
     accountsPageModifiers()
     addOpenInNewTabButtonForPDF(4000)
+    updateReferralAcceptance()
   }
 }
 

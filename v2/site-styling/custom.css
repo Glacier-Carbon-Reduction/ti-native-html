@@ -880,6 +880,13 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
     width: fit-content;
 }
 
+@media screen and (max-width: 425px) {
+
+    .btn--wide-phone {
+        width: 100%;
+    }
+}
+
 .transition-loader .loading__spinner {
     margin: auto;
     align-content: center;
