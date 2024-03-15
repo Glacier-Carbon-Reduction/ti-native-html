@@ -445,7 +445,7 @@ async function dashboardUsageBasedTransformations() {
         }
 
         bannerButtonElement.onclick = function () {
-          triggerScrollIntoView('dashboard-experience')
+          triggerScrollIntoView('modules-overview')
         }
       }
       break
@@ -456,8 +456,8 @@ async function dashboardUsageBasedTransformations() {
           bannerPretitleElement.textContent = 'HERZLICHEN GLÜCKWUNSCH, CLIMATE RANGER!'
           bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
           bannerDescriptionElement.innerHTML =
-            'Gratuliere, du hast alle Klimaschutz-Module erfolgreich abschlossen!</br>Dein offizielles Zertifikat wartet auf dich.'
-          bannerButtonElement.textContent = `Hol' dir dein Zertifikat`
+            'Gratuliere, du hast alle Klimaschutz-Module erfolgreich abgeschlossen!</br>Dein offizielles Zertifikat wartet auf dich.'
+          bannerButtonElement.textContent = `Hol dir dein Zertifikat`
         } else {
           bannerPretitleElement.textContent = 'CONGRATULATIONS, CLIMATE RANGER!'
           bannerTitleElement.textContent = 'Hi' + (userName ? ' ' + userName : '') + '!'
