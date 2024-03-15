@@ -768,21 +768,6 @@ async function checkForCertificate() {
   }
 }
 
-function showLoading() {
-  const alertBoxShell = document.getElementById('customAlertBox')
-  if (alertBoxShell) alertBoxShell.style.display = 'block'
-}
-
-function hideLoading() {
-  const alertBoxShell = document.getElementById('customAlertBox')
-  if (alertBoxShell) alertBoxShell.style.display = 'none'
-}
-
-function updateMessage(message) {
-  const alertBoxShell = document.getElementById('customAlertBox')
-  if (alertBoxShell) alertBoxShell.textContent = message
-}
-
 function applyStylesForHasPsuedoClass() {
   const checkHasSupport = window.CSS && CSS.supports && CSS.supports('selector(:has(*))')
   if (!checkHasSupport) {
@@ -1126,6 +1111,123 @@ async function checkForUpcomingLivestream() {
     if (!(redirect === 'true')) {
       localStorage.setItem('livestream-redirect', 'true')
       window.location.href = '/pages/live-stream'
+    }
+  }
+}
+
+/**
+ * Referral Systems
+ */
+
+function glacierReferralModalHandler(completedModules) {
+  let modal = document.createElement('div')
+  modal.className = 'modal'
+  modal.id = 'myModal'
+  modal.innerHTML = `
+    <div id="modal" class="glacier-modal">
+      <div class="glacier-modal-frame">
+        <div class="glacier-modal-content">
+          <button id="closeModal" onclick="closeGlacierModal()" class="close-btn">×</button>
+          <div class="text-center">
+                <img 
+                  src="https://glacier-projects.vercel.app/img/brand/logos/03_glacier_climate_academy/glacier_logo_climateacademy_4C_darkgreen.png"
+                  alt="Glacier Logo"
+                  class="mt-2 mb-5"
+                  style="max-width: 220px;"
+                >
+          </div>
+          <h2 class="display-text display-text-lg sm:display-text-md display-text-semibold text-center my-4">Empfehle die Climate Academy an Kolleg*innen!</h2>
+          <p class="natural-text natural-text-md text-center mb-5">Gib hier Email-Adressen von Kolleg*innen ein um ihnen diese Weiterbildung zu empfehlen. Gemeinsam fürs Klima</p>
+          <div class="md:flex gap-2">
+              <input type="text" class="glacier-modal-input" id="referral-invitation-emails"  placeholder="Email Adressen (mit Komma getrennt)">
+              <button 
+                  onclick="processReferralInvitationRequest('${completedModules}')"
+                  class="btn btn--primary btn--wide-phone"
+              >
+                  Empfehlen
+              </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `
+
+  document.body.appendChild(modal)
+  modal.style.visibility = 'visible'
+  modal.style.opacity = '1'
+
+  modal.addEventListener('click', function (event) {
+    if (event.target === modal) {
+      closeGlacierModal()
+    }
+  })
+}
+
+function closeGlacierModal() {
+  let modal = document.getElementById('myModal')
+  modal.style.visibility = 'hidden'
+  modal.style.opacity = '0'
+  modal.addEventListener('transitionend', function () {
+    modal.parentNode.removeChild(modal)
+  })
+}
+
+async function processReferralInvitationRequest(completedModules) {
+  updateMessage('Sending invitations...')
+  showLoading()
+  let emails = document.getElementById('referral-invitation-emails').value
+  const currentUser = window.CONF.preload.currentUser.currentUser.id
+  try {
+    const response = await fetch(`${INTERNAL_SYSTEM_PATH}/api/lxp/user/${currentUser}/referralInvitation`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        emails: emails.split(','),
+        referrer: currentUser,
+        completedModules: completedModules
+      })
+    })
+    const data = await response.json()
+    console.log(data)
+    updateMessage(data.message || 'Invitations sent successfully')
+  } catch (error) {
+    updateMessage('Error sending invitations')
+  }
+  closeGlacierModal()
+  hideLoading()
+}
+
+function checkForReferralInvitation() {
+  const urlParams = new URLSearchParams(window.location.search)
+  const glacierInvitationId = urlParams.get('glacierInvitationId')
+  if (glacierInvitationId) {
+    localStorage.setItem('glacierInvitationId', glacierInvitationId)
+    localStorage.setItem('glacierInvitationValidated', 'false')
+  }
+}
+
+async function updateReferralAcceptance() {
+  const glacierInvitationId = localStorage.getItem('glacierInvitationId')
+  const glacierInvitationValidated = localStorage.getItem('glacierInvitationValidated')
+  if (glacierInvitationId && glacierInvitationValidated === 'false') {
+    try {
+      const response = await fetch(
+        `${INTERNAL_SYSTEM_PATH}/api/lxp/user/validateReferralInvitation?referralId=${glacierInvitationId}`,
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      )
+      const data = await response.json()
+      if (data.message === 'success') {
+        localStorage.setItem('glacierInvitationValidated', 'true')
+      }
+    } catch (error) {
+      console.log('Error updating referral acceptance')
     }
   }
 }
