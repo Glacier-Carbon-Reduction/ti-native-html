@@ -647,6 +647,8 @@ async function checkForCertificate() {
       let conditionalPropHtmls = []
       let visualPropsGlobal = null
       let completionStatus = null
+      let coursesCompleted = 0
+      let showReferralPoppup = 0
 
       if (json && json.completionData && json.completionData.length > 0) {
         for (const completionData of json.completionData) {
@@ -654,6 +656,18 @@ async function checkForCertificate() {
           if (!visualPropsGlobal) {
             visualPropsGlobal = visualProps
           }
+
+          if (completionData.coursesRequired && completionData.coursesRequired.length > 0) {
+            const licencesLenght = completionData.coursesRequired.length
+            const coursesCompletedSet = completionData.coursesRequired.filter(
+              (course) => course.completed === true
+            ).length
+            if (coursesCompletedSet === licencesLenght) {
+              showReferralPoppup = 'full'
+            }
+            coursesCompleted = coursesCompleted + coursesCompletedSet
+          }
+
           completionStatus = 'pending'
           const learnerName = visualProps.hideName ? '' : completionData.learnerName
           visualProps.learnerName = learnerName
@@ -691,6 +705,15 @@ async function checkForCertificate() {
               stat = 1
             }
           }
+        }
+
+        if ([2, 6].includes(coursesCompleted)) {
+          showReferralPoppup = coursesCompleted
+        }
+
+        if (showReferralPoppup && primaryLicense === '5da504d2-4f23-486c-9083-e4b4fd7d9598') {
+          //strabag
+          glacierReferralModalHandler(showReferralPoppup)
         }
       }
 
