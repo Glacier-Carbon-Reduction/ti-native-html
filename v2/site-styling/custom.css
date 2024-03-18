@@ -302,6 +302,10 @@ body input {
     font-weight: 400;
 }
 
+.display-text-light {
+    font-weight: 300;
+}
+
 .display-text-semibold {
     font-weight: 600;
 }
@@ -797,7 +801,7 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
 .btn--primary,
 .btn-primary,
 .btn--primary--manager--new {
-    height: 40px;
+    height: 45px;
     padding: 5px 18px;
     display: flex;
     justify-content: center;
@@ -2970,6 +2974,10 @@ body.learn.course #hubspot-messages-iframe-container {
     font-weight: var(--font-weight-semibold);
     margin-top: 25px;
     margin-bottom: 10px;
+}
+
+.session .session__container .widget__subtitle {
+    margin-top: 2rem
 }
 
 .session .session__container .alert-box {
