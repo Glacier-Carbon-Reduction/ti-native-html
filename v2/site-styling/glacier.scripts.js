@@ -707,13 +707,25 @@ async function checkForCertificate() {
           }
         }
 
+        const alreadyShownReferralPopup = localStorage.getItem('referralPopupShown')
+        const parsedAlreadyShownReferralPopup = alreadyShownReferralPopup ? JSON.parse(alreadyShownReferralPopup) : []
+
         if ([2, 6].includes(coursesCompleted) && showReferralPoppup === 0) {
           showReferralPoppup = coursesCompleted
         }
 
-        if (showReferralPoppup && primaryLicense === '5da504d2-4f23-486c-9083-e4b4fd7d9598') {
+        if (
+          showReferralPoppup &&
+          !parsedAlreadyShownReferralPopup.includes(coursesCompleted) &&
+          primaryLicense === '5da504d2-4f23-486c-9083-e4b4fd7d9598'
+        ) {
           //strabag
           glacierReferralModalHandler(showReferralPoppup)
+          // store in localstorage to prevent multiple popups
+          localStorage.setItem(
+            'referralPopupShown',
+            JSON.stringify([...parsedAlreadyShownReferralPopup, showReferralPoppup])
+          )
         }
       }
 
