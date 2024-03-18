@@ -707,7 +707,7 @@ async function checkForCertificate() {
           }
         }
 
-        if ([2, 6].includes(coursesCompleted)) {
+        if ([2, 6].includes(coursesCompleted) && showReferralPoppup === 0) {
           showReferralPoppup = coursesCompleted
         }
 
