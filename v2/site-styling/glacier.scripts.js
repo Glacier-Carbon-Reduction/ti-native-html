@@ -1163,7 +1163,7 @@ function glacierReferralModalHandler(completedModules) {
   })
 }
 
-function closeGlacierModal() {
+function closeGlacierModal(exitIntend) {
   let modal = document.getElementById('myModal')
   modal.style.visibility = 'hidden'
   modal.style.opacity = '0'
