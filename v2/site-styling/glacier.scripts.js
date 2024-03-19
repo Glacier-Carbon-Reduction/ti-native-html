@@ -529,6 +529,47 @@ async function dashboardUsageBasedTransformations() {
 }
 
 function generateCetificateContainerTitle(event, visualProps) {
+
+  const climateHourCertificate = document.querySelector('.climate-hours-certificate')
+  const climateHourCertificateActive = !!climateHourCertificate
+
+  switch (true) {
+    case climateHourCertificateActive: { 
+      const description = {
+        complete: {
+          en: 'Receive your certificate now, share your achievements and your newly acquired knowledge.',
+          de: 'Erhalte dein Zertifikat, teile deinen Erfolg und dein neu erlangtes Wissen.'
+        },
+        halfway: {
+          en: 'Receive your certificate after completing the Climate Hours Final Quiz.',
+          de: 'Erhalte dein Zertifikat, sobald du das Climate Hours Abschlussquiz absolviert hast!'
+        },
+        pending: {
+          en: 'Complete the final quiz and receive your official Certificate for the Glacier Climate Hours.',
+          de: 'Absolviere das Abschlussquiz und erhalte dein Zertifikat für die Glacier Climate Hours.'
+        }
+      }
+    }
+    break
+
+    default: {
+      const description = {
+        complete: {
+          en: 'Receive your certificate now, share your achievements and your newly acquired knowledge.',
+          de: 'Erhalte dein Zertifikat, teile deinen Erfolg und dein neu erlangtes Wissen.'
+        },
+        halfway: {
+          en: 'Receive your certificate after completing the Glacier Climate Essentials.',
+          de: 'Erhalte dein Zertifikat nach Abschluss der Climate Essentials!'
+        },
+        pending: {
+          en: 'Complete all modules and receive your official Certificate for the Glacier Climate Essentials.',
+          de: 'Schließe alle Module ab und erhalte dein offizielles Zertifikat für die Glacier Climate Essentials.'
+        }
+      }
+    }
+  }
+
   const title = {
     complete: {
       en: 'Congratulations!',
@@ -536,7 +577,7 @@ function generateCetificateContainerTitle(event, visualProps) {
     },
     halfway: {
       en: 'Your certificate awaits!',
-      de: 'Dein Zertifikat warten auf dich!'
+      de: 'Dein Zertifikat wartet auf dich!'
     },
     pending: {
       en: 'Your Certificate Awaits!',
@@ -544,20 +585,6 @@ function generateCetificateContainerTitle(event, visualProps) {
     }
   }
 
-  const description = {
-    complete: {
-      en: 'Receive your certificate now, share your achievements and your newly acquired knowledge.',
-      de: 'Erhalte dein Zertifikat, teile deinen Erfolg und dein neu erlangtes Wissen.'
-    },
-    halfway: {
-      en: 'Receive your certificate after completing the Glacier Climate Essentials.',
-      de: 'Erhalte dein Zertifikat nach Abschluss der Climate Essentials!'
-    },
-    pending: {
-      en: 'Complete all modules and receive your official Certificate for the Glacier Climate Essentials.',
-      de: 'Schließe alle Module ab und erhalte dein offizielles Zertifikat für die Glacier Climate Essentials.'
-    }
-  }
 
   let image = visualProps?.image
   if (image && image.startsWith('/img/')) {
