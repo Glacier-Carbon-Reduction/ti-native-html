@@ -632,7 +632,7 @@ async function checkForCertificate() {
   if ((certificateContainerSection || dynamicVideoEmbed) && userId) {
     try {
       let activeLicence = forceLicenseId || window.CONF.preload.currentUser.currentUser.activeLicense
-      let primaryLicense = window.CONF.preload.currentUser.clients[0].primaryLicense?.id
+      let primaryLicense = window.CONF.preload.currentUser.clients[0]?.id
       if (!activeLicence) activeLicence = window.CONF.preload.currentUser.allocatedLicenses[0].license?.id
       if (activeLicence === primaryLicense) activeLicence = undefined
 
@@ -710,13 +710,17 @@ async function checkForCertificate() {
         const alreadyShownReferralPopup = localStorage.getItem('referralPopupShown')
         const parsedAlreadyShownReferralPopup = alreadyShownReferralPopup ? JSON.parse(alreadyShownReferralPopup) : []
 
-        if ([2, 6].includes(coursesCompleted) && showReferralPoppup === 0) {
-          showReferralPoppup = coursesCompleted
+        if (coursesCompleted >= 2 && showReferralPoppup === 0) {
+          if (2 <= coursesCompleted && coursesCompleted <= 5) {
+            showReferralPoppup = 2
+          } else {
+            showReferralPoppup = 6
+          }
         }
 
         if (
           showReferralPoppup &&
-          !parsedAlreadyShownReferralPopup.includes(coursesCompleted) &&
+          !parsedAlreadyShownReferralPopup.includes(showReferralPoppup) &&
           primaryLicense === '5da504d2-4f23-486c-9083-e4b4fd7d9598'
         ) {
           //strabag
