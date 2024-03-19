@@ -217,7 +217,7 @@
       slidoIframe.width = '100%'
       slidoIframe.height = '100%'
       slidoIframe.frameBorder = '0'
-      slidoIframe.style = 'min-height: 500px'
+      slidoIframe.style = 'min-height: 750px'
       slidoIframe.title = 'Slido'
       document.getElementById('slido-container').appendChild(slidoIframe)
     }
@@ -262,6 +262,23 @@
           quizLink.href = '/learn/course/' + dataProps.quizLink
           quizLink.target = '_blank'
           quizLink.classList.remove('disabled')
+        } else if (dataProps.quizOpenTime) {
+          const openTime = new Date(dataProps.quizOpenTime)
+          const currentTime = new Date()
+          const timeToOpen = openTime - currentTime
+          const threeHoursInMilliseconds = 3 * 60 * 60 * 1000 // 3 hours in milliseconds
+          
+          // Check if the quiz opening time is within 3 hours
+          if (timeToOpen <= threeHoursInMilliseconds && timeToOpen > 0) {
+            setTimeout(() => {
+              const quizLink = document.getElementById('finalQuiz')
+              quizLink.href = '/learn/course/' + dataProps.quizLink
+              quizLink.target = '_blank'
+              quizLink.classList.remove('disabled')
+            }, timeToOpen)
+          }
+          // If the quiz opening time is more than 3 hours away, you might not want to do anything here
+          // Or you could handle it differently based on your requirements
         }
       }
 

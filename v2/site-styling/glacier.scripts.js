@@ -162,7 +162,7 @@ function updatePageHeader() {
           </a>
 
           ${
-            userAuth
+            userAuth && false
               ? `
           <a
             href="/pages/download-hub"
@@ -1290,6 +1290,20 @@ function iframeActivatePostMessage() {
         }
       }
     })
+  })
+}
+
+function iframeActiveWindowSizeListener() {
+  window.addEventListener('message', (event) => {
+    if (event.origin !== INTERNAL_SYSTEM_PATH) {
+      console.log('iframeActiveWindowSizeListener: Origin not allowed')
+      return
+    }
+
+    if (event.data.type === 'setIframeHeight') {
+      const iframe = document.getElementById('internal-glacier-iframe')
+      iframe.style.height = `${event.data.height}px`
+    }
   })
 }
 

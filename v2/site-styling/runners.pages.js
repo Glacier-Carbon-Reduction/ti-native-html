@@ -1,5 +1,6 @@
-currentUserLanguage = window.CONF?.preload?.currentUser?.currentUser?.lang ||
-window?.CONF?.preload?.currentUser?.clients?.[0]?.defaultLanguage
+currentUserLanguage =
+  window.CONF?.preload?.currentUser?.currentUser?.lang ||
+  window?.CONF?.preload?.currentUser?.clients?.[0]?.defaultLanguage
 
 function redirector() {
   if (window.location.pathname.startsWith('/learning-paths/')) {
@@ -11,8 +12,9 @@ function redirector() {
 
 async function waiter() {
   await new Promise((resolve) => setTimeout(resolve, 800))
-  currentUserLanguage = window.CONF?.preload?.currentUser?.currentUser?.lang ||
-  window?.CONF?.preload?.currentUser?.clients?.[0]?.defaultLanguage
+  currentUserLanguage =
+    window.CONF?.preload?.currentUser?.currentUser?.lang ||
+    window?.CONF?.preload?.currentUser?.clients?.[0]?.defaultLanguage
 
   const checker_1 = authPageModifiers()
   const checker_2 = redeemPageModifiers()
@@ -28,6 +30,7 @@ async function waiter() {
     embedWistiaVideo(currentUserLanguage === 'de' ? 'sh9w3ogy2l' : '1o3n779t75')
     catalogLearningPathTransformations()
     courseInformationPageModifier()
+    iframeActiveWindowSizeListener()
     accountsPageModifiers()
     addOpenInNewTabButtonForPDF(4000)
   }
