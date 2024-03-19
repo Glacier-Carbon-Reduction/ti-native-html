@@ -533,9 +533,11 @@ function generateCetificateContainerTitle(event, visualProps) {
   const climateHourCertificate = document.querySelector('.climate-hours-certificate')
   const climateHourCertificateActive = !!climateHourCertificate
 
+  let description = undefined
+
   switch (true) {
     case climateHourCertificateActive: { 
-      const description = {
+      description = {
         complete: {
           en: 'Receive your certificate now, share your achievements and your newly acquired knowledge.',
           de: 'Erhalte dein Zertifikat, teile deinen Erfolg und dein neu erlangtes Wissen.'
@@ -553,7 +555,7 @@ function generateCetificateContainerTitle(event, visualProps) {
     break
 
     default: {
-      const description = {
+      description = {
         complete: {
           en: 'Receive your certificate now, share your achievements and your newly acquired knowledge.',
           de: 'Erhalte dein Zertifikat, teile deinen Erfolg und dein neu erlangtes Wissen.'
