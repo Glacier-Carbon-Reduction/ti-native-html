@@ -529,30 +529,30 @@ async function dashboardUsageBasedTransformations() {
 }
 
 function generateCetificateContainerTitle(event, visualProps) {
-
   const climateHourCertificate = document.querySelector('.climate-hours-certificate')
   const climateHourCertificateActive = !!climateHourCertificate
 
   let description = undefined
 
   switch (true) {
-    case climateHourCertificateActive: { 
-      description = {
-        complete: {
-          en: 'Receive your certificate now, share your achievements and your newly acquired knowledge.',
-          de: 'Erhalte dein Zertifikat, teile deinen Erfolg und dein neu erlangtes Wissen.'
-        },
-        halfway: {
-          en: 'Receive your certificate after completing the Climate Hours Final Quiz.',
-          de: 'Erhalte dein Zertifikat, sobald du das Climate Hours Abschlussquiz absolviert hast!'
-        },
-        pending: {
-          en: 'Complete the final quiz and receive your official Certificate for the Glacier Climate Hours.',
-          de: 'Absolviere das Abschlussquiz und erhalte dein Zertifikat für die Glacier Climate Hours.'
+    case climateHourCertificateActive:
+      {
+        description = {
+          complete: {
+            en: 'Receive your certificate now, share your achievements and your newly acquired knowledge.',
+            de: 'Erhalte dein Zertifikat, teile deinen Erfolg und dein neu erlangtes Wissen.'
+          },
+          halfway: {
+            en: 'Receive your certificate after completing the Climate Hours Final Quiz.',
+            de: 'Erhalte dein Zertifikat, sobald du das Climate Hours Abschlussquiz absolviert hast!'
+          },
+          pending: {
+            en: 'Complete the final quiz and receive your official Certificate for the Glacier Climate Hours.',
+            de: 'Absolviere das Abschlussquiz und erhalte dein Zertifikat für die Glacier Climate Hours.'
+          }
         }
       }
-    }
-    break
+      break
 
     default: {
       description = {
@@ -586,7 +586,6 @@ function generateCetificateContainerTitle(event, visualProps) {
       de: 'Dein Zertifikat wartet auf dich!'
     }
   }
-
 
   let image = visualProps?.image
   if (image && image.startsWith('/img/')) {
@@ -1205,7 +1204,7 @@ function glacierReferralModalHandler(completedModules) {
                 >
           </div>
           <h2 class="display-text display-text-lg sm:display-text-md display-text-semibold text-center my-4">Empfehle die Climate Academy an Kolleg*innen!</h2>
-          <p class="natural-text natural-text-md text-center mb-5">Gib hier Email-Adressen von Kolleg*innen ein um ihnen diese Weiterbildung zu empfehlen. Gemeinsam fürs Klima</p>
+          <p class="natural-text natural-text-md text-center mb-10">Gib hier Email-Adressen von Kolleg*innen ein um ihnen diese Weiterbildung zu empfehlen. Gemeinsam fürs Klima</p>
           <div class="md:flex gap-2">
               <input type="text" class="glacier-modal-input" id="referral-invitation-emails"  placeholder="Email Adressen (mit Komma getrennt)">
               <button 
