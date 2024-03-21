@@ -1205,6 +1205,7 @@ function glacierReferralModalHandler(completedModules) {
           </div>
           <h2 class="display-text display-text-lg sm:display-text-md display-text-semibold text-center my-4">Empfehle die Climate Academy an Kolleg*innen!</h2>
           <p class="natural-text natural-text-md text-center mb-10">Gib hier Email-Adressen von Kolleg*innen ein um ihnen diese Weiterbildung zu empfehlen. Gemeinsam fürs Klima</p>
+          <p class="natural-text natural-text-sm">Email-Adressen (mit Komma getrennt)</p>
           <div class="md:flex gap-2">
               <input type="text" class="glacier-modal-input" id="referral-invitation-emails"  placeholder="Email Adressen (mit Komma getrennt)">
               <button 
