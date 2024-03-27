@@ -4,7 +4,7 @@ window?.CONF?.preload?.currentUser?.clients?.[0]?.defaultLanguage
 pageSwticherReachable = true
 
 function redirector() {
-  if (window.location.pathname.startsWith('/learning-paths/')) {
+  if (window.location.pathname.startsWith('/learning-paths/' && window.CONF?.preload?.currentUser?.currentUser.id)) {
     const path = window.location.pathname.split('/learning-paths/')[1]
     const newPath = window.location.origin + '/learn/learning-path/' + path
     window.location.replace(newPath)
@@ -31,6 +31,7 @@ async function waiter() {
     embedWistiaVideo(currentUserLanguage === 'de' ? 'sh9w3ogy2l' : '1o3n779t75')
     catalogLearningPathTransformations()
     courseInformationPageModifier()
+    iframeActiveWindowSizeListener()
     accountsPageModifiers()
     addOpenInNewTabButtonForPDF(4000)
     updateReferralAcceptance()
