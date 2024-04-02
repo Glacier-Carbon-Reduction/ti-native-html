@@ -346,7 +346,7 @@
                                       font-weight: normal;
                                     "
                                   >
-                                    Hey Climate Ranger!
+                                    Hey {{first_name}}!
                                   </p>
                                   <p
                                     style="
@@ -433,60 +433,39 @@
                           </tr>
                         </tbody>
                       </table>
-                      <div
-                        id="hs_cos_wrapper_module-2-1-1"
-                        class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module"
-                        style="color: inherit; font-size: inherit; line-height: inherit"
-                        data-hs-cos-general-type="widget"
-                        data-hs-cos-type="module"
+                      <table
+                        class="x_hse-image-wrapper"
+                        role="presentation"
+                        width="100%"
+                        cellpadding="0"
+                        cellspacing="0"
+                        style="border-spacing: 12px !important"
                       >
-                        <table
-                          class="hse-image-wrapper"
-                          role="presentation"
-                          width="100%"
-                          cellpadding="0"
-                          cellspacing="0"
-                          style="
-                            border-spacing: 0 !important;
-                            border-collapse: collapse;
-                            mso-table-lspace: 0pt;
-                            mso-table-rspace: 0pt;
-                          "
-                        >
-                          <tbody>
-                            <tr>
-                              <td
-                                align="center"
-                                valign="top"
-                                style="
-                                  border-collapse: collapse;
-                                  mso-line-height-rule: exactly;
-                                  font-family: Arial, sans-serif;
-                                  color: #23496d;
-                                  word-break: break-word;
-                                  text-align: center;
-                                  padding: 10px 20px;
-                                  font-size: 0px;
-                                "
-                              >
-                                <img
-                                  alt="certificate"
-                                  src="{{certificate_image}}"
-                                  style="
-                                    outline: none;
-                                    text-decoration: none;
-                                    -ms-interpolation-mode: bicubic;
-                                    max-width: 100%;
-                                    font-size: 16px;
-                                  "
-                                  width="260"
-                                  align="middle"
-                                />
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
+                      <tbody>
+                        <tr>
+                          <td
+                            style="
+                              border-collapse: collapse;
+                              font-family: Arial, sans-serif;
+                              word-break: break-word;
+                              text-align: center;
+                              padding: 10px 20px;
+                              font-size: 0px;
+                              background-image: url({{certificate_image}});
+                              background-size: contain;
+                              background-repeat: no-repeat;
+                            "
+                          >
+                            <div style="height: 100px; display: flex; justify-content: center; align-items: center">
+                              <p style="font-size: 16px; color: {{font_color}}; font-weight: bold">{{first_name}}</p>
+                            </div>
+                            <div
+                              style="height: 100px; display: flex; justify-content: center; align-items: center"
+                            ></div>
+                          </td>
+                        </tr>
+                      </tbody>
+                      </table>
                     </div>
                     <!--[if gte mso 9]></table><![endif]-->
                     <!--[if (mso)|(IE)]></td><![endif]-->
