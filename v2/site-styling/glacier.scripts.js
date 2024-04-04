@@ -1006,8 +1006,8 @@ function convertHtmlContainerToAccordion(containerClass, buttonClass, contentCla
 
     const iconSource = button.querySelector(`.${iconSourceClass}`)
     const customHtml = `<div class="expand-toggle-icon">
-      <i class="icon-plus accordion-icon hidden"></i>
-      <i class="icon-hyphen accordion-icon"></i>
+      <i class="icon-plus accordion-icon"></i>
+      <i class="icon-hyphen accordion-icon hidden"></i>
     </div>`
     iconSource.insertAdjacentHTML('beforeend', customHtml)
   })
