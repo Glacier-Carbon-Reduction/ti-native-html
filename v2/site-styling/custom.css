@@ -3473,16 +3473,38 @@ body.license .dashboard__license-select .dashboard__license-select__form .field_
     background: transparent;
     border: none;
     margin-top: -60px;
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-    padding-bottom: 1rem;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
     padding-top: 0;
 }
 
 
+.learning-path_custom-layout .learning-path-timeline-milestone__header .learning-path-timeline-milestone__header-criterion {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.learning-path_custom-layout .learning-path-timeline-milestone__header .learning-path-timeline-milestone__header-criterion .expand-toggle-icon i {
+    border: 3px solid var(--Ocean);
+    padding: 15px;
+    border-radius: 100px;
+}
+
+.learning-path_custom-layout .learning-path-timeline-milestone__header .learning-path-timeline-milestone__header-criterion .expand-toggle-icon i:before {
+    font-size: 25px;
+    font-weight: 100;
+}
 
 .learning-path_custom-layout .learning-path-timeline-milestone__header .learning-path-timeline-milestone__header-content {
-    display: none;
+    padding: 0;
+}
+
+.learning-path_custom-layout .learning-path-timeline-milestone__header .learning-path-timeline-milestone__header-content .learning-path-timeline-milestone__title {
+    text-transform: none;
+    font-size: 36px;
+    color: var(--Ocean);
 }
 
 .learning-path_custom-layout .learning-path-timeline-milestone__header .learning-path-criterion {
@@ -3512,6 +3534,13 @@ body.license .dashboard__license-select .dashboard__license-select__form .field_
 
 .learning-path_custom-layout .learning-path-timeline-milestone__header .learning-path-criterion__value-container i {
     display: none;
+}
+
+.learning-path_custom-layout .learning-path-timeline-milestone {
+    padding: 40px;
+    background-color: var(--Grey);
+    border-radius: 18px;
+    margin-bottom: 18px;
 }
 
 .learning-path_custom-layout .widget--milestones.widget--milestones_standard {
@@ -3612,10 +3641,10 @@ body.license .dashboard__license-select .dashboard__license-select__form .field_
     }
 
     .learning-path_custom-layout .row.collapse.learning-path-timeline-milestone__header {
-        position: absolute;
         top: 150px;
-        left: 50%;
-        transform: translateX(-50%);
+        /* left: 50%;
+        position: absolute;
+        transform: translateX(-50%); */
         width: 100%;
         max-width: 1224px;
         margin: auto;

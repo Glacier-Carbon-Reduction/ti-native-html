@@ -991,6 +991,28 @@ function toggleAccordion(id, element) {
   }
 }
 
+function convertHtmlContainerToAccordion(containerClass, buttonClass, contentClass, iconSourceClass) {
+  const containers = document.querySelectorAll(`.${containerClass}`)
+  containers.forEach((container, index) => {
+    container.id = `accordion-${index}`
+    const content = container.querySelector(`.${contentClass}`)
+    content.classList.add('accordion-content')
+    content.classList.add('accordion-hidden')
+    const button = container.querySelector(`.${buttonClass}`)
+    button.classList.add('accordion-button')
+    button.onclick = function () {
+      toggleAccordion(index)
+    }
+
+    const iconSource = button.querySelector(`.${iconSourceClass}`)
+    const customHtml = `<div class="expand-toggle-icon">
+      <i class="icon-plus accordion-icon hidden"></i>
+      <i class="icon-hyphen accordion-icon"></i>
+    </div>`
+    iconSource.insertAdjacentHTML('beforeend', customHtml)
+  })
+}
+
 function alertBannerCloser() {
   const alertBox = document.querySelector('.alert-box.success')
   if (alertBox) {
