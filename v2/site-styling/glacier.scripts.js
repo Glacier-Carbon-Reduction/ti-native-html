@@ -1216,7 +1216,7 @@ function glacierReferralModalHandler(completedModules) {
     <div id="modal" class="glacier-modal">
       <div class="glacier-modal-frame">
         <div class="glacier-modal-content">
-          <button id="closeModal" onclick="closeGlacierModal()" class="close-btn">×</button>
+          <button id="closeModal" onclick="closeGlacierModal('${completedModules}', true)" class="close-btn">×</button>
           <div class="text-center">
                 <img 
                   src="https://glacier-projects.vercel.app/img/brand/logos/03_glacier_climate_academy/glacier_logo_climateacademy_4C_darkgreen.png"
@@ -1248,12 +1248,15 @@ function glacierReferralModalHandler(completedModules) {
 
   modal.addEventListener('click', function (event) {
     if (event.target === modal) {
-      closeGlacierModal()
+      closeGlacierModal(completedModules, true)
     }
   })
 }
 
-function closeGlacierModal(exitIntend) {
+async function closeGlacierModal(completedModules, exitIntend) {
+  if (exitIntend) {
+    processReferralInvitationRequest(completedModules, true)
+  }
   let modal = document.getElementById('myModal')
   modal.style.visibility = 'hidden'
   modal.style.opacity = '0'
@@ -1262,7 +1265,7 @@ function closeGlacierModal(exitIntend) {
   })
 }
 
-async function processReferralInvitationRequest(completedModules) {
+async function processReferralInvitationRequest(completedModules, skip = false) {
   updateMessage('Sending invitations...')
   showLoading()
   let emails = document.getElementById('referral-invitation-emails').value
@@ -1274,7 +1277,7 @@ async function processReferralInvitationRequest(completedModules) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        emails: emails.split(','),
+        emails: skip ? ['SKIP'] : emails.split(','),
         referrer: currentUser,
         completedModules: completedModules
       })
@@ -1285,7 +1288,7 @@ async function processReferralInvitationRequest(completedModules) {
   } catch (error) {
     updateMessage('Error sending invitations')
   }
-  closeGlacierModal()
+  closeGlacierModal(completedModules, false)
   hideLoading()
 }
 
