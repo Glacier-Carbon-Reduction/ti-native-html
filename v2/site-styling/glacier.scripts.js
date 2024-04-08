@@ -793,7 +793,7 @@ async function checkForCertificate() {
         embedWistiaVideo(visualPropsGlobal.introVideo)
       }
 
-      propHtmls = conditionalPropHtmls.concat(certPropHtmls)
+      propHtmls = certPropHtmls.concat(conditionalPropHtmls)
 
       if (certificateContainerSection && propHtmls.length > 0) {
         const certificateContainer = document.createElement('div')
