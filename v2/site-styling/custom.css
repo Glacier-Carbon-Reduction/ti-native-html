@@ -3623,8 +3623,14 @@ body.license .dashboard__license-select .dashboard__license-select__form .field_
     -webkit-box-shadow: 0 0 0 9px #fff, 0 0 0 10px var(--Ocean);
     box-shadow: 0 0 0 9px #fff, 0 0 0 10px var(--Ocean);
     right: -24px;
+    left: -20px;
     height: 44px;
     width: 44px;
+    top: calc(50% - 23px);
+}
+
+.learning-path_custom-layout .learning-path-timeline-milestone-item-circle__asset.learning-path-timeline-milestone-item-circle__asset--right {
+    left: auto;
 }
 
 .learning-path_custom-layout .learning-path-timeline-milestone-item-circle--completed {
@@ -3634,6 +3640,7 @@ body.license .dashboard__license-select .dashboard__license-select__form .field_
     left: -22px;
     display: flex;
 }
+
 .learning-path_custom-layout .learning-path-timeline-milestone-item-circle--completed:after {
     content: "";
     font-family: ti-icons-rev2;
