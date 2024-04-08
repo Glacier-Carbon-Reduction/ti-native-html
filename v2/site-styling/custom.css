@@ -3472,7 +3472,6 @@ body.license .dashboard__license-select .dashboard__license-select__form .field_
 .learning-path_custom-layout .row.collapse.learning-path-timeline-milestone__header {
     background: transparent;
     border: none;
-    margin-top: -60px;
     padding-left: 0;
     padding-right: 0;
     padding-bottom: 0;
@@ -3601,23 +3600,46 @@ body.license .dashboard__license-select .dashboard__license-select__form .field_
 
 .learning-path_custom-layout .learning-path-timeline-milestone-item__horizontal-line,
 .learning-path_custom-layout .learning-path-timeline-milestone-item__vertical-line {
-    border-color: var(--Grey);
+    border-color: var(--Ocean);
+    background: var(--Ocean);
+    opacity: 1;
 }
 
 .learning-path_custom-layout .learning-path-timeline-milestone-item__vertical-line {
     width: 1px;
 }
 
+.learning-path_custom-layout .learning-path-certificate-circle {
+    border: none;
+    background-color: transparent;
+}
+
+.learning-path_custom-layout .learning-path-certificate-status {
+    text-transform: none;
+}
+
 .learning-path_custom-layout .learning-path-timeline-milestone-item-circle__asset {
     background-color: var(--Ocean);
-    -webkit-box-shadow: 0 0 0 11px #fff, 0 0 0 12px var(--Ocean), 0 0 0 17px #fff, 0 0 0 18px var(--Ocean);
-    box-shadow: 0 0 0 11px #fff, 0 0 0 12px var(--Ocean), 0 0 0 17px #fff, 0 0 0 18px var(--Ocean);
+    -webkit-box-shadow: 0 0 0 9px #fff, 0 0 0 10px var(--Ocean);
+    box-shadow: 0 0 0 9px #fff, 0 0 0 10px var(--Ocean);
+    right: -24px;
+    height: 44px;
+    width: 44px;
 }
 
 .learning-path_custom-layout .learning-path-timeline-milestone-item-circle--completed {
     background-color: var(--Spring);
     -webkit-box-shadow: none;
     box-shadow: none;
+    left: -22px;
+    display: flex;
+}
+.learning-path_custom-layout .learning-path-timeline-milestone-item-circle--completed:after {
+    content: "";
+    font-family: ti-icons-rev2;
+    color: white;
+    margin: auto;
+    font-size: 24px;
 }
 
 @media screen and (max-width: 426px) {
@@ -3637,7 +3659,7 @@ body.license .dashboard__license-select .dashboard__license-select__form .field_
     .learning-path_custom-layout .learning-content-hero>* {
         position: relative;
         padding: 0;
-        width: 75%;
+        /* width: 75%; */
     }
 
     .learning-path_custom-layout .row.collapse.learning-path-timeline-milestone__header {
