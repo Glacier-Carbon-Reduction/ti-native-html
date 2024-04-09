@@ -3612,10 +3612,15 @@ body.license .dashboard__license-select .dashboard__license-select__form .field_
 .learning-path_custom-layout .learning-path-certificate-circle {
     border: none;
     background-color: transparent;
+    background-image: url(https://res.cloudinary.com/df1dbnp0x/image/upload/v1712649638/img/props/trophie_gjcjuy.png);
+    background-size: 90px;
+    height: 150px;
+    width: 150px;
 }
 
 .learning-path_custom-layout .learning-path-certificate-status {
     text-transform: none;
+    color: var(--TextDim);
 }
 
 .learning-path_custom-layout .learning-path-timeline-milestone-item-circle__asset {
