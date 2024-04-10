@@ -3482,11 +3482,12 @@ body.license .dashboard__license-select .dashboard__license-select__form .field_
 .learning-path_custom-layout .learning-path-timeline-milestone__header .learning-path-timeline-milestone__header-criterion {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 64px;
+    justify-content: space-between;
 }
 
 .learning-path_custom-layout .learning-path-timeline-milestone__header .learning-path-timeline-milestone__header-criterion .expand-toggle-icon i {
-    border: 3px solid var(--Ocean);
+    border: 2px solid var(--Ocean);
     padding: 15px;
     border-radius: 100px;
 }
@@ -3509,6 +3510,10 @@ body.license .dashboard__license-select .dashboard__license-select__form .field_
 .learning-path_custom-layout .learning-path-timeline-milestone__header .learning-path-criterion {
     height: auto;
     width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
 }
 
 .learning-path_custom-layout .learning-path-timeline-milestone__header .learning-path-criterion__label {
@@ -3523,8 +3528,9 @@ body.license .dashboard__license-select .dashboard__license-select__form .field_
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-semibold);
     color: var(--Ocean) !important;
-    margin-top: -10px;
+    margin-top: 0px;
     display: flex;
+    justify-content: flex-end;
 }
 
 .learning-path_custom-layout .learning-path-timeline-milestone__header .learning-path-criterion__value--pending {
@@ -3609,6 +3615,10 @@ body.license .dashboard__license-select .dashboard__license-select__form .field_
     width: 1px;
 }
 
+.learning-path_custom-layout .learning-path-timeline-milestone-item__vertical-line.learning-path-timeline-milestone-item__vertical-line--certificate {
+    display: none;
+}
+
 .learning-path_custom-layout .learning-path-certificate-circle {
     border: none;
     background-color: transparent;
@@ -3624,7 +3634,7 @@ body.license .dashboard__license-select .dashboard__license-select__form .field_
 }
 
 .learning-path_custom-layout .learning-path-timeline-milestone-item-circle__asset {
-    background-color: var(--Ocean);
+    background-color: var(--Grey-Dark);
     -webkit-box-shadow: 0 0 0 9px #fff, 0 0 0 10px var(--Ocean);
     box-shadow: 0 0 0 9px #fff, 0 0 0 10px var(--Ocean);
     right: -24px;
@@ -3664,6 +3674,11 @@ body.license .dashboard__license-select .dashboard__license-select__form .field_
         margin-right: auto;
         width: 80%;
     }
+
+    .learning-path_custom-layout .learning-path-timeline-milestone-item-circle__asset,
+    .learning-path_custom-layout .learning-path-timeline-milestone-item-circle__asset.learning-path-timeline-milestone-item-circle__asset--right {
+        left: 18px;
+    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -3683,10 +3698,6 @@ body.license .dashboard__license-select .dashboard__license-select__form .field_
         max-width: 1224px;
         margin: auto;
         display: flex;
-        justify-content: flex-end;
-    }
-
-    .learning-path_custom-layout .learning-path-timeline-milestone__header .learning-path-criterion__value-container {
         justify-content: flex-end;
     }
 
