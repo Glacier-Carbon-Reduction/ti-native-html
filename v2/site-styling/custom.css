@@ -2318,6 +2318,14 @@ hr {
     border-radius: 12px;
 }
 
+.course__container .learner__content .assignment__submission label {
+    display: none;
+}
+
+.course__container .learner__content .assignment__submission .assignment__submission__options .btn--small.btn--right {
+    float: left;
+}
+
 @media screen and (max-width: 768px) {
     .course__container .learner__content .layout-panel {
         padding: 0;
