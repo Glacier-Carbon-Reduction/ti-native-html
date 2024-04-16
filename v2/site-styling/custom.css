@@ -3484,15 +3484,21 @@ body.license .dashboard__license-select .dashboard__license-select__form .field_
     padding-right: 0;
     padding-bottom: 0;
     padding-top: 0;
+    position: relative;
+}
+
+.learning-path_custom-layout .row.collapse.learning-path-timeline-milestone__header .expand-toggle-icon {
+    position: absolute;
+    right: 0;
+    top: 10px;
 }
 
 
-.learning-path_custom-layout .learning-path-timeline-milestone__header .learning-path-timeline-milestone__header-criterion {
+/* .learning-path_custom-layout .learning-path-timeline-milestone__header .learning-path-timeline-milestone__header-criterion {
     display: flex;
     align-items: center;
-    gap: 64px;
     justify-content: space-between;
-}
+} */
 
 .learning-path_custom-layout .learning-path-timeline-milestone__header .learning-path-timeline-milestone__header-criterion .expand-toggle-icon i {
     border: 2px solid var(--Ocean);
@@ -3677,6 +3683,18 @@ body.license .dashboard__license-select .dashboard__license-select__form .field_
         font-size: var(--font-size-lg);
     }
 
+    .learning-path_custom-layout .learning-path-timeline-milestone__header .learning-path-timeline-milestone__header-content {
+        padding-right: 45px;
+    }
+
+    .learning-path_custom-layout .learning-path-timeline-milestone__header .learning-path-timeline-milestone__header-content .learning-path-timeline-milestone__title {
+        font-size: var(--font-size-md);
+    }
+
+    .learning-path_custom-layout .learning-path-timeline-milestone__header .learning-path-criterion__value-container {
+        font-size: var(--font-size-md);
+    }
+
     .learning-path_custom-layout .learning-path-timeline-milestone-item__content {
         margin-left: 50px;
         margin-right: auto;
@@ -3689,6 +3707,16 @@ body.license .dashboard__license-select .dashboard__license-select__form .field_
     }
 }
 
+@media screen and (max-width: 768px) {
+    .learning-path_custom-layout .learning-path-timeline-milestone-item-circle {
+        display: none;
+    }
+
+    .learning-path-timeline-milestone-item__horizontal-line.learning-path-timeline-milestone-item__horizontal-line--certificate {
+        display: none;
+    }
+}
+
 @media screen and (min-width: 1024px) {
 
     .learning-path_custom-layout .learning-content-hero>* {
@@ -3698,7 +3726,6 @@ body.license .dashboard__license-select .dashboard__license-select__form .field_
     }
 
     .learning-path_custom-layout .row.collapse.learning-path-timeline-milestone__header {
-        top: 150px;
         /* left: 50%;
         position: absolute;
         transform: translateX(-50%); */
@@ -3707,6 +3734,10 @@ body.license .dashboard__license-select .dashboard__license-select__form .field_
         margin: auto;
         display: flex;
         justify-content: flex-end;
+    }
+
+    .learning-path_custom-layout .row.collapse.learning-path-timeline-milestone__header .learning-path-criterion-container {
+        margin-right: 100px;
     }
 
     .learning-path_custom-layout .learning-path-timeline-milestone-items .small-centered.columns {
