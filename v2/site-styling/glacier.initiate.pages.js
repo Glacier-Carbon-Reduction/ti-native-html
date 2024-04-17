@@ -1,10 +1,11 @@
-currentUserLanguage = window.CONF?.preload?.currentUser?.currentUser?.lang ||
-window?.CONF?.preload?.currentUser?.clients?.[0]?.defaultLanguage
+currentUserLanguage =
+  window.CONF?.preload?.currentUser?.currentUser?.lang ||
+  window?.CONF?.preload?.currentUser?.clients?.[0]?.defaultLanguage
 
 pageSwticherReachable = true
 
 function redirector() {
-  if (window.location.pathname.startsWith('/learning-paths/' && window.CONF?.preload?.currentUser?.currentUser.id)) {
+  if (window.location.pathname.startsWith('/learning-paths/') && window.CONF?.preload?.currentUser?.currentUser.id) {
     const path = window.location.pathname.split('/learning-paths/')[1]
     const newPath = window.location.origin + '/learn/learning-path/' + path
     window.location.replace(newPath)
@@ -13,8 +14,9 @@ function redirector() {
 
 async function waiter() {
   await new Promise((resolve) => setTimeout(resolve, 800))
-  currentUserLanguage = window.CONF?.preload?.currentUser?.currentUser?.lang ||
-  window?.CONF?.preload?.currentUser?.clients?.[0]?.defaultLanguage
+  currentUserLanguage =
+    window.CONF?.preload?.currentUser?.currentUser?.lang ||
+    window?.CONF?.preload?.currentUser?.clients?.[0]?.defaultLanguage
 
   const checker_1 = authPageModifiers()
   const checker_2 = redeemPageModifiers()
