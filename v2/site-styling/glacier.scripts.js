@@ -1368,7 +1368,7 @@ function iframeActivatePostMessage() {
 function iframeActiveWindowSizeListener() {
   window.addEventListener('message', (event) => {
     if (event.origin !== 'https://glacier-projects.vercel.app') {
-      console.log('iframeActiveWindowSizeListener: Origin not allowed')
+      console.log(`iframeActiveWindowSizeListener: ${event.origin} not allowed`)
       return
     }
 
