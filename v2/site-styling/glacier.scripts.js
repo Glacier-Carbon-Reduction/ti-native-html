@@ -914,6 +914,16 @@ function applyStylesForHasPsuedoClass() {
   }
 }
 
+function grabPageUrlAndAppendToButtonHref(){
+  const pageUrl = window.location.href
+  const validator = document.querySelector('.btn--primary')
+  if (validator) {
+    const currentHref = validator.getAttribute('href')
+    const newHref = currentHref + '?returnTo=' + pageUrl
+    validator.setAttribute('href', newHref)
+  }
+}
+
 async function courseInformationPageModifier() {
   const path = window.location.pathname.split('/')[1]
   if (path !== 'courses') return
@@ -1201,6 +1211,14 @@ async function checkForUpcomingLivestream() {
       localStorage.setItem('livestream-redirect', 'true')
       window.location.href = '/pages/live-stream'
     }
+  }
+}
+
+function learningPathRedirector() {
+  if (window.location.pathname.startsWith('/learning-paths/') && window.CONF?.preload?.currentUser?.currentUser.id) {
+    const path = window.location.pathname.split('/learning-paths/')[1]
+    const newPath = window.location.origin + '/learn/learning-path/' + path
+    window.location.replace(newPath)
   }
 }
 
