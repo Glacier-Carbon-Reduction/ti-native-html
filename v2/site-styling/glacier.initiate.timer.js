@@ -46,7 +46,7 @@ setInterval(function () {
       window.CONF?.preload?.currentUser?.currentUser?.lang ||
       window?.CONF?.preload?.currentUser?.clients?.[0]?.defaultLanguage
 
-    redirector()
+    learningPathRedirector()
     waiter()
     coursePageModifiers()
   }

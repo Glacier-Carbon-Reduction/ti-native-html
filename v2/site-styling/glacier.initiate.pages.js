@@ -4,14 +4,6 @@ currentUserLanguage =
 
 pageSwticherReachable = true
 
-function redirector() {
-  if (window.location.pathname.startsWith('/learning-paths/') && window.CONF?.preload?.currentUser?.currentUser.id) {
-    const path = window.location.pathname.split('/learning-paths/')[1]
-    const newPath = window.location.origin + '/learn/learning-path/' + path
-    window.location.replace(newPath)
-  }
-}
-
 async function waiter() {
   await new Promise((resolve) => setTimeout(resolve, 800))
   currentUserLanguage =
@@ -41,6 +33,6 @@ async function waiter() {
 }
 
 // showUnderConstructionPage()
-redirector()
+learningPathRedirector()
 waiter()
 coursePageModifiers()
