@@ -201,7 +201,7 @@ function updatePageHeader() {
               <svg width="20px" height="20px" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" > <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" ></path> </svg>
             </a>
             <div
-              style="top: 40px; width: 140%; margin-left: -50px;"
+              style="top: 40px; width: 140%; margin-left: -50px; min-width: 150px;"
               class="bg-white divide-y divide-gray-100 rounded shadow-lg absolute w-44 left-0 z-10 hidden lg:inline-flex accordion-content accordion-hidden"
             >
               <ul
@@ -914,7 +914,7 @@ function applyStylesForHasPsuedoClass() {
   }
 }
 
-function grabPageUrlAndAppendToButtonHref(){
+function grabPageUrlAndAppendToButtonHref() {
   const pageUrl = window.location.href
   const validator = document.querySelector('.btn--primary')
   if (validator) {
@@ -1367,7 +1367,10 @@ function iframeActivatePostMessage() {
 
 function iframeActiveWindowSizeListener() {
   window.addEventListener('message', (event) => {
-    if (event.origin !== 'https://glacier-projects.vercel.app') {
+    if (
+      !['https://glacier-projects.vercel.app', 'https://app.hubspot.com', 'https://tia.thoughtindustries.com'].includes
+        .event.origin
+    ) {
       console.log(`iframeActiveWindowSizeListener: ${event.origin} not allowed`)
       return
     }
