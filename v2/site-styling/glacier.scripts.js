@@ -617,7 +617,6 @@ function generateCertificateContainerTitle(event, visualProps) {
 }
 
 function generateCertificateSuspense(event, visualProps, conditionId) {
-  generateCertificateCanvas(event, visualProps, conditionId)
   let image = visualProps?.image
   if (image && image.startsWith('/img/')) {
     image = INTERNAL_SYSTEM_PATH + image.replace('.webp', '_base.jpeg')
@@ -669,8 +668,8 @@ async function generateCertificateCanvas(event, visualProps, conditionId) {
   const ctx = canvas.getContext('2d')
 
   // Set canvas size
-  canvas.width = 2528
-  canvas.height = 1656
+  canvas.width = 1270
+  canvas.height = 831
 
   let pangeaFont = new FontFace(
     'PangeaNorth',
@@ -685,30 +684,36 @@ async function generateCertificateCanvas(event, visualProps, conditionId) {
   const backgroundImage = new Image()
   backgroundImage.crossOrigin = 'anonymous'
   backgroundImage.src = image || '/img/certificate/certificate-blank.png'
-  backgroundImage.onload = () => {
-    ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height)
 
-    // Text styles and positions
-    ctx.fillStyle = visualProps.fontColor || '#FFFFFF'
-    ctx.font = 'normal 160px PangeaNorth'
-    ctx.textAlign = 'center'
+  await new Promise((resolve) => {
+    backgroundImage.onload = () => {
+      ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height)
 
-    // Draw the learner's name
-    wrapCanvasText({
-      ctx,
-      text: visualProps.learnerName,
-      x: canvas.width / 2,
-      y: canvas.height / 2.5,
-      maxWidth: canvas.width - 200,
-      lineHeight: 200
-    })
+      // Text styles and positions
+      ctx.fillStyle = visualProps.fontColor || '#FFFFFF'
+      ctx.font = 'normal 160px PangeaNorth'
+      ctx.textAlign = 'center'
 
-    // Convert the canvas to a data URL
-    const certificateImage = canvas.toDataURL()
+      // Draw the learner's name
+      wrapCanvasText({
+        ctx,
+        text: learnerName,
+        x: canvas.width / 2,
+        y: canvas.height / 2.5,
+        maxWidth: canvas.width - 200,
+        lineHeight: 200
+      })
 
-    let html
-    if (event === 'complete') {
-      html = `<div class="certificate-container certificate-complete" style="background-image: url('${certificateImage}');">
+      resolve() // Resolving the promise
+    }
+  })
+
+  // Convert the canvas to a data URL
+  const certificateImage = canvas.toDataURL()
+
+  let html
+  if (event === 'complete') {
+    html = `<div class="certificate-container certificate-complete" style="background-image: url('${certificateImage}');">
         <a href="/pages/glacier-certification?learnerId=${visualProps.learnerId}&conditionId=${conditionId}" target="_blank" rel="noopener noreferrer">
           <div class="certificate-text">
             <div class="certificate-centered-content">
@@ -720,8 +725,8 @@ async function generateCertificateCanvas(event, visualProps, conditionId) {
           </div>
         </a>
       </div>`
-    } else {
-      html = `<div class="certificate-container certificate-greyscale-filter" style="background-image: url('${image}');">
+  } else {
+    html = `<div class="certificate-container certificate-greyscale-filter" style="background-image: url('${image}');">
         <div class="certificate-text">
           <div class="certificate-centered-content">
             <p class="certificate-learner-name certificate-learner-name-min" style="color: ${visualProps.fontColor}">
@@ -731,12 +736,9 @@ async function generateCertificateCanvas(event, visualProps, conditionId) {
           <div class="certificate-download-text">.</div>
         </div>
     </div>`
-    }
-
-    console.log(html);
-
-    return html
   }
+
+  return html
 }
 
 async function checkForCertificate() {
@@ -808,7 +810,7 @@ async function checkForCertificate() {
               await new Promise((resolve) => setTimeout(resolve, 500))
             }
           }
-          const html = await generateCertificateSuspense(certStatus, visualProps, completionData.conditionId)
+          const html = await generateCertificateCanvas(certStatus, visualProps, completionData.conditionId)
           conditionalPropHtmls.push(html)
 
           if (completionData.userStatus === 'courses_complete_quiz_incomplete') {
@@ -868,7 +870,7 @@ async function checkForCertificate() {
           visualProps.learnerName = learnerName
           visualProps.learnerId = userId
           visualProps.fontColor = visualProps.fontColor || '#FFFFFF'
-          const html = await generateCertificateSuspense('complete', visualProps, certificate.conditionId)
+          const html = await generateCertificateCanvas('complete', visualProps, certificate.conditionId)
           certPropHtmls.push(html)
           if (stat === null) {
             stat = 2
