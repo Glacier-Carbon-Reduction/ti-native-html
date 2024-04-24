@@ -697,7 +697,7 @@ async function generateCertificateCanvas(event, visualProps, conditionId) {
       // Draw the learner's name
       wrapCanvasText({
         ctx,
-        text: learnerName,
+        text: visualProps.learnerName,
         x: canvas.width / 2,
         y: canvas.height / 2.5,
         maxWidth: canvas.width - 200,
