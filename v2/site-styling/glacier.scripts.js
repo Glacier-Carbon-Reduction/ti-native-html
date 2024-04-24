@@ -716,11 +716,6 @@ async function generateCertificateCanvas(event, visualProps, conditionId) {
     html = `<div class="certificate-container certificate-complete" style="background-image: url('${certificateImage}');">
         <a href="/pages/glacier-certification?learnerId=${visualProps.learnerId}&conditionId=${conditionId}" target="_blank" rel="noopener noreferrer">
           <div class="certificate-text">
-            <div class="certificate-centered-content">
-              <p class="certificate-learner-name certificate-learner-name-min" style="color: ${visualProps.fontColor}">
-                ${visualProps.learnerName}
-              </p>
-            </div>
             <div class="certificate-download-text">Download</div>
           </div>
         </a>
@@ -728,11 +723,6 @@ async function generateCertificateCanvas(event, visualProps, conditionId) {
   } else {
     html = `<div class="certificate-container certificate-greyscale-filter" style="background-image: url('${image}');">
         <div class="certificate-text">
-          <div class="certificate-centered-content">
-            <p class="certificate-learner-name certificate-learner-name-min" style="color: ${visualProps.fontColor}">
-              ${visualProps.learnerName}
-            </p>
-          </div>
           <div class="certificate-download-text">.</div>
         </div>
     </div>`
