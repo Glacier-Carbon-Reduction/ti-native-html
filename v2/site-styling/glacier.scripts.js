@@ -857,7 +857,7 @@ async function checkForCertificate() {
           visualProps.learnerName = learnerName
           visualProps.learnerId = userId
           visualProps.fontColor = visualProps.fontColor || '#FFFFFF'
-          const html = generateCertificateCanvas('complete', visualProps, certificate.conditionId)
+          const html = generateCertificateSuspense('complete', visualProps, certificate.conditionId)
           const sample = generateCertificateCanvas('complete', visualProps, certificate.conditionId)
           console.log(sample)
           certPropHtmls.push(html)
@@ -1482,6 +1482,7 @@ function iframeActivatePostMessage() {
 function iframeActiveWindowSizeListener() {
   window.addEventListener('message', (event) => {
     if (
+      event &&
       event.origin &&
       !['https://glacier-projects.vercel.app', 'https://app.hubspot.com', 'https://tia.thoughtindustries.com'].includes
         .event.origin
