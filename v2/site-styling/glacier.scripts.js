@@ -721,7 +721,7 @@ async function generateCertificateCanvas(event, visualProps, conditionId) {
         </a>
       </div>`
   } else {
-    html = `<div class="certificate-container certificate-greyscale-filter" style="background-image: url('${image}');">
+    html = `<div class="certificate-container certificate-greyscale-filter" style="background-image: url('${certificateImage}');">
         <div class="certificate-text">
           <div class="certificate-download-text">.</div>
         </div>
