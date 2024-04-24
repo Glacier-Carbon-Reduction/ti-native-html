@@ -534,7 +534,7 @@ async function dashboardUsageBasedTransformations() {
   showCatalogTitle()
 }
 
-function generateCetificateContainerTitle(event, visualProps) {
+function generateCertificateContainerTitle(event, visualProps) {
   const climateHourCertificate = document.querySelector('.climate-hours-certificate')
   const climateHourCertificateActive = !!climateHourCertificate
 
@@ -616,7 +616,7 @@ function generateCetificateContainerTitle(event, visualProps) {
   `
 }
 
-function generateCetificateSuspense(event, visualProps, conditionId) {
+function generateCertificateSuspense(event, visualProps, conditionId) {
   let image = visualProps?.image
   if (image && image.startsWith('/img/')) {
     image = INTERNAL_SYSTEM_PATH + image.replace('.webp', '_base.jpeg')
@@ -709,11 +709,6 @@ function generateCertificateCanvas(event, visualProps, conditionId) {
         html = `<div class="certificate-container certificate-complete" style="background-image: url('${certificateImage}');">
         <a href="/pages/glacier-certification?learnerId=${visualProps.learnerId}&conditionId=${conditionId}" target="_blank" rel="noopener noreferrer">
           <div class="certificate-text">
-            <div class="certificate-centered-content">
-              <p class="certificate-learner-name certificate-learner-name-min" style="color: ${visualProps.fontColor}">
-                ${visualProps.learnerName}
-              </p>
-            </div>
             <div class="certificate-download-text">Download</div>
           </div>
         </a>
@@ -721,11 +716,6 @@ function generateCertificateCanvas(event, visualProps, conditionId) {
       } else {
         html = `<div class="certificate-container certificate-greyscale-filter" style="background-image: url('${image}');">
         <div class="certificate-text">
-          <div class="certificate-centered-content">
-            <p class="certificate-learner-name certificate-learner-name-min" style="color: ${visualProps.fontColor}">
-              ${visualProps.learnerName}
-            </p>
-          </div>
           <div class="certificate-download-text">.</div>
         </div>
     </div>`
@@ -805,7 +795,9 @@ async function checkForCertificate() {
               await new Promise((resolve) => setTimeout(resolve, 500))
             }
           }
-          const html = generateCertificateCanvas(certStatus, visualProps, completionData.conditionId)
+          const html = generateCertificateSuspense(certStatus, visualProps, completionData.conditionId)
+          const sample = generateCertificateCanvas(certStatus, visualProps, completionData.conditionId)
+          console.log(sample)
           conditionalPropHtmls.push(html)
 
           if (completionData.userStatus === 'courses_complete_quiz_incomplete') {
@@ -866,6 +858,8 @@ async function checkForCertificate() {
           visualProps.learnerId = userId
           visualProps.fontColor = visualProps.fontColor || '#FFFFFF'
           const html = generateCertificateCanvas('complete', visualProps, certificate.conditionId)
+          const sample = generateCertificateCanvas('complete', visualProps, certificate.conditionId)
+          console.log(sample)
           certPropHtmls.push(html)
           if (stat === null) {
             stat = 2
@@ -908,7 +902,7 @@ async function checkForCertificate() {
             certificateContainer.appendChild(lastItemContainer)
           }
         }
-        const containerTitle = generateCetificateContainerTitle(completionStatus, visualPropsGlobal)
+        const containerTitle = generateCertificateContainerTitle(completionStatus, visualPropsGlobal)
         certificateContainerSection.innerHTML = containerTitle
         certificateContainerSection.appendChild(certificateContainer)
       }
