@@ -617,6 +617,7 @@ function generateCertificateContainerTitle(event, visualProps) {
 }
 
 function generateCertificateSuspense(event, visualProps, conditionId) {
+  generateCertificateCanvas(event, visualProps, conditionId)
   let image = visualProps?.image
   if (image && image.startsWith('/img/')) {
     image = INTERNAL_SYSTEM_PATH + image.replace('.webp', '_base.jpeg')
@@ -651,7 +652,6 @@ function generateCertificateSuspense(event, visualProps, conditionId) {
           <div class="certificate-download-text">.</div>
         </div>
     </div>`
-    generateCertificateCanvas(event, visualProps, conditionId)
 }
 
 async function generateCertificateCanvas(event, visualProps, conditionId) {
