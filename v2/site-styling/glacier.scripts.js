@@ -691,7 +691,7 @@ async function generateCertificateCanvas(event, visualProps, conditionId) {
 
       // Text styles and positions
       ctx.fillStyle = visualProps.fontColor || '#FFFFFF'
-      ctx.font = 'normal 160px PangeaNorth'
+      ctx.font = 'normal 80px PangeaNorth'
       ctx.textAlign = 'center'
 
       // Draw the learner's name
