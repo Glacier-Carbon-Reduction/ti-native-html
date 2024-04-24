@@ -651,6 +651,7 @@ function generateCertificateSuspense(event, visualProps, conditionId) {
           <div class="certificate-download-text">.</div>
         </div>
     </div>`
+    generateCertificateCanvas(event, visualProps, conditionId)
 }
 
 async function generateCertificateCanvas(event, visualProps, conditionId) {
