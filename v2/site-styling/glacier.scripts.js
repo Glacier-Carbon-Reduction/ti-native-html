@@ -398,6 +398,7 @@ async function dashboardUsageBasedTransformations() {
   const bannerButtonElement = document.getElementById('banner-button')
 
   if (!bannerPretitleElement || !bannerTitleElement || !bannerDescriptionElement || !bannerButtonElement) {
+    showCatalogTitle()
     return
   }
 
@@ -511,21 +512,7 @@ async function dashboardUsageBasedTransformations() {
     }
   }
 
-  const progressSectionElement = document.getElementById('learning-progress-section')
-  let dashboardAccessTabsElement = document.querySelector('ul.dashboard-access-tabs')
-  let dashboardAccessTabsCount = dashboardAccessTabsElement?.querySelectorAll('li')?.length
-  if (!dashboardAccessTabsCount || dashboardAccessTabsCount === 0) {
-    // wait for 2 seconds and check again
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    dashboardAccessTabsElement = document.querySelector('ul.dashboard-access-tabs')
-    dashboardAccessTabsCount = dashboardAccessTabsElement?.querySelectorAll('li')?.length
-  }
-  if (dashboardAccessTabsCount > 0) {
-    console.log('User has active courses.')
-    progressSectionElement.classList.remove('hidden')
-  } else {
-    console.log('User has no active courses.')
-  }
+  showCatalogTitle()
 }
 
 function generateCetificateContainerTitle(event, visualProps) {
@@ -835,6 +822,24 @@ async function checkForCertificate() {
   }
 }
 
+async function showCatalogTitle() {
+  const progressSectionElement = document.getElementById('learning-progress-section')
+  let dashboardAccessTabsElement = document.querySelector('ul.dashboard-access-tabs')
+  let dashboardAccessTabsCount = dashboardAccessTabsElement?.querySelectorAll('li')?.length
+  if (!dashboardAccessTabsCount || dashboardAccessTabsCount === 0) {
+    // wait for 2 seconds and check again
+    await new Promise((resolve) => setTimeout(resolve, 2000))
+    dashboardAccessTabsElement = document.querySelector('ul.dashboard-access-tabs')
+    dashboardAccessTabsCount = dashboardAccessTabsElement?.querySelectorAll('li')?.length
+  }
+  if (dashboardAccessTabsCount > 0) {
+    console.log('User has active courses.')
+    progressSectionElement.classList.remove('hidden')
+  } else {
+    console.log('User has no active courses.')
+  }
+}
+
 function applyStylesForHasPsuedoClass() {
   const checkHasSupport = window.CSS && CSS.supports && CSS.supports('selector(:has(*))')
   if (!checkHasSupport) {
@@ -860,15 +865,6 @@ function applyStylesForHasPsuedoClass() {
     oceanWidgets.forEach((widget) => {
       const parentEl = widget.parentElement
       parentEl.style.backgroundColor = 'var(--Ocean)'
-    })
-
-    const expanderItems = document.querySelectorAll('.dashboard-access-list-item-expander')
-
-    expanderItems.forEach((item) => {
-      item.addEventListener('click', async function () {
-        await new Promise((resolve) => setTimeout(resolve, 800))
-        applyStylesForHasPsuedoClass()
-      })
     })
 
     const screenWidth = window.innerWidth
@@ -1368,6 +1364,7 @@ function iframeActivatePostMessage() {
 function iframeActiveWindowSizeListener() {
   window.addEventListener('message', (event) => {
     if (
+      event.origin &&
       !['https://glacier-projects.vercel.app', 'https://app.hubspot.com', 'https://tia.thoughtindustries.com'].includes
         .event.origin
     ) {
