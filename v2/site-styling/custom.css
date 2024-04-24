@@ -2326,6 +2326,10 @@ hr {
     float: left;
 }
 
+.course__container.sidebar--open--right .sidebar__container.sidebar__container--right {
+    visibility: hidden;
+}
+
 @media screen and (max-width: 768px) {
     .course__container .learner__content .layout-panel {
         padding: 0;
@@ -2357,10 +2361,6 @@ hr {
     .course__container .learner__content .directional__nav {
         padding: 12px 20px;
     }
-
-    /* .sidebar--open--right .sidebar__container.sidebar__container--right {
-        width: 100%;
-    } */
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {

@@ -1218,6 +1218,27 @@ function learningPathRedirector() {
   }
 }
 
+async function clickCourseCompleteButtonOnSidebar() {
+  // if page url contains /learn/course/ and /course-completed
+  if (window.location.href.includes('/learn/course/') && window.location.href.includes('/course-completed')) {
+    console.log('course completed page detected')
+    let startTime = Date.now()
+    let completeButton
+    let i = 0
+    while (true) {
+      i++
+      completeButton = document.querySelector(
+        '.course__container.sidebar--open--right .sidebar__container.sidebar__container--right .btn.btn--primary.btn--expand'
+      )
+      if (completeButton || Date.now() - startTime > 6000) {
+        console.log('complete button found at iteration: ' + i)
+        break
+      }
+      await new Promise((resolve) => setTimeout(resolve, 500))
+    }
+  }
+}
+
 /**
  * Referral Systems
  */
