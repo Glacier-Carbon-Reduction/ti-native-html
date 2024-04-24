@@ -732,6 +732,8 @@ async function generateCertificateCanvas(event, visualProps, conditionId) {
     </div>`
     }
 
+    console.log(html);
+
     return html
   }
 }
@@ -805,7 +807,7 @@ async function checkForCertificate() {
               await new Promise((resolve) => setTimeout(resolve, 500))
             }
           }
-          const html = await generateCertificateCanvas(certStatus, visualProps, completionData.conditionId)
+          const html = await generateCertificateSuspense(certStatus, visualProps, completionData.conditionId)
           conditionalPropHtmls.push(html)
 
           if (completionData.userStatus === 'courses_complete_quiz_incomplete') {
@@ -865,7 +867,7 @@ async function checkForCertificate() {
           visualProps.learnerName = learnerName
           visualProps.learnerId = userId
           visualProps.fontColor = visualProps.fontColor || '#FFFFFF'
-          const html = await generateCertificateCanvas('complete', visualProps, certificate.conditionId)
+          const html = await generateCertificateSuspense('complete', visualProps, certificate.conditionId)
           certPropHtmls.push(html)
           if (stat === null) {
             stat = 2
