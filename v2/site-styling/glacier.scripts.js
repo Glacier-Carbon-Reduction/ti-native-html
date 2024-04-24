@@ -1232,6 +1232,7 @@ async function clickCourseCompleteButtonOnSidebar() {
       )
       if (completeButton || Date.now() - startTime > 6000) {
         console.log('complete button found at iteration: ' + i)
+        completeButton.click()
         break
       }
       await new Promise((resolve) => setTimeout(resolve, 500))
