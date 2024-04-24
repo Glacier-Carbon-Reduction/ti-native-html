@@ -57,6 +57,25 @@ function updateMessage(message) {
   if (alertBoxShell) alertBoxShell.textContent = message
 }
 
+function wrapCanvasText({ ctx, text, x, y, maxWidth, lineHeight }) {
+  const words = text.split(' ')
+  let line = ''
+
+  for (let n = 0; n < words.length; n++) {
+    const testLine = line + words[n] + ' '
+    const metrics = ctx.measureText(testLine)
+    const testWidth = metrics.width
+    if (testWidth > maxWidth && n > 0) {
+      ctx.fillText(line, x, y)
+      line = words[n] + ' '
+      y += lineHeight
+    } else {
+      line = testLine
+    }
+  }
+  ctx.fillText(line, x, y)
+}
+
 /**
  * LXP Level Functions
  */
@@ -634,6 +653,89 @@ function generateCetificateSuspense(event, visualProps, conditionId) {
     </div>`
 }
 
+function generateCertificateCanvas(event, visualProps, conditionId) {
+  let image = visualProps?.image
+  if (image && image.startsWith('/img/')) {
+    image = INTERNAL_SYSTEM_PATH + image.replace('.webp', '_base.jpeg')
+  } else if (image) {
+    image = image.replace('.webp', '_base.jpeg')
+  } else {
+    image = 'https://res.cloudinary.com/df1dbnp0x/image/upload/v1692944345/img/certificate/certificate-blank_base.jpg'
+  }
+
+  // Create a new canvas
+  const canvas = document.createElement('canvas')
+  const ctx = canvas.getContext('2d')
+
+  // Set canvas size
+  canvas.width = 2528
+  canvas.height = 1656
+
+  let pangeaFont = new FontFace(
+    'PangeaNorth',
+    "url('https://internal.glacier.eco/fonts/pangea/Pangea-Bold.woff2') format('woff2')"
+  )
+  pangeaFont.load().then((loadedFont) => {
+    // The font is loaded and ready to use
+    document.fonts.add(loadedFont)
+
+    // Background image
+    const backgroundImage = new Image()
+    backgroundImage.crossOrigin = 'anonymous'
+    backgroundImage.src = image || '/img/certificate/certificate-blank.png'
+    backgroundImage.onload = () => {
+      ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height)
+
+      // Text styles and positions
+      ctx.fillStyle = visualProps.fontColor || '#FFFFFF'
+      ctx.font = 'normal 160px PangeaNorth'
+      ctx.textAlign = 'center'
+
+      // Draw the learner's name
+      wrapCanvasText({
+        ctx,
+        text: learnerName,
+        x: canvas.width / 2,
+        y: canvas.height / 2.5,
+        maxWidth: canvas.width - 200,
+        lineHeight: 200
+      })
+
+      // Convert the canvas to a data URL
+      const certificateImage = canvas.toDataURL()
+
+      let html
+      if (event === 'complete') {
+        html = `<div class="certificate-container certificate-complete" style="background-image: url('${certificateImage}');">
+        <a href="/pages/glacier-certification?learnerId=${visualProps.learnerId}&conditionId=${conditionId}" target="_blank" rel="noopener noreferrer">
+          <div class="certificate-text">
+            <div class="certificate-centered-content">
+              <p class="certificate-learner-name certificate-learner-name-min" style="color: ${visualProps.fontColor}">
+                ${visualProps.learnerName}
+              </p>
+            </div>
+            <div class="certificate-download-text">Download</div>
+          </div>
+        </a>
+      </div>`
+      } else {
+        html = `<div class="certificate-container certificate-greyscale-filter" style="background-image: url('${image}');">
+        <div class="certificate-text">
+          <div class="certificate-centered-content">
+            <p class="certificate-learner-name certificate-learner-name-min" style="color: ${visualProps.fontColor}">
+              ${visualProps.learnerName}
+            </p>
+          </div>
+          <div class="certificate-download-text">.</div>
+        </div>
+    </div>`
+      }
+
+      return html
+    }
+  })
+}
+
 async function checkForCertificate() {
   const certificateContainerSection = document.getElementById('certificate-validate-container')
   const dynamicVideoEmbed = document.getElementById('lxp-intro-video')
@@ -703,7 +805,7 @@ async function checkForCertificate() {
               await new Promise((resolve) => setTimeout(resolve, 500))
             }
           }
-          const html = generateCetificateSuspense(certStatus, visualProps, completionData.conditionId)
+          const html = generateCertificateCanvas(certStatus, visualProps, completionData.conditionId)
           conditionalPropHtmls.push(html)
 
           if (completionData.userStatus === 'courses_complete_quiz_incomplete') {
@@ -763,7 +865,7 @@ async function checkForCertificate() {
           visualProps.learnerName = learnerName
           visualProps.learnerId = userId
           visualProps.fontColor = visualProps.fontColor || '#FFFFFF'
-          const html = generateCetificateSuspense('complete', visualProps, certificate.conditionId)
+          const html = generateCertificateCanvas('complete', visualProps, certificate.conditionId)
           certPropHtmls.push(html)
           if (stat === null) {
             stat = 2
