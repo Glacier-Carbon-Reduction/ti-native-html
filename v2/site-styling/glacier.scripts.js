@@ -1321,14 +1321,6 @@ async function clickCourseCompleteButtonOnSidebar() {
     window.location.href.includes('/learn/course/final-quiz/abschluss-der-masterclass/') &&
     window.location.href.includes('/course-completed')
   ) {
-    const elementToHide = document.querySelector(
-      '.course__container.sidebar--open--right .sidebar__container.sidebar__container--right'
-    )
-
-    if (elementToHide) {
-      elementToHide.style.visibility = 'hidden'
-    }
-
     console.log('course completed page detected')
     let startTime = Date.now()
     let completeButton
@@ -1344,6 +1336,17 @@ async function clickCourseCompleteButtonOnSidebar() {
         break
       }
       await new Promise((resolve) => setTimeout(resolve, 500))
+    }
+  } else if (
+    window.location.href.includes('/learn/course/') &&
+    window.location.href.includes('/course-completed')
+  ) {
+    const elementToShow = document.querySelector(
+      '.course__container.sidebar--open--right .sidebar__container.sidebar__container--right'
+    )
+
+    if (elementToShow) {
+      elementToShow.style.visibility = 'visible'
     }
   }
 }

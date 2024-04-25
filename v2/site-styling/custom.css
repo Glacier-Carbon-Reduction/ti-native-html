@@ -2326,9 +2326,9 @@ hr {
     float: left;
 }
 
-/* .course__container.sidebar--open--right .sidebar__container.sidebar__container--right {
+.course__container.sidebar--open--right .sidebar__container.sidebar__container--right {
     visibility: hidden;
-} */
+}
 
 @media screen and (max-width: 768px) {
     .course__container .learner__content .layout-panel {
