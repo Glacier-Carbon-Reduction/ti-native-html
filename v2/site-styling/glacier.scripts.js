@@ -1317,7 +1317,18 @@ function learningPathRedirector() {
 
 async function clickCourseCompleteButtonOnSidebar() {
   // if page url contains /learn/course/ and /course-completed
-  if (window.location.href.includes('/learn/course/') && window.location.href.includes('/course-completed')) {
+  if (
+    window.location.href.includes('/learn/course/final-quiz/abschluss-der-masterclass/') &&
+    window.location.href.includes('/course-completed')
+  ) {
+    const elementToHide = document.querySelector(
+      '.course__container.sidebar--open--right .sidebar__container.sidebar__container--right'
+    )
+
+    if (elementToHide) {
+      elementToHide.style.visibility = 'hidden'
+    }
+
     console.log('course completed page detected')
     let startTime = Date.now()
     let completeButton
