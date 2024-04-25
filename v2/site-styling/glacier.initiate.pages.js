@@ -23,7 +23,9 @@ async function waiter() {
     dashboardUsageBasedTransformations()
     applyStylesForHasPsuedoClass()
     embedWistiaVideo(currentUserLanguage === 'de' ? 'sh9w3ogy2l' : '1o3n779t75')
+    console.log('initiate from pager');
     clickCourseCompleteButtonOnSidebar()
+    console.log('complete from pager');
     catalogLearningPathTransformations()
     courseInformationPageModifier()
     iframeActiveWindowSizeListener()

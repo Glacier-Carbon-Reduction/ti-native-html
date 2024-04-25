@@ -1316,6 +1316,7 @@ function learningPathRedirector() {
 }
 
 async function clickCourseCompleteButtonOnSidebar() {
+  console.log('clickCourseCompleteButtonOnSidebar function called');
   // if page url contains /learn/course/ and /course-completed
   if (window.location.href.includes('/learn/course/') && window.location.href.includes('/course-completed')) {
     console.log('course completed page detected')
