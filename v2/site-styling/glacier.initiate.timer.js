@@ -17,7 +17,7 @@ async function waiter() {
   const checker_3 = updatePageHeader()
 
   if (!(checker_1 || checker_2 || checker_3)) {
-    console.log('Delayed waiter')
+    console.log('Delayed waiter: timer')
     waiter()
   } else {
     checkForUpcomingLivestream()
@@ -25,9 +25,7 @@ async function waiter() {
     dashboardUsageBasedTransformations()
     applyStylesForHasPsuedoClass()
     embedWistiaVideo(currentUserLanguage === 'de' ? 'sh9w3ogy2l' : '1o3n779t75')
-    console.log('initiate from timer');
     clickCourseCompleteButtonOnSidebar()
-    console.log('complete from timer');
     catalogLearningPathTransformations()
     courseInformationPageModifier()
     iframeActiveWindowSizeListener()
