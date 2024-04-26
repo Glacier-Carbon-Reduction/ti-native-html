@@ -1403,12 +1403,15 @@ async function toggleCatalogStyles() {
 
   switch (currentActiveText) {
     case 'Active Modules':
+    case 'Aktive Module':
+    case 'Lernpfade':
       activeModules.disabled = false
       completedModules.disabled = true
       certificateModules.disabled = true
       break
 
     case 'Completed':
+    case 'Abgeschlossen':
       activeModules.disabled = true
       completedModules.disabled = false
       certificateModules.disabled = true
@@ -1424,6 +1427,7 @@ async function toggleCatalogStyles() {
     default:
       activeModules.disabled = false
       completedModules.disabled = true
+      certificateModules.disabled = true
       break
   }
 
