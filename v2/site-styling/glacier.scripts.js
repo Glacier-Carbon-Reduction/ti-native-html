@@ -1280,7 +1280,9 @@ async function catalogLearningPathTransformations() {
 
 async function checkForUpcomingLivestream() {
   const panoramaId = window.CONF?.preload?.currentUser?.currentUser?.client?.id
-  const licenseId = window.CONF?.preload?.currentUser?.currentUser?.activeLicense
+  const licenseId =
+    window.CONF?.preload?.currentUser?.currentUser?.activeLicense ||
+    window.CONF?.preload?.currentUser?.currentUser?.allocatedLicenses[0]?.id
   const response = await fetch(
     `${INTERNAL_SYSTEM_PATH}/api/lxp/client/${panoramaId}/fetchClientProperties?subLicenseId=${licenseId}`
   )
