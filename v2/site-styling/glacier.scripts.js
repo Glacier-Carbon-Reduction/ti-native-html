@@ -1456,14 +1456,19 @@ async function toggleCatalogStyles() {
         innerButton.classList.add('btn--secondary')
         const description = element.querySelector('.dashboard-access-list-item__description')
         description.style.display = 'flex'
+        description.style.justifyContent = 'space-between'
         description.appendChild(innerButton)
       }
 
       const progressBar = innerSection.querySelector('.ember-view')
-      progressBar?.remove()
+      if (progressBar) {
+        progressBar.remove()
+        innerSection.prepend(progressBar)
+      }
 
-      innerSection.prepend(progressBar)
-      innerSection.prepend(titleElement)
+      if (titleElement) {
+        innerSection.prepend(titleElement)
+      }
     }
   })
 
