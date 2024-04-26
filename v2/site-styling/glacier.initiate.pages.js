@@ -26,6 +26,8 @@ async function waiter() {
     clickCourseCompleteButtonOnSidebar()
     catalogLearningPathTransformations()
     courseInformationPageModifier()
+    catalogExpanderEventHandler()
+    toggleCatalogStyles()
     iframeActiveWindowSizeListener()
     accountsPageModifiers()
     addOpenInNewTabButtonForPDF(4000)

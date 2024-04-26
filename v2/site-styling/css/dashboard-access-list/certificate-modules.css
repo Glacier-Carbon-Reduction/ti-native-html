@@ -1,0 +1,28 @@
+.dashboard-access .dashboard-access-list-item {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), url(https://res.cloudinary.com/df1dbnp0x/image/upload/v1702445650/img/brand/banner/Climate-Academy_Hero_g5rg7c.jpg), lightgray 50% / cover no-repeat !important;
+    background-size: cover;
+    background-position: center;
+    padding: 50px !important;
+    border-radius: 18px;
+}
+
+.dashboard-access .dashboard-access-list-item .medium-4.columns {
+    width: auto;
+}
+
+.dashboard-access .dashboard-access-list-item-expander__title {
+    color: white;
+}
+
+.dashboard-access .dashboard-access-list-item-expander__title:before {
+    content: " ";
+    background: url(https://res.cloudinary.com/df1dbnp0x/image/upload/v1714112428/img/props/certificate_qos3j0.svg);
+    background-size: contain;
+    background-position: center;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    margin-bottom: -12px;
+    margin-right: 16px;
+    margin-left: 16px;
+}

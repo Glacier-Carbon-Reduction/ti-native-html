@@ -1,0 +1,172 @@
+.dashboard-access-list-item-expansion .medium-8.columns {
+    padding: 18px 45px 18px 24px;
+}
+
+.dashboard-access-list-item-expansion > .row {
+    display: flex;
+    align-items: center;
+}
+
+.dashboard-access-list-item-expansion img {
+    width: auto;
+    height: fit-content;
+    aspect-ratio: 224 / 280;
+    border-radius: 8px;
+    object-fit: cover;
+    object-position: left;
+    filter: blur(1.5rem);
+}
+
+.dashboard-access-list-item-expansion .dashboard-access-list-item__description {
+    display: none;
+}
+
+.dashboard-access-list-item-expansion .dashboard-access-list-view-detail-page {
+    width: fit-content;
+    margin: 12px 0;
+}
+
+.dashboard-access-list-item-expansion .user-engagement-stat--hours,
+.dashboard-access-list-item-expansion .user-engagement-stat--collaborations,
+.dashboard-access-list-item-expansion .user-engagement-stat--percent-viewed {
+    display: none;
+}
+
+.dashboard-access-list-item-expansion .user-engagement-stat--percent-complete {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0px;
+    margin-top: -6px;
+}
+
+.dashboard-access-list-item-expansion .user-engagement-stat--percent-complete .user-engagement-stat__label,
+.dashboard-access-list-item-expansion .user-engagement-stat--percent-complete .user-engagement-stat__value,
+.dashboard-access-list-item-expansion .user-engagement-stat--percent-complete .user-engagement-stat__value--percent {
+    color: var(--Ocean);
+    font-size: var(--natural-size-md);
+    font-weight: var(--font-weight-bold);
+    font-family: PangeaText;
+    height: auto;
+    overflow: hidden;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.dashboard-access-list-item-expansion .user-engagement-stats ul {
+    margin: 0;
+}
+
+.dashboard-access-list-item-expansion .user-engagement-progress-bar .colorized .meter {
+    background: var(--Ocean);
+}
+
+.dashboard-access-list-item-expansion .user-engagement-stat--percent-complete .user-engagement-stat__value-container {
+    display: flex;
+    align-items: center;
+    line-height: normal;
+    margin-top: 0;
+    gap: 2px;
+}
+
+.dashboard-access-list-item .icon-navigatedown {
+    background: var(--Spring);
+    padding: 3.5px;
+    padding-top: 4px;
+    margin-right: 4px;
+    border-radius: 100px;
+    scale: 0.8;
+    height: 28px;
+    width: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.dashboard-access-list-item .icon-navigatedown:before {
+    content: "";
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.dashboard-access-list-item .icon-navigateright {
+    border: 2.5px solid var(--Spring);
+    padding: 1px;
+    margin-right: 4px;
+    border-radius: 100px;
+    scale: 0.8;
+    height: 28px;
+    width: 28px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.dashboard-access-list-item .icon-navigateright:before {
+    content: "";
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+.dashboard-access-list-item .icon-navigateright:hover {
+    background: var(--Spring);
+    transition: all 0.2s ease-in-out;
+}
+
+@media screen and (max-width: 425px) {
+
+    .dashboard-access-list-item-expansion .dashboard-access-list-view-detail-page {
+        width: fit-content;
+        margin-top: 18px;
+    }
+
+    .dashboard-access-list-item-expansion .user-engagement-stat--percent-complete {
+        margin-top: 0px;
+    }
+
+}
+
+
+
+@media screen and (min-width: 768px) {
+
+    .dashboard-access-list-item-expansion .columns:has(img) {
+        width: auto;
+    }
+
+    .dashboard-access-list-item-expansion .medium-4.columns:after {
+        content: "";
+        position: absolute;
+        top: 50%; 
+        left: 50%;
+        transform: translate(-50%, -50%); 
+        background: var(--Spring);
+        border-radius: 99px;
+        color: white;
+        font-family: 'ti-icons-rev2';
+        font-size: 65px;
+        padding: 5px 5px 5px 16px;
+        aspect-ratio: 1 / 1;
+        width: auto;
+        height: 100px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
+    .dashboard-access-list-item-expansion .dashboard-access-list-view-detail-page {
+        width: -webkit-fill-available;
+    }
+
+    .dashboard-access-list-item-expansion .columns:has(img) {
+        width: 23%;
+    }
+
+    .dashboard-access-list-item .medium-6 .btn--primary.btn--small {
+        margin-top: 0px;
+    }
+}

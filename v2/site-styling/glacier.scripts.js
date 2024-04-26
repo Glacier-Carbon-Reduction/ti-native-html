@@ -1337,10 +1337,7 @@ async function clickCourseCompleteButtonOnSidebar() {
       }
       await new Promise((resolve) => setTimeout(resolve, 500))
     }
-  } else if (
-    window.location.href.includes('/learn/course/') &&
-    window.location.href.includes('/course-completed')
-  ) {
+  } else if (window.location.href.includes('/learn/course/') && window.location.href.includes('/course-completed')) {
     const elementToShow = document.querySelector(
       '.course__container.sidebar--open--right .sidebar__container.sidebar__container--right'
     )
@@ -1349,6 +1346,122 @@ async function clickCourseCompleteButtonOnSidebar() {
       elementToShow.style.visibility = 'visible'
     }
   }
+}
+
+async function catalogExpanderEventHandler() {
+  let expanderItems = document.querySelectorAll('.dashboard-access-tab')
+  const maxAttempts = 20
+  let attempts = 0
+  while (!(expanderItems && expanderItems.length > 0) && attempts < maxAttempts) {
+    await new Promise((resolve) => setTimeout(resolve, 500))
+    expanderItems = document.querySelectorAll('.dashboard-access-tab')
+    attempts++
+  }
+
+  expanderItems.forEach((moduleButton) => {
+    moduleButton.addEventListener('click', async function () {
+      console.log('expanderItem', moduleButton.innerText)
+      await new Promise((resolve) => setTimeout(resolve, 800))
+      applyStylesForHasPsuedoClass()
+      toggleCatalogStyles()
+    })
+  })
+}
+
+async function toggleCatalogStyles() {
+  let listSection = document.querySelector('.dashboard-access section[aria-hidden="false"]')
+  const maxAttempts = 40
+  let attempts = 0
+
+  while (!listSection && attempts < maxAttempts) {
+    await new Promise((resolve) => setTimeout(resolve, 200))
+    listSection = document.querySelector('.dashboard-access section[aria-hidden="false"]')
+    attempts++
+  }
+
+  if (!listSection) {
+    console.log('Element not found')
+    return
+  }
+
+  listSection.style.visibility = 'hidden'
+
+  const validator = document.querySelector('.dashboard-access-list-item-expansion')
+  if (validator) {
+    listSection.style.visibility = 'visible'
+    return
+  }
+
+  const currentActive = document.querySelector('.dashboard-access-tab--active .dashboard-access-tab__label')
+  const currentActiveText = currentActive.innerText
+
+  const activeModules = document.getElementById('dashboard-access-list-active-modules').sheet
+  const completedModules = document.getElementById('dashboard-access-list-completed-modules').sheet
+  const certificateModules = document.getElementById('dashboard-access-list-certificate-modules').sheet
+
+  switch (currentActiveText) {
+    case 'Active Modules':
+      activeModules.disabled = false
+      completedModules.disabled = true
+      certificateModules.disabled = true
+      break
+
+    case 'Completed':
+      activeModules.disabled = true
+      completedModules.disabled = false
+      certificateModules.disabled = true
+      break
+
+    case 'Certificates':
+    case 'Badges':
+      activeModules.disabled = true
+      completedModules.disabled = true
+      certificateModules.disabled = false
+      break
+
+    default:
+      activeModules.disabled = false
+      completedModules.disabled = true
+      break
+  }
+
+  const listElementButton = document.querySelectorAll('.btn.dashboard-access-list-item-expander')
+  listElementButton.forEach((element) => {
+    element.click()
+  })
+
+  const listElements = document.querySelectorAll('.ember-view.dashboard-access-list-item')
+  listElements.forEach((element) => {
+    const titleElement = element.querySelector('.grid.grid-cols-12.gap-4.items-center')
+    // delete element from the dom
+    if (titleElement) {
+      titleElement.remove()
+      titleElement.querySelector('i')?.remove()
+      titleElement.style.borderBottom = 'none'
+    }
+
+    const innerSection = element.querySelector('.dashboard-access-list-item-expansion .medium-8.columns')
+    if (innerSection) {
+      const innerButton = element.querySelector('.dashboard-access-list-view-detail-page')
+
+      if (innerButton) {
+        innerButton.remove()
+        innerButton.classList.remove('btn--alt')
+        innerButton.classList.add('btn--secondary')
+        const description = element.querySelector('.dashboard-access-list-item__description')
+        description.style.display = 'flex'
+        description.appendChild(innerButton)
+      }
+
+      const progressBar = innerSection.querySelector('.ember-view')
+      progressBar?.remove()
+
+      innerSection.prepend(progressBar)
+      innerSection.prepend(titleElement)
+    }
+  })
+
+  listSection.style.visibility = 'visible'
 }
 
 /**
