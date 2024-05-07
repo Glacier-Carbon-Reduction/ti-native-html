@@ -2,7 +2,7 @@
     padding: 18px 45px 18px 24px;
 }
 
-.dashboard-access-list-item-expansion > .row {
+.dashboard-access-list-item-expansion>.row {
     display: flex;
     align-items: center;
 }
@@ -128,8 +128,17 @@
         margin-top: 0px;
     }
 
-}
+    .dashboard-access-list-item-expansion>.row {
+        flex-direction: column;
+        gap: 12px;
+    }
 
+    .dashboard-access-list-item-expansion>.row .btn--secondary {
+        margin-top: 12px;
+        width: fit-content;
+    }
+
+}
 
 
 @media screen and (min-width: 768px) {
@@ -141,9 +150,9 @@
     .dashboard-access-list-item-expansion .medium-4.columns:after {
         content: "";
         position: absolute;
-        top: 50%; 
+        top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%); 
+        transform: translate(-50%, -50%);
         background: var(--Spring);
         border-radius: 99px;
         color: white;

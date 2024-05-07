@@ -2,27 +2,53 @@
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), url(https://res.cloudinary.com/df1dbnp0x/image/upload/v1702445650/img/brand/banner/Climate-Academy_Hero_g5rg7c.jpg), lightgray 50% / cover no-repeat !important;
     background-size: cover;
     background-position: center;
-    padding: 50px !important;
+    padding: 30px !important;
     border-radius: 18px;
+    margin-bottom: 18px;
 }
 
-.dashboard-access .dashboard-access-list-item .medium-4.columns {
-    width: auto;
+.dashboard-access .dashboard-access-list-item .medium-4.columns,
+.dashboard-access .dashboard-access-list-item .medium-5.columns {
+    width: auto !important;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.dashboard-access .dashboard-access-list-item .medium-5.columns {
+    margin-bottom: 16px;
 }
 
 .dashboard-access .dashboard-access-list-item-expander__title {
     color: white;
 }
 
-.dashboard-access .dashboard-access-list-item-expander__title:before {
+.dashboard-access .dashboard-access-list-item .medium-5.columns:before {
     content: " ";
     background: url(https://res.cloudinary.com/df1dbnp0x/image/upload/v1714112428/img/props/certificate_qos3j0.svg);
     background-size: contain;
+    background-repeat: no-repeat;
     background-position: center;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     display: inline-block;
     margin-bottom: -12px;
     margin-right: 16px;
     margin-left: 16px;
+}
+
+.dashboard-access .dashboard-access-list-item-expander__title {
+    line-height: 120%;
+}
+
+@media screen and (max-width: 425px) {
+    .dashboard-access .dashboard-access-list-item .medium-4.columns {
+        float: left;
+    }
+
+    .dashboard-access .dashboard-access-list-item .medium-4.columns .btn--primary {
+        height: 45px;
+        padding: 5px 18px;
+        font-size: var(--natural-size-md);
+    }
 }

@@ -30,6 +30,7 @@ async function waiter() {
     courseInformationPageModifier()
     catalogExpanderEventHandler()
     toggleCatalogStyles()
+    applyLearningPathCatalogDesign()
     iframeActiveWindowSizeListener()
     accountsPageModifiers()
     addOpenInNewTabButtonForPDF(4000)

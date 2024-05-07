@@ -156,6 +156,7 @@
     .dashboard-access-list-item-expansion .dashboard-access-list-view-detail-page {
         width: -webkit-fill-available;
         max-width: 160px;
+        min-width: 160px;
     }
 
     .dashboard-access-list-item-expansion .columns:has(img) {

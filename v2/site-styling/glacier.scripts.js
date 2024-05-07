@@ -1439,11 +1439,19 @@ async function toggleCatalogStyles() {
   const listElements = document.querySelectorAll('.ember-view.dashboard-access-list-item')
   listElements.forEach((element) => {
     const titleElement = element.querySelector('.grid.grid-cols-12.gap-4.items-center')
+    const primaryButton = titleElement.querySelector('.btn.btn--primary')
+    let tagText = 'Start'
     // delete element from the dom
     if (titleElement) {
       titleElement.remove()
       titleElement.querySelector('i')?.remove()
       titleElement.style.borderBottom = 'none'
+
+      if (primaryButton) {
+        tagText = primaryButton.innerText
+        primaryButton.classList.remove('btn--primary', 'btn--small')
+        primaryButton.classList.add('btn--secondary')
+      }
     }
 
     const innerSection = element.querySelector('.dashboard-access-list-item-expansion .medium-8.columns')
@@ -1452,12 +1460,19 @@ async function toggleCatalogStyles() {
 
       if (innerButton) {
         innerButton.remove()
-        innerButton.classList.remove('btn--alt')
+        innerButton.classList.remove('btn--alt', 'btn--small')
         innerButton.classList.add('btn--secondary')
         const description = element.querySelector('.dashboard-access-list-item__description')
-        description.style.display = 'flex'
-        description.style.justifyContent = 'space-between'
         description.appendChild(innerButton)
+      } else if (primaryButton && !['Completed', 'Abgeschlossen'].includes(currentActiveText)) {
+        primaryButton.remove()
+        const description = element.querySelector('.dashboard-access-list-item__description')
+        description.appendChild(primaryButton)
+
+        const tagDiv = document.createElement('div')
+        tagDiv.classList.add('info-tag')
+        tagDiv.innerHTML = `<span>${tagText}</span>`
+        titleElement.appendChild(tagDiv)
       }
 
       const progressBar = innerSection.querySelector('.ember-view')
@@ -1471,6 +1486,60 @@ async function toggleCatalogStyles() {
       }
     }
   })
+
+  listSection.style.visibility = 'visible'
+}
+
+async function applyLearningPathCatalogDesign() {
+  let listSection = document.querySelector('.learning-path-custom-catelog.widget--catalog_standard')
+  let listItems = listSection?.querySelectorAll('.catalog-item')
+  const maxAttempts = 40
+  let attempts = 0
+
+  while (!(listSection && listItems && listItems.length > 0) && attempts < maxAttempts) {
+    await new Promise((resolve) => setTimeout(resolve, 200))
+    listSection = document.querySelector('.learning-path-custom-catelog.widget--catalog_standard')
+    listItems = listSection?.querySelectorAll('.catalog-item')
+    attempts++
+  }
+
+  if (!listSection) {
+    console.log('LearningPath element not found')
+    return
+  }
+
+  listItems.forEach((item) => {
+    if (item.querySelector('.catalog-list-item__completed')) {
+      console.log('Removing item')
+      item.remove()
+    }
+  })
+
+  listItems = listSection?.querySelectorAll('.catalog-item')
+  console.log(listItems.length)
+
+  listItems.forEach((item) => {
+    const title = item.querySelector('.catalog-list-item__title-container')
+    const tagDiv = document.createElement('div')
+    tagDiv.classList.add('info-tag')
+    tagDiv.innerHTML = '<span lang="de">Learnpfad</span><span lang="en">Learning Path</span>'
+    title.appendChild(tagDiv)
+
+    const body = item.querySelector('.catalog-list-item__body .medium-8.columns')
+    title.remove()
+    body.prepend(title)
+
+    const description = item.querySelector('.catalog-list-item__description')
+    // add button of class btn btn--secondary
+    const button = document.createElement('button')
+    button.classList.add('btn', 'btn--secondary')
+    button.style.minWidth = '150px'
+    button.innerHTML = '<span lang="de">Starten</span><span lang="en">Start</span>'
+    description.appendChild(button)
+  })
+
+  const title = document.getElementById('learning-path-custom-catelog-title')
+  title.style.display = 'block'
 
   listSection.style.visibility = 'visible'
 }
