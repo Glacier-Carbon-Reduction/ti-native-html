@@ -1082,6 +1082,9 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
 .dashboard-access .dashboard-access-list-item-expander {
     display: flex;
     gap: 5px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
 }
 
 .dashboard-access .dashboard-access-list-item-expander:hover>i {

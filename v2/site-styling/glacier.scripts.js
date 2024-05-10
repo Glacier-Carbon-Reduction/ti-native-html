@@ -1434,6 +1434,8 @@ async function toggleCatalogStyles() {
   const listElementButton = document.querySelectorAll('.btn.dashboard-access-list-item-expander')
   listElementButton.forEach((element) => {
     element.click()
+    element.classList.remove('btn','btn--link', 'btn--inherit-font')
+    element.removeAttribute('data-ember-action')
   })
 
   const listElements = document.querySelectorAll('.ember-view.dashboard-access-list-item')
