@@ -1434,15 +1434,18 @@ async function toggleCatalogStyles() {
   const listElementButton = document.querySelectorAll('.btn.dashboard-access-list-item-expander')
   listElementButton.forEach((element) => {
     element.click()
-    element.classList.remove('btn','btn--link', 'btn--inherit-font')
+    element.classList.remove('btn', 'btn--link', 'btn--inherit-font')
     element.removeAttribute('data-ember-action')
   })
 
   const listElements = document.querySelectorAll('.ember-view.dashboard-access-list-item')
   listElements.forEach((element) => {
     const titleElement = element.querySelector('.grid.grid-cols-12.gap-4.items-center')
-    const primaryButton = titleElement.querySelector('.btn.btn--primary')
+    const primaryButton =
+      titleElement.querySelector('.btn.btn--primary') || titleElement.querySelector('.btn.btn--secondary')
+    const innerButton = element.querySelector('.dashboard-access-list-view-detail-page')
     let tagText = 'Start'
+
     // delete element from the dom
     if (titleElement) {
       titleElement.remove()
@@ -1458,8 +1461,6 @@ async function toggleCatalogStyles() {
 
     const innerSection = element.querySelector('.dashboard-access-list-item-expansion .medium-8.columns')
     if (innerSection) {
-      const innerButton = element.querySelector('.dashboard-access-list-view-detail-page')
-
       if (innerButton) {
         innerButton.remove()
         innerButton.classList.remove('btn--alt', 'btn--small')
@@ -1468,8 +1469,10 @@ async function toggleCatalogStyles() {
         description.appendChild(innerButton)
       } else if (primaryButton && !['Completed', 'Abgeschlossen'].includes(currentActiveText)) {
         primaryButton.remove()
-        const description = element.querySelector('.dashboard-access-list-item__description')
-        description.appendChild(primaryButton)
+        if (!innerButton) {
+          const description = element.querySelector('.dashboard-access-list-item__description')
+          description.appendChild(primaryButton)
+        }
 
         const tagDiv = document.createElement('div')
         tagDiv.classList.add('info-tag')

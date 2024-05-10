@@ -1085,6 +1085,7 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
     background-color: transparent;
     border: none;
     padding: 0;
+    cursor: auto;
 }
 
 .dashboard-access .dashboard-access-list-item-expander:hover>i {
