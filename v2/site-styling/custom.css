@@ -1155,17 +1155,40 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
     color: var(--Ocean);
 }
 
+.learning-path-custom-catelog.widget--catalog_standard .catalog__ribbon {
+    color: var(--Ocean) !important;
+    background-color: var(--Spring) !important;
+    font-size: var(--natural-size-xs);
+    font-weight: var(--font-weight-medium);
+    line-height: 1;
+    max-width: 145px;
+    padding: 12px 24px;
+    position: absolute;
+    left: 0;
+    border-radius: 0 0 6px 0;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    top: 0;
+    white-space: nowrap;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .learning-path-custom-catelog.widget--catalog_standard .catalog-list-item__info {
     display: none;
 }
 
 .learning-path-custom-catelog.widget--catalog_standard .medium-8.columns {
     padding: 18px 45px 18px 24px;
+    position: unset;
 }
 
 .learning-path-custom-catelog.widget--catalog_standard .catalog-list-item__title-container {
     display: flex;
     justify-content: space-between;
+    position: unset;
 }
 
 .learning-path-custom-catelog.widget--catalog_standard .catalog-list-item__description {
@@ -1196,6 +1219,7 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
     flex-wrap: wrap;
     align-items: center;
     width: 100%;
+    position: relative;
 }
 
 .dashboard-access-list-item-expansion .info-tag,

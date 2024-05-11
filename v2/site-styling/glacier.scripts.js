@@ -1465,22 +1465,21 @@ async function toggleCatalogStyles() {
     if (innerSection) {
       if (innerButton) {
         innerButton.remove()
+        primaryButton?.remove()
         innerButton.classList.remove('btn--alt', 'btn--small')
         innerButton.classList.add('btn--secondary')
         const description = element.querySelector('.dashboard-access-list-item__description')
         description.appendChild(innerButton)
       } else if (primaryButton && !['Completed', 'Abgeschlossen'].includes(currentActiveText)) {
         primaryButton.remove()
-        if (!innerButton) {
-          const description = element.querySelector('.dashboard-access-list-item__description')
-          description.appendChild(primaryButton)
-        }
-
-        const tagDiv = document.createElement('div')
-        tagDiv.classList.add('info-tag')
-        tagDiv.innerHTML = `<span>${tagText}</span>`
-        titleElement.appendChild(tagDiv)
+        const description = element.querySelector('.dashboard-access-list-item__description')
+        description.appendChild(primaryButton)
       }
+
+      const tagDiv = document.createElement('div')
+      tagDiv.classList.add('info-tag')
+      tagDiv.innerHTML = `<span>${tagText}</span>`
+      titleElement.appendChild(tagDiv)
 
       const progressBar = innerSection.querySelector('.ember-view')
       if (progressBar) {
