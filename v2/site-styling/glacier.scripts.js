@@ -1320,7 +1320,9 @@ function learningPathRedirector() {
 async function clickCourseCompleteButtonOnSidebar() {
   // if page url contains /learn/course/ and /course-completed
   if (
-    window.location.href.includes('/learn/course/final-quiz/abschluss-der-masterclass/') &&
+    (window.location.href.includes('/learn/course/final-quiz/abschluss-der-masterclass/') ||
+      window.location.href.includes('/learn/course/feedback/feedback/') ||
+      window.location.href.includes('/learn/course/feedback-1/feedback/')) &&
     window.location.href.includes('/course-completed')
   ) {
     console.log('course completed page detected')
