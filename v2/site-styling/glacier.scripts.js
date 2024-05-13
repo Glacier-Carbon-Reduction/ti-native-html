@@ -1349,6 +1349,8 @@ async function clickCourseCompleteButtonOnSidebar() {
     if (elementToShow) {
       elementToShow.style.visibility = 'visible'
     }
+  } else if (window.location.href.includes('/feedback/feedback/')) {
+    interceptFeedbackSubmission()
   }
 }
 
@@ -1548,6 +1550,40 @@ async function applyLearningPathCatalogDesign() {
   title.style.display = 'block'
 
   listSection.style.visibility = 'visible'
+}
+
+async function interceptFeedbackSubmission() {
+  // How did you like the Climate Hours? => [0].variables.quizAttempt.questions[0].tableResponse.rows[0][1].value
+  // Would you like to refer the Climate Hours to your colleagues? => [0].variables.quizAttempt.questions[1].selectedChoice.value
+
+  const originalFetch = window.fetch
+
+  window.fetch = async function (...args) {
+    const requestUrl = args[0]
+    const graphqlEndpoint = '/graphql'
+
+    try {
+      const requestOptions = args[1]
+      const requestBody = requestOptions?.body ? JSON.parse(requestOptions.body) : null
+
+      if (
+        requestUrl === graphqlEndpoint &&
+        requestBody?.[0]?.variables?.quizAttempt?.questions?.[1]?.selectedChoice?.value
+      ) {
+        if (
+          Number([0].variables.quizAttempt.questions[0].tableResponse.rows[0][1].value) >= 4 &&
+          ([0].variables.quizAttempt.questions[1].selectedChoice.value === 'Ja' ||
+            [0].variables.quizAttempt.questions[1].selectedChoice.value === 'Yes')
+        ) {
+          glacierReferralModalHandler('feedback')
+        }
+      }
+    } catch (error) {
+      console.error('Error parsing request body or handling fetch')
+    }
+
+    return originalFetch(...args)
+  }
 }
 
 /**
