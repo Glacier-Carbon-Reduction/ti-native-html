@@ -1555,7 +1555,6 @@ async function applyLearningPathCatalogDesign() {
 async function interceptFeedbackSubmission() {
   // How did you like the Climate Hours? => [0].variables.quizAttempt.questions[0].tableResponse.rows[0][1].value
   // Would you like to refer the Climate Hours to your colleagues? => [0].variables.quizAttempt.questions[1].selectedChoice.value
-  console.log('Intercepting feedback submission')
   const originalFetch = window.fetch
 
   window.fetch = async function (...args) {
