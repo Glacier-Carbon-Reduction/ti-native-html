@@ -1565,25 +1565,15 @@ async function interceptFeedbackSubmission() {
     try {
       const requestOptions = args[1]
       const requestBody = requestOptions?.body ? JSON.parse(requestOptions.body) : null
+      const questions = requestBody?.[0]?.variables?.quizAttempt?.questions
 
-      if (
-        requestUrl === graphqlEndpoint &&
-        requestBody?.[0]?.variables?.quizAttempt?.questions?.[1]?.selectedChoice?.value
-      ) {
-        console.log('Feedback submitted')
+      if (requestUrl === graphqlEndpoint && questions?.[1]?.selectedChoice?.value) {
         if (
-          Number(requestBody[0].variables.quizAttempt.questions[0].tableResponse.rows[0][1].value) >= 4 &&
-          (requestBody[0].variables.quizAttempt.questions[1].selectedChoice.value === 'Ja' ||
-            requestBody[0].variables.quizAttempt.questions[1].selectedChoice.value === 'Yes')
+          Number(questions[0].tableResponse.rows[0][1].value) >= 4 &&
+          (questions[1].selectedChoice.value === 'Ja' || questions[1].selectedChoice.value === 'Yes')
         ) {
-          console.log('Feedback submitted successfully')
           glacierReferralModalHandler('feedback')
-        } else {
-          console.log('Feedback not submitted successfully', requestBody[0].variables.quizAttempt.questions)
         }
-      }
-      {
-        console.log('Feedback not submitted')
       }
     } catch (error) {
       console.error('Error parsing request body or handling fetch', error)
