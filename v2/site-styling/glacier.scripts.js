@@ -861,6 +861,11 @@ async function checkForCertificate() {
           visualProps.learnerId = userId
           visualProps.fontColor = visualProps.fontColor || '#FFFFFF'
           const html = await generateCertificateCanvas('complete', visualProps, certificate.conditionId)
+          
+          // clear all other certificates if user has a certificate (applicable for certainties)
+          if (window.CONF.preload?.currentUser?.clients[0]?.id === '9d20d754-8346-4536-beba-17aafa375c09') {
+            certPropHtmls = []
+          }
           certPropHtmls.push(html)
           if (stat === null) {
             stat = 2
