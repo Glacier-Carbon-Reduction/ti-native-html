@@ -861,7 +861,7 @@ async function checkForCertificate() {
           visualProps.learnerId = userId
           visualProps.fontColor = visualProps.fontColor || '#FFFFFF'
           const html = await generateCertificateCanvas('complete', visualProps, certificate.conditionId)
-          
+
           // clear all other certificates if user has a certificate (applicable for certainties)
           if (window.CONF.preload?.currentUser?.clients[0]?.id === '9d20d754-8346-4536-beba-17aafa375c09') {
             certPropHtmls = []
@@ -1483,10 +1483,21 @@ async function toggleCatalogStyles() {
         description.appendChild(primaryButton)
       }
 
-      const tagDiv = document.createElement('div')
-      tagDiv.classList.add('info-tag')
-      tagDiv.innerHTML = `<span>${tagText}</span>`
-      titleElement.appendChild(tagDiv)
+      if (currentActiveText === 'Completed' || currentActiveText === 'Abgeschlossen') {
+        const buttonHolder = titleElement.querySelector('.col-start-11.col-span-2.text-right')
+        buttonHolder.classList.remove('text-right')
+        buttonHolder.classList.add('text-center', 'flex', 'flex-col', 'gap-3')
+        const feedbackLink = document.createElement('a')
+        feedbackLink.classList.add('underline')
+        feedbackLink.href = '#'
+        feedbackLink.innerHTML = '<span lang="de">Zertifikat speichern</span><span lang="en">Save Certificate</span>'
+        buttonHolder.appendChild(feedbackLink)
+      } else {
+        const tagDiv = document.createElement('div')
+        tagDiv.classList.add('info-tag')
+        tagDiv.innerHTML = `<span>${tagText}</span>`
+        titleElement.appendChild(tagDiv)
+      }
 
       const progressBar = innerSection.querySelector('.ember-view')
       if (progressBar) {
