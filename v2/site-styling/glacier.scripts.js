@@ -1585,7 +1585,7 @@ async function interceptFeedbackSubmission() {
         console.log('Feedback not submitted');
       }
     } catch (error) {
-      console.error('Error parsing request body or handling fetch')
+      console.error('Error parsing request body or handling fetch', error)
     }
 
     return originalFetch(...args)
