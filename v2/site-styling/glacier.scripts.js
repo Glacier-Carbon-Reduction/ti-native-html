@@ -1555,7 +1555,7 @@ async function applyLearningPathCatalogDesign() {
 async function interceptFeedbackSubmission() {
   // How did you like the Climate Hours? => [0].variables.quizAttempt.questions[0].tableResponse.rows[0][1].value
   // Would you like to refer the Climate Hours to your colleagues? => [0].variables.quizAttempt.questions[1].selectedChoice.value
-  console.log('Intercepting feedback submission');
+  console.log('Intercepting feedback submission')
   const originalFetch = window.fetch
 
   window.fetch = async function (...args) {
@@ -1570,19 +1570,20 @@ async function interceptFeedbackSubmission() {
         requestUrl === graphqlEndpoint &&
         requestBody?.[0]?.variables?.quizAttempt?.questions?.[1]?.selectedChoice?.value
       ) {
-        console.log('Feedback submitted');
+        console.log('Feedback submitted')
         if (
-          Number([0].variables.quizAttempt.questions[0].tableResponse.rows[0][1].value) >= 4 &&
-          ([0].variables.quizAttempt.questions[1].selectedChoice.value === 'Ja' ||
-            [0].variables.quizAttempt.questions[1].selectedChoice.value === 'Yes')
+          Number(requestBody[0].variables.quizAttempt.questions[0].tableResponse.rows[0][1].value) >= 4 &&
+          (requestBody[0].variables.quizAttempt.questions[1].selectedChoice.value === 'Ja' ||
+            requestBody[0].variables.quizAttempt.questions[1].selectedChoice.value === 'Yes')
         ) {
-          console.log('Feedback submitted successfully');
+          console.log('Feedback submitted successfully')
           glacierReferralModalHandler('feedback')
         } else {
-          console.log('Feedback not submitted successfully');
+          console.log('Feedback not submitted successfully', requestBody[0].variables.quizAttempt.questions)
         }
-      }{
-        console.log('Feedback not submitted');
+      }
+      {
+        console.log('Feedback not submitted')
       }
     } catch (error) {
       console.error('Error parsing request body or handling fetch', error)
