@@ -1287,7 +1287,7 @@ async function checkForUpcomingLivestream() {
   const panoramaId = window.CONF?.preload?.currentUser?.currentUser?.client?.id
   const licenseId =
     window.CONF?.preload?.currentUser?.currentUser?.activeLicense ||
-    window.CONF?.preload?.currentUser?.currentUser?.allocatedLicenses[0]?.id
+    window.CONF?.preload?.currentUser?.currentUser?.allocatedLicenses?.[0]?.id
   const response = await fetch(
     `${INTERNAL_SYSTEM_PATH}/api/lxp/client/${panoramaId}/fetchClientProperties?subLicenseId=${licenseId}`
   )
@@ -1950,7 +1950,7 @@ function trackCodeRedemptions() {
   console.log('tracking code redemptions')
   const submitButton = document.querySelector('.widget--redemption-form .btn.btn--primary.btn--expand')
 
-  submitButton.addEventListener('click', async function () {
+  submitButton?.addEventListener('click', async function () {
     const queryString = window.location.search
     const urlParams = new URLSearchParams(queryString)
     let emailInput = document.querySelector('input[placeholder="E-Mail-Adresse"]')
@@ -2135,9 +2135,8 @@ async function performDelayedTransformations() {
 
 function redeemPageModifiers() {
   if (window.location.href.includes('/redeem')) {
-    if (window.CONF?.preload?.currentUser?.currentUser) {
-      // window.location.href = '/learn/dashboard'
-      console.log(window.CONF?.preload?.currentUser?.currentUser);
+    if (window.CONF?.preload?.currentUser?.currentUser?.id) {
+      window.location.href = '/learn/dashboard'
     }
     console.log('redeem page')
     trackCodeRedemptions()
