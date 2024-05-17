@@ -1100,6 +1100,13 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
     font-weight: var(--font-weight-semibold);
     line-height: 160%;
     color: var(--Ocean);
+    text-align: left;
+}
+
+.dashboard-access .btn--primary,
+.dashboard-access .btn--secondary,
+.dashboard-access a.underline {
+    width: max-content;
 }
 
 /* .dashboard-access-list-item-expansion .row {

@@ -2135,6 +2135,9 @@ async function performDelayedTransformations() {
 
 function redeemPageModifiers() {
   if (window.location.href.includes('/redeem')) {
+    if (window.CONF?.preload?.currentUser?.currentUser) {
+      window.location.href = '/learn/dashboard'
+    }
     console.log('redeem page')
     trackCodeRedemptions()
     performRedemptionPageTransformations()
