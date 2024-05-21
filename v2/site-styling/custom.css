@@ -3138,6 +3138,10 @@ input[type='password']:focus {
     font-size: 14px;
 }
 
+.redeem .already-member span {
+    font-size: 0.8rem;
+}
+
 /* 
 * Profile Page Styling
 */
