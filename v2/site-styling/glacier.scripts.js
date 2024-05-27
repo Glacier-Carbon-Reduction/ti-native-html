@@ -803,14 +803,9 @@ async function checkForCertificate() {
           const html = await generateCertificateCanvas(certStatus, visualProps, completionData.conditionId)
           // clear all other certificates if user has a certificate (applicable for certainties)
           if (window.CONF.preload?.currentUser?.clients[0]?.id === '9d20d754-8346-4536-beba-17aafa375c09') {
-            if (conditionalPropHtmls.length === 0) {
-              conditionalPropHtmls.push(html)
-            } else {
-              console.log('User has a certificate, clearing all other certificates')
-            }
-          } else {
-            conditionalPropHtmls.push(html)
+            conditionalPropHtmls = []
           }
+          conditionalPropHtmls.push(html)
 
           if (completionData.userStatus === 'courses_complete_quiz_incomplete') {
             const hiddenQuiz = document.querySelectorAll('.hidden-closing-feedback')

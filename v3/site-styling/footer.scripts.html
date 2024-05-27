@@ -1,0 +1,17 @@
+<script defer>
+  watchLanguageChange()
+
+  async function mainWaiter() {
+    await new Promise((resolve) => setTimeout(resolve, 800))
+    learningPathRedirector()
+    authPageModifiers()
+    redeemPageModifiers()
+    registerPageModifiers()
+  }
+
+  mainWaiter()
+</script>
+<script
+  src="https://cdn.jsdelivr.net/gh/Glacier-Carbon-Reduction/ti-native-html@1.2.35.15/v2/site-styling/glacier.initiate.timer.js"
+  defer=""
+></script>
