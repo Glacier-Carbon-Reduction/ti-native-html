@@ -619,7 +619,9 @@
     }
 
     let image = visualProps?.image
-    if (image && image.startsWith('/img/')) {
+    if (visualProps?.propImage && visualProps?.propImage !== '') {
+      image = visualProps?.propImage
+    } else if (image && image.startsWith('/img/')) {
       image = INTERNAL_SYSTEM_PATH + image.replace('.webp', '_base.jpeg')
     } else if (image) {
       image = image.replace('.webp', '_base.jpeg')
