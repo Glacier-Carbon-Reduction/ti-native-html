@@ -1,8 +1,5 @@
 <script>
-  currentUserLanguage =
-    window.CONF?.preload?.currentUser?.currentUser?.lang ||
-    window?.CONF?.preload?.currentUser?.clients?.[0]?.defaultLanguage
-
+  findLanguage()
   pageSwticherReachable = true
 
   async function waiter() {
@@ -31,6 +28,7 @@
       accountsPageModifiers()
       addOpenInNewTabButtonForPDF(4000)
       updateReferralAcceptance()
+      authPageModifiers()
     }
   }
 

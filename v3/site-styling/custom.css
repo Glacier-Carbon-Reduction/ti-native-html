@@ -1379,6 +1379,7 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
 
 .learner__language__selector .learner__language__selector__btn ul li {
     background-color: var(--Grey);
+    margin-top: 5px;
 }
 
 .learner__language__selector .language-selector-content:hover,
@@ -1392,9 +1393,9 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
 }
 
 /* hide all n less than 6 */
-.learner__language__selector .learner__language__selector__btn ul li:nth-child(-n+6) {
+/* .learner__language__selector .learner__language__selector__btn ul li:nth-child(-n+6) {
     display: none;
-}
+} */
 
 /* 
 * Manager section
@@ -3692,10 +3693,26 @@ input[type='password']:focus {
 }
 
 .redeem .widget__subtitle::before {
-    content: 'Register';
     font-size: 2rem;
     text-align: center;
     font-weight: 600;
+}
+
+.widget--redemption-form.widget--redemption-form_standard > div {
+    background-color: #ffffffba;
+    padding: 35px;
+    border-radius: 20px;
+    border: 2px white solid;
+}
+
+@media screen and (min-width: 768px) {
+    .widget--redemption-form .small-12.columns.medium-10 {
+        width: 75%;
+    }
+
+    .widget--redemption-form .small-12.columns.medium-2 {
+        width: 23%;
+    }
 }
 
 

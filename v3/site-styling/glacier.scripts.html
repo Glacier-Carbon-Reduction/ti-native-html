@@ -31,9 +31,6 @@
    */
 
   let INTERNAL_SYSTEM_PATH = 'https://internal.glacier.eco'
-  let currentUserLanguage =
-    window.CONF?.preload?.currentUser?.currentUser?.lang ||
-    window?.CONF?.preload?.currentUser?.clients?.[0]?.defaultLanguage
   let languageWatcherActive = false
   let pageSwticherReachable = false
   let unreachablePageSwitherCodeInitiated = false
@@ -1251,24 +1248,18 @@
     }
   }
 
+  function findLanguage() {
+    currentUserLanguage =
+      window.CONF?.preload?.currentUser?.currentUser?.lang ||
+      window?.CONF?.preload?.currentUser?.clients?.[0]?.defaultLanguage ||
+      window?.CONF?.preload?.company?.lang
+  }
+
   function watchLanguageChange() {
-    if (window.CONF?.preload?.currentUser.currentUser.lang && !languageWatcherActive) {
-      watchNestedProperty(window.CONF.preload.currentUser.currentUser, 'lang', (newValue) => {
-        console.log('Language watcher changed to:', newValue)
-        const langStylesheet = document.getElementById('lang-stylesheet')
-        if (langStylesheet) {
-          if (newValue === 'de') {
-            langStylesheet.innerHTML = `
-          html [lang="en"] {
-              display: none;
-          }
-          
-          :root {
-            --CustomText-MyAccount: "Mein Konto";
-            --CustomText-Course-NextBtn: "Weiter";
-          }`
-          } else {
-            langStylesheet.innerHTML = `
+    findLanguage()
+    const langStylesheet = document.getElementById('lang-stylesheet')
+    const languguageStylesheet = {
+      en: `
           html [lang="de"] {
               display: none;
           }
@@ -1276,23 +1267,50 @@
           :root {
               --CustomText-MyAccount: "My Account";
               --CustomText-Course-NextBtn: "Next";
-          }`
           }
+
+          .redeem .widget__subtitle::before {
+            content: 'Register';
+          }
+          
+          `,
+      de: `
+          html [lang="en"] {
+              display: none;
+          }
+          
+          :root {
+            --CustomText-MyAccount: "Mein Konto";
+            --CustomText-Course-NextBtn: "Weiter";
+          }
+          
+          .redeem .widget__subtitle::before {
+            content: 'Registrieren';
+          }
+          
+          `
+    }
+
+    if (langStylesheet && window.CONF?.preload?.currentUser.currentUser.lang && !languageWatcherActive) {
+      watchNestedProperty(window.CONF.preload.currentUser.currentUser, 'lang', (newValue) => {
+        console.log('Language watcher changed to:', newValue)
+        if (newValue === 'de') {
+          langStylesheet.innerHTML = languguageStylesheet.de
+        } else {
+          langStylesheet.innerHTML = languguageStylesheet.en
         }
       })
 
       languageWatcherActive = true
-    } else if (!window.CONF?.preload?.currentUser.currentUser.lang) {
+    } else if (langStylesheet && currentUserLanguage) {
       console.log('Language static changed to:', currentUserLanguage)
-      const langStylesheetDE = document.getElementById('lang-stylesheet-de').sheet
-      const langStylesheetEN = document.getElementById('lang-stylesheet-en').sheet
       if (currentUserLanguage === 'de') {
-        langStylesheetDE.disabled = false
-        langStylesheetEN.disabled = true
+        langStylesheet.innerHTML = languguageStylesheet.de
       } else {
-        langStylesheetDE.disabled = true
-        langStylesheetEN.disabled = false
+        langStylesheet.innerHTML = languguageStylesheet.en
       }
+    } else {
+      console.log('Language sheet not found')
     }
   }
 
@@ -1876,7 +1894,11 @@
     if (!pageContainer || pageContainer.classList.contains('refresh-validator')) {
       return
     }
-    pageContainer.classList.add('refresh-validator')
+
+    const bannerLogo = pageContainer.querySelector('.company__beta-logo')
+    if (bannerLogo) {
+      bannerLogo.innerHTML = `<img src="https://d3i9g4671ronu3.cloudfront.net/thoughtindustries-eu/image/upload/a_exif,c_fit,t_ti_company_logo_v6/v1/course-uploads/3eedd705-0168-431d-9a90-991aebaa12db/8pud1o1b2utg-glacier_logo_climateacademy.png" alt="Glacier ">`
+    }
 
     var footerLogo =
       'https://glacier-projects.vercel.app/img/brand/logos/01_glacier_logo/horizontal/glacier_logo_horizontal_1C_white.png'
@@ -1946,6 +1968,7 @@
     </div>`
 
     pageContainer.appendChild(footerContainer)
+    pageContainer.classList.add('refresh-validator')
   }
 
   function changeGermanTextsOnPref() {
