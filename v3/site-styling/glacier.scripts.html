@@ -377,7 +377,7 @@
 
     document.addEventListener('click', function (event) {
       const navMenu = document.getElementById('accordion-nav-menu')
-      const navMenuContent = navMenu.querySelector('.accordion-content')
+      const navMenuContent = navMenu?.querySelector('.accordion-content')
       if (
         navMenuContent &&
         navMenuContent.style.maxHeight &&
@@ -1386,9 +1386,65 @@
     }
   }
 
+  function pseudoEndModuleWithHiddenBackground() {
+    const sidebarContainer = document.querySelector('.course__container .sidebar__container--right')
+    if (sidebarContainer) {
+      sidebarContainer.classList.add('hidden')
+    }
+
+    const completedOverlay = document.querySelector('.completed-section__overlay')
+    if (completedOverlay) {
+      completedOverlay.classList.add('force_exit')
+    }
+
+    const directionalNav = document.querySelectorAll('.course__container .learner__content .directional__nav')
+    if (directionalNav?.[1]) {
+      directionalNav[1].classList.add('hidden')
+    }
+  }
+
   async function clickCourseCompleteButtonOnSidebar() {
-    // if page url contains /learn/course/ and /course-completed
     if (
+      window.location.href.includes('klimawandel-1x1-tech-check/klimawandel-1x1') &&
+      window.location.href.includes('/course-completed')
+    ) {
+      const elementToShow = document.querySelector(
+        '.course__container.sidebar--open--right .sidebar__container.sidebar__container--right'
+      )
+
+      if (elementToShow) {
+        elementToShow.style.visibility = 'visible'
+      }
+
+      // pseudoEndModuleWithHiddenBackground is a function that will be called when the button is clicked
+      console.log('SCORM connect course completed page detected')
+      let startTime = Date.now()
+      let completeButton
+      let i = 0
+      while (true) {
+        i++
+        completeButton = document.querySelector(
+          '.course__container.sidebar--open--right .sidebar__container.sidebar__container--right .btn.btn--primary.btn--expand'
+        )
+        if (completeButton || Date.now() - startTime > 6000) {
+          const parentElement = completeButton.parentElement
+          const buttonText = completeButton.innerText
+          console.log('complete button found at iteration: ' + i)
+          await new Promise((resolve) => setTimeout(resolve, 500))
+          completeButton.remove()
+
+          // create new button with same class
+          const newButton = document.createElement('button')
+          newButton.classList.add('btn', 'btn--primary', 'btn--expand')
+          newButton.innerText = buttonText
+          newButton.onclick = pseudoEndModuleWithHiddenBackground
+          parentElement.appendChild(newButton)
+          break
+        }
+        await new Promise((resolve) => setTimeout(resolve, 500))
+      }
+    } else if (
+      // auto complete feedback modules
       (window.location.href.includes('/learn/course/final-quiz/abschluss-der-masterclass/') ||
         window.location.href.includes('/learn/course/feedback/feedback/') ||
         window.location.href.includes('/learn/course/feedback-1/feedback/')) &&
