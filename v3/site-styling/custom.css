@@ -464,6 +464,8 @@
     --Meadow-Dark: #1B8D80;
     --Spring: #6DD4AD;
     --Spring-Dark: #5FBC99;
+    --Watermelon: #FF4D4D;
+    --Watermelon-Dark: #D00000;
     --desktop-device-width: 1518px;
     --desktop-content-width: 1200px;
     --Text: #424141;
@@ -1374,7 +1376,11 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
 }
 
 .learner__language__selector .language-selector-content {
-    background-color: var(--Spring);
+    height: 50px;
+    color: transparent;
+    background-image: url('https://res.cloudinary.com/df1dbnp0x/image/upload/v1718703557/img/props/Language-Switch_wk9ywo.svg');
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .learner__language__selector .learner__language__selector__btn ul li {
@@ -1382,14 +1388,14 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
     margin-top: 5px;
 }
 
-.learner__language__selector .language-selector-content:hover,
+/* .learner__language__selector .language-selector-content:hover, */
 .learner__language__selector .learner__language__selector__btn ul li:hover {
     background-color: var(--Spring-Dark);
 }
 
 .learner__language__selector .learner__language__selector__btn ul {
     background-color: transparent;
-    bottom: 35px;
+    bottom: 50px;
 }
 
 /* hide all n less than 6 */
@@ -2632,6 +2638,21 @@ hr {
     display: none;
 }
 
+.course__container .completed-section__overlay.force_exit::before {
+    content: 'Du bist mit diesem Kurs fertig und kannst das Fenster jetzt schließen.';
+    font-size: 44px;
+    line-height: 110%;
+    font-weight: 600;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    height: 100dvh;
+    align-items: center;
+    max-width: 80%;
+    color: var(--Ocean);
+}
+
 .course__container .sidebar__container--right {
     z-index: 300010;
     background: white;
@@ -3385,6 +3406,13 @@ body.learn.course #hubspot-messages-iframe-container {
     font-weight: var(--font-weight-semibold);
 }
 
+.course__container .quiz__container--assessment .required,
+.course__container .quiz__container--learner .required {
+    color: red;
+    top: -10px;
+    left: 10px;
+}
+
 .course__container .topic__container__match-pair-set .card__label__button {
     min-height: 80px;
     padding: 5px 18px;
@@ -3474,7 +3502,8 @@ body.learn.course #hubspot-messages-iframe-container {
     background-repeat: no-repeat;
     background-size: cover, contain, cover;
     background-position: center, right, left;
-    background-image: linear-gradient(to bottom,
+    background-image: url('https://res.cloudinary.com/df1dbnp0x/image/upload/v1694435568/img/brand/backgrounds/background-nature-5_oaxbo8.jpg');
+    /* background-image: linear-gradient(to bottom,
             rgba(0, 0, 0, 0.7),
             rgba(0, 0, 0, 0.4) 5%,
             rgba(0, 0, 0, 0.2) 10%,
@@ -3484,7 +3513,7 @@ body.learn.course #hubspot-messages-iframe-container {
             rgba(0, 0, 0, 0.4) 95%,
             rgba(0, 0, 0, 0.7)),
         url('https://res.cloudinary.com/df1dbnp0x/image/upload/v1694439186/img/brand/backgrounds/squigly_vlo9z3.svg'),
-        url('https://res.cloudinary.com/df1dbnp0x/image/upload/v1694435568/img/brand/backgrounds/background-nature-5_oaxbo8.jpg');
+        url('https://res.cloudinary.com/df1dbnp0x/image/upload/v1694435568/img/brand/backgrounds/background-nature-5_oaxbo8.jpg'); */
 }
 
 .session:has(.session__container) {
@@ -3515,37 +3544,111 @@ body.learn.course #hubspot-messages-iframe-container {
     margin-top: 2rem
 }
 
-.session .session__container .alert-box {
-    border-radius: 10px;
-    font-size: 1rem;
-    margin-top: 2rem;
-    font-family: PangeaText;
+.session .small-6.small-centered.columns {
+    width: 99%;
 }
 
-.session .session__container .alert-box.success {
-    background-color: var(--Spring);
-    color: var(--Ocean);
+.session .alert-box {
+    margin-top: 2rem;
+    font-family: PangeaText;
+    font-size: 15px;
+    font-weight: 400;
+    display: flex;
+    padding: 8px 12px;
+    gap: 12px;
+    align-items: center;
+    border-radius: 8px;
+    background: rgba(208, 0, 0, 0.15);
+    color: var(--Watermelon-Dark);
+}
+
+.session .alert-box::before {
+    content: "";
+    font-family: ti-icons-rev2 !important;
+    font-size: 18px;
+}
+
+.session .alert-box.secondary {
+    background-color: #cbcbcb;
+    color: #333;
+}
+
+.session .alert-box.success {
+    background: rgba(27, 141, 128, 0.15);
+    color: var(--Meadow-Dark);
+}
+
+.session .alert-box.success::before {
+    content: "";
+    background: var(--Meadow-Dark);
+    height: 20px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    border-radius: 99px;
+    color: white;
+}
+
+.session input.custom-input-error {
+    border: 1px solid var(--Watermelon-Dark);
+}
+
+/* .session input.custom-input-error::after {
+    content: "";
+    font-family: ti-icons-rev2 !important;
+    font-size: 18px;
+    color: var(--Watermelon-Dark);
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+} */
+
+.session .custom-input-error-message {
+    color: var(--Watermelon-Dark);
+    font-size: var(--natural-size-sm);
+    margin-top: -10px;
+    text-align: right;
+}
+
+.session .custom-input-error-message-left {
+    color: var(--Watermelon-Dark);
+    font-size: var(--natural-size-sm);
 }
 
 .session .session__container {
     padding: 3rem;
-    border: 3px solid #ffffffb2;
-    border-radius: 20px;
-    background: linear-gradient(137.86deg,
+    /* border: 3px solid #ffffffb2; */
+    /* border-radius: 20px; */
+    /* background: linear-gradient(137.86deg,
             rgba(255, 255, 255, 0.5) 0%,
             rgba(232, 232, 232, 0.4) 104.73%),
         linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3));
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px); */
+    border-radius: 21px;
+    /* opacity: 0.85; */
+    background: rgba(241, 241, 241, 0.85);
+    border: none;
+    backdrop-filter: blur(62px);
+
+}
+
+.session .terms__checkbox__wrapper {
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .session .session__container .company__beta-logo {
     padding: 3rem;
     border-radius: 20px;
-    background-image: -webkit-image-set(url('https://glacier-projects.vercel.app/img/brand/logos/03_glacier_climate_academy/glacier_logo_climateacademy_4C_darkgreen.png') 1x) !important;
+    background-image: -webkit-image-set(url('https://res.cloudinary.com/df1dbnp0x/image/upload/v1718780408/img/props/glacier-logo_a6r9wg.svg') 1x) !important;
     background-size: contain !important;
     background-color: transparent !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
+    max-width: 200px;
+    margin: -20px auto 0px auto;
 }
 
 .session .session__container .company__beta-logo img {
@@ -3563,24 +3666,60 @@ body.learn.course #hubspot-messages-iframe-container {
 .session input[type='text'],
 .session input[type='email'],
 .session input[type='password'] {
-    background: transparent;
     border: 0;
-    border-bottom: 1px solid var(--Ocean);
+    border-radius: 8px;
+    background: #FFF;
+    box-shadow: none;
+    height: 40px;
+    margin-top: 5px;
+}
+
+.session input[type='text']:focus,
+.session input[type='email']:focus,
+.session input[type='password']:focus {
+    border: 0;
+    background: #FFF;
     box-shadow: none;
 }
 
-.session .session__container input[type='text']:focus,
-input[type='email']:focus,
-input[type='password']:focus {
-    background: transparent;
-    border: 0;
-    border-bottom: 1px solid var(--Ocean);
-    box-shadow: none;
+.session input[type='text']::placeholder,
+.session input[type='email']::placeholder,
+.session input[type='password']::placeholder {
+    color: transparent;
+    opacity: 0;
+}
+
+
+.session .field__label {
+    opacity: 1;
+    transform: none;
+    -webkit-transform: none;
+    margin-top: 0;
+    padding: 0;
+    position: relative;
+    color: var(--Ocean);
+    font-family: PangeaText;
+    font-size: var(--natural-size-sm);
+    font-weight: var(--font-weight-medium);
+    line-height: 160%;
+}
+
+.session .field--show-floating-label .field__input {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.session .field__label .red-asterisk {
+    display: none;
 }
 
 .session .session__container input::placeholder {
     font-family: 'Pangea' !important;
     color: var(--Ocean);
+}
+
+.session .session__form .text-xs.mb-2 {
+    display: none;
 }
 
 .session .session__container .session__forgot .btn {
@@ -3590,7 +3729,7 @@ input[type='password']:focus {
 
 .session .session__container .medium-centered.columns {
     max-width: none !important;
-    min-width: 30vw;
+    /* min-width: 30vw; */
 }
 
 .session input[type='submit'] {
@@ -3663,6 +3802,11 @@ input[type='password']:focus {
     width: 100% !important;
 }
 
+.widget.widget--redemption-form,
+.widget.widget--registration-form {
+    margin: auto;
+}
+
 .widget--redemption-form .text-centered,
 .widget--registration-form .text-centered {
     margin-bottom: 2rem;
@@ -3677,6 +3821,20 @@ input[type='password']:focus {
     color: var(--Ocean);
     border-radius: 100px !important;
     font-size: 1.125rem;
+}
+
+.widget--redemption-form .btn--primary.btn--floating-label {
+    background-color: var(--Ocean-Dark);
+    color: white;
+    border: none;
+    height: 1.5rem;
+    margin-top: 0.5rem;
+    padding: 0px;
+    font-size: 0.7rem;
+}
+
+.widget--redemption-form .btn--primary.btn--link {
+    display: none;
 }
 
 .field__input--select {
@@ -3698,21 +3856,39 @@ input[type='password']:focus {
     font-weight: 600;
 }
 
-.widget--redemption-form.widget--redemption-form_standard > div {
-    background-color: #ffffffba;
+.widget--redemption-form .medium-6.medium-centered.columns,
+.widget--registration-form .medium-6.medium-centered.columns {
+    width: 100% !important;
+}
+
+.widget--redemption-form .medium-centered .large-12.columns .row.collapse {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 3px;
+}
+
+.widget--redemption-form.widget--redemption-form_standard>div {
     padding: 35px;
-    border-radius: 20px;
-    border: 2px white solid;
+    /* background-color: #ffffffba; */
+    /* border-radius: 20px;
+    border: 2px white solid; */
     height: fit-content;
+    border-radius: 21px;
+    /* opacity: 0.85; */
+    background: rgba(241, 241, 241, 0.85);
+    backdrop-filter: blur(62px);
+    max-width: 500px;
 }
 
 @media screen and (min-width: 768px) {
     .widget--redemption-form .small-12.columns.medium-10 {
-        width: 75%;
+        width: 68%;
     }
 
     .widget--redemption-form .small-12.columns.medium-2 {
-        width: 23%;
+        width: 24%;
+        margin-left: auto
     }
 }
 
