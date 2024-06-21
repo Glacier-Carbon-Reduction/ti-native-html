@@ -654,7 +654,7 @@
     }
 
     if (event === 'complete') {
-      return `<div class="certificate-container certificate-complete" style="background-image: url('${image}');">
+      return `<div class="certificate-container certificate-complete my-2" style="background-image: url('${image}');">
     <a href="/pages/glacier-certification?learnerId=${visualProps.learnerId}&conditionId=${conditionId}" target="_blank" rel="noopener noreferrer">
       <div class="certificate-text">
         <div class="certificate-centered-content">
@@ -668,7 +668,7 @@
   </div>`
     }
 
-    return `<div class="certificate-container certificate-greyscale-filter" style="background-image: url('${image}');">
+    return `<div class="certificate-container certificate-greyscale-filte my-2r" style="background-image: url('${image}');">
         <div class="certificate-text">
           <div class="certificate-centered-content">
             <p class="certificate-learner-name certificate-learner-name-min" style="color: ${visualProps.fontColor}">
@@ -740,7 +740,7 @@
 
     let html
     if (event === 'complete') {
-      html = `<div class="certificate-container certificate-complete" style="background-image: url('${certificateImage}');">
+      html = `<div class="certificate-container certificate-complete my-2" style="background-image: url('${certificateImage}');">
         <a href="/pages/glacier-certification?learnerId=${visualProps.learnerId}&conditionId=${conditionId}" target="_blank" rel="noopener noreferrer">
           <div class="certificate-text">
             <div class="certificate-download-text">Download</div>
@@ -748,7 +748,7 @@
         </a>
       </div>`
     } else {
-      html = `<div class="certificate-container certificate-greyscale-filter" style="background-image: url('${certificateImage}');">
+      html = `<div class="certificate-container certificate-greyscale-filter my-2" style="background-image: url('${certificateImage}');">
         <div class="certificate-text">
           <div class="certificate-download-text">.</div>
         </div>
@@ -922,7 +922,7 @@
               learnerNameMin.classList.remove('certificate-learner-name-min')
             }
           } else {
-            certificateContainer.classList.add('grid', 'grid-cols-1', 'md:grid-cols-2', 'gap-4')
+            certificateContainer.classList.add('md:grid', 'md:grid-cols-2', 'gap-4')
             if (propHtmls.length % 2 !== 0) {
               const lastItemHtml = propHtmls.pop()
               certificateContainer.innerHTML = propHtmls.join('')
@@ -931,7 +931,7 @@
               lastItemContainer.classList.add('col-span-2')
               lastItemContainer
                 .querySelector('.certificate-learner-name-min')
-                .classList.remove('certificate-learner-name-min')
+                ?.classList.remove('certificate-learner-name-min')
               certificateContainer.appendChild(lastItemContainer)
             }
           }
@@ -2099,7 +2099,7 @@
     })
   }
 
-  function performRedemptionPageTransformations() {
+  async function performRedemptionPageTransformations() {
     console.log('performing redemption page transformations')
     const footer = document.querySelector('.footer')
     if (footer) {
@@ -2122,11 +2122,12 @@
         div.style.margin = '0 auto'
 
         const heading = div.querySelector('div')
-        heading.innerHTML = `
-          <h2 class="h2 widget__title">
-            <span lang="de">Registrieren</span>
-            <span lang="en">Register</span>
-          </h2>`
+        // heading.innerHTML = `
+        //   <h2 class="h2 widget__title">
+        //     <span lang="de">Registrieren</span>
+        //     <span lang="en">Register</span>
+        //   </h2>`
+        heading.innerHTML = ``
 
         const logo = document.createElement('div')
         logo.classList.add('company__beta-logo')
@@ -2172,6 +2173,11 @@
         })
 
         let row = div.querySelector('.medium-4.columns.text-right')
+        if (!row) {
+          // wait 2 seconds
+          await new Promise((resolve) => setTimeout(resolve, 2000))
+          row = div.querySelector('.medium-4.columns.text-right')
+        }
         let formSubmit = row.parentNode
         const column1 = formSubmit.querySelector('.medium-8')
         column1.style.width = '100%'
@@ -2268,7 +2274,9 @@
       trackCodeRedemptions()
       performRedemptionPageTransformations()
       checkForReferralInvitation()
-      performDelayedTransformations()
+      if (!window.location.href.includes('/redeem/')) {
+        performDelayedTransformations()
+      }
       return true
     }
   }
@@ -2394,6 +2402,82 @@
     hubspot.src = '//js-na1.hs-scripts.com/8684480.js'
     hubspot.defer = true
     document.head.appendChild(hubspot)
+  }
+
+  function processAlertMessage(alertMessage) {
+    // Break the message into lines
+    const messages = alertMessage.split('\n')
+    let alerted = false
+
+    // Define a mapping of expected phrases to input element IDs
+    const idMappings = {
+      'first name': 'first-name-',
+      'last name': 'last-name-',
+      'valid email address': 'email-',
+      password: 'password-',
+      'password that': 'password-confirmation-',
+      'agree to the terms & conditions': 'test-payment-terms'
+    }
+
+    // delete all error messages with class custom-input-error
+    const errorMessages = document.querySelectorAll('.custom-input-error-message')
+    errorMessages.forEach((errorMessage) => {
+      errorMessage.remove()
+    })
+
+    // delete all error classes from input elements
+    const errorInputs = document.querySelectorAll('.custom-input-error')
+    errorInputs.forEach((errorInput) => {
+      errorInput.classList.remove('custom-input-error')
+    })
+
+    // Iterate over each message
+    messages.forEach((message) => {
+      // Find the key in idMappings that matches part of the message
+      Object.keys(idMappings).forEach((key) => {
+        if (message.toLowerCase().includes(key)) {
+          // Set the alerted flag to true
+          alerted = true
+          // Generate an ID pattern
+          const idPattern = idMappings[key]
+          let inputElement = document.querySelector(`input[id^="${idPattern}"]`)
+          if (key === 'agree to the terms & conditions') {
+            inputElement = document.querySelector('.terms__checkbox__wrapper .small-11.columns p')
+          }
+
+          // Check if the input element exists
+          if (inputElement) {
+            inputElement.classList.add('custom-input-error')
+            // Create an error message element
+            const errorMessage = document.createElement('div')
+            // Set the text of the error message
+            errorMessage.textContent = message
+            // Add a class to style the error message
+            if (key === 'agree to the terms & conditions') {
+              errorMessage.classList.add('custom-input-error-message-left')
+            } else {
+              errorMessage.classList.add('custom-input-error-message')
+            }
+
+            // Insert the error message just after the input element
+            inputElement.parentNode?.insertBefore(errorMessage, inputElement.nextSibling)
+          }
+        }
+      })
+    })
+
+    return alerted
+  }
+
+  var originalAlert = window.alert
+
+  // Override the alert function
+  window.alert = function (message) {
+    const alerted = processAlertMessage(message)
+    if (!alerted) {
+      // Call the original alert with the message
+      originalAlert(message)
+    }
   }
 </script>
 
