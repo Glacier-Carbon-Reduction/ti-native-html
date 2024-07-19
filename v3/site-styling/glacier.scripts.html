@@ -740,19 +740,43 @@
 
     let html
     if (event === 'complete') {
-      html = `<div class="certificate-container certificate-complete my-2" style="background-image: url('${certificateImage}');">
-        <a href="/pages/glacier-certification?learnerId=${visualProps.learnerId}&conditionId=${conditionId}" target="_blank" rel="noopener noreferrer">
-          <div class="certificate-text">
-            <div class="certificate-download-text">Download</div>
-          </div>
-        </a>
-      </div>`
-    } else {
-      html = `<div class="certificate-container certificate-greyscale-filter my-2" style="background-image: url('${certificateImage}');">
-        <div class="certificate-text">
-          <div class="certificate-download-text">.</div>
+      html = `
+      <div>
+        <div class="certificate-container certificate-complete my-2" style="background-image: url('${certificateImage}');">
+          <a href="/pages/glacier-certification?learnerId=${visualProps.learnerId}&conditionId=${conditionId}" target="_blank" rel="noopener noreferrer">
+            <div class="certificate-text">
+              <div class="certificate-download-text">Download</div>
+            </div>
+          </a>
         </div>
-    </div>`
+        <div class="text-center">
+          <p class="natural-text natural-text-md natural-text-semibold">
+            ${visualProps.infoTitle}
+          </p>
+          <p class="natural-text natural-text-md">
+            ${visualProps.infoDescription}
+          </p>
+        </div>
+      <div>
+      `
+    } else {
+      html = `
+      <div>
+        <div class="certificate-container certificate-greyscale-filter my-2" style="background-image: url('${certificateImage}');">
+          <div class="certificate-text">
+            <div class="certificate-download-text">.</div>
+          </div>
+        </div>
+        <div class="text-center">
+          <p class="natural-text natural-text-md natural-text-semibold">
+            ${visualProps.infoTitle}
+          </p>
+          <p class="natural-text natural-text-md">
+            ${visualProps.infoDescription}
+          </p>
+        </div>
+      <div>
+    `
     }
 
     return html
