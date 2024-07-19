@@ -1959,6 +1959,7 @@ body:not(.redeem):not(.register):not(.support) .home__content>* {
 
 .certificate-container.certificate-complete:hover .certificate-text {
     background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 12px;
     color: white;
     cursor: pointer;
 }
