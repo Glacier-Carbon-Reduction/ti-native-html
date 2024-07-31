@@ -4376,6 +4376,7 @@ body.license .dashboard__license-select .dashboard__license-select__form .field_
     object-position: left;
     display: flex;
     margin: auto;
+    margin-top: 20px;
 }
 
 .learning-path_custom-layout .learning-path-timeline-milestone-item__horizontal-line,
