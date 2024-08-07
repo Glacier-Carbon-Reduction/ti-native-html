@@ -101,6 +101,14 @@
     ctx.fillText(line, x, y)
   }
 
+  function debounce(func, wait) {
+    let timeout
+    return function (...args) {
+      clearTimeout(timeout)
+      timeout = setTimeout(() => func.apply(this, args), wait)
+    }
+  }
+
   /**
    * LXP Level Functions
    */
@@ -1928,6 +1936,25 @@
         console.log('Error updating referral acceptance')
       }
     }
+  }
+
+  /**
+   * Helper Functions
+   */
+
+  function adjustTextareaWidthOnZoom() {
+    function adjustTextareasWidth() {
+      var textareas = document.getElementsByTagName('textarea')
+      var scale = window.visualViewport.scale
+      for (var i = 0; i < textareas.length; i++) {
+        textareas[i].style.width = 100 / scale + '%'
+      }
+    }
+
+    const debouncedAdjustTextareasWidth = debounce(adjustTextareasWidth, 100)
+
+    window.visualViewport.addEventListener('resize', debouncedAdjustTextareasWidth)
+    window.addEventListener('DOMContentLoaded', adjustTextareasWidth)
   }
 
   /**
