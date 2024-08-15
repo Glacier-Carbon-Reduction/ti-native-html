@@ -2857,6 +2857,74 @@ hr {
     visibility: hidden;
 }
 
+.course__container .comment .thread__header {
+    color: var(--Ocean);
+}
+
+.course__container .items__list--comments .comment-form-header {
+    padding-top: 50px;
+}
+
+.course__container .comment .thread__options__container {
+    margin-bottom: 20px;
+}
+
+.course__container .comment label.mb-4.font-bold {
+    display: none;
+}
+
+.course__container .comment textarea {
+    border-radius: 8px;
+    box-shadow: none;
+}
+
+.course__container .comment .comment__options__container {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+    margin: 16px 0;
+}
+
+.course__container .comment .comment__options__container .columns.medium-12.right {
+    display: flex;
+    gap: 5px;
+    flex-direction: row-reverse;
+}
+
+.course__container .comment .comment__options__container label.text-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.course__container .comment .comment__options__container label.text-right input {
+    margin: 0;
+}
+
+.course__container .comment__options__container .btn {
+    margin-bottom: .5em !important;
+    margin-top: .5em !important;
+    height: 38px;
+}
+
+.course__container .items__list--comments .comment-border {
+    display: none;
+}
+
+.course__container .items__list--comments .comment.highlight {
+    background-color: transparent;
+}
+
+.course__container .items__list--comments .comment__body {
+    color: var(--Text);
+    font-size: var(--natural-size-sm);
+}
+
+.course__container .avatar.avatar--comment {
+    height: 70px;
+    width: 70px;
+}
+
 @media screen and (max-width: 768px) {
     .course__container .learner__content .layout-panel {
         padding: 0;
