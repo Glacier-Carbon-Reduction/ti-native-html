@@ -2895,6 +2895,7 @@ hr {
     display: flex;
     align-items: center;
     gap: 8px;
+    justify-content: flex-end;
 }
 
 .course__container .comment .comment__options__container label.text-right input {
@@ -2905,6 +2906,10 @@ hr {
     margin-bottom: .5em !important;
     margin-top: .5em !important;
     height: 38px;
+}
+
+.course__container .comment__options__container .btn.btn--alt {
+    display: none;
 }
 
 .course__container .items__list--comments .comment-border {
@@ -2921,8 +2926,21 @@ hr {
 }
 
 .course__container .avatar.avatar--comment {
-    height: 70px;
-    width: 70px;
+    height: 60px;
+    width: 60px;
+}
+
+.course__container .comment__date {
+    display: none;
+}
+
+.course__container button:has(.icon-video) {
+    display: none;
+}
+
+.course__container .comment__actions button {
+    padding: 18px 22px;
+    margin-top: 16px;
 }
 
 @media screen and (max-width: 768px) {
