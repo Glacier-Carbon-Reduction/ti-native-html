@@ -2867,6 +2867,29 @@ hr {
 
 .course__container .comment .thread__options__container {
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.course__container .comment .thread__options__container .btn--bare {
+    padding: 16px 20px;
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    font-weight: var(--font-weight-medium);
+    align-items: center;
+    border-radius: 100px;
+    background: none;
+    color: var(--Ocean);
+    border: 1px solid var(--Ocean) !important;
+    margin: 0;
+}
+
+.course__container .comment .thread__options__container .btn--bare:hover {
+    background: var(--Ocean) !important;
+    color: white;
 }
 
 .course__container .comment label.mb-4.font-bold {
@@ -2876,6 +2899,10 @@ hr {
 .course__container .comment textarea {
     border-radius: 8px;
     box-shadow: none;
+}
+
+.course__container .comment textarea::placeholder {
+    color: white;
 }
 
 .course__container .comment .comment__options__container {
@@ -2992,6 +3019,10 @@ hr {
         flex-direction: row-reverse;
         right: 20px;
         pointer-events: none;
+    }
+
+    .course__container .items__list--comments {
+        padding-right: 60px;
     }
 }
 
