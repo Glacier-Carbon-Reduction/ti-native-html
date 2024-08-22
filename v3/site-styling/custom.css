@@ -3500,6 +3500,10 @@ body.learn.course #hubspot-messages-iframe-container {
     left: 10px;
 }
 
+.course__container .match-pair__card .match-pair__card-clue picture img {
+    width: 100%;
+}
+
 .course__container .topic__container__match-pair-set .card__label__button {
     min-height: 80px;
     padding: 5px 18px;
