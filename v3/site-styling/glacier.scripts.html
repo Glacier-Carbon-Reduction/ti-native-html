@@ -91,9 +91,10 @@
       const metrics = ctx.measureText(testLine)
       const testWidth = metrics.width
       if (testWidth > maxWidth && n > 0) {
+        y = y - lineHeight * 1 / 3
         ctx.fillText(line, x, y)
         line = words[n] + ' '
-        y += lineHeight
+        y += lineHeight * 2 / 3
       } else {
         line = testLine
       }
@@ -734,9 +735,9 @@
           ctx,
           text: visualProps.learnerName,
           x: canvas.width / 2,
-          y: canvas.height / 2.5,
-          maxWidth: canvas.width - 200,
-          lineHeight: 200
+          y: canvas.height / 2.8,
+          maxWidth: canvas.width - 100,
+          lineHeight: 100
         })
 
         resolve() // Resolving the promise

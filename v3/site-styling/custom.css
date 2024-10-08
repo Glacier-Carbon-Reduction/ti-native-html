@@ -2873,6 +2873,10 @@ hr {
     gap: 12px;
 }
 
+.thread__options__container .input__container input[type=file] {
+    width: 250px;
+}
+
 .course__container .comment .thread__options__container .btn--bare {
     padding: 16px 20px;
     margin-top: 16px;
@@ -4529,6 +4533,7 @@ body.license .dashboard__license-select .dashboard__license-select__form .field_
     color: var(--TextDim);
 }
 
+.learning-path_custom-layout .learning-path-timeline-milestone-item-circle__content,
 .learning-path_custom-layout .learning-path-timeline-milestone-item-circle__asset {
     background-color: var(--Ocean);
     -webkit-box-shadow: 0 0 0 9px var(--Grey), 0 0 0 10px var(--Ocean);
